@@ -1,7 +1,7 @@
  
 ## eMarket - E-Commerce para Supermercados
 
-O sistema tem como objetivo centralizar os dados e auxiliar na organização das associações esportivas.
+O sistema tem como objetivo ser um e-commerce gerenciavel e web que facilite o processo de vendas de Supermercados.
 
 ### Ferramentas e Tecnologias Utilizadas
 
@@ -50,12 +50,10 @@ php artisan db:seed
 localhost:8000/
 ```
 
-
-
 ### Licensa
 
 Ainda não definida.
 
-5. Autor
+### Autor
 
-Kelvin Ferreira Souza
+* **Kelvin Ferreira Souza**
