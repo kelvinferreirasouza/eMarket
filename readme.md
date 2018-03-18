@@ -1,7 +1,7 @@
  
 ## eMarket - E-Commerce para Supermercados
 
-O sistema tem como objetivo ser um e-commerce gerenciavel e web que facilite o processo de vendas de Supermercados.
+O sistema tem como objetivo ser um e-commerce gerenciavel que facilite o processo de vendas de Supermercados.
 
 ### Ferramentas e Tecnologias Utilizadas
 
