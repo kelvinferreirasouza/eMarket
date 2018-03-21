@@ -8,9 +8,10 @@ O sistema tem como objetivo ser um e-commerce gerenciavel que facilite o process
 * **Bootstrap 3.3.7 ->**       http://getbootstrap.com/
 * **IDE NetBeans 8.2 ->**      https://netbeans.org/
 * **Mysql 5.7.14 ->**          https://dev.mysql.com/doc/refman/5.7/en/
-* **MySQL WorKbench 6.3 ->**   https://www.mysql.com/
+* **MySQL Workbench 6.3 ->**   https://www.mysql.com/
 * **PHP 5.6 ->**               http://php.net/docs.php
 * **Xampp 3.2.2 ->**      	   https://www.apachefriends.org/pt_br/index.html
+* **Laravel 5.4.22 ->**		   https://laravel.com/
 
 ### Execução do Projeto
 
