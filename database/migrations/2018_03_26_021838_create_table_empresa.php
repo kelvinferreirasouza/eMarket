@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTablePessoa extends Migration
+class CreateTableEmpresa extends Migration
 {
     /**
      * Run the migrations.
@@ -13,24 +13,21 @@ class CreateTablePessoa extends Migration
      */
     public function up()
     {
-        Schema::create('pessoa', function (Blueprint $table) {	
-            $table->increments('pessoaId');
-            $table->string('nomeRazaoSocial', 150);
-            $table->string('nomeFantasia', 100)->nullable();
-            $table->string('cpfCnpj', 20);
-            $table->integer('rgIe')->nullable();
-            $table->date('dataNasc');
-            $table->integer('sexoId')->unsigned();
-            $table->foreign('sexoId')->references('sexoId')->on('sexo');
+        Schema::create('empresa', function (Blueprint $table) {	
+            $table->increments('empresaId');
+            $table->string('razaoSocial', 150);
+            $table->string('nomeFantasia', 100);
+            $table->string('cnpj', 18);
+            $table->integer('ie');
             $table->string('cep', 9);
             $table->string('lagradouro', 100);
             $table->integer('numero');
+            $table->string('complemento', 50);
             $table->string('bairro', 100);
             $table->string('estado', 100);
             $table->string('municipio', 100);
             $table->string('pais', 100);
-            $table->string('fone', 15)->nullable();
-            $table->string('celular', 15);
+            $table->string('fone', 15);
             $table->date('dataCadastro');
             $table->time('horaCadastro');
             $table->integer('isAtivo')->default(1);
