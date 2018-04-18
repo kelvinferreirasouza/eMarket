@@ -159,26 +159,6 @@
                                                 </ul>
                                             </li>
                                             <li class="col-sm-3">
-                                                <h6 class="mega-menu-title">Gallery</h6>
-                                                <div class="row m-b-20">
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/01.jpg" alt="Gallery-1">
-                                                    </div>
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/02.jpg" alt="Gallery-2">
-                                                    </div>
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/03.jpg" alt="Gallery-3">
-                                                    </div>
-                                                </div>
-                                                <div class="row m-b-20">
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/04.jpg" alt="Gallery-4">
-                                                    </div>
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/05.jpg" alt="Gallery-5">
-                                                    </div>
-                                                    <div class="col-sm-4"><img class="img-fluid img-thumbnail" src="assets/images/mega-menu/06.jpg" alt="Gallery-6">
-                                                    </div>
-                                                </div>
-                                                <button class="btn btn-primary btn-sm btn-block">Browse Gallery</button>
-                                            </li>
-                                            <li class="col-sm-3">
                                                 <h6 class="mega-menu-title">Contact Us</h6>
                                                 <div class="mega-menu-contact">
                                                     <div class="form-group row">
@@ -213,7 +193,7 @@
                                 <ul class="nav-right">
                                     <li class="user-profile header-notification">
                                         <a href="#!">
-                                            <img src="assets/images/user.png" alt="User-Profile-Image">
+                                            <img src="imgs/user.png" alt="User-Profile-Image">
                                             <span>Kelvin Ferreira</span>
                                             <i class="ti-angle-down"></i>
                                         </a>
@@ -267,22 +247,22 @@
                                         <div class="dummy-column">
                                             <h2>Popular</h2>
                                             <a class="dummy-media-object" href="#!">
-                                                <img src="assets/images/avatar-1.png" alt="PagePreloadingEffect" />
+                                                <img src="imgs/avatar-1.png" alt="PagePreloadingEffect" />
                                                 <h3>Page Preloading Effect</h3>
                                             </a>
                                             <a class="dummy-media-object" href="#!">
-                                                <img src="assets/images/avatar-1.png" alt="DraggableDualViewSlideshow" />
+                                                <img src="imgs/avatar-1.png" alt="DraggableDualViewSlideshow" />
                                                 <h3>Draggable Dual-View Slideshow</h3>
                                             </a>
                                         </div>
                                         <div class="dummy-column">
                                             <h2>Recent</h2>
                                             <a class="dummy-media-object" href="#!">
-                                                <img src="assets/images/avatar-1.png" alt="TooltipStylesInspiration" />
+                                                <img src="imgs/avatar-1.png" alt="TooltipStylesInspiration" />
                                                 <h3>Tooltip Styles Inspiration</h3>
                                             </a>
                                             <a class="dummy-media-object" href="#!">
-                                                <img src="assets/images/avatar-1.png" alt="NotificationStyles" />
+                                                <img src="imgs/avatar-1.png" alt="NotificationStyles" />
                                                 <h3>Notification Styles Inspiration</h3>
                                             </a>
                                         </div>
@@ -312,7 +292,7 @@
                                 <div class="main-friend-list">
                                     <div class="media userlist-box" data-id="1" data-status="online" data-username="Josephin Doe" data-toggle="tooltip" data-placement="left" title="Josephin Doe">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-1.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -321,7 +301,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="2" data-status="online" data-username="Lary Doe" data-toggle="tooltip" data-placement="left" title="Lary Doe">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u1.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u1.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -330,7 +310,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="3" data-status="online" data-username="Alice" data-toggle="tooltip" data-placement="left" title="Alice">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-2.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -339,7 +319,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="4" data-status="online" data-username="Alia" data-toggle="tooltip" data-placement="left" title="Alia">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u2.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u2.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -348,7 +328,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="5" data-status="online" data-username="Suzen" data-toggle="tooltip" data-placement="left" title="Suzen">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u3.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u3.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -357,7 +337,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="6" data-status="offline" data-username="Michael Scofield" data-toggle="tooltip" data-placement="left" title="Michael Scofield">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-3.png" alt="Generic placeholder image">
                                             <div class="live-status bg-danger"></div>
                                         </a>
                                         <div class="media-body">
@@ -366,7 +346,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="7" data-status="online" data-username="Irina Shayk" data-toggle="tooltip" data-placement="left" title="Irina Shayk">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-4.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-4.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -375,7 +355,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="8" data-status="offline" data-username="Sara Tancredi" data-toggle="tooltip" data-placement="left" title="Sara Tancredi">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-5.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-5.png" alt="Generic placeholder image">
                                             <div class="live-status bg-danger"></div>
                                         </a>
                                         <div class="media-body">
@@ -384,7 +364,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="9" data-status="online" data-username="Samon" data-toggle="tooltip" data-placement="left" title="Samon">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-1.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -393,7 +373,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="10" data-status="online" data-username="Daizy Mendize" data-toggle="tooltip" data-placement="left" title="Daizy Mendize">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u3.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u3.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -402,7 +382,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="11" data-status="offline" data-username="Loren Scofield" data-toggle="tooltip" data-placement="left" title="Loren Scofield">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-3.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-3.png" alt="Generic placeholder image">
                                             <div class="live-status bg-danger"></div>
                                         </a>
                                         <div class="media-body">
@@ -411,7 +391,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="12" data-status="online" data-username="Shayk" data-toggle="tooltip" data-placement="left" title="Shayk">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-4.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-4.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -420,7 +400,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="13" data-status="offline" data-username="Sara" data-toggle="tooltip" data-placement="left" title="Sara">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u3.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u3.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-danger"></div>
                                         </a>
                                         <div class="media-body">
@@ -429,7 +409,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="14" data-status="online" data-username="Doe" data-toggle="tooltip" data-placement="left" title="Doe">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/avatar-1.png" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -438,7 +418,7 @@
                                     </div>
                                     <div class="media userlist-box" data-id="15" data-status="online" data-username="Lary" data-toggle="tooltip" data-placement="left" title="Lary">
                                         <a class="media-left" href="#!">
-                                            <img class="media-object img-circle" src="assets/images/task/task-u1.jpg" alt="Generic placeholder image">
+                                            <img class="media-object img-circle" src="imgs/task-u1.jpg" alt="Generic placeholder image">
                                             <div class="live-status bg-success"></div>
                                         </a>
                                         <div class="media-body">
@@ -459,7 +439,7 @@
                     </div>
                     <div class="media chat-messages">
                         <a class="media-left photo-table" href="#!">
-                            <img class="media-object img-circle m-t-5" src="assets/images/avatar-1.png" alt="Generic placeholder image">
+                            <img class="media-object img-circle m-t-5" src="imgs/avatar-1.png" alt="Generic placeholder image">
                         </a>
                         <div class="media-body chat-menu-content">
                             <div class="">
@@ -477,7 +457,7 @@
                         </div>
                         <div class="media-right photo-table">
                             <a href="#!">
-                                <img class="media-object img-circle m-t-5" src="assets/images/avatar-2.png" alt="Generic placeholder image">
+                                <img class="media-object img-circle m-t-5" src="imgs/avatar-2.png" alt="Generic placeholder image">
                             </a>
                         </div>
                     </div>
@@ -496,8 +476,7 @@
                         <nav class="pcoded-navbar" >
                             <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
                             <div class="pcoded-inner-navbar main-menu">
-
-                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation" >Menu</div>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                                 <ul class="pcoded-item pcoded-left-item">
                                     <li class="active">
                                         <a href="javascript:void(0)">
@@ -617,43 +596,35 @@
     <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
     <!-- Rickshow Chart js -->
-
-
-    <script src="../bower_components/d3/js/d3.js"></script>
-    <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
-
-    <script src="../bower_components/rickshaw/js/rickshaw.js"></script>
-
-
-
+    <script src="{{ asset('js/manager/d3.js') }}"></script>
+    <script src="{{ asset('js/manager/rickshaw.js') }}"></script>
     <!-- Morris Chart js -->
-    <script src="../bower_components/raphael/js/raphael.min.js"></script>
-    <script src="../bower_components/morris.js/js/morris.js"></script>
+    <script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
     <!-- Float Chart js -->
-    <script src="assets/pages/chart/float/jquery.flot.js"></script>
-    <script src="assets/pages/chart/float/jquery.flot.categories.js"></script>
-    <script src="assets/pages/chart/float/jquery.flot.pie.js"></script>
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
     <!-- Horizontal-Timeline js -->
-    <script type="text/javascript" src="assets/pages/dashboard/horizontal-timeline/js/main.js"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
     <!-- amchart js -->
-    <script type="text/javascript" src="assets/pages/dashboard/amchart/js/amcharts.js"></script>
-    <script type="text/javascript" src="assets/pages/dashboard/amchart/js/serial.js"></script>
-    <script type="text/javascript" src="assets/pages/dashboard/amchart/js/light.js"></script>
-    <script type="text/javascript" src="assets/pages/dashboard/amchart/js/custom-amchart.js"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/amcharts.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/light.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/custom-amchart.js') }}"></script>
     <!-- i18next.min.js -->
-    <script type="text/javascript" src="../bower_components/i18next/js/i18next.min.js"></script>
-    <script type="text/javascript" src="../bower_components/i18next-xhr-backend/js/i18nextXHRBackend.min.js"></script>
-    <script type="text/javascript" src="../bower_components/i18next-browser-languagedetector/js/i18nextBrowserLanguageDetector.min.js"></script>
-    <script type="text/javascript" src="../bower_components/jquery-i18next/js/jquery-i18next.min.js"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
     <!-- Custom js -->
-    <script type="text/javascript" src="assets/pages/dashboard/custom-dashboard.js"></script>
-    <script type="text/javascript" src="assets/js/script.js"></script>
-
+    <script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
     <!-- pcmenu js -->
-    <script src="assets/js/pcoded.min.js"></script>
-    <script src="assets/js/demo-12.js"></script>
-    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
-    <script src="assets/js/jquery.mousewheel.min.js"></script>
+    <script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
+    <script src="{{ asset('js/manager/demo-12.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
 </body>
 
 </html>
