@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>eMarket - Admin Page</title>
+        <title>eMarket - Manager</title>
         <!-- HTML5 Shim and Respond.js IE9 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -25,18 +25,14 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/themify-icons.css') }}">
         <!-- ico font -->
         <link rel="stylesheet" href="{{ asset('css/manager/icofont.css') }}">
+        <!-- font awesome -->
+        <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.0.10/css/all.css') }}" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
         <!-- flag icon framework css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/flag-icon.min.css') }}">
-        <!--SVG Icons Animated-->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/svg-weather.css') }}">
         <!-- Menu-Search css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/component-menu-search.css') }}">
         <!-- Horizontal-Timeline css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/horizontal-timeline-style.css') }}">
-        <!-- amchart css -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/amchart.css') }}">
-        <!-- Calender css -->
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/pignose.calendar.min.css') }}">
         <!-- Style.css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/style.css') }}">
         <!--color css-->
@@ -68,7 +64,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <a href="index.html">
-                                <img class="img-fluid" src="http://oi65.tinypic.com/2hfnp91.jpg" alt="eMarket" style="width: 140px;" />
+                                <img class="img-fluid" src="http://oi65.tinypic.com/1043pra.jpg" alt="eMarket" style="width: 140px;" />
                             </a>
                             <a class="mobile-options">
                                 <i class="ti-more"></i>
@@ -200,22 +196,12 @@
                                         <ul class="show-notification profile-notification">
                                             <li>
                                                 <a href="#!">
-                                                    <i class="ti-settings"></i> Settings
+                                                    <i class="ti-settings"></i> Configurações
                                                 </a>
                                             </li>
                                             <li>
                                                 <a href="user-profile.html">
-                                                    <i class="ti-user"></i> Profile
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="email-inbox.html">
-                                                    <i class="ti-email"></i> My Messages
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="auth-lock-screen.html">
-                                                    <i class="ti-lock"></i> Lock Screen
+                                                    <i class="ti-user"></i> Perfil
                                                 </a>
                                             </li>
                                             <li>
@@ -478,12 +464,280 @@
                             <div class="pcoded-inner-navbar main-menu">
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="active">
-                                        <a href="javascript:void(0)">
-                                            <span class="pcoded-micon"><i class="ti-home"></i></span>
-                                            <span class="pcoded-mtext">Dashboard</span>
+                                    <li class=" ">
+                                        <a href="">
+                                            <span class="pcoded-micon"><i class="fas fa-home"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
                                             <span class="pcoded-mcaret"></span>
-                                        </a>    
+                                        </a>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Administrativo</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Vertical</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="menu-static.html" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Static Layout</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-header-fixed.html" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Header Fixed</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-compact.html" data-i18n="nav.page_layout.vertical.compact">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Compact</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-sidebar.html" data-i18n="nav.page_layout.vertical.sidebar-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Sidebar Fixed</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Horizontal</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="menu-horizontal-static.html" target="_blank" data-i18n="nav.page_layout.horizontal.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Static Layout</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-horizontal-fixed.html" target="_blank" data-i18n="nav.page_layout.horizontal.fixed-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Fixed layout</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-horizontal-icon.html" target="_blank" data-i18n="nav.page_layout.horizontal.static-with-icon">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Static With Icon</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="menu-horizontal-icon-fixed.html" target="_blank" data-i18n="nav.page_layout.horizontal.fixed-with-icon">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Fixed With Icon</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="menu-bottom.html" data-i18n="nav.page_layout.bottom-menu">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Bottom Menu</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="box-layout.html" target="_blank" data-i18n="nav.page_layout.box-layout">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Box Layout</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="menu-rtl.html" target="_blank" data-i18n="nav.page_layout.rtl">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">RTL</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-donate"></i></span>
+                                            <span class="pcoded-mtext">Financeiro</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="navbar-light.html" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Caixa</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Formas de Pagamento</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Navbar With Elements</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-users"></i></span>
+                                            <span class="pcoded-mtext">Pessoas</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="navbar-light.html" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Clientes</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Fornecedores</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Funcionários</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-dolly"></i></span>
+                                            <span class="pcoded-mtext">Produtos</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="navbar-light.html" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Cadastrar Novo Produto</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Listar Produtos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Navbar With Elements</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
+                                            <span class="pcoded-mtext">Relatórios</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="navbar-light.html" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Cadastrar Novo Produto</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Listar Produtos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Navbar With Elements</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element"  >Configurações</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fas fa-server"></i></span>
+                                            <span class="pcoded-mtext">Empresa</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.extra-components.main">
+                                            <span class="pcoded-micon"><i class="fas fa-sitemap"></i></span>
+                                            <span class="pcoded-mtext">Permissões</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" ">
+                                                <a href="session-timeout.html" data-i18n="nav.extra-components.session-timeout">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Session Timeout</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="session-idle-timeout.html" data-i18n="nav.extra-components.session-idle-timeout">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Session Idle Timeout</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class=" ">
+                                                <a href="offline.html" data-i18n="nav.extra-components.offline">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Offline</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
                                 </ul>
                             </div>
                         </nav>
@@ -502,15 +756,13 @@
                                                             <i class="icofont icofont-home"></i>
                                                         </a>
                                                     </li>
-                                                    <li class="breadcrumb-item"><a href="#!">Pages</a>
-                                                    </li>
                                                     <li class="breadcrumb-item"><a href="#!">Dashboard</a>
+                                                    </li>
+                                                    <li class="breadcrumb-item"><a href="#!">Ecommerce Dashboard</a>
                                                     </li>
                                                 </ul>
                                             </div>
                                         </div>
-
-
                                         <div class="page-body">
                                             <div class="row">
                                                 <div class="conteudo">
@@ -518,113 +770,108 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Older IE warning message -->
-    <!--[if lt IE 9]>
-<div class="ie-warning">
-    <h1>Warning!!</h1>
-    <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
-    <div class="iew-container">
-        <ul class="iew-download">
-            <li>
-                <a href="http://www.google.com/chrome/">
-                    <img src="assets/images/browser/chrome.png" alt="Chrome">
-                    <div>Chrome</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.mozilla.org/en-US/firefox/new/">
-                    <img src="assets/images/browser/firefox.png" alt="Firefox">
-                    <div>Firefox</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://www.opera.com">
-                    <img src="assets/images/browser/opera.png" alt="Opera">
-                    <div>Opera</div>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.apple.com/safari/">
-                    <img src="assets/images/browser/safari.png" alt="Safari">
-                    <div>Safari</div>
-                </a>
-            </li>
-            <li>
-                <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
-                    <img src="assets/images/browser/ie.png" alt="">
-                    <div>IE (9 & above)</div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <p>Sorry for the inconvenience!</p>
-</div>
-<![endif]-->
-    <!-- Warning Section Ends -->
-    <!-- Required Jqurey -->
-    <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/popper.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/bootstrap.min.js') }}"></script>
-    <!-- jquery slimscroll js -->
-    <script type="text/javascript" src="{{ asset('js/manager/jquery.slimscroll.js') }}"></script>
-    <!-- modernizr js -->
-    <script type="text/javascript" src="{{ asset('js/manager/modernizr.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/css-scrollbars.js') }}"></script>
-    <!-- Calender js -->
-    <script type="text/javascript" src="{{ asset('js/manager/moment.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/pignose.calendar.min.js') }}"></script>
-    <!-- classie js -->
-    <script type="text/javascript" src="{{ asset('js/manager/classie.js') }}"></script>
-    <!-- c3 chart js -->
-    <script src="{{ asset('js/manager/c3.js') }}"></script>
-    <!-- knob js -->
-    <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
-    <!-- Rickshow Chart js -->
-    <script src="{{ asset('js/manager/d3.js') }}"></script>
-    <script src="{{ asset('js/manager/rickshaw.js') }}"></script>
-    <!-- Morris Chart js -->
-    <script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
-    <script src="{{ asset('js/manager/morris.js') }}"></script>
-    <!-- Float Chart js -->
-    <script src="{{ asset('js/manager/morris.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
-    <!-- Horizontal-Timeline js -->
-    <script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
-    <!-- amchart js -->
-    <script type="text/javascript" src="{{ asset('js/manager/amcharts.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/light.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/custom-amchart.js') }}"></script>
-    <!-- i18next.min.js -->
-    <script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
-    <!-- Custom js -->
-    <script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
-    <!-- pcmenu js -->
-    <script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
-    <script src="{{ asset('js/manager/demo-12.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-    <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
-</body>
+        <!-- Older IE warning message -->
+        <!--[if lt IE 9]>
+        <div class="ie-warning">
+        <h1>Warning!!</h1>
+        <p>You are using an outdated version of Internet Explorer, please upgrade <br/>to any of the following web browsers to access this website.</p>
+        <div class="iew-container">
+            <ul class="iew-download">
+                <li>
+                    <a href="http://www.google.com/chrome/">
+                        <img src="assets/images/browser/chrome.png" alt="Chrome">
+                        <div>Chrome</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.mozilla.org/en-US/firefox/new/">
+                        <img src="assets/images/browser/firefox.png" alt="Firefox">
+                        <div>Firefox</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://www.opera.com">
+                        <img src="assets/images/browser/opera.png" alt="Opera">
+                        <div>Opera</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.apple.com/safari/">
+                        <img src="assets/images/browser/safari.png" alt="Safari">
+                        <div>Safari</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                        <img src="assets/images/browser/ie.png" alt="">
+                        <div>IE (9 & above)</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <p>Sorry for the inconvenience!</p>
+        </div>
+        <![endif]-->
+        <!-- Warning Section Ends -->
+        <!-- Required Jqurey -->
+        <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/popper.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/bootstrap.min.js') }}"></script>
+        <!-- jquery slimscroll js -->
+        <script type="text/javascript" src="{{ asset('js/manager/jquery.slimscroll.js') }}"></script>
+        <!-- modernizr js -->
+        <script type="text/javascript" src="{{ asset('js/manager/modernizr.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/css-scrollbars.js') }}"></script>
+        <!-- Calender js -->
+        <script type="text/javascript" src="{{ asset('js/manager/moment.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/pignose.calendar.min.js') }}"></script>
+        <!-- classie js -->
+        <script type="text/javascript" src="{{ asset('js/manager/classie.js') }}"></script>
+        <!-- c3 chart js -->
+        <script src="{{ asset('js/manager/c3.js') }}"></script>
+        <!-- knob js -->
+        <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
+        <!-- Rickshow Chart js -->
+        <script src="{{ asset('js/manager/d3.js') }}"></script>
+        <script src="{{ asset('js/manager/rickshaw.js') }}"></script>
+        <!-- Morris Chart js -->
+        <script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
+        <script src="{{ asset('js/manager/morris.js') }}"></script>
+        <!-- Float Chart js -->
+        <script src="{{ asset('js/manager/morris.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
+        <!-- Horizontal-Timeline js -->
+        <script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
+        <!-- amchart js -->
+        <script type="text/javascript" src="{{ asset('js/manager/amcharts.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/light.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/custom-amchart.js') }}"></script>
+        <!-- i18next.min.js -->
+        <script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
+        <!-- Custom js -->
+        <script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
+        <!-- pcmenu js -->
+        <script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
+        <script src="{{ asset('js/manager/demo-12.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+        <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
+    </body>
 
 </html>
