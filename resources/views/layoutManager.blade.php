@@ -15,7 +15,7 @@
         <meta name="description" content="#">
         <meta name="keywords" content="flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
         <meta name="author" content="#">
-        <!-- Favicon icon -->
+        <!-- Favicon iconn -->
         <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
         <!-- Google font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mada:300,400,500,600,700">
