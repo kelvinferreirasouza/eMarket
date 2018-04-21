@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pessoas extends Model
+class Pessoas extends Authenticatable
 {
     protected $fillable = array('nomeRazaoSocial', 'nomeFantasia', 'cpfCnpj', 'rgIe', 'email','dataNasc',
                                 'sexoId', 'cep', 'lagradouro', 'numero', 'bairro', 'estado', 'municipio',

@@ -32,10 +32,9 @@ class CreateTablePessoas extends Migration
             $table->string('pais', 100);
             $table->string('fone', 15)->nullable();
             $table->string('celular', 15);
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
             $table->integer('isAtivo')->default(1);
             $table->rememberToken();
+            $table->timestamps();
         });
     }
 

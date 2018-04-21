@@ -18,3 +18,17 @@ Route::get('/', function () {
 Route::get('/manager', function () {
     return view('manager');
 });
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/registrar', 'PessoaController@registrar')->name('registrar');
+
+Route::get('/login', 'PessoaController@login')->name('login');
+
+
