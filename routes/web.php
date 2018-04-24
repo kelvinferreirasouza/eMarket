@@ -27,7 +27,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/registrar', 'PessoaController@registrar')->name('registrar');
+Route::get('/register', 'PessoaController@register')->name('register');
 
 Route::get('/login', 'PessoaController@login')->name('login');
 

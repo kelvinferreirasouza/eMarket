@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 class PessoaController extends Controller
 {
-    public function registrar()
+    public function register()
     {
-        return view('registrar');
+        return view('register');
     }
  
     public function salvar(Request $request)
