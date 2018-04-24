@@ -22,7 +22,7 @@
                 <h3>Login</h3>
                 <form>
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-mail">
-                    <input type="text" id="password" class="fadeIn third" name="login" placeholder="Senha">
+                    <input type="password" id="password" class="fadeIn third" name="login" placeholder="Senha">
                     <input type="submit" class="fadeIn fourth" value="Acessar" style="margin-top: 2%; margin-bottom: 3%;">
                 </form>
 

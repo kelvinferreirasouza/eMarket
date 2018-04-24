@@ -24,6 +24,9 @@
                     <input type="text" id="email" class="fadeIn second" name="login" placeholder="E-mail">
                     <input type="password" id="password" class="fadeIn third password" name="login" placeholder="Senha">
                     <input type="text" id="sexo" class="fadeIn second" name="login" placeholder="Sexo">
+                    <select>
+                        <option value="volvo">Volvo</option>
+                      </select>
                     <input type="text" id="telefone" class="fadeIn second" name="login" placeholder="Telefone">
                     <div>
                         <div class="col-sm-6">
