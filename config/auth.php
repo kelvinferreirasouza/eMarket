@@ -45,6 +45,11 @@ return [
             'driver' => 'token',
             'provider' => 'pessoas',
         ],
+
+        'pessoas' => [
+            'driver' => 'session',
+             'provider' => 'pessoas',
+         ],
     ],
 
     /*
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'pessoas' => [
+            'driver' => 'eloquent',
+            'model' => App\Pessoas::class,
         ],
 
         // 'users' => [

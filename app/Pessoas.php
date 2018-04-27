@@ -2,13 +2,13 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticable;
 
-class Pessoas extends Authenticatable
+
+class Pessoas extends Authenticable
 {
-    protected $fillable = array('nomeRazaoSocial', 'nomeFantasia', 'cpfCnpj', 'rgIe', 'email','dataNasc',
-                                'sexoId', 'cep', 'lagradouro', 'numero', 'bairro', 'estado', 'municipio',
-                                'pais', 'fone', 'celular', 'dataCadastro', 'horaCadastro', 'isAtivo');
+    protected $fillable = array('nomeRazaoSocial', 'nomeFantasia', 'cpfCnpj', 'email', 'password',
+                                'fone', 'sexo','dataNasc', 'isAtivo');
 
     protected $table = 'pessoas';
 }

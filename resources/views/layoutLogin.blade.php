@@ -20,7 +20,7 @@
                 </div>
 
                 <h3>Login</h3>
-                <form>
+            <form action="{{route('pessoa.login.efetuar')}}">
                     <input type="text" id="login" class="fadeIn second" name="login" placeholder="E-mail">
                     <input type="password" id="password" class="fadeIn third" name="login" placeholder="Senha">
                     <input type="submit" class="fadeIn fourth" value="Acessar" style="margin-top: 2%; margin-bottom: 3%;">

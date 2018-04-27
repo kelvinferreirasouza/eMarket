@@ -11,33 +11,28 @@
         <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="wrapper fadeInDown">
-            <div id="formContent">
-                <div class="fadeIn first">
-                    <img src="{{ asset('imgs/logo.jpg') }}" id="logo" alt="User Icon" />
-                </div>
+    <form action="{{route('efetuarCadastro')}}" method="post">
 
-                <h3>Cadastro</h3>
-                <form>
-                    <input type="text" id="nome" class="fadeIn second" name="login" placeholder="Nome">
-                    <input type="text" id="cpf" class="fadeIn second" name="login" placeholder="CPF"  >
-                    <input type="text" id="email" class="fadeIn second" name="login" placeholder="E-mail">
-                    <input type="password" id="password" class="fadeIn third password" name="login" placeholder="Senha">
-                    <input type="text" id="sexo" class="fadeIn second" name="login" placeholder="Sexo">
-                    <select>
-                        <option value="volvo">Volvo</option>
-                      </select>
-                    <input type="text" id="telefone" class="fadeIn second" name="login" placeholder="Telefone">
-                    <div>
-                        <div class="col-sm-6">
-                    <input type="submit" class="fadeIn fourth" value="Enviar" style="margin-top: 2%; margin-bottom: 3%;">
-                </div>
-                <div class="col-sm-6">
-                    <input type="submit" class="fadeIn fourth" value="Enviar" style="margin-top: 2%; margin-bottom: 3%;">
+        {{ csrf_field() }}
+
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <div class="fadeIn first">
+                        <img src="{{ asset('imgs/logo.jpg') }}" id="logo" alt="User Icon" />
                     </div>
+                    <h3>Registre-se</h3>
+                        <input type="text" id="nome" class="fadeIn second" name="nomeRazaoSocial" placeholder="Nome">
+                        <input type="text" id="cpf" class="fadeIn second" name="cpfCnpj" placeholder="CPF"  >
+                        <input type="text" id="email" class="fadeIn second" name="email" placeholder="E-mail">
+                        <input type="password" id="password" class="fadeIn third password" name="password" placeholder="Senha">
+                        <input type="text" id="telefone" class="fadeIn second" name="fone" placeholder="Telefone">
+                        <input type="date" id="dataNasc" class="fadeIn second" name="dataNasc" placeholder="Data Nascimento">
+                        <p class="fadeIn second" style="margin-left: -350px; margin-bottom: -10px">Sexo</p>
+                        
+                        <input type="submit" class="fadeIn fourth" value="Enviar">
+                        <input type="submit" class="fadeIn fourth" value="Limpar">
                 </div>
-                </form>
             </div>
-        </div>
+        </form>
     </body>
 </html>

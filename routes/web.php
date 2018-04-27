@@ -31,4 +31,8 @@ Route::get('/register', 'PessoaController@register')->name('register');
 
 Route::get('/login', 'PessoaController@login')->name('login');
 
+Route::post('pessoa.login.efetuar', 'PessoaController@efetuarLogin')->name('pessoa.login.efetuar');
+
+Route::post('efetuarCadastro', 'PessoaController@efetuarCadastro')->name('efetuarCadastro');
+
 
