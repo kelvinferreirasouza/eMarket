@@ -1,7 +1,7 @@
   body {
     font-family: "Poppins", sans-serif;
     height: 100vh;
-    background: url(http://oi64.tinypic.com/28vulgg.jpg) fixed no-repeat;
+    background: url(/imgs/backgroundLogin.jpg) fixed no-repeat;
     -webkit-background-size: cover;
     -o-background-size: cover;
     -moz-background-size: cover;

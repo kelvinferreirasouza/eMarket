@@ -5,10 +5,10 @@
         <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
         <title>eMarket - Cadastro</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-        <link href="{{ asset('css/manager/register.css') }}" rel="stylesheet">
-        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <link href="{{ asset('css/auth/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/auth/register.css') }}" rel="stylesheet">
+        <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
+        <script src="{{ asset('js/auth/bootstrap.min.js') }}"></script>
     </head>
     <body>
     <form action="{{route('efetuarCadastro')}}" method="post">
