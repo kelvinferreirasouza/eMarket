@@ -39,7 +39,7 @@
             </div>
 
 
-            @if( $usuario->tipoUsuario == 'Administrador')
+            @if( Auth::user()->tipoUsuario == 'Administrador')
                 <div class="form-group">
                     <label for="tipoUsuario" class="col-sm-2 control-label">Tipo de Usuário</label>
                         <div class="col-sm-10">                    
