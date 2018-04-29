@@ -11,6 +11,7 @@
 |
 */
 
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
 });
@@ -36,3 +37,16 @@ Route::post('pessoa.login.efetuar', 'PessoaController@efetuarLogin')->name('pess
 Route::post('efetuarCadastro', 'PessoaController@efetuarCadastro')->name('efetuarCadastro');
 
 
+=======
+Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
+Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
+Route::get('/login', 'AutenticacaoController@login')->name('login');
+Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
+Route::get('/', 'AutenticacaoController@home')->name('home');
+Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/manager', 'AutenticacaoController@manager')
+     ->name('manager');
+  });
+>>>>>>> backend
