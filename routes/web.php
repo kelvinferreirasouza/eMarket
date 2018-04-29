@@ -11,24 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
+Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
+Route::get('/login', 'AutenticacaoController@login')->name('login');
+Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
+Route::get('/', 'AutenticacaoController@home')->name('home');
+Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
-Route::get('/manager', function () {
-    return view('manager');
-});
-
-Route::get('/login', function () {
-    return view('login');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/registrar', 'PessoaController@registrar')->name('registrar');
-
-Route::get('/login', 'PessoaController@login')->name('login');
-
-
+Route::middleware(['auth'])->group(function () {
+    Route::get('/manager', 'AutenticacaoController@manager')
+     ->name('manager');
+  });
