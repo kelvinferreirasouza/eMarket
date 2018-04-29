@@ -10,6 +10,8 @@ class UsuarioController extends Controller
 {
     public function listar()
     {
+        $this->authorize('update', Usuario::class);
+        
         $usuarios = Usuario::all();
         return view('usuarios.listar', compact('usuarios'));
     }
@@ -53,6 +55,6 @@ class UsuarioController extends Controller
         $dados['senha'] = bcrypt($dados['senha']);
         Usuario::create($dados);
  
-        return redirect()->route('home');
+        return redirect()->route('manager');
     }
 }
