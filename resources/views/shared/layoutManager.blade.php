@@ -533,9 +533,9 @@
                                         </a>
                                     </li>
                                     <li class=" ">
-                                        <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
+                                        <a href="{{route('listar')}}" data-i18n="nav.navigate.navbar-with-elements">
                                             <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                            <span class="pcoded-mtext">Funcionários</span>
+                                            <span class="pcoded-mtext">Usuários</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>

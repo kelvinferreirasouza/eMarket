@@ -11,7 +11,7 @@ class Usuario extends Authenticatable
     use Notifiable;
      
     protected $fillable = [
-        'nome', 'login', 'email', 'senha', 'cpf', 'sexo', 'dataNasc', 'fone'
+        'nome', 'login', 'email', 'senha', 'cpf', 'sexo', 'dataNasc', 'fone', 'tipoUsuario'
     ];
  
     protected $hidden = [

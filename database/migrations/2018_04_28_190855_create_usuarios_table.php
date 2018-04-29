@@ -31,8 +31,8 @@ class CreateUsuariosTable extends Migration
             $table->string('municipio', 100)->nullable();
             $table->string('pais', 100)->nullable();
             $table->string('fone')->nullable();
+            $table->string('tipoUsuario')->default('Cliente');
             $table->integer('isAtivo')->default(1);
-            $table->integer('isFunc')->default(0);
             $table->rememberToken();
             $table->timestamps();
         });

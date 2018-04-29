@@ -38,6 +38,16 @@
     </div>
   </div>
   <div class="form-group">
+    <label for="tipoUsuario" class="col-sm-2 control-label">Tipo de Usuário</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}">
+        <option {{($usuario->tipoUsuario == 'Administrador'  ? 'selected' : '')}}>Administrador</option>
+        <option {{($usuario->tipoUsuario == 'Gerente'  ? 'selected' : '')}}>Gerente</option>
+        <option {{($usuario->tipoUsuario == 'Cliente'  ? 'selected' : '')}}>Cliente</option>
+      </select>
+    </div>
+  </div>
+  <div class="form-group">
     <label for="fone" class="col-sm-2 control-label">Fone</label>
     <div class="col-sm-10">
       <input type="text" class="form-control" name="fone" placeholder="Digite seu celular" value="{{$usuario->fone}}">

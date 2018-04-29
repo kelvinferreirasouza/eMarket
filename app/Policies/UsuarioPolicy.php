@@ -40,9 +40,9 @@ class UsuarioPolicy
      * @param  \App\Usuario  $usuario
      * @return mixed
      */
-    public function update(User $user, Usuario $usuario)
+    public function update(Usuario $user)
     {
-        //
+    return $user->tipoUsuario === "Administrador";
     }
 
     /**

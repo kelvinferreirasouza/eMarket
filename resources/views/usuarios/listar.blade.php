@@ -13,6 +13,7 @@
                         <th>CPF</th>  
                         <th>Fone</th>
                         <th>Login</th>
+                        <th>Tipo</th>
                         <th>Ações</th>
                     </tr>
                 </thead>            
@@ -24,8 +25,12 @@
                         <td>{{$usuario->cpf}}</td>
                         <td>{{$usuario->fone}}</td>
                         <td>{{$usuario->login}}</td>
+                        <td>{{$usuario->tipoUsuario}}</td>
                         <center><td>
-                            <a href="{{route('editar', $usuario->id)}}"><i class="fas fa-pencil-alt" style="margin-right:10%"></i></a>
+                                @can('update', App\Usuario::class)
+                                <a href="{{route('editar', $usuario->id)}}"><i class="fas fa-pencil-alt" style="margin-right:10%"></i></a>
+                                @endcan
+                            
                             <a href="{{route('editar', $usuario->id)}}"><i class="fas fa-eye" style="margin-right:10%"></i></a>  
                             <a href="{{route('editar', $usuario->id)}}"><i class="far fa-trash-alt"></i></a></td></center>
                     </tr>                         
