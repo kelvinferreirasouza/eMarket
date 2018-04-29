@@ -17,7 +17,8 @@
         </form>
 
         <div id="formFooter">
-            <a class="underlineHover" href="#">Esqueceu a senha?</a>
+            <a class="underlineHover" style="margin-right: 5%;" href="#">Esqueceu a senha?</a>
+            <a class="underlineHover" href="{{route ('registrar')}}">Cadastre-se</a>
         </div>
     </div>
 </div>
