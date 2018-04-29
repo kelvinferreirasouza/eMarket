@@ -11,6 +11,7 @@
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script src="{{ asset('js/auth/bootstrap.min.js') }}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script src='https://www.google.com/recaptcha/api.js'></script>
         <script>
             $(document).ready(function () {
                 var $mascCpf = $("#cpf");

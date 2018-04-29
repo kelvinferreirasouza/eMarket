@@ -19,10 +19,12 @@
             <p class="fadeIn second" style="margin-bottom: -1%"><b>Data de Nascimento</b></p>
             <input type="date" id="dataNasc" class="fadeIn second" name="dataNasc" placeholder="Data Nascimento" required>
 
-                <p class="fadeIn second" style="margin-bottom: -2%"><b>Sexo</b></p>
-                <label><input type="radio" class="option-input radio" name="sexo" value="Masculino" required/>Masculino</label>
-                <label><input type="radio" class="option-input radio" name="sexo" value="Feminino"/>Feminino</label>
-                <label><input type="radio" class="option-input radio" name="sexo" value="Outro"/>Outro</label>
+            <p class="fadeIn second" style="margin-bottom: -2%"><b>Sexo</b></p>
+            <label><input type="radio" class="option-input radio" name="sexo" value="Masculino" required/>Masculino</label>
+            <label><input type="radio" class="option-input radio" name="sexo" value="Feminino"/>Feminino</label>
+            <label><input type="radio" class="option-input radio" name="sexo" value="Outro"/>Outro</label>
+
+            <center><div class="g-recaptcha" data-sitekey="6LfDIVYUAAAAAD5GtthGjPBC_HQehSl1LC0xDEcW" style="margin-top:5%;margin-bottom:3%;"></div></center>
 
             <input type="submit" class="fadeIn fourth" value="Enviar">
             <input type="reset" class="fadeIn fourth" value="Limpar">
