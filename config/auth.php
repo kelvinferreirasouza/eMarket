@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'pessoas',
+        'passwords' => 'users',
     ],
 
     /*
@@ -38,12 +38,12 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'pessoas',
+            'provider' => 'usuarios',
         ],
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'pessoas',
+            'provider' => 'users',
         ],
 
         'pessoas' => [
@@ -74,6 +74,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
+        'usuarios' => [
+            'driver' => 'eloquent',
+            'model' => App\Usuario::class,
+        ],
 
         'pessoas' => [
             'driver' => 'eloquent',
@@ -103,7 +107,7 @@ return [
 
     'passwords' => [
         'users' => [
-            'provider' => 'pessoas',
+            'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,
         ],
