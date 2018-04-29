@@ -15,10 +15,12 @@ Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
 Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
 Route::get('/login', 'AutenticacaoController@login')->name('login');
 Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
-Route::get('/', 'AutenticacaoController@home')->name('home');
+Route::get('/', 'AutenticacaoController@index')->name('index');
 Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/manager', 'AutenticacaoController@manager')
-     ->name('manager');
+    Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
+    Route::get('/usuarios', 'UsuarioController@listar')->name('listar');
+    Route::get('/usuarios/{id}/editar', 'UsuarioController@editar')->name('editar');
+    Route::post('/usuarios/{id}/atualizar', 'UsuarioController@atualizar')->name('atualizar');
   });

@@ -10,9 +10,9 @@ use App\Usuario;
  
 class AutenticacaoController extends Controller
 {
-    public function home()
+    public function index()
     {
-        return view('publica');
+        return view('index');
     }
  
     public function manager()
