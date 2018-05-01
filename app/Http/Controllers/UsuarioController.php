@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
  
 class UsuarioController extends Controller
 {
@@ -41,6 +42,15 @@ class UsuarioController extends Controller
             $usuario->update($dados);
         }
  
+        return redirect()->route('listar');
+    }
+
+    public function excluir($id)
+    {
+        $usuario = Usuario::find($id);
+
+        $usuario->delete();
+
         return redirect()->route('listar');
     }
 

@@ -32,7 +32,7 @@
                         {{ csrf_field() }}
                         <div class="card-header">
                             <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listar') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
+                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listar') }}"><i class="icofont icofont-ui-reply" style="width: 20%"></i><b>Voltar</b></a></button></div>
                                 <div class="col-sm-6"><button class="btn btn-primary btnVisualizarEditar"><i class="icofont icofont-pencil-alt-5"></i><a class="linkCancel" href="{{route('editar', $usuario->id)}}"><b>Editar</b></a></button></div>
                             </div>
                             <h5>Visualizar Informações do Usuário</h5>

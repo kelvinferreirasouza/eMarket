@@ -36,3 +36,7 @@
 .linkCancel:hover, .linkVoltar:hover {
     color: #fff;
 }
+
+.btnAcoes{
+    margin-left: 7%;
+}
