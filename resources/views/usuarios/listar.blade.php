@@ -27,7 +27,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser">Cadastrar Usuário</button>
+                        <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Usuário</button>
                         <h5>Lista de Usuários Cadastros</h5>
                         <span>Click on row to perform edit action then Enter for save</span>   
 
@@ -61,7 +61,7 @@
                                         @can('update', App\Usuario::class)
                                         <a href="{{route('editar', $usuario->id)}}"><i class="fas fa-pencil-alt" style="margin-right:10%"></i></a>
                                         @endcan
-                                        <a href="{{route('editar', $usuario->id)}}"><i class="fas fa-eye" style="margin-right:10%"></i></a>  
+                                        <a href="{{route('visualizar', $usuario->id)}}"><i class="fas fa-eye" style="margin-right:10%"></i></a>  
                                         <a href="{{route('editar', $usuario->id)}}"><i class="far fa-trash-alt"></i></a></td>
                                     </center>
                                     </tr>                         

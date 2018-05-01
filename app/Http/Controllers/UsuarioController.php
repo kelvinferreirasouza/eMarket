@@ -43,6 +43,16 @@ class UsuarioController extends Controller
  
         return redirect()->route('listar');
     }
+
+    public function visualizar($id)
+    
+    {
+        $this->authorize('update', Usuario::class);
+
+        $usuario = Usuario::find($id);
+
+        return view('usuarios.visualizar', compact('usuario'));
+    }
  
     public function registrar()
     {

@@ -23,4 +23,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/usuarios', 'UsuarioController@listar')->name('listar');
     Route::get('/usuarios/{id}/editar', 'UsuarioController@editar')->name('editar');
     Route::post('/usuarios/{id}/atualizar', 'UsuarioController@atualizar')->name('atualizar');
+    Route::get('/usuarios/{id}/visualizar', 'UsuarioController@visualizar')->name('visualizar');
   });

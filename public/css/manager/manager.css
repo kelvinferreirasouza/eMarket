@@ -2,17 +2,17 @@
     position: absolute;
     margin-top: 0%;
     margin-bottom: 1%;
-    margin-left: 88%;
+    margin-left: 87%;
 }
 
-.btnCancelar {
+.btnCancelar, .btnVoltar {
     position: absolute;
     width: 100%;
     margin-left: 1235%;
     margin-top: -7%;
 }
 
-.btnSalvar {
+.btnSalvar, .btnVisualizarEditar {
     position: absolute;
     width: 100%;
     margin-left: 1128%;
@@ -29,10 +29,10 @@
     margin-bottom: -1.5%;
 }
 
-.linkCancel {
+.linkCancel, .linkVoltar {
     color: #fff;
 }
 
-.linkCancel:hover {
+.linkCancel:hover, .linkVoltar:hover {
     color: #fff;
 }
