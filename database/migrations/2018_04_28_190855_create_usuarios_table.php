@@ -19,7 +19,7 @@ class CreateUsuariosTable extends Migration
             $table->string('login', 100);
             $table->string('email', 100);
             $table->string('senha');
-            $table->string('cpf', 14);
+            $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
             $table->string('sexo', 9);
             $table->date('dataNasc');
@@ -29,10 +29,9 @@ class CreateUsuariosTable extends Migration
             $table->string('bairro', 100)->nullable();
             $table->string('estado', 100)->nullable();
             $table->string('municipio', 100)->nullable();
-            $table->string('pais', 100)->nullable();
             $table->string('fone')->nullable();
+            $table->string('celular')->nullable();
             $table->string('tipoUsuario')->default('Cliente');
-            $table->integer('isAtivo')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });

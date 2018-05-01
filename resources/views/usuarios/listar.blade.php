@@ -41,7 +41,7 @@
                                             <th>Nome</th>
                                             <th>E-mail</th>
                                             <th>CPF</th>  
-                                            <th>Fone</th>
+                                            <th>Contato</th>
                                             <th>Login</th>
                                             <th>Tipo</th>
                                             <th>Ações</th>
@@ -53,7 +53,7 @@
                                             <td>{{$usuario->nome}}</td>
                                             <td>{{$usuario->email}}</td>
                                             <td>{{$usuario->cpf}}</td>
-                                            <td>{{$usuario->fone}}</td>
+                                            <td>{{$usuario->celular}}</td>
                                             <td>{{$usuario->login}}</td>
                                             <td>{{$usuario->tipoUsuario}}</td>
                                             <td>

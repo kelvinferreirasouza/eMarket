@@ -5,9 +5,34 @@
     margin-left: 88%;
 }
 
+.btnCancelar {
+    position: absolute;
+    width: 100%;
+    margin-left: 1235%;
+    margin-top: -7%;
+}
+
+.btnSalvar {
+    position: absolute;
+    width: 100%;
+    margin-left: 1128%;
+    margin-top: -7%;
+}
+
 .labelInputEditUser {
     margin-left: 0%;
     margin-bottom: -1%;
     font-size: 12pt;
+}
 
+.formEditUser {
+    margin-bottom: -1.5%;
+}
+
+.linkCancel {
+    color: #fff;
+}
+
+.linkCancel:hover {
+    color: #fff;
 }

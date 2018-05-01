@@ -15,7 +15,7 @@
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login" required>
             <input type="password" id="senha" class="fadeIn third" name="senha" placeholder="Senha" required>
             <input type="text" id="cpf" class="fadeIn second" name="cpf" placeholder="CPF" required>
-            <input type="text" id="fone" class="fadeIn second" name="fone" placeholder="Celular" required>
+            <input type="text" id="fone" class="fadeIn second" name="celular" placeholder="Celular" required>
             <p class="fadeIn second" style="margin-bottom: -1%"><b>Data de Nascimento</b></p>
             <input type="date" id="dataNasc" class="fadeIn second" name="dataNasc" placeholder="Data Nascimento" required>
 

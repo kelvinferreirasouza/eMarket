@@ -41,6 +41,16 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/ionicons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/manager.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/jquery.mCustomScrollbar.css') }}">
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+        <script>
+            $(document).ready(function () {
+            var $mascCpf = $("#cpf");
+            var $mascCel = $("#fone");
+
+            $mascCpf.mask('000.000.000-00', {reverse: true});
+            $mascCel.mask('(00)00000-0000');
+            });
+        </script>
     </head>
     <body>
         <!-- Pre-loader start -->
@@ -49,8 +59,6 @@
                 <div></div>
             </div>
         </div>
-        <!-- Pre-loader end -->
-        <!-- Menu header start -->
         <div id="pcoded" class="pcoded">
             <div class="pcoded-overlay-box"></div>
             <div class="pcoded-container navbar-wrapper">
