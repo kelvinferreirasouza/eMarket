@@ -115,21 +115,12 @@
                                     <input disabled type="text" class="form-control" name="sexo" value="{{$usuario->sexo}}">
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    @if( Auth::user()->tipoUsuario == 'Administrador')
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
-                                    </select>
-                                    @else
                                     <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
                                     <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
                                         <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
                                         <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
                                         <option disabled {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
                                     </select>
-                                    @endif
                                 </div>
                             </div>
                         </div>

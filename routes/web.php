@@ -20,9 +20,14 @@ Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
+
+    /* Rotas Protegidas de Usuários */
     Route::get('/usuarios', 'UsuarioController@listar')->name('listar');
     Route::get('/usuarios/{id}/editar', 'UsuarioController@editar')->name('editar');
     Route::post('/usuarios/{id}/atualizar', 'UsuarioController@atualizar')->name('atualizar');
     Route::get('/usuarios/{id}/visualizar', 'UsuarioController@visualizar')->name('visualizar');
     Route::get('/usuarios/{id}/excluir', 'UsuarioController@excluir')->name('excluir');
+
+    /* Rotas Protegidas de Produtos */
+    Route::get('/produtos', 'ProdutoController@listar')->name('listar');
   });
