@@ -18,9 +18,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('manager') }}">Manager</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#!">Pessoas</a>
-                            </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Usuários</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarProdutos') }}">Produtos</a>
                             </li>
                         </ul>
                     </div>
@@ -54,6 +52,7 @@
                                             <td>{{$produto->codBarras}}</td>
                                             <td>{{$produto->produtoNome}}</td>
                                             <td>{{$produto->qtd}}</td>
+                                            <td>{{$produto->produtoUnidadeId}}</td>
                                             <td>{{$produto->precoCusto}}</td>
                                             <td>{{$produto->precoVenda}}</td>
                                             <td>{{$produto->margemLucro}}</td>

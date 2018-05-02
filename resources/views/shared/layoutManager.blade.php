@@ -499,7 +499,7 @@
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="{{route('listar')}}" data-i18n="nav.navigate.navbar-with-elements">
+                                                <a href="{{route('listarUsuarios')}}" data-i18n="nav.navigate.navbar-with-elements">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Usuários</span>
                                                     <span class="pcoded-mcaret"></span>
@@ -515,14 +515,14 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class=" ">
-                                                <a href="navbar-light.html" data-i18n="nav.navigate.navbar">
+                                                <a href="{{ route('cadastrarProduto') }}" data-i18n="nav.navigate.navbar">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Cadastrar Novo Produto</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                <a href="{{ route('listarProdutos') }}" data-i18n="nav.navigate.navbar-inverse">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Listar Produtos</span>
                                                     <span class="pcoded-mcaret"></span>

@@ -20,15 +20,15 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#!">Pessoas</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Usuários</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarUsuarios') }}">Usuários</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Editar</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarUsuarios') }}">Editar</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="card">
-                    <form method="post" action="{{route ('atualizar', $usuario->id)}}" class="formEditUser">
+                    <form method="post" action="{{route ('atualizarUsuario', $usuario->id)}}" class="formEditUser">
                         {{ csrf_field() }}
 
                         @if( Auth::user()->tipoUsuario == 'Gerente' && $usuario->tipoUsuario == 'Administrador')
@@ -150,7 +150,7 @@
                         
                         <div class="card-header">
                             <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listar') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
+                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarProdutos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
                                 <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar"><i class="icofont icofont-save"></i>Salvar</button></div>
                             </div>
                             <h5>Editar Usuário</h5>

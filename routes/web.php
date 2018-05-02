@@ -22,12 +22,15 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
 
     /* Rotas Protegidas de Usuários */
-    Route::get('/usuarios', 'UsuarioController@listar')->name('listar');
-    Route::get('/usuarios/{id}/editar', 'UsuarioController@editar')->name('editar');
-    Route::post('/usuarios/{id}/atualizar', 'UsuarioController@atualizar')->name('atualizar');
-    Route::get('/usuarios/{id}/visualizar', 'UsuarioController@visualizar')->name('visualizar');
-    Route::get('/usuarios/{id}/excluir', 'UsuarioController@excluir')->name('excluir');
+    Route::get('/usuarios', 'UsuarioController@listarUsuarios')->name('listarUsuarios');
+    Route::get('/usuarios/{id}/editarUsuario', 'UsuarioController@editarUsuario')->name('editarUsuario');
+    Route::post('/usuarios/{id}/atualizarUsuario', 'UsuarioController@atualizarUsuario')->name('atualizarUsuario');
+    Route::get('/usuarios/{id}/visualizarUsuario', 'UsuarioController@visualizarUsuario')->name('visualizarUsuario');
+    Route::get('/usuarios/{id}/excluirUsuario', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
 
     /* Rotas Protegidas de Produtos */
-    Route::get('/produtos', 'ProdutoController@listar')->name('listar');
+    Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
+    Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');
+    Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
+
   });

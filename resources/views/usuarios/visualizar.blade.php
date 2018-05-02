@@ -20,20 +20,20 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#!">Pessoas</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Usuários</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarUsuarios') }}">Usuários</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Editar</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarUsuarios') }}">Editar</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="card">
-                    <form method="post" action="{{route ('atualizar', $usuario->id)}}" class="formEditUser">
+                    <form method="post" action="{{route ('atualizarUsuario', $usuario->id)}}" class="formEditUser">
                         {{ csrf_field() }}
                         <div class="card-header">
                             <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listar') }}"><i class="icofont icofont-ui-reply" style="width: 20%"></i><b>Voltar</b></a></button></div>
-                                <div class="col-sm-6"><button class="btn btn-primary btnVisualizarEditar"><i class="icofont icofont-pencil-alt-5"></i><a class="linkCancel" href="{{route('editar', $usuario->id)}}"><b>Editar</b></a></button></div>
+                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply" style="width: 20%"></i><b>Voltar</b></a></button></div>
+                                <div class="col-sm-6"><button class="btn btn-primary btnVisualizarEditar"><i class="icofont icofont-pencil-alt-5"></i><a class="linkCancel" href="{{route('editarUsuario', $usuario->id)}}"><b>Editar</b></a></button></div>
                             </div>
                             <h5>Visualizar Informações do Usuário</h5>
                         </div>

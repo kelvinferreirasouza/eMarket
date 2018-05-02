@@ -20,7 +20,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#!">Pessoas</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listar') }}">Usuários</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarUsuarios') }}">Usuários</a>
                             </li>
                         </ul>
                     </div>
@@ -61,10 +61,10 @@
                                             <td>
                                                 <center>
                                                     @can('update', App\Usuario::class)
-                                                        <a href="{{route('editar', $usuario->id)}}"><img src="imgs/iconEdit.png" title="Alterar Usuário" class="btnAcoes" ></a>  
+                                                        <a href="{{route('editarUsuario', $usuario->id)}}"><img src="imgs/iconEdit.png" title="Alterar Usuário" class="btnAcoes" ></a>  
                                                     @endcan
-                                                        <a href="{{route('visualizar', $usuario->id)}}"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
-                                                        <a href="{{route('excluir', $usuario->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                        <a href="{{route('visualizarUsuario', $usuario->id)}}"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
+                                                        <a href="{{route('excluirUsuario', $usuario->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>
                                             </td>
                                         </tr>                         

@@ -14,7 +14,7 @@ class CreateProdutosTable extends Migration
     public function up()
     {
         Schema::create('produtos', function (Blueprint $table) {	
-            $table->increments('produtoId', 10);
+            $table->increments('id', 10);
             $table->string('codBarras', 50);
             $table->string('produtoNome', 100);
             $table->decimal('qtd', 20, 3)->default(0.000);
@@ -22,16 +22,11 @@ class CreateProdutosTable extends Migration
             $table->decimal('precoCusto', 20, 2)->default(0.00)->nullable();
             $table->decimal('precoVenda', 20, 2)->default(0.00);
             $table->decimal('margemLucro', 20, 2)->default(0.00)->nullable();
-            $table->integer('produtoSetorId')->unsigned();
-            $table->foreign('produtoSetorId')->references('produtoSetorId')->on('produtosetores');
-            $table->integer('produtoCategoriaId')->unsigned();
-            $table->foreign('produtoCategoriaId')->references('produtoCategoriaId')->on('produtocategorias');
-            $table->integer('produtoMarcaId')->unsigned()->nullable();
-            $table->foreign('produtoMarcaId')->references('produtoMarcaId')->on('produtomarcas');
-            $table->integer('produtoUnidadeId')->unsigned();
-            $table->foreign('produtoUnidadeId')->references('produtoUnidadeId')->on('produtounidades');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->integer('produtoSetorId');
+            $table->integer('produtoCategoriaId');
+            $table->integer('produtoMarcaId');
+            $table->integer('produtoUnidadeId');
+            $table->timestamps();
             $table->integer('isPromocao')->default(0);
             $table->integer('isAtivo')->default(1);
         });

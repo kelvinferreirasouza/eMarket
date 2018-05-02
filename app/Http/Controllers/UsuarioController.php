@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
  
 class UsuarioController extends Controller
 {
-    public function listar()
+    public function listarUsuarios()
     {
         $this->authorize('update', Usuario::class);
         
@@ -16,7 +16,7 @@ class UsuarioController extends Controller
         return view('usuarios.listar', compact('usuarios'));
     }
  
-    public function editar($id)
+    public function editarUsuario($id)
     {
         $this->authorize('update', Usuario::class);
  
@@ -24,7 +24,7 @@ class UsuarioController extends Controller
         return view('usuarios.editar', compact('usuario'));
     }
  
-    public function atualizar(Request $request, $id)
+    public function atualizarUsuario(Request $request, $id)
     {
         $this->authorize('update', Usuario::class);
          
@@ -41,19 +41,19 @@ class UsuarioController extends Controller
             $usuario->update($dados);
         }
  
-        return redirect()->route('listar');
+        return redirect()->route('listarUsuarios');
     }
 
-    public function excluir($id)
+    public function excluirUsuario($id)
     {
         $usuario = Usuario::find($id);
 
         $usuario->delete();
 
-        return redirect()->route('listar');
+        return redirect()->route('listarUsuarios');
     }
 
-    public function visualizar($id)
+    public function visualizarUsuario($id)
     
     {
         $this->authorize('update', Usuario::class);
