@@ -35,5 +35,21 @@ class SetorController extends Controller
         return redirect()->route('listarSetores');
     }
 
+    public function editarSetor($id)
+    {
+        $setor = Setor::find($id);
+        return view('setores.editar', compact('setor'));
+    }
+
+    public function atualizarSetor(Request $request, $id)
+    {
+        $dados = $request->all();
+        $setor = Setor::find($id);
+ 
+        $setor->update($dados);
+
+        return redirect()->route('listarSetores');
+    }
+
     
 }

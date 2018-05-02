@@ -52,7 +52,7 @@
                                             <td>{{$setor->isAtivo}}</td>
                                             <td>
                                                 <center>
-                                                   <a href="#"><img src="imgs/iconEdit.png" title="Alterar Usuário" class="btnAcoes" ></a>  
+                                                   <a href="{{route('editarSetor', $setor->id)}}"><img src="imgs/iconEdit.png" title="Alterar Usuário" class="btnAcoes" ></a>  
                                                    <a href="#"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
                                                    <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>
