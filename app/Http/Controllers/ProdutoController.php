@@ -26,4 +26,13 @@ class ProdutoController extends Controller
  
         return redirect()->route('listarProdutos');
     }
+
+    public function excluirProduto($id)
+    {
+        $produto = Produto::find($id);
+
+        $produto->delete();
+
+        return redirect()->route('listarProdutos');
+    }
 }

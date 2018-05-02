@@ -31,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     /* Rotas Protegidas de Produtos */
     Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');
+    Route::get('/produtos/{id}/excluirProduto', 'ProdutoController@excluirProduto')->name('excluirProduto');
     Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
 
   });
