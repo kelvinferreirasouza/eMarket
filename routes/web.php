@@ -36,4 +36,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/{id}/visualizarProduto', 'ProdutoController@visualizarProduto')->name('visualizarProduto');
     Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
+
+    /* Rotas Protegidas de Setores */
+    Route::get('/setores', 'SetorController@listarSetores')->name('listarSetores');
+    Route::get('/cadastrarSetor', 'SetorController@cadastrarSetor')->name('cadastrarSetor');
+    Route::post('/salvarSetor', 'SetorController@salvarSetor')->name('salvarSetor');
   });

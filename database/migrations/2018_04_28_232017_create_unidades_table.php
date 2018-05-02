@@ -17,8 +17,7 @@ class CreateUnidadesTable extends Migration
             $table->increments('produtoUnidadeId');
             $table->string('produtoUnidade');
             $table->string('produtoUnidadeSigla');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
@@ -30,6 +29,5 @@ class CreateUnidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidades');
     }
 }

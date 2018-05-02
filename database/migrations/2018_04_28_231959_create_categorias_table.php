@@ -18,8 +18,7 @@ class CreateCategoriasTable extends Migration
             $table->string('produtoCategoria');
             $table->integer('produtoSetorId')->unsigned();
             $table->foreign('produtoSetorId')->references('produtoSetorId')->on('produtoSetores');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

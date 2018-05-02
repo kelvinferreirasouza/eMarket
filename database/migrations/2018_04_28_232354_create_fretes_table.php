@@ -17,8 +17,7 @@ class CreateFretesTable extends Migration
             $table->increments('freteId');
             $table->string('freteNome', 50);
             $table->decimal('freteValor', 12, 2)->default(0.00);
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

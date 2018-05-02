@@ -17,8 +17,7 @@ class CreateFuncionarioCargosTable extends Migration
             $table->increments('funcCargoId');
             $table->string('funcCargo', 100);
             $table->string('funcCargoDescricao', 200)->nullable();
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

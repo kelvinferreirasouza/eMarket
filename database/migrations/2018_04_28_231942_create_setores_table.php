@@ -16,8 +16,7 @@ class CreateSetoresTable extends Migration
         Schema::create('produtosetores', function (Blueprint $table) {	
             $table->increments('produtoSetorId');
             $table->string('produtoSetor');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
@@ -29,6 +28,6 @@ class CreateSetoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('setores');
+        
     }
 }

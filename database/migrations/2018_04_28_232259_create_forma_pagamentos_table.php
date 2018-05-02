@@ -18,8 +18,7 @@ class CreateFormaPagamentosTable extends Migration
             $table->string('formaPagamento', 100);
             $table->integer('empresaId')->unsigned();
             $table->foreign('empresaId')->references('empresaId')->on('empresas');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

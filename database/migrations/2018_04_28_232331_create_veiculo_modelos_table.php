@@ -18,8 +18,7 @@ class CreateVeiculoModelosTable extends Migration
             $table->string('veiculoModelo', 100);
             $table->integer('veiculoMarcaId')->unsigned();
             $table->foreign('veiculoMarcaId')->references('veiculoMarcaId')->on('veiculomarcas');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

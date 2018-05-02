@@ -28,10 +28,8 @@ class CreateEmpresasTable extends Migration
             $table->string('municipio', 100);
             $table->string('pais', 100);
             $table->string('fone', 15);
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
-            $table->rememberToken();
         });
     }
 

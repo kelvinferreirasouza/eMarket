@@ -16,8 +16,7 @@ class CreateVeiculoMarcaTable extends Migration
         Schema::create('veiculomarcas', function (Blueprint $table) {	
             $table->increments('veiculoMarcaId');
             $table->string('veiculoMarca', 100);
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }

@@ -25,8 +25,7 @@ class CreateVeiculosTable extends Migration
             $table->string('veiculoCor', 50);
             $table->string('quilometragem', 50);
             $table->date('ultimaRevisao');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
