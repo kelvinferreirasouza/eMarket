@@ -33,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/{id}/excluirProduto', 'ProdutoController@excluirProduto')->name('excluirProduto');
     Route::get('/produtos/{id}/editarProduto', 'ProdutoController@editarProduto')->name('editarProduto');
     Route::post('/produtos/{id}/atualizarProduto', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
+    Route::get('/produtos/{id}/visualizarProduto', 'ProdutoController@visualizarProduto')->name('visualizarProduto');
     Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
   });

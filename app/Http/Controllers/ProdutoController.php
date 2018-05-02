@@ -30,11 +30,9 @@ class ProdutoController extends Controller
     public function visualizarProduto($id)
     
     {
-        $this->authorize('update', Usuario::class);
+        $produto = Produto::find($id);
 
-        $usuario = Usuario::find($id);
-
-        return view('usuarios.visualizar', compact('usuario'));
+        return view('produtos.visualizar', compact('produto'));
     }
 
     public function excluirProduto($id)

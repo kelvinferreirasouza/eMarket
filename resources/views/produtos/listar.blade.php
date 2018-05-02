@@ -59,7 +59,7 @@
                                             <td>
                                                 <center>
                                                         <a href="{{route('editarProduto', $produto->id)}}"><img src="imgs/iconEdit.png" title="Editar Produto" class="btnAcoes" ></a>  
-                                                        <a href="#"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
+                                                        <a href="{{route('visualizarProduto', $produto->id)}}"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
                                                         <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>
                                             </td>
