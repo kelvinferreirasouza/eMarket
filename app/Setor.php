@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Setor extends Model
 {
     protected $fillable = [
-        'produtoSetor', 'isAtivo',
+        'nome', 'isAtivo',
     ];
 
     protected $table = 'produtosetores';

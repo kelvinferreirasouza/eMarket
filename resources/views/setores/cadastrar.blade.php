@@ -41,8 +41,8 @@
                         <div class="card-block">
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <label for="produtoSetor" class="control-label labelInputEditUser">Nome do Setor:</label>
-                                    <input type="text" class="form-control" name="produtoSetor" placeholder="Digite o nome do setor" required>
+                                    <label for="nome" class="control-label labelInputEditUser">Nome do Setor:</label>
+                                    <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>

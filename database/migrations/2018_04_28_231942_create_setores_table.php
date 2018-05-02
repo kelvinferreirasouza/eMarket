@@ -14,8 +14,8 @@ class CreateSetoresTable extends Migration
     public function up()
     {
         Schema::create('produtosetores', function (Blueprint $table) {	
-            $table->increments('produtoSetorId');
-            $table->string('produtoSetor');
+            $table->increments('id');
+            $table->string('nome');
             $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
