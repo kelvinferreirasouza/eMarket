@@ -507,36 +507,63 @@
                                             </li>
                                         </ul>
                                     </li>
+
                                     <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                        <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fas fa-dolly"></i></span>
-                                            <span class="pcoded-mtext">Produtos</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Produtos</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="{{ route('cadastrarProduto') }}" data-i18n="nav.navigate.navbar">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Cadastrar Novo Produto</span>
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Produtos</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarProdutos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Listar Produtos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="{{ route('cadastrarProduto') }}" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Cadastrar Produto</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </li>
-                                            <li class=" ">
-                                                <a href="{{ route('listarProdutos') }}" data-i18n="nav.navigate.navbar-inverse">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Listar Produtos</span>
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Setores</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                            </li>
-                                            <li class=" ">
-                                                <a href="navbar-elements.html" data-i18n="nav.navigate.navbar-with-elements">
-                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Navbar With Elements</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarSetores') }}" data-i18n="nav.page_layout.horizontal.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Listar Setores</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="{{ route('cadastrarSetor') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Cadastar Setor</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
+
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
@@ -622,55 +649,51 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</div>
-</div>
-</body>
-<!-- Required Jqurey -->
-<script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
-<script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/popper.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/bootstrap.min.js') }}"></script>
-<!-- jquery slimscroll js -->
-<script type="text/javascript" src="{{ asset('js/manager/jquery.slimscroll.js') }}"></script>
-<!-- modernizr js -->
-<script type="text/javascript" src="{{ asset('js/manager/modernizr.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/css-scrollbars.js') }}"></script>
-<!-- Calender js -->
-<script type="text/javascript" src="{{ asset('js/manager/moment.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/pignose.calendar.min.js') }}"></script>
-<!-- classie js -->
-<script type="text/javascript" src="{{ asset('js/manager/classie.js') }}"></script>
-<!-- c3 chart js -->
-<script src="{{ asset('js/manager/c3.js') }}"></script>
-<!-- knob js -->
-<script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
-<!-- Rickshow Chart js -->
-<script src="{{ asset('js/manager/d3.js') }}"></script>
-<script src="{{ asset('js/manager/rickshaw.js') }}"></script>
-<!-- Morris Chart js -->
-<script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
-<script src="{{ asset('js/manager/morris.js') }}"></script>
-<!-- Float Chart js -->
-<script src="{{ asset('js/manager/morris.js') }}"></script>
-<script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
-<script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
-<script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
-<!-- Horizontal-Timeline js -->
-<script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
-<!-- i18next.min.js -->
-<script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
-<!-- Custom js -->
-<script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
-<!-- pcmenu js -->
-<script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
-<script src="{{ asset('js/manager/demo-12.js') }}"></script>
-<script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
+    </body>
+    <!-- Required Jqurey -->
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/bootstrap.min.js') }}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.slimscroll.js') }}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{{ asset('js/manager/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/css-scrollbars.js') }}"></script>
+    <!-- Calender js -->
+    <script type="text/javascript" src="{{ asset('js/manager/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/pignose.calendar.min.js') }}"></script>
+    <!-- classie js -->
+    <script type="text/javascript" src="{{ asset('js/manager/classie.js') }}"></script>
+    <!-- c3 chart js -->
+    <script src="{{ asset('js/manager/c3.js') }}"></script>
+    <!-- knob js -->
+    <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
+    <!-- Rickshow Chart js -->
+    <script src="{{ asset('js/manager/d3.js') }}"></script>
+    <script src="{{ asset('js/manager/rickshaw.js') }}"></script>
+    <!-- Morris Chart js -->
+    <script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
+    <!-- Float Chart js -->
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
+    <!-- Horizontal-Timeline js -->
+    <script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
+    <!-- pcmenu js -->
+    <script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
+    <script src="{{ asset('js/manager/demo-12.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
 </html>

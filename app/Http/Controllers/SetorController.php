@@ -26,5 +26,14 @@ class SetorController extends Controller
         return redirect()->route('listarSetores');
     }
 
+    public function excluirSetor($id)
+    {
+        $setor = Setor::find($id);
+
+        $setor->delete();
+
+        return redirect()->route('listarSetores');
+    }
+
     
 }

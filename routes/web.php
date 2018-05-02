@@ -39,6 +39,9 @@ Route::middleware(['auth'])->group(function () {
 
     /* Rotas Protegidas de Setores */
     Route::get('/setores', 'SetorController@listarSetores')->name('listarSetores');
+    Route::get('/setores/{id}/excluirSetor', 'SetorController@excluirSetor')->name('excluirSetor');
     Route::get('/cadastrarSetor', 'SetorController@cadastrarSetor')->name('cadastrarSetor');
+    
     Route::post('/salvarSetor', 'SetorController@salvarSetor')->name('salvarSetor');
+    
   });
