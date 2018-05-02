@@ -51,5 +51,13 @@ class SetorController extends Controller
         return redirect()->route('listarSetores');
     }
 
+    public function visualizarSetor($id)
+    
+    {
+        $setor = Setor::find($id);
+
+        return view('setores.visualizar', compact('setor'));
+    }
+
     
 }

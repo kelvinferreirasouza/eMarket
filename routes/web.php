@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/setores/{id}/excluirSetor', 'SetorController@excluirSetor')->name('excluirSetor');
     Route::get('/setores/{id}/editarSetor', 'SetorController@editarSetor')->name('editarSetor');
     Route::post('/setores/{id}/atualizarSetor', 'SetorController@atualizarSetor')->name('atualizarSetor');
+    Route::get('/setores/{id}/visualizarSetor', 'SetorController@visualizarSetor')->name('visualizarSetor');
     Route::get('/cadastrarSetor', 'SetorController@cadastrarSetor')->name('cadastrarSetor');  
     Route::post('/salvarSetor', 'SetorController@salvarSetor')->name('salvarSetor');
     
