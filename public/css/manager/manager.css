@@ -1,4 +1,4 @@
-.btnCadUser {
+.btnCadUser, .btnCadProd {
     position: absolute;
     margin-top: 0%;
     margin-bottom: 1%;
@@ -25,7 +25,7 @@
     font-size: 12pt;
 }
 
-.formEditUser {
+.formEditUser, .formEditProd {
     margin-bottom: -1.5%;
 }
 

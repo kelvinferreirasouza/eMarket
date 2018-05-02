@@ -25,7 +25,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button>
+                        <button class="btn btn-primary waves-effect waves-light btnCadProd"><a class="linkCancel" href="{{ route('cadastrarProduto') }}"><i class="fa fa-user-plus"></i>Cadastrar Produto</a></button>
                         <h5>Lista de Produtos</h5>
                         <span>Listagem dos produtos cadastrados e suas informações</span>   
 
@@ -58,7 +58,7 @@
                                             <td>{{$produto->margemLucro}}</td>
                                             <td>
                                                 <center>
-                                                        <a href="#"><img src="imgs/iconEdit.png" title="Alterar Usuário" class="btnAcoes" ></a>  
+                                                        <a href="{{route('editarProduto', $produto->id)}}"><img src="imgs/iconEdit.png" title="Editar Produto" class="btnAcoes" ></a>  
                                                         <a href="#"><img src="imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes" ></a>  
                                                         <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>

@@ -29,9 +29,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/usuarios/{id}/excluirUsuario', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
 
     /* Rotas Protegidas de Produtos */
-    Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');
     Route::get('/produtos/{id}/excluirProduto', 'ProdutoController@excluirProduto')->name('excluirProduto');
+    Route::get('/produtos/{id}/editarProduto', 'ProdutoController@editarProduto')->name('editarProduto');
+    Route::post('/produtos/{id}/atualizarProduto', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
+    Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
-
   });

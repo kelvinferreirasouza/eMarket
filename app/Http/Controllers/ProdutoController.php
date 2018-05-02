@@ -27,11 +27,37 @@ class ProdutoController extends Controller
         return redirect()->route('listarProdutos');
     }
 
+    public function visualizarProduto($id)
+    
+    {
+        $this->authorize('update', Usuario::class);
+
+        $usuario = Usuario::find($id);
+
+        return view('usuarios.visualizar', compact('usuario'));
+    }
+
     public function excluirProduto($id)
     {
         $produto = Produto::find($id);
 
         $produto->delete();
+
+        return redirect()->route('listarProdutos');
+    }
+
+    public function editarProduto($id)
+    {
+        $produto = Produto::find($id);
+        return view('produtos.editar', compact('produto'));
+    }
+
+    public function atualizarProduto(Request $request, $id)
+    {
+        $dados = $request->all();
+        $produto = Produto::find($id);
+ 
+        $produto->update($dados);
 
         return redirect()->route('listarProdutos');
     }
