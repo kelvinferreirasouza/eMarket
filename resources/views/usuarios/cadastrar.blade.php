@@ -125,7 +125,7 @@
                                     </select>
                                     @elseif (Auth::user()->tipoUsuario == 'Gerente') 
                                     <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="tipoUsuario" required>
+                                    <select disabled class="form-control" name="tipoUsuario" required>
                                         <option>Funcionário</option>
                                     </select>
                                     @endif

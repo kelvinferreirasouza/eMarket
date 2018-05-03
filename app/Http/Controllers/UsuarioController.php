@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Usuario;
 use Illuminate\Support\Facades\Hash;
+use Auth;
  
 class UsuarioController extends Controller
 {
@@ -79,6 +80,15 @@ class UsuarioController extends Controller
     {
         $dados = $request->all();
         $dados['senha'] = bcrypt($dados['senha']);
+        
+
+        if (Auth::user()->tipoUsuario != 'Administrador'){
+            
+            $tipoUserPermitido = 'Funcionário';
+
+            $dados['tipoUsuario'] = $tipoUserPermitido;
+        }
+
         Usuario::create($dados);
  
         return redirect()->route('listarUsuarios');

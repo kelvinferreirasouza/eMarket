@@ -27,7 +27,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Usuário</button>
+                        <a href="{{route('cadastrarUsuario')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Usuário</button></a>
                         <h5>Lista de Usuários Cadastros</h5>
                         <span>Listagem dos usuários cadastrados e suas informações</span>   
 
