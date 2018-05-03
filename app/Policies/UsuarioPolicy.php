@@ -19,7 +19,7 @@ class UsuarioPolicy
      */
     public function view(User $user, Usuario $usuario)
     {
-        return $user->tipoUsuario === "Administrador" || $user->tipoUsuario === "Gerente";
+        //
     }
 
     /**

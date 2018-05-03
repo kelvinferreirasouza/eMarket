@@ -35,7 +35,7 @@
 
                         <div class="card-header">
                             <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listar') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
+                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
                                 <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar" style="display: none"><i class="icofont icofont-save"></i>Salvar</button></div>
                             </div>  
                             <h5>Editar Usuário</h5>
@@ -132,14 +132,14 @@
                                     <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
                                         <option {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
                                         <option {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
+                                        <option {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
                                     </select>
                                     @else
                                     <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
                                     <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
                                         <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
                                         <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
+                                        <option disabled {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
                                     </select>
                                     @endif
                                 </div>
@@ -236,14 +236,14 @@
                                     <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
                                         <option {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
                                         <option {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
+                                        <option {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
                                     </select>
                                     @else
                                     <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
                                     <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
                                         <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
                                         <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
+                                        <option disabled {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
                                     </select>
                                     @endif
                                 </div>

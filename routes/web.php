@@ -23,27 +23,32 @@ Route::middleware(['auth'])->group(function () {
 
     /* Rotas Protegidas de Usuários */
     Route::get('/usuarios', 'UsuarioController@listarUsuarios')->name('listarUsuarios');
-    Route::get('/usuarios/{id}/editarUsuario', 'UsuarioController@editarUsuario')->name('editarUsuario');
-    Route::post('/usuarios/{id}/atualizarUsuario', 'UsuarioController@atualizarUsuario')->name('atualizarUsuario');
-    Route::get('/usuarios/{id}/visualizarUsuario', 'UsuarioController@visualizarUsuario')->name('visualizarUsuario');
-    Route::get('/usuarios/{id}/excluirUsuario', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
+    Route::get('/usuarios/editar/{id}', 'UsuarioController@editarUsuario')->name('editarUsuario');
+    Route::post('/usuarios/atualizar/{id}', 'UsuarioController@atualizarUsuario')->name('atualizarUsuario');
+    Route::get('/usuarios/visualizar/{id}', 'UsuarioController@visualizarUsuario')->name('visualizarUsuario');
+    Route::get('/usuarios/excluir/{id}', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
+    Route::get('/usuarios/cadastrar', 'UsuarioController@cadastrarUsuario')->name('cadastrarUsuario');
+    Route::post('/usuarios/salvar', 'UsuarioController@salvarUsuario')->name('salvarUsuario');
 
     /* Rotas Protegidas de Produtos */
     Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');
-    Route::get('/produtos/{id}/excluirProduto', 'ProdutoController@excluirProduto')->name('excluirProduto');
-    Route::get('/produtos/{id}/editarProduto', 'ProdutoController@editarProduto')->name('editarProduto');
-    Route::post('/produtos/{id}/atualizarProduto', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
-    Route::get('/produtos/{id}/visualizarProduto', 'ProdutoController@visualizarProduto')->name('visualizarProduto');
-    Route::post('/salvarProduto', 'ProdutoController@salvarProduto')->name('salvarProduto');
-    Route::get('/cadastrarProduto', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
+    Route::get('/produtos/excluir/{id}', 'ProdutoController@excluirProduto')->name('excluirProduto');
+    Route::get('/produtos/editar/{id}', 'ProdutoController@editarProduto')->name('editarProduto');
+    Route::post('/produtos/atualizar/{id}', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
+    Route::get('/produtos/visualizar/{id}', 'ProdutoController@visualizarProduto')->name('visualizarProduto');
+    Route::post('/produtos/salvar', 'ProdutoController@salvarProduto')->name('salvarProduto');
+    Route::get('/produtos/cadastrar', 'ProdutoController@cadastrarProduto')->name('cadastrarProduto');
 
     /* Rotas Protegidas de Setores */
-    Route::get('/setores', 'SetorController@listarSetores')->name('listarSetores');
-    Route::get('/setores/{id}/excluirSetor', 'SetorController@excluirSetor')->name('excluirSetor');
-    Route::get('/setores/{id}/editarSetor', 'SetorController@editarSetor')->name('editarSetor');
-    Route::post('/setores/{id}/atualizarSetor', 'SetorController@atualizarSetor')->name('atualizarSetor');
-    Route::get('/setores/{id}/visualizarSetor', 'SetorController@visualizarSetor')->name('visualizarSetor');
-    Route::get('/cadastrarSetor', 'SetorController@cadastrarSetor')->name('cadastrarSetor');  
-    Route::post('/salvarSetor', 'SetorController@salvarSetor')->name('salvarSetor');
-    
+    Route::get('/produtos/setores', 'SetorController@listarSetores')->name('listarSetores');
+    Route::get('/produtos/setores/excluir/{id}', 'SetorController@excluirSetor')->name('excluirSetor');
+    Route::get('/produtos/setores/editar/{id}', 'SetorController@editarSetor')->name('editarSetor');
+    Route::post('/produtos/setores/atualizar/{id}', 'SetorController@atualizarSetor')->name('atualizarSetor');
+    Route::get('/produtos/setores/visualizar/{id}', 'SetorController@visualizarSetor')->name('visualizarSetor');
+    Route::get('/produtos/setores/cadastrar', 'SetorController@cadastrarSetor')->name('cadastrarSetor');  
+    Route::post('/produtos/setores/salvar', 'SetorController@salvarSetor')->name('salvarSetor');
+
+    /* Rotas Protegidas de Categorias */
+    Route::get('produtos/cadastrar/Categoria', 'CategoriaController@cadastrarCategoria')->name('cadastrarCategoria');  
+    Route::get('/categorias', 'CategoriaController@listarCategorias')->name('listarCategorias');
   });

@@ -10,8 +10,6 @@ class UsuarioController extends Controller
 {
     public function listarUsuarios()
     {
-        $this->authorize('update', Usuario::class);
-        
         $usuarios = Usuario::all();
         return view('usuarios.listar', compact('usuarios'));
     }
@@ -75,5 +73,19 @@ class UsuarioController extends Controller
         Usuario::create($dados);
  
         return redirect()->route('manager');
+    }
+
+    public function salvarUsuario(Request $request)
+    {
+        $dados = $request->all();
+        $dados['senha'] = bcrypt($dados['senha']);
+        Usuario::create($dados);
+ 
+        return redirect()->route('listarUsuarios');
+    }
+
+    public function cadastrarUsuario()
+    {
+        return view('usuarios.cadastrar');
     }
 }
