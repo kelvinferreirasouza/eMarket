@@ -21,4 +21,11 @@ class CategoriaController extends Controller
  
         return redirect()->route('listarCategorias');
     }
+
+    public function listarCategorias()
+    {
+        $categorias = Categoria::all();
+        $setores = Setor::all();
+        return view('categorias.listar', compact('categorias', 'setores'));
+    }
 }
