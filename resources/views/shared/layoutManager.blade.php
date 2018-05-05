@@ -375,14 +375,14 @@
                                                 </a>
                                                 <ul class="pcoded-submenu">
                                                     <li class=" ">
-                                                        <a href="{{ route('listarSetores') }}" data-i18n="nav.page_layout.horizontal.static-layout">
+                                                        <a href="{{ route('listarCategorias') }}" data-i18n="nav.page_layout.horizontal.static-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Categorias</span>
+                                                            <span class="pcoded-mtext">Listar Categoria</span>
                                                             <span class="pcoded-mcaret"></span>
                                                         </a>
                                                     </li>
                                                     <li class=" ">
-                                                        <a href="{{ route('cadastrarSetor') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
+                                                        <a href="{{ route('cadastrarCategoria') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
                                                             <span class="pcoded-mtext">Cadastar Categorias</span>
                                                             <span class="pcoded-mcaret"></span>

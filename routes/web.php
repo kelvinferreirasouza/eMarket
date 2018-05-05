@@ -49,6 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/setores/salvar', 'SetorController@salvarSetor')->name('salvarSetor');
 
     /* Rotas Protegidas de Categorias */
-    Route::get('produtos/cadastrar/Categoria', 'CategoriaController@cadastrarCategoria')->name('cadastrarCategoria');  
-    Route::get('/categorias', 'CategoriaController@listarCategorias')->name('listarCategorias');
+    Route::get('/produtos/categorias', 'CategoriaController@listarCategorias')->name('listarCategorias');
+    Route::get('/produtos/categorias/cadastrar', 'CategoriaController@cadastrarCategoria')->name('cadastrarCategoria');      
+    Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
   });
