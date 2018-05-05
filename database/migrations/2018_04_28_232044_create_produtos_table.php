@@ -22,10 +22,11 @@ class CreateProdutosTable extends Migration
             $table->decimal('precoCusto', 20, 2)->default(0.00)->nullable();
             $table->decimal('precoVenda', 20, 2)->default(0.00);
             $table->decimal('margemLucro', 20, 2)->default(0.00)->nullable();
-            $table->integer('produtoSetorId');
-            $table->integer('produtoCategoriaId');
-            $table->integer('produtoMarcaId');
-            $table->integer('produtoUnidadeId');
+            $table->integer('produtoSetorId')->nullable()->unsigned()->onDelete('cascade');
+            $table->foreign('produtoSetorId')->references('id')->on('produtosetores')->onDelete('cascade');
+            $table->integer('produtoCategoriaId')->nullable();
+            $table->integer('produtoMarcaId')->nullable();
+            $table->integer('produtoUnidadeId')->nullable();
             $table->timestamps();
             $table->integer('isPromocao')->default(0);
             $table->integer('isAtivo')->default(1);

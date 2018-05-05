@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
-                                    <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF" value="{{$usuario->cpf}}" required>
+                                    <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="rg" class="control-label labelInputEditUser">RG:</label>

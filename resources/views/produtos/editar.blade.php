@@ -47,12 +47,12 @@
                                     <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" value="{{$produto->produtoNome}}" required>
                                 </div>
                                 <div class="col-sm-2">
-                                        <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                        <input type="number" class="form-control" name="produtoMarcaId" placeholder="Digite a marca" value="{{$produto->produtoMarcaId}}" >
+                                    <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
+                                    <input type="number" class="form-control" name="produtoMarcaId" placeholder="Digite a marca" value="{{$produto->produtoMarcaId}}" >
                                 </div>
                                 <div class="col-sm-2">
-                                        <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
-                                        <input type="number" class="form-control" name="produtoUnidadeId" placeholder="Selecione a Unidade" value="{{$produto->produtoUnidadeId}}">
+                                    <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
+                                    <input type="number" class="form-control" name="produtoUnidadeId" placeholder="Selecione a Unidade" value="{{$produto->produtoUnidadeId}}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -79,8 +79,14 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-2">
+
                                     <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
-                                    <input type="number" class="form-control" name="produtoSetorId" placeholder="Selecione o Setor" value="{{$produto->produtoSetorId}}">
+                                    <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId" value="{{$produto->produtoSetorId}}">
+                                        <option></option>
+                                        @foreach($setores as $setor)    
+                                        <option value="{{$setor->id}}" {{$setor->id == $produto->produtoSetorId ? 'selected' : ''}}>{{$setor->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>

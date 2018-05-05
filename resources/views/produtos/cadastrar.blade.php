@@ -80,7 +80,12 @@
                             <div class="form-group row">
                                 <div class="col-sm-2">
                                     <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
-                                    <input type="number" class="form-control" name="produtoSetorId" placeholder="Selecione o Setor">
+                                    <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId">
+                                            <option></option>
+                                            @foreach($setores as $setor)    
+                                            <option value="{{$setor->id}}">{{$setor->nome}}</option>
+                                            @endforeach  
+                                        </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>

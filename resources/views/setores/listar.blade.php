@@ -49,12 +49,18 @@
                                         <tr>
                                             <td>{{$setor->id}}</td>
                                             <td>{{$setor->nome}}</td>
-                                            <td>{{$setor->isAtivo}}</td>
+                                            <td>
+                                                @if($setor->isAtivo == 1)
+                                                    Ativo
+                                                @else 
+                                                    Inativo
+                                                @endif
+                                            </td>
                                             <td>
                                                 <center>
-                                                   <a href="{{route('editarSetor', $setor->id)}}"><img src="imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
-                                                   <a href="{{route('visualizarSetor', $setor->id)}}"><img src="imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
-                                                   <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                   <a href="{{route('editarSetor', $setor->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
+                                                   <a href="{{route('visualizarSetor', $setor->id)}}"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
+                                                   <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>
                                             </td>
                                         </tr>                         

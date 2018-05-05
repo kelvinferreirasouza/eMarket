@@ -4,18 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\Setor;
 
 class ProdutoController extends Controller
 {
 
     public function cadastrarProduto()
     {
-        return view('produtos.cadastrar');
+        $setores = Setor::all();
+        return view('produtos.cadastrar', compact('setores'));
     }
 
     public function listarProdutos()
     {
         $produtos = Produto::all();
+
         return view('produtos.listar', compact('produtos'));
     }
 
@@ -47,7 +50,8 @@ class ProdutoController extends Controller
     public function editarProduto($id)
     {
         $produto = Produto::find($id);
-        return view('produtos.editar', compact('produto'));
+        $setores = Setor::all();
+        return view('produtos.editar', compact('produto', 'setores'));
     }
 
     public function atualizarProduto(Request $request, $id)
