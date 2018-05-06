@@ -23,6 +23,24 @@ class MarcaController extends Controller
     public function listarMarcas()
     {
         $marcas = Marca::all();
+
         return view('marcas.listar', compact('marcas'));
+    }
+
+    public function editarMarca($id)
+    {
+        $marca = Marca::find($id);
+
+        return view('marcas.editar', compact('marca'));
+    }
+
+    public function atualizarMarca(Request $request, $id)
+    {
+        $dados = $request->all();
+        $marca = Marca::find($id);
+ 
+        $marca->update($dados);
+
+        return redirect()->route('listarMarcas');
     }
 }
