@@ -65,4 +65,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/unidades/atualizar/{id}', 'UnidadeController@atualizarUnidade')->name('atualizarUnidade');
     Route::get('/produtos/unidades/visualizar/{id}', 'UnidadeController@visualizarUnidade')->name('visualizarUnidade');
     Route::get('/produtos/unidades/excluir/{id}', 'UnidadeController@excluirUnidade')->name('excluirUnidade');
+
+    /* Rotas Protegidas de Marcas */
+    Route::get('/produtos/marcas', 'MarcaController@listarMarcas')->name('listarMarcas');
+    Route::get('/produtos/marcas/cadastrar', 'MarcaController@cadastrarMarca')->name('cadastrarMarca');  
+    Route::post('/produtos/marcas/salvar', 'MarcaController@salvarMarca')->name('salvarMarca');    
   });
