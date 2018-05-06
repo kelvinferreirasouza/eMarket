@@ -54,6 +54,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
     Route::get('/produtos/categorias/editar/{id}', 'CategoriaController@editarCategoria')->name('editarCategoria');
     Route::post('/produtos/categorias/atualizar/{id}', 'CategoriaController@atualizarCategoria')->name('atualizarCategoria');
+    Route::get('/produtos/categorias/visualizar/{id}', 'CategoriaController@visualizarCategoria')->name('visualizarCategoria');
 
     /* Rotas Protegidas de Unidades */
     Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');

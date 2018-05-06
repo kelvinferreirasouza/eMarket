@@ -45,4 +45,12 @@ class CategoriaController extends Controller
 
         return redirect()->route('listarCategorias');
     }
+
+    public function visualizarCategoria($id)
+    
+    {
+        $categoria = Categoria::find($id);
+        $setores = Setor::all();
+        return view('categorias.visualizar', compact('categoria', 'setores'));
+    }
 }

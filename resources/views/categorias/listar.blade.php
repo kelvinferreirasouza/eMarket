@@ -69,7 +69,7 @@
                                             <td>
                                     <center>
                                         <a href="{{route('editarCategoria', $categoria->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
-                                        <a href="{{route('visualizarSetor', $categoria->id)}}"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
+                                        <a href="{{route('visualizarCategoria', $categoria->id)}}"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
                                         <a href="{{route('excluirSetor', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                     </center>
                                     </td>
