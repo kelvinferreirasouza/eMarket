@@ -19,4 +19,10 @@ class MarcaController extends Controller
  
         return redirect()->route('listarMarcas');
     }
+
+    public function listarMarcas()
+    {
+        $marcas = Marca::all();
+        return view('marcas.listar', compact('marcas'));
+    }
 }
