@@ -26,15 +26,6 @@ class UnidadeController extends Controller
         return redirect()->route('listarUnidades');
     }
 
-    public function excluirUnidade($id)
-    {
-        $unidade = Unidade::find($id);
-
-        $unidade->delete();
-
-        return redirect()->route('listarUnidades');
-    }
-
     public function editarUnidade($id)
     {
         $unidade = Unidade::find($id);
@@ -57,5 +48,14 @@ class UnidadeController extends Controller
         $unidade = Unidade::find($id);
 
         return view('unidades.visualizar', compact('unidade'));
+    }
+
+    public function excluirUnidade($id)
+    {
+        $unidade = Unidade::find($id);
+
+        $unidade->delete();
+
+        return redirect()->route('listarUnidades');
     }
 }
