@@ -40,8 +40,12 @@ class ProdutoController extends Controller
     
     {
         $produto = Produto::find($id);
+        $setores    = Setor::all();
+        $marcas     = Marca::all();
+        $unidades   = Unidade::all();
+        $categorias = Categoria::all();
 
-        return view('produtos.visualizar', compact('produto'));
+        return view('produtos.visualizar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias'));
     }
 
     public function excluirProduto($id)
@@ -56,9 +60,12 @@ class ProdutoController extends Controller
     public function editarProduto($id)
     {
         $produto = Produto::find($id);
-        $setores = Setor::all();
+        $setores    = Setor::all();
+        $marcas     = Marca::all();
+        $unidades   = Unidade::all();
         $categorias = Categoria::all();
-        return view('produtos.editar', compact('produto', 'setores', 'categorias'));
+
+        return view('produtos.editar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias'));
     }
 
     public function atualizarProduto(Request $request, $id)

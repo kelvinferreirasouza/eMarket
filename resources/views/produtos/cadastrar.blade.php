@@ -39,20 +39,30 @@
                         <div class="card-block">
                             <div class="form-group row">
                                 <div class="col-sm-2">
-                                    <label for="codBarras" class="control-label labelInputEditUser">Codigo de Barras:</label>
+                                    <label for="codBarras" class="control-label labelInputEditUser">Código de Barras:</label>
                                     <input type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" required>
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="produtoNome" class="control-label labelInputEditUser">Nome:</label>
+                                    <label for="produtoNome" class="control-label labelInputEditUser">Descrição:</label>
                                     <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" required>
                                 </div>
                                 <div class="col-sm-2">
                                         <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                        <input type="number" class="form-control" name="produtoMarcaId" placeholder="Digite a marca">
+                                        <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId">
+                                                <option></option>
+                                                @foreach($marcas as $marca)    
+                                                <option value="{{$marca->id}}">{{$marca->nome}}</option>
+                                                @endforeach  
+                                        </select>
                                 </div>
                                 <div class="col-sm-2">
                                         <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
-                                        <input type="number" class="form-control" name="produtoUnidadeId" placeholder="Selecione a Unidade">
+                                        <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId">
+                                                <option></option>
+                                                @foreach($unidades as $unidade)    
+                                                <option value="{{$unidade->id}}">{{$unidade->sigla}}</option>
+                                                @endforeach  
+                                        </select>
                                 </div>
                             </div>
                             <div class="form-group row">

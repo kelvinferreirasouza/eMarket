@@ -35,7 +35,6 @@
                             </div>
                             <h5>Visualizar Produto</h5>
                         </div>
-
                         <div class="card-block">
                             <div class="form-group row">
                                 <div class="col-sm-2">
@@ -48,11 +47,19 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                    <input disabled type="number" class="form-control" name="produtoMarcaId" placeholder="Digite a marca" value="{{$produto->produtoMarcaId}}" >
+                                    <select disabled class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId" value="{{$produto->produtoMarcaId}}">
+                                        @foreach($marcas as $marca)    
+                                        <option disabled value="{{$marca->id}}" {{$marca->id == $produto->produtoMarcaId ? 'selected' : ''}}>{{$marca->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
-                                    <input disabled type="number" class="form-control" name="produtoUnidadeId" placeholder="Selecione a Unidade" value="{{$produto->produtoUnidadeId}}">
+                                    <select disabled class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId" value="{{$produto->produtoUnidadeId}}">
+                                        @foreach($unidades as $unidade)    
+                                        <option disabled value="{{$unidade->id}}" {{$unidade->id == $produto->produtoUnidadeId ? 'selected' : ''}}>{{$unidade->descricao}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -80,14 +87,23 @@
                             <div class="form-group row">
                                 <div class="col-sm-2">
                                     <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
-                                    <input disabled type="number" class="form-control" name="produtoSetorId" placeholder="Selecione o Setor" value="{{$produto->produtoSetorId}}">
+                                    <select disabled class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId" value="{{$produto->produtoSetorId}}">
+                                        <option></option>
+                                        @foreach($setores as $setor)    
+                                        <option disabled value="{{$setor->id}}" {{$setor->id == $produto->produtoSetorId ? 'selected' : ''}}>{{$setor->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
-                                    <input disabled type="number" class="form-control" name="produtoCategoriaId" placeholder="Digite o Categoria" value="{{$produto->produtoCategoriaId}}">
+                                    <select disabled class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId" value="{{$produto->produtoCategoriaId}}">
+                                        @foreach($categorias as $categoria)    
+                                        <option disabled value="{{$categoria->id}}" {{$categoria->id == $produto->produtoCategoriaId ? 'selected' : ''}}>{{$categoria->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                             </div>
-                        </div>     
+                        </div>                            
                     </form>
                 </div>
 
