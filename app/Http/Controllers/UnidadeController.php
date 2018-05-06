@@ -42,7 +42,7 @@ class UnidadeController extends Controller
         return redirect()->route('listarUnidades');
     }
 
-    public function visualizarSetor($id)
+    public function visualizarUnidade($id)
     
     {
         $unidade = Unidade::find($id);
