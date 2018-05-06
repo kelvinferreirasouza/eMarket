@@ -53,4 +53,13 @@ class CategoriaController extends Controller
         $setores = Setor::all();
         return view('categorias.visualizar', compact('categoria', 'setores'));
     }
+
+    public function excluirCategoria($id)
+    {
+        $categoria = Categoria::find($id);
+
+        $categoria->delete();
+
+        return redirect()->route('listarCategorias');
+    }
 }
