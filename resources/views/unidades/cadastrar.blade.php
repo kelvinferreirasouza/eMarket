@@ -7,7 +7,7 @@
             <div class="page-wrapper">
                 <div class="page-header">
                     <div class="page-header-title">
-                        <h4>Manager - Cadastro de Setor</h4>
+                        <h4>Manager - Cadastro de Unidade</h4>
                     </div>
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
@@ -41,8 +41,8 @@
                         <div class="card-block">
                             <div class="form-group row">
                                 <div class="col-sm-6">
-                                    <label for="unidade" class="control-label labelInputEditUser">Nome da Unidade:</label>
-                                    <input type="text" class="form-control" name="unidade" placeholder="Digite o nome da unidade" required>
+                                    <label for="descricao" class="control-label labelInputEditUser">Descrição:</label>
+                                    <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição da unidade" required>
                                 </div>
                                 <div class="col-sm-2">
                                         <label for="sigla" class="control-label labelInputEditUser">Sigla:</label>

@@ -25,4 +25,37 @@ class UnidadeController extends Controller
  
         return redirect()->route('listarUnidades');
     }
+
+    public function excluirUnidade($id)
+    {
+        $unidade = Unidade::find($id);
+
+        $unidade->delete();
+
+        return redirect()->route('listarUnidades');
+    }
+
+    public function editarUnidade($id)
+    {
+        $unidade = Unidade::find($id);
+        return view('unidades.editar', compact('unidade'));
+    }
+
+    public function atualizarUnidade(Request $request, $id)
+    {
+        $dados = $request->all();
+        $unidade = Unidade::find($id);
+ 
+        $unidade->update($dados);
+
+        return redirect()->route('listarUnidades');
+    }
+
+    public function visualizarSetor($id)
+    
+    {
+        $unidade = Unidade::find($id);
+
+        return view('unidades.visualizar', compact('unidade'));
+    }
 }

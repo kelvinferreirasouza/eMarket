@@ -384,7 +384,30 @@
                                                     <li class=" ">
                                                         <a href="{{ route('cadastrarCategoria') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastar Categorias</span>
+                                                            <span class="pcoded-mtext">Cadastar Categoria</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Unidades</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Listar Unidades</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="{{ route('cadastrarUnidade') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Cadastar Unidade</span>
                                                             <span class="pcoded-mcaret"></span>
                                                         </a>
                                                     </li>
