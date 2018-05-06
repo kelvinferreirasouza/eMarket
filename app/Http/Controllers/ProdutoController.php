@@ -6,15 +6,19 @@ use Illuminate\Http\Request;
 use App\Produto;
 use App\Setor;
 use App\Categoria;
+use App\Marca;
+use App\Unidade;
 
 class ProdutoController extends Controller
 {
 
     public function cadastrarProduto()
     {
-        $setores = Setor::all();
+        $setores    = Setor::all();
+        $marcas     = Marca::all();
+        $unidades   = Unidade::all();
         $categorias = Categoria::all();
-        return view('produtos.cadastrar', compact('setores', 'categorias'));
+        return view('produtos.cadastrar', compact('setores', 'marcas', 'unidades', 'categorias'));
     }
 
     public function listarProdutos()

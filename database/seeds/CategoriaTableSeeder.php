@@ -12,25 +12,25 @@ class CategoriaTableSeeder extends Seeder
     public function run()
     {
         DB::table('produtocategorias')->insert([
-            'nome'              => 'Legumes',
+            'nome'              => 'LEGUMES',
             'produtoSetorId'    => 2,
             'isAtivo'           => 1
         ]);
 
         DB::table('produtocategorias')->insert([
-            'nome'              => 'Verduras',
+            'nome'              => 'VERDURAS',
             'produtoSetorId'    => 2,
             'isAtivo'           => 1
         ]);
 
         DB::table('produtocategorias')->insert([
-            'nome'              => 'Bolos',
+            'nome'              => 'BOLOS',
             'produtoSetorId'    => 1,
             'isAtivo'           => 1
         ]);
 
         DB::table('produtocategorias')->insert([
-            'nome'              => 'Salgados',
+            'nome'              => 'SALGADOS',
             'produtoSetorId'    => 1,
             'isAtivo'           => 1
         ]);

@@ -12,12 +12,12 @@ class SetorTableSeeder extends Seeder
     public function run()
     {
         DB::table('produtosetores')->insert([
-            'nome'    => 'Padaria',
+            'nome'    => 'PADARIA',
             'isAtivo' => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'HortiFruti',
+            'nome'    => 'HORTIFRUTI',
             'isAtivo' => 1
         ]);
     }
