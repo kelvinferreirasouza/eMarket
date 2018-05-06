@@ -50,4 +50,13 @@ class MarcaController extends Controller
 
         return view('marcas.visualizar', compact('marca'));
     }
+
+    public function excluirMarca($id)
+    {
+        $marca = Marca::find($id);
+
+        $marca->delete();
+
+        return redirect()->route('listarMarcas');
+    }
 }
