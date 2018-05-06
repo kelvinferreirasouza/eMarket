@@ -45,16 +45,19 @@
                                     <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" value="{{$categoria->nome}}" required>
                                 </div>
                                 <div class="col-sm-2">
-                                        <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
-                                        <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId" value="{{ $categoria->produtoSetorId }}">
-                                                @foreach($setores as $setor)    
-                                                <option value="{{ $setor->id }}" {{($categoria->produtoSetorId == $setor->id ? 'selected' : '')}}>{{ $setor->nome }}</option>
-                                                @endforeach  
-                                            </select>
-                                    </div>
+                                    <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
+                                    <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId" value="{{ $categoria->produtoSetorId }}">
+                                        @foreach($setores as $setor)    
+                                        <option value="{{ $setor->id }}" {{($categoria->produtoSetorId == $setor->id ? 'selected' : '')}}>{{ $setor->nome }}</option>
+                                        @endforeach  
+                                    </select>
+                                </div>
                                 <div class="col-sm-2">
-                                    <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>
-                                    <input type="number" class="form-control" name="isAtivo" placeholder="1 para ativo e 0 para desativado" value="{{$categoria->isAtivo}}" required>
+                                    <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                    <select class="form-control labelInputEditUser" value="{{ $categoria->isAtivo }}">
+                                        <option value="1" {{ $categoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option value="{{ $categoria->isAtivo }}" {{ $categoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>     

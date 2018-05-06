@@ -54,4 +54,9 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
     Route::get('/produtos/categorias/editar/{id}', 'CategoriaController@editarCategoria')->name('editarCategoria');
     Route::post('/produtos/categorias/atualizar/{id}', 'CategoriaController@atualizarCategoria')->name('atualizarCategoria');
+
+    /* Rotas Protegidas de Unidades */
+    Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');
+    Route::get('/produtos/unidades/cadastrar', 'UnidadeController@cadastrarUnidade')->name('cadastrarUnidade');  
+    Route::post('/produtos/unidades/salvar', 'UnidadeController@salvarUnidade')->name('salvarUnidade');    
   });

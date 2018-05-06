@@ -64,7 +64,7 @@
                                 <i class="ti-search"></i>
                             </a>
                             <a href="index.html">
-                                <img class="img-fluid" src="../../imgs/logoEmarket.jpg" alt="eMarket" style="width: 140px;" />
+                                <img class="img-fluid" src="../../../imgs/logoEmarket.jpg" alt="eMarket" style="width: 140px;" />
                             </a>
                             <a class="mobile-options">
                                 <i class="ti-more"></i>
@@ -377,7 +377,7 @@
                                                     <li class=" ">
                                                         <a href="{{ route('listarCategorias') }}" data-i18n="nav.page_layout.horizontal.static-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Categoria</span>
+                                                            <span class="pcoded-mtext">Listar Categorias</span>
                                                             <span class="pcoded-mcaret"></span>
                                                         </a>
                                                     </li>

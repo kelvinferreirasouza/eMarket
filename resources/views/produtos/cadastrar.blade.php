@@ -87,9 +87,18 @@
                                             @endforeach  
                                         </select>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-2">
                                     <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
-                                    <input type="number" class="form-control" name="produtoCategoriaId" placeholder="Digite o Categoria">
+                                    <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
+                                            <option></option>
+                                            @foreach($categorias as $categoria)
+                                            
+                                            @if($setor->id == $categoria->produtoSetorId )
+                                                <option value="{{$categoria->id}}">{{ $categoria->nome}}</option>
+                                            @endif
+
+                                            @endforeach  
+                                        </select>
                                 </div>
 
                             </div>
