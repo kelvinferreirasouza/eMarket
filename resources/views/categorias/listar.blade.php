@@ -29,7 +29,7 @@
                 </div>
                 <div class="card">
                     <div class="card-header">
-                        <a href="{{route('cadastrarSetor')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Setor</button></a>
+                        <a href="{{route('cadastrarCategoria')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Categoria</button></a>
                         <h5>Lista de Categorias</h5>
                         <span>Listagem das categorias dos setores cadastrados.</span>   
 
@@ -68,7 +68,7 @@
                                             </td>
                                             <td>
                                     <center>
-                                        <a href="{{route('editarSetor', $categoria->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
+                                        <a href="{{route('editarCategoria', $categoria->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
                                         <a href="{{route('visualizarSetor', $categoria->id)}}"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
                                         <a href="{{route('excluirSetor', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                     </center>

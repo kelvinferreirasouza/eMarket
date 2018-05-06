@@ -52,4 +52,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/categorias', 'CategoriaController@listarCategorias')->name('listarCategorias');
     Route::get('/produtos/categorias/cadastrar', 'CategoriaController@cadastrarCategoria')->name('cadastrarCategoria');      
     Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
+    Route::get('/produtos/categorias/editar/{id}', 'CategoriaController@editarCategoria')->name('editarCategoria');
+    Route::post('/produtos/categorias/atualizar/{id}', 'CategoriaController@atualizarCategoria')->name('atualizarCategoria');
   });
