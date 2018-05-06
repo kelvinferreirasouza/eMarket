@@ -59,4 +59,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');
     Route::get('/produtos/unidades/cadastrar', 'UnidadeController@cadastrarUnidade')->name('cadastrarUnidade');  
     Route::post('/produtos/unidades/salvar', 'UnidadeController@salvarUnidade')->name('salvarUnidade');    
+    Route::get('/produtos/unidades/editar/{id}', 'UnidadeController@editarUnidade')->name('editarUnidade');
+    Route::post('/produtos/unidades/atualizar/{id}', 'UnidadeController@atualizarUnidade')->name('atualizarUnidade');
+    Route::get('/produtos/unidades/visualizar/{id}', 'UnidadeController@visualizarUnidade')->name('visualizarUnidade');
+    Route::get('/produtos/unidades/excluir/{id}', 'UnidadeController@excluirUnidade')->name('excluirUnidade');
   });
