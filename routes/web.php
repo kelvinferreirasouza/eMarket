@@ -72,4 +72,5 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/marcas/salvar', 'MarcaController@salvarMarca')->name('salvarMarca');  
     Route::get('/produtos/marcas/editar/{id}', 'MarcaController@editarMarca')->name('editarMarca');  
     Route::post('/produtos/marcas/atualizar/{id}', 'MarcaController@atualizarMarca')->name('atualizarMarca');
+    Route::get('/produtos/marcas/visualizar/{id}', 'MarcaController@visualizarMarca')->name('visualizarMarca');
   });

@@ -43,4 +43,11 @@ class MarcaController extends Controller
 
         return redirect()->route('listarMarcas');
     }
+
+    public function visualizarMarca($id)
+    {
+        $marca = Marca::find($id);
+
+        return view('marcas.visualizar', compact('marca'));
+    }
 }
