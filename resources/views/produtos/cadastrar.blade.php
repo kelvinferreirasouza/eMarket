@@ -110,7 +110,32 @@
                                             @endforeach  
                                         </select>
                                 </div>
-
+                                <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
+                                <script>
+                                        $('#produtoSetorId').on('change', function () {
+                                            var produtoSetorId = $(this).val();
+                                            if (produtoSetorId) {
+                                                $.ajax({
+                                                    type: "GET",
+                                                    url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
+                                                    success: function (res) {
+                                                        if (res) {
+                                                            $("#produtoCategoriaId").empty();
+                                                            $.each(res, function (key, value) {
+                                                                $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
+                                                            });
+        
+                                                        } else {
+                                                            $("#produtoSetorId").empty();
+                                                        }
+                                                    }
+                                                });
+                                            } else {
+                                                $("#produtoSetorId").empty();
+                                            }
+        
+                                        });
+                                    </script>
                             </div>
                         </div>     
                     </form>

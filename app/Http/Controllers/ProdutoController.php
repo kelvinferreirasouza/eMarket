@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Produto;
 use App\Setor;
 use App\Categoria;
@@ -76,5 +77,13 @@ class ProdutoController extends Controller
         $produto->update($dados);
 
         return redirect()->route('listarProdutos');
+    }
+
+    public function getCategoriasAjax(Request $request)
+    {
+        $categoriasAjax = DB::table("produtocategorias")
+                    ->where("produtoSetorId", $request->produtoSetorId)
+                    ->pluck("nome","id");
+        return response()->json($categoriasAjax);
     }
 }
