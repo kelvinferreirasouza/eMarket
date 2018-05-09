@@ -12,18 +12,6 @@ class UsuarioTableSeeder extends Seeder
     public function run()
     {
         DB::table('usuarios')->insert([
-            'nome'          => 'Kelvin Ferreira Souza',
-            'login'         => 'kelvinfer4',
-            'email'         => 'kelvin@ferreirasouza.com',
-            'senha'         =>  bcrypt('123'),
-            'cpf'           =>  '037.662.190-73',
-            'rg'            =>  '1120854201',
-            'sexo'          =>  'Masculino',
-            'dataNasc'      =>  '1997-01-17',
-            'tipoUsuario'   => 'Administrador'
-        ]);
-
-        DB::table('usuarios')->insert([
             'nome'          => 'Administrador',
             'login'         => 'admin',
             'email'         => 'admin@admin.com',

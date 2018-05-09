@@ -41,8 +41,8 @@
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Categoria</th>
                                             <th>Setor</th>
+                                            <th>Categoria</th>
                                             <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
@@ -51,14 +51,14 @@
                                         @foreach($categorias as $categoria)
                                         <tr>
                                             <td>{{$categoria->id}}</td>
-                                            <td>{{$categoria->nome}}</td>
                                             <td>
                                                 @foreach($setores as $setor)
                                                     @if( $categoria->produtoSetorId == $setor->id)
                                                         {{ $setor->nome }}   
                                                     @endif
                                                 @endforeach
-                                            </td>                                 
+                                            </td> 
+                                            <td>{{$categoria->nome}}</td>                                
                                             <td>
                                                 @if($categoria->isAtivo == 1)
                                                     Ativo

@@ -42,21 +42,27 @@ composer update --no-scripts
 php artisan migrate
 ```
 
-7. Execute o seguinte comando no Terminal para popular as tabelas pré-definidas
+7. Execute o seguinte comando no Terminal para preparar o composer para realizar os seeds.
+
+```sh
+composer dump-autoload
+```
+
+8. Execute o seguinte comando no Terminal para popular as tabelas pré-definidas.
 
 ```sh
 php artisan db:seed
 ```
 
-8. Abra um navegador e coloque o seguinte endereço
+9. Abra um navegador e coloque o seguinte endereço
 
 ```sh
 localhost:8000/
 ```
 
-### Licensa
+### Licença
 
-Ainda não definida.
+Todos os direitos reservados. Proibida qualquer utilização do mesmo, no todo ou em parte.
 
 ### Autor
 

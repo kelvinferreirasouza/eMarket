@@ -14,7 +14,7 @@ class SetorController extends Controller
 
     public function listarSetores()
     {
-        $setores = Setor::all();
+        $setores = Setor::orderBy('nome')->get();
         return view('setores.listar', compact('setores'));
     }
 
