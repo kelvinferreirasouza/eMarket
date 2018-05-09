@@ -321,120 +321,39 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" >
+                                            <li class="">
+                                                <a href="{{ route('listarProdutos') }}" >
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Produtos</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="{{ route('listarProdutos') }}" data-i18n="nav.page_layout.vertical.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Produtos</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="{{ route('cadastrarProduto') }}" data-i18n="nav.page_layout.vertical.header-fixed">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastrar Produto</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                            <li class="">
+                                                <a href="{{ route('listarSetores') }}" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Setores</span>
-                                                    <span class="pcoded-mcaret"></span>
                                                 </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="{{ route('listarSetores') }}" data-i18n="nav.page_layout.horizontal.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Setores</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="{{ route('cadastrarSetor') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastar Setor</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                            <li class="">
+                                                <a href="{{ route('listarCategorias') }}" data-i18n="nav.page_layout.horizontal.main">
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Categorias</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="{{ route('listarCategorias') }}" data-i18n="nav.page_layout.horizontal.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Categorias</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="{{ route('cadastrarCategoria') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastar Categoria</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                            <li class="">
+                                                <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.main">
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Unidades</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Unidades</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="{{ route('cadastrarUnidade') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastar Unidade</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
-                                            <li class=" pcoded-hasmenu">
-                                                <a href="javascript:void(0)" data-i18n="nav.page_layout.horizontal.main">
+                                            <li class="">
+                                                <a href="{{ route('listarMarcas') }}" data-i18n="nav.page_layout.horizontal.main">
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Marcas</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class=" ">
-                                                        <a href="{{ route('listarMarcas') }}" data-i18n="nav.page_layout.horizontal.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Marcas</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class=" ">
-                                                        <a href="{{ route('cadastrarMarca') }}" data-i18n="nav.page_layout.horizontal.fixed-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Cadastar Marca</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
                                         </ul>
                                     </li>
