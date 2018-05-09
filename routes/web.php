@@ -75,6 +75,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/marcas/visualizar/{id}', 'MarcaController@visualizarMarca')->name('visualizarMarca');
     Route::get('/produtos/marcas/excluir/{id}', 'MarcaController@excluirMarca')->name('excluirMarca');
 
+    /* Rotas Protegidas de Cargos */
+     Route::get('/usuarios/cargos', 'CargoController@listarCargos')->name('listarCargos');
+    Route::get('/usuarios/cargos/cadastrar', 'CargoController@cadastrarCargo')->name('cadastrarCargo');  
+    Route::post('/usuarios/cargos/salvar', 'CargoController@salvarCargo')->name('salvarCargo');  
+
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias','ProdutoController@getCategoriasAjax');
 

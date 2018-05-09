@@ -14,9 +14,8 @@ class CreateFuncionarioCargosTable extends Migration
     public function up()
     {
         Schema::create('funcionariocargos', function (Blueprint $table) {	
-            $table->increments('funcCargoId');
-            $table->string('funcCargo', 100);
-            $table->string('funcCargoDescricao', 200)->nullable();
+            $table->increments('id');
+            $table->string('descricao', 100);
             $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
