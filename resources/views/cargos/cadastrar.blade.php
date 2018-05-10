@@ -40,9 +40,13 @@
 
                         <div class="card-block">
                             <div class="form-group row">
+                                <div class="col-sm-4">
+                                    <label for="nome" class="control-label labelInputEditUser">Nome do Cargo:</label>
+                                    <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" required>
+                                </div>
                                 <div class="col-sm-6">
                                     <label for="descricao" class="control-label labelInputEditUser">Nome do Cargo:</label>
-                                    <input type="text" class="form-control" name="descricao" placeholder="Digite o nome do setor" required>
+                                    <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição do cargo" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>

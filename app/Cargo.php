@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cargo extends Model
 {
     protected $fillable = [
-        'descricao', 'isAtivo',
+        'nome','descricao', 'isAtivo',
     ];
 
     protected $table = 'funcionariocargos';
