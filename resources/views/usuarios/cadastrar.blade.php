@@ -31,7 +31,7 @@
                     <form method="post" action="{{route ('salvarUsuario')}}" class="formEditUser">
                         {{ csrf_field() }}
 
-                        @if( Auth::user()->tipoUsuario == 'Administrador' || Auth::user()->tipoUsuario == 'Gerente' )
+                        @if( Auth::user()->cargoId == 1 || Auth::user()->cargoId == 2 )
 
                         <div class="card-header">
                             <div class="col-sm-2">
@@ -116,17 +116,17 @@
                                     <input type="text" class="form-control" name="sexo" required>
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    @if( Auth::user()->tipoUsuario == 'Administrador')
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="tipoUsuario" required>
-                                        <option>Administrador</option>
-                                        <option>Gerente</option>
-                                        <option>Funcionário</option>
+                                    @if( Auth::user()->cargoId == 1)
+                                    <label for="cargoId" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
+                                    <select class="form-control" name="cargoId" required>
+                                        <option value="1">Administrador</option>
+                                        <option value="2">Gerente</option>
+                                        <option value="3">Funcionário</option>
                                     </select>
-                                    @elseif (Auth::user()->tipoUsuario == 'Gerente') 
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select disabled class="form-control" name="tipoUsuario" required>
-                                        <option>Funcionário</option>
+                                    @elseif (Auth::user()->cargoId == 2) 
+                                    <label for="cargoId" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
+                                    <select disabled class="form-control" name="cargoId" required>
+                                        <option value="3">Funcionário</option>
                                     </select>
                                     @endif
                                 </div>

@@ -31,7 +31,7 @@
                     <form method="post" action="{{route ('atualizarUsuario', $usuario->id)}}" class="formEditUser">
                         {{ csrf_field() }}
 
-                        @if( Auth::user()->tipoUsuario == 'Gerente' && $usuario->tipoUsuario == 'Administrador')
+                        @if( Auth::user()->cargoId == 2 && $usuario->cargoId == 1)
 
                         <div class="card-header">
                             <div class="col-sm-2">
@@ -127,19 +127,19 @@
                                     <input disabled type="text" class="form-control" name="sexo" value="{{$usuario->sexo}}">
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    @if( Auth::user()->tipoUsuario == 'Administrador')
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
+                                    @if( Auth::user()->cargoId == 1)
+                                    <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                    <select class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
+                                        @endforeach
                                     </select>
                                     @else
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
+                                    <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                    <select disabled class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
+                                        @endforeach
                                     </select>
                                     @endif
                                 </div>
@@ -178,7 +178,7 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
-                                    <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF" required>
+                                    <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Digite o CPF" value="{{$usuario->cpf}}" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="rg" class="control-label labelInputEditUser">RG:</label>
@@ -231,19 +231,19 @@
                                     <input type="text" class="form-control" name="sexo" placeholder="Digite o Sexo" value="{{$usuario->sexo}}">
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    @if( Auth::user()->tipoUsuario == 'Administrador')
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
+                                    @if( Auth::user()->cargoId == 1)
+                                    <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                    <select class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
+                                        @endforeach
                                     </select>
                                     @else
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Funcionário' ? 'selected' : '')}}>Funcionário</option>
+                                    <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                    <select disabled class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
+                                        @endforeach
                                     </select>
                                     @endif
                                 </div>

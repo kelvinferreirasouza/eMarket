@@ -10,5 +10,5 @@ class Cargo extends Model
         'nome','descricao', 'isAtivo',
     ];
 
-    protected $table = 'funcionariocargos';
+    protected $table = 'usuariocargos';
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Usuario;
+use App\Cargo;
 use Illuminate\Support\Facades\Hash;
 use Auth;
  
@@ -12,7 +13,8 @@ class UsuarioController extends Controller
     public function listarUsuarios()
     {
         $usuarios = Usuario::all();
-        return view('usuarios.listar', compact('usuarios'));
+        $cargos = Cargo::all();
+        return view('usuarios.listar', compact('usuarios', 'cargos'));
     }
  
     public function editarUsuario($id)
@@ -20,7 +22,8 @@ class UsuarioController extends Controller
         $this->authorize('update', Usuario::class);
  
         $usuario = Usuario::find($id);
-        return view('usuarios.editar', compact('usuario'));
+        $cargos = Cargo::all();
+        return view('usuarios.editar', compact('usuario', 'cargos'));
     }
  
     public function atualizarUsuario(Request $request, $id)
@@ -82,9 +85,9 @@ class UsuarioController extends Controller
         $dados['senha'] = bcrypt($dados['senha']);
         
 
-        if (Auth::user()->tipoUsuario != 'Administrador'){
+        if (Auth::user()->cargoId != 1){
             
-            $tipoUserPermitido = 'Funcionário';
+            $tipoUserPermitido = 3;
 
             $dados['tipoUsuario'] = $tipoUserPermitido;
         }

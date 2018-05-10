@@ -57,7 +57,13 @@
                                             <td>{{$usuario->cpf}}</td>
                                             <td>{{$usuario->celular}}</td>
                                             <td>{{$usuario->login}}</td>
-                                            <td>{{$usuario->tipoUsuario}}</td>
+                                            <td>
+                                                @foreach($cargos as $cargo)
+                                                    @if( $usuario->cargoId == $cargo->id)
+                                                        {{ $cargo->nome }}   
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>
                                                 <center>
                                                     @can('update', App\Usuario::class)

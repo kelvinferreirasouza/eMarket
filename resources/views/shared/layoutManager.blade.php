@@ -405,10 +405,10 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
-                                            <li class=" ">
-                                                <a href="session-timeout.html" data-i18n="nav.extra-components.session-timeout">
+                                            <li class="">
+                                                <a href="{{route('listarCargos')}}" data-i18n="nav.extra-components.session-timeout">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
-                                                    <span class="pcoded-mtext">Session Timeout</span>
+                                                    <span class="pcoded-mtext">Cargos de Usuário</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>

@@ -42,7 +42,7 @@ class UsuarioPolicy
      */
     public function update(Usuario $user)
     {
-    return $user->tipoUsuario === "Administrador" || $user->tipoUsuario === "Gerente";
+    return $user->cargoId === 1 || $user->cargoId === 2;
     }
 
     /**
