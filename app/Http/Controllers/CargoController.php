@@ -25,4 +25,20 @@ class CargoController extends Controller
  
         return redirect()->route('listarCargos');
     }
+
+    public function editarCargo($id)
+    {
+        $cargo = Cargo::find($id);
+        return view('cargos.editar', compact('cargo'));
+    }
+
+    public function atualizarCargo(Request $request, $id)
+    {
+        $dados = $request->all();
+        $cargo = Cargo::find($id);
+ 
+        $cargo->update($dados);
+
+        return redirect()->route('listarCargos');
+    }
 }
