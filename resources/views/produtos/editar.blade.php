@@ -103,6 +103,13 @@
                                             @endforeach  
                                     </select>
                                 </div>
+                                <div class="col-sm-2">
+                                    <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                    <select class="form-control labelInputEditUser" name="isAtivo">
+                                        <option value="1" {{ $produto->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option value="0" {{ $produto->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>     
                     </form>

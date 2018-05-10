@@ -61,8 +61,9 @@ class UsuarioController extends Controller
         $this->authorize('update', Usuario::class);
 
         $usuario = Usuario::find($id);
+        $cargos = Cargo::all();
 
-        return view('usuarios.visualizar', compact('usuario'));
+        return view('usuarios.visualizar', compact('usuario', 'cargos'));
     }
  
     public function registrar()

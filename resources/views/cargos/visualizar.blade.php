@@ -7,7 +7,7 @@
             <div class="page-wrapper">
                 <div class="page-header">
                     <div class="page-header-title">
-                        <h4>Manager - Editar Cargo</h4>
+                        <h4>Manager - Visualizar Cargo</h4>
                     </div>
                     <div class="page-header-breadcrumb">
                         <ul class="breadcrumb-title">
@@ -22,7 +22,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('listarCargos') }}">Cargos</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Editar</a>
+                            <li class="breadcrumb-item"><a href="#">Visualizar</a>
                             </li>
                         </ul>
                     </div>
@@ -33,7 +33,7 @@
                         <div class="card-header">
                             <div class="col-sm-2">
                                 <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarCargos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
-                                <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar"><i class="icofont icofont-save"></i>Salvar</button></div>
+                                <div class="col-sm-6"><button class="btn btn-primary btnVisualizarEditar"><i class="icofont icofont-pencil-alt-5"></i><a class="linkCancel" href="{{route('editarCargo', $cargo->id)}}"><b>Editar</b></a></button></div>
                             </div>
                             <h5>Editar Cargo</h5>
                         </div>
@@ -42,18 +42,18 @@
                             <div class="form-group row">
                                 <div class="col-sm-4">
                                     <label for="nome" class="control-label labelInputEditUser">Nome do Cargo:</label>
-                                    <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" value="{{$cargo->nome}}" required>
+                                    <input disabled type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" value="{{$cargo->nome}}" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="descricao" class="control-label labelInputEditUser">Descrição do Cargo:</label>
-                                    <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição do cargo"
+                                    <input disabled type="text" class="form-control" name="descricao" placeholder="Digite a descrição do cargo"
                                     value="{{$cargo->descricao}}" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                    <select class="form-control labelInputEditUser" name="isAtivo">
-                                        <option value="1" {{ $cargo->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                        <option value="0" {{ $cargo->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                        <option disabled {{ $cargo->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option disabled {{ $cargo->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                     </select>
                                 </div>
                             </div>

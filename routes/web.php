@@ -81,6 +81,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/usuarios/cargos/salvar', 'CargoController@salvarCargo')->name('salvarCargo');  
     Route::get('/usuarios/cargos/editar/{id}', 'CargoController@editarCargo')->name('editarCargo');  
     Route::post('/usuarios/cargos/atualizar/{id}', 'CargoController@atualizarCargo')->name('atualizarCargo');
+    Route::get('/usuarios/cargos/visualizar/{id}', 'CargoController@visualizarCargo')->name('visualizarCargo');
 
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias','ProdutoController@getCategoriasAjax');

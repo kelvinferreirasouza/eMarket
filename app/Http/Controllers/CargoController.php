@@ -41,4 +41,11 @@ class CargoController extends Controller
 
         return redirect()->route('listarCargos');
     }
+
+    public function visualizarCargo($id)
+    
+    {
+        $cargo = Cargo::find($id);
+        return view('cargos.visualizar', compact('cargo'));
+    }
 }

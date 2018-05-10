@@ -54,9 +54,9 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                    <select class="form-control labelInputEditUser" value="{{ $categoria->isAtivo }}">
+                                    <select class="form-control labelInputEditUser" name="isAtivo">
                                         <option value="1" {{ $categoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                        <option value="{{ $categoria->isAtivo }}" {{ $categoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                        <option value="0" {{ $categoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                     </select>
                                 </div>
                             </div>

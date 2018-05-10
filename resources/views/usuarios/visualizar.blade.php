@@ -115,11 +115,18 @@
                                     <input disabled type="text" class="form-control" name="sexo" value="{{$usuario->sexo}}">
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    <label for="tipoUsuario" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select disabled class="form-control" name="tipoUsuario" value="{{$usuario->tipoUsuario}}" required>
-                                        <option disabled {{($usuario->tipoUsuario == 'Administrador' ? 'selected' : '')}}>Administrador</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Gerente' ? 'selected' : '')}}>Gerente</option>
-                                        <option disabled {{($usuario->tipoUsuario == 'Cliente' ? 'selected' : '')}}>Cliente</option>
+                                    <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                    <select disabled class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
+                                        @foreach($cargos as $cargo)
+                                        <option disabled {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                    <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                        <option disabled {{ $usuario->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option disabled {{ $usuario->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                     </select>
                                 </div>
                             </div>

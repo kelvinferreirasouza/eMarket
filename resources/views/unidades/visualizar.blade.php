@@ -50,7 +50,10 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>
-                                    <input disabled type="number" class="form-control" name="isAtivo" placeholder="1 para ativo e 0 para desativado" value="{{$unidade->isAtivo}}" required>
+                                    <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                        <option disabled {{ $unidade->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option disabled {{ $unidade->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>     
