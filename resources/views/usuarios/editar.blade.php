@@ -40,16 +40,16 @@
                             </div>  
                             <h5>Editar Usuário</h5>
                         </div>
-                        
+
                         <div class="card-block">
-                            
+
                             <div class="alert alert-danger background-danger">
-                                    <i class="icofont icofont-warning"></i>
+                                <i class="icofont icofont-warning"></i>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <i class="icofont icofont-close-line-circled text-white"></i>
                                 </button>Você não tem permissão para editar este usuário!!
                             </div>
-                            
+
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <label for="nome" class="control-label labelInputEditUser">Nome:</label>
@@ -147,7 +147,7 @@
                         </div> 
 
                         @else
-                        
+
                         <div class="card-header">
                             <div class="col-sm-2">
                                 <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarProdutos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
@@ -246,6 +246,13 @@
                                         @endforeach
                                     </select>
                                     @endif
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                    <select class="form-control labelInputEditUser" name="isAtivo">
+                                        <option value="1" {{ $usuario->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option value="0" {{ $usuario->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>                            

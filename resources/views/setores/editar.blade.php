@@ -46,7 +46,10 @@
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>
-                                    <input type="number" class="form-control" name="isAtivo" placeholder="1 para ativo e 0 para desativado" value="{{$setor->isAtivo}}" required>
+                                    <select class="form-control labelInputEditUser" name="isAtivo">
+                                        <option value="1" {{ $setor->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                        <option value="0" {{ $setor->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>     

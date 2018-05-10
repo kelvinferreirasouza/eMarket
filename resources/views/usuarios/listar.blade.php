@@ -42,9 +42,10 @@
                                             <th>Nome</th>
                                             <th>E-mail</th>
                                             <th>CPF</th>  
-                                            <th>Contato</th>
                                             <th>Login</th>
-                                            <th>Tipo</th>
+                                            <th>Cargo</th>
+                                            <th>Contato</th>
+                                            <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>            
@@ -55,7 +56,6 @@
                                             <td>{{$usuario->nome}}</td>
                                             <td>{{$usuario->email}}</td>
                                             <td>{{$usuario->cpf}}</td>
-                                            <td>{{$usuario->celular}}</td>
                                             <td>{{$usuario->login}}</td>
                                             <td>
                                                 @foreach($cargos as $cargo)
@@ -63,6 +63,14 @@
                                                         {{ $cargo->nome }}   
                                                     @endif
                                                 @endforeach
+                                            </td>
+                                            <td>{{$usuario->celular}}</td>
+                                            <td>
+                                                @if( $usuario->isAtivo == 1 )
+                                                    Ativo
+                                                @else
+                                                    Inativo
+                                                @endif
                                             </td>
                                             <td>
                                                 <center>
