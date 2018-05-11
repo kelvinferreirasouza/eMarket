@@ -20,13 +20,22 @@ class SubcategoriaController extends Controller
         $dados = $request->all();
         Subcategoria::create($dados);
  
-        return redirect()->route('listarSubCategorias');
+        return redirect()->route('listarSubcategorias');
     }
 
-    public function listarSubCategorias()
+    public function listarSubcategorias()
     {
         $subcategorias = Subcategoria::orderBy('produtoCategoriaId')->get();
         $categorias = Categoria::all();
         return view('subcategorias.listar', compact('subcategorias', 'categorias'));
+    }
+
+    public function excluirSubcategoria($id)
+    {
+        $Subcategoria = Subcategoria::find($id);
+
+        $Subcategoria->delete();
+
+        return redirect()->route('listarSubcategorias');
     }
 }
