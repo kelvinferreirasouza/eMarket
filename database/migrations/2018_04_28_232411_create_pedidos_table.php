@@ -27,7 +27,7 @@ class CreatePedidosTable extends Migration
             $table->integer('freteId')->unsigned();
             $table->foreign('freteId')->references('freteId')->on('fretes');
             $table->integer('formaPagamentoId')->unsigned();
-            $table->foreign('formaPagamentoId')->references('formaPagamentoId')->on('formapagamentos');
+            $table->foreign('formaPagamentoId')->references('id')->on('formapagamentos');
             $table->date('dataEmissao');
             $table->time('horaEmissao');
             $table->integer('isCancelado')->default(0);
