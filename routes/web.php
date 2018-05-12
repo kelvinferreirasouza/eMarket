@@ -62,7 +62,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/produtos/categorias/subcategorias/cadastrar', 'SubcategoriaController@cadastrarSubcategoria')->name('cadastrarSubcategoria');  
     Route::post('/produtos/categorias/subcategorias/salvar', 'SubcategoriaController@salvarSubcategoria')->name('salvarSubcategoria');  
     Route::get('/produtos/categorias/subcategorias/excluir/{id}', 'SubcategoriaController@excluirSubcategoria')->name('excluirSubcategoria');
-
+    Route::get('/produtos/categorias/subcategorias/editar/{id}', 'SubcategoriaController@editarSubcategoria')->name('editarSubcategoria');
+    Route::post('/produtos/categorias/subcategorias/atualizar/{id}', 'SubcategoriaController@atualizarSubcategoria')->name('atualizarSubcategoria');
 
     /* Rotas Protegidas de Unidades */
     Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');

@@ -38,4 +38,21 @@ class SubcategoriaController extends Controller
 
         return redirect()->route('listarSubcategorias');
     }
+
+    public function editarSubcategoria($id)
+    {
+        $subcategoria = Subcategoria::find($id);
+        $categorias = Categoria::all();
+        return view('subcategorias.editar', compact('subcategoria', 'categorias'));
+    }
+
+    public function atualizarSubcategoria(Request $request, $id)
+    {
+        $dados = $request->all();
+        $subcategoria = Subcategoria::find($id);
+ 
+        $subcategoria->update($dados);
+
+        return redirect()->route('listarSubcategorias');
+    }
 }

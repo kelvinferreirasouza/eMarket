@@ -20,7 +20,7 @@
 }
 
 .labelInputEditUser {
-    margin-left: 0%;
+    margin-left: -56%;
     margin-bottom: -1%;
     font-size: 12pt;
 }
@@ -39,4 +39,23 @@
 
 .btnAcoes{
     margin-left: 7%;
+}
+
+.modal-header {
+  background-color: #1988c9;
+  color: white;
+}
+
+.modalLabel {
+    margin-left: -70%;
+    margin-bottom: -2%;
+    font-size: 12pt;
+}
+
+.modalBack {
+    margin-bottom: -10%;
+}
+
+.modal-dialog {
+    margin: 200px auto;
 }

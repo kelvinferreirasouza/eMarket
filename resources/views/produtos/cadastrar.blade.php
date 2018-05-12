@@ -102,7 +102,7 @@
                                     <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
                                             <option></option>
                                             @foreach($categorias as $categoria)
-                                            
+                                            <option></option>
                                             @if($setor->id == $categoria->produtoSetorId )
                                                 <option value="{{$categoria->id}}">{{ $categoria->nome}}</option>
                                             @endif

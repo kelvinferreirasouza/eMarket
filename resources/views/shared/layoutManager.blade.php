@@ -41,6 +41,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/ionicons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/manager.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/jquery.mCustomScrollbar.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
     </head>
@@ -342,6 +344,13 @@
                                                 </a>
                                             </li>
                                             <li class="">
+                                                <a href="{{ route('listarSubcategorias') }}" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Sub-Categorias</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="">
                                                 <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.main">
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Unidades</span>
@@ -444,6 +453,7 @@
             </div>
         </div>
     </body>
+
     <!-- Required Jqurey -->
     <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
