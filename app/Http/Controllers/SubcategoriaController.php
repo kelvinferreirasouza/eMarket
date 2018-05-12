@@ -55,4 +55,12 @@ class SubcategoriaController extends Controller
 
         return redirect()->route('listarSubcategorias');
     }
+
+    public function visualizarSubcategoria($id)
+    
+    {
+        $subcategoria = Subcategoria::find($id);
+        $categorias = Categoria::all();
+        return view('subcategorias.visualizar', compact('subcategoria', 'categorias'));
+    }
 }

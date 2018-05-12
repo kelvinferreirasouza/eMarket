@@ -59,3 +59,7 @@
 .modal-dialog {
     margin: 200px auto;
 }
+
+.modal-body {
+    padding: 0;
+}

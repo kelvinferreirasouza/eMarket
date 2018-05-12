@@ -49,8 +49,7 @@
                                             <th>Ações</th>
                                         </tr>
                                     </thead>            
-                                    <tbody>            
-
+                                    <tbody>  
                                         <tr>
                                             @foreach($subcategorias as $subcategoria)
 
@@ -73,10 +72,10 @@
                                             <td>
                                     <center>
                                         <!-- Botão Editar Modal -->
-                                        <img src="../../imgs/iconEdit.png" title="Alterar Setor" data-toggle="modal" data-target="#exampleModalLong" class="btnAcoes" ></a>  
+                                        <img src="../../imgs/iconEdit.png" title="Alterar Setor" data-toggle="modal" data-target="#modalEditar" class="btnAcoes" ></a>  
 
                                         <!-- Modal de Editar -->
-                                        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                        <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -88,6 +87,10 @@
                                                     <div class="modal-body">
                                                         <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
                                                             {{ csrf_field() }}
+                                                            <div class="card-header">
+                                                                <h5>Editar Sub-Categoria</h5>
+                                                            </div>
+                                                            <div class="card-block">
                                                                 <div class="form-group row">
                                                                     <div class="col-sm-4">
                                                                         <label for="produtoCategoriaId" class="control-label labelInputEditUser" style="margin-left: -71%">Categoria:</label>
@@ -110,18 +113,66 @@
                                                                         </select>
                                                                     </div>
                                                                 </div>
-                                                            <div class="modal-footer">
-                                                                <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                            </div>       
+                                                                <div class="modal-footer">
+                                                                    <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                </div>       
                                                         </form>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                        </div>
+                                        <!-- Fim Modal de Editar -->
+
                                         <!-- Botão Visualizar Modal -->
-                                        <img src="../../imgs/iconView.png" title="Alterar Setor" data-toggle="modal" data-target="#exampleModalLong" class="btnAcoes" ></a>  
-                                        <!-- Modal de Visualizar -->
+                                        <img src="../../imgs/iconView.png" title="Alterar Setor" data-toggle="modal" data-target="#modalVisualizar" class="btnAcoes" ></a>  
+
+                                        <div class="modal fade" id="modalVisualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Editar Sub-Categoria <i class="fa fa-help"></i></h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true" style="color: #fff">×</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
+                                                                {{ csrf_field() }}
+                                                                <div class="card-header">
+                                                                    <h5>Visualização de Sub-Categoria</h5>
+                                                                </div>
+                                                                <div class="card-block">
+                                                                    <div class="form-group row">
+                                                                        <div class="col-sm-4">
+                                                                            <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
+                                                                            <select disabled class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
+                                                                                <option></option>
+                                                                                @foreach($categorias as $categoria)    
+                                                                                <option disabled value="{{$categoria->id}}" {{ $subcategoria->produtoCategoriaId == $categoria->id ? 'selected' : '' }} >{{$categoria->nome}}</option>
+                                                                                @endforeach  
+                                                                            </select>
+                                                                        </div>
+                                                                        <div class="col-sm-6">
+                                                                            <label for="nome" class="control-label labelInputEditUser">Nome da Sub-Categoria:</label>
+                                                                            <input disabled type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$subcategoria->nome}}" required>
+                                                                        </div>
+                                                                        <div class="col-sm-2">
+                                                                            <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                            <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                                                                <option disabled value="1" {{ $subcategoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                <option disabled value="0" {{ $subcategoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>     
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Fim Modal de Visualizar -->
                                         <a href="{{route('excluirSubcategoria', $subcategoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                     </center>
                                     </td>
