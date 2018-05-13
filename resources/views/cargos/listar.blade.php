@@ -62,7 +62,7 @@
                                                 <center>
                                                    <a href="{{route('editarCargo', $cargo->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
                                                    <a href="{{route('visualizarCargo', $cargo->id)}}"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
-                                                   <a href="{{route('excluirSetor', $cargo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                   <a href="{{route('excluirCargo', $cargo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                                 </center>
                                             </td>
                                         </tr>                         

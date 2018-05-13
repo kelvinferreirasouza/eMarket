@@ -64,7 +64,7 @@
                                     <center>
                                         <a href="#"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
                                         <a href="#"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
-                                        <a href="#" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                        <a href="{{route('excluirFormaPag', $formapagamento->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                     </center>
                                     </td>
                                     </tr>                         

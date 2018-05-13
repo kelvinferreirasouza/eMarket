@@ -26,4 +26,13 @@ class FormaPagamentoController extends Controller
         return redirect()->route('listarFormasPag');
     }
 
+    public function excluirFormaPag($id)
+    {
+        $formapagamento = FormaPagamento::find($id);
+
+        $formapagamento->delete();
+
+        return redirect()->route('listarFormasPag');
+    }
+
 }

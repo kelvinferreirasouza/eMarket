@@ -91,11 +91,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/usuarios/cargos/editar/{id}', 'CargoController@editarCargo')->name('editarCargo');  
     Route::post('/usuarios/cargos/atualizar/{id}', 'CargoController@atualizarCargo')->name('atualizarCargo');
     Route::get('/usuarios/cargos/visualizar/{id}', 'CargoController@visualizarCargo')->name('visualizarCargo');
+    Route::get('/usuarios/cargos/excluir/{id}', 'CargoController@excluirCargo')->name('excluirCargo');
 
   /* Rotas Protegidas de Formas de Pagamentos */
     Route::get('/financeiro/formaspagamentos', 'FormaPagamentoController@listarFormasPag')->name('listarFormasPag');
     Route::get('/financeiro/formaspagamentos/cadastrar', 'FormaPagamentoController@cadastrarFormaPag')->name('cadastrarFormaPag');  
     Route::post('/financeiro/formaspagamentos/salvar', 'FormaPagamentoController@salvarFormaPag')->name('salvarFormaPag');  
+    Route::get('/financeiro/formaspagamentos/excluir/{id}', 'FormaPagamentoController@excluirFormaPag')->name('excluirFormaPag');
 
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias','ProdutoController@getCategoriasAjax');

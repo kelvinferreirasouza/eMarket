@@ -14,7 +14,7 @@ class CargoController extends Controller
 
     public function listarCargos()
     {
-        $cargos = Cargo::orderBy('descricao')->get();
+        $cargos = Cargo::all();
         return view('cargos.listar', compact('cargos'));
     }
 
@@ -47,5 +47,14 @@ class CargoController extends Controller
     {
         $cargo = Cargo::find($id);
         return view('cargos.visualizar', compact('cargo'));
+    }
+
+    public function excluirCargo($id)
+    {
+        $cargo = Cargo::find($id);
+
+        $cargo->delete();
+
+        return redirect()->route('listarCargos');
     }
 }
