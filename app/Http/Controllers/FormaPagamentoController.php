@@ -35,4 +35,30 @@ class FormaPagamentoController extends Controller
         return redirect()->route('listarFormasPag');
     }
 
+    public function visualizarFormaPag($id)
+    
+    {
+        $formapagamento = FormaPagamento::find($id);
+
+        return view('formaspagamentos.visualizar', compact('formapagamento'));
+    }
+
+    public function atualizarFormaPag(Request $request, $id)
+    {
+        $dados = $request->all();
+        $formapagamento = FormaPagamento::find($id);
+ 
+        $formapagamento->update($dados);
+
+        return redirect()->route('listarFormasPag');
+    }
+
+    public function editarFormaPag($id)
+    {
+        $formapagamento = FormaPagamento::find($id);
+        
+        return view('formaspagamentos.editar', compact('formapagamento'));
+    }
+
+
 }

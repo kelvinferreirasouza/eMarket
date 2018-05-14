@@ -98,6 +98,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/financeiro/formaspagamentos/cadastrar', 'FormaPagamentoController@cadastrarFormaPag')->name('cadastrarFormaPag');  
     Route::post('/financeiro/formaspagamentos/salvar', 'FormaPagamentoController@salvarFormaPag')->name('salvarFormaPag');  
     Route::get('/financeiro/formaspagamentos/excluir/{id}', 'FormaPagamentoController@excluirFormaPag')->name('excluirFormaPag');
+    Route::get('/financeiro/formaspagamentos/visualizar/{id}', 'FormaPagamentoController@visualizarFormaPag')->name('visualizarFormaPag');
+    Route::post('/financeiro/formaspagamentos/atualizar/{id}', 'FormaPagamentoController@atualizarFormaPag')->name('atualizarFormaPag');
+    Route::get('/financeiro/formaspagamentos/editar/{id}', 'FormaPagamentoController@editarFormaPag')->name('editarFormaPag');  
 
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias','ProdutoController@getCategoriasAjax');

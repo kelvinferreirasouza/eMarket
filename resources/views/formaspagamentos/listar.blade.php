@@ -32,7 +32,6 @@
                         <a href="{{route('cadastrarFormaPag')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Forma Pagamento</button></a>
                         <h5>Lista das Formas de Pagamento</h5>
                         <span>Listagem das formas de pagamento cadastradas.</span>   
-
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -62,8 +61,8 @@
                                             </td>
                                             <td>
                                     <center>
-                                        <a href="#"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" ></a>  
-                                        <a href="#"><img src="../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes" ></a>  
+                                        <a href="{{route('editarFormaPag', $formapagamento->id)}}"><img src="../imgs/iconEdit.png" title="Editar Forma Pagamento" class="btnAcoes" ></a>  
+                                        <a href="{{route('visualizarFormaPag', $formapagamento->id)}}"><img src="../imgs/iconView.png" title="Visualizar Forma Pagamento" class="btnAcoes" ></a>  
                                         <a href="{{route('excluirFormaPag', $formapagamento->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
                                     </center>
                                     </td>
