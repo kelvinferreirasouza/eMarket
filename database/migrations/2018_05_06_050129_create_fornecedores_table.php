@@ -17,7 +17,7 @@ class CreateFornecedoresTable extends Migration
             $table->increments('id');
             $table->string('razaoSocial', 100);  
             $table->string('nomeFantasia', 100);  
-            $table->string('cnpj', 14)->unique();
+            $table->string('cnpj', 20)->unique();
             $table->string('ie')->nullable();          
             $table->string('email', 100);
             $table->string('cep', 9)->nullable();
@@ -28,6 +28,8 @@ class CreateFornecedoresTable extends Migration
             $table->string('municipio', 100)->nullable();
             $table->string('fone')->nullable();
             $table->timestamps();
+            $table->integer('isAtivo')->default(1);
+
         });
     }
 

@@ -300,7 +300,7 @@
                                                 </a>
                                             </li>
                                             <li class=" ">
-                                                <a href="navbar-dark.html" data-i18n="nav.navigate.navbar-inverse">
+                                                <a href="{{ route('listarFornecedores') }}" data-i18n="nav.navigate.navbar-inverse">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Fornecedores</span>
                                                     <span class="pcoded-mcaret"></span>
