@@ -32,7 +32,7 @@
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
-                           <h5>Lista de Sub-Categorias</h5>
+                            <h5>Lista de Sub-Categorias</h5>
                             <span>Listagem das sub-categorias dos produtos</span>   
                         </div>
                         <a href="{{route('cadastrarSubcategoria')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Sub-Categoria </button></a>
@@ -71,121 +71,120 @@
                                                 @endif
                                             </td>
                                             <td>
-                                    <center>
-                                        <!-- Botão Editar Modal -->
 
-                                        <a href="javascript:;" data-id="{{ $subcategoria->id }}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" data-toggle="modal" data-id="{{subcategoria->id}}" data-target="#modalEditar" ></a>
+                                                <!-- BOTAO EDITAR MODAL -->
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconEdit.png" titles="Excluir Usuário" class="btnAcoes"></a>
 
-                                        <script type="text/javascript">
-                                            $('.btnAcoes').on('click', function(event) {
-                                                console.log($(event.target).closest('a').attr('data-id'));
-                                            })
-                                        </script>    
-
-                                        <!-- Modal de Editar -->
-                                        <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
-                                                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Editar Sub-Categoria <i class="fa fa-help"></i></h5>
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true" style="color: #fff">×</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
-                                                            {{ csrf_field() }}
-                                                            <div class="card-header">
-                                                                <h5>Editar Sub-Categoria</h5>
+                                                <!-- MODAL DE EDITAR -->
+                                                <div class="modal fade" id="modalEditar{{$subcategoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Sub-Categoria #{{$subcategoria->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
                                                             </div>
-                                                            <div class="card-block">
-                                                                <div class="form-group row">
-                                                                    <div class="col-sm-4">
-                                                                        <label for="produtoCategoriaId" class="control-label labelInputEditUser" style="margin-left: -71%">Categoria:</label>
-                                                                        <select class="form-control labelInputEditUser modalBack" name="produtoCategoriaId" id="produtoCategoriaId">
-                                                                            <option></option>
-                                                                            @foreach($categorias as $categoria)    
-                                                                            <option value="{{$categoria->id}}" {{ $subcategoria->produtoCategoriaId == $categoria->id ? 'selected' : '' }} >{{$categoria->nome}}</option>
-                                                                            @endforeach  
-                                                                        </select>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Editar Sub-Categoria</h5></CENTER>
                                                                     </div>
-                                                                    <div class="col-sm-6">
-                                                                        <label for="nome" class="control-label labelInputEditUser">Nome da Sub-Categoria:</label>
-                                                                        <input type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$subcategoria->nome}}" required>
-                                                                    </div>
-                                                                    <div class="col-sm-2">
-                                                                        <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                                        <select class="form-control labelInputEditUser" name="isAtivo">
-                                                                            <option value="1" {{ $subcategoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                                                            <option value="0" {{ $subcategoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
-                                                                        </select>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
-                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                                                </div>       
-                                                        </form>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                        <!-- Fim Modal de Editar -->
-
-                                        <!-- Botão Visualizar Modal -->
-                                        <img src="../../imgs/iconView.png" title="Alterar Setor" data-toggle="modal" data-target="#modalVisualizar" class="btnAcoes" ></a>  
-
-                                        <div class="modal fade" id="modalVisualizar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg" role="document">
-                                                    <div class="modal-content">
-                                                        <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
-                                                            <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Editar Sub-Categoria <i class="fa fa-help"></i></h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true" style="color: #fff">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
-                                                                {{ csrf_field() }}
-                                                                <div class="card-header">
-                                                                    <h5>Visualização de Sub-Categoria</h5>
-                                                                </div>
-                                                                <div class="card-block">
-                                                                    <div class="form-group row">
-                                                                        <div class="col-sm-4">
-                                                                            <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
-                                                                            <select disabled class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
-                                                                                <option></option>
-                                                                                @foreach($categorias as $categoria)    
-                                                                                <option disabled value="{{$categoria->id}}" {{ $subcategoria->produtoCategoriaId == $categoria->id ? 'selected' : '' }} >{{$categoria->nome}}</option>
-                                                                                @endforeach  
-                                                                            </select>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-4">
+                                                                                <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
+                                                                                <select class="form-control labelInputEditUser modalBack" name="produtoCategoriaId" id="produtoCategoriaId">
+                                                                                    <option></option>
+                                                                                    @foreach($categorias as $categoria)    
+                                                                                    <option value="{{$categoria->id}}" {{ $subcategoria->produtoCategoriaId == $categoria->id ? 'selected' : '' }} >{{$categoria->nome}}</option>
+                                                                                    @endforeach  
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <label for="nome" class="control-label labelInputEditUser">Nome da Sub-Categoria:</label>
+                                                                                <input type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$subcategoria->nome}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option value="1" {{ $subcategoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option value="0" {{ $subcategoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
-                                                                        <div class="col-sm-6">
-                                                                            <label for="nome" class="control-label labelInputEditUser">Nome da Sub-Categoria:</label>
-                                                                            <input disabled type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$subcategoria->nome}}" required>
-                                                                        </div>
-                                                                        <div class="col-sm-2">
-                                                                            <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                                            <select disabled class="form-control labelInputEditUser" name="isAtivo">
-                                                                                <option disabled value="1" {{ $subcategoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                                                                <option disabled value="0" {{ $subcategoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
-                                                                            </select>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>     
-                                                            </form>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- Fim Modal de Visualizar -->
-                                        <a href="{{route('excluirSubcategoria', $subcategoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
-                                    </center>
-                                    </td>
-                                    </tr>                         
-                                    @endforeach   
+                                                </div>
+                                                <!-- FIM MODAL EDITAR -->
+
+                                                <!-- BOTAO VISUALIZAR MODAL -->
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconView.png" titles="Excluir Usuário" class="btnAcoes"></a>
+
+                                                <!-- MODAL DE VISUALIZAR -->
+                                                <div class="modal fade" id="modalVisualizar{{$subcategoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Sub-Categoria #{{$subcategoria->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarSubcategoria', $subcategoria->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Visualizar Sub-Categoria</h5></CENTER>
+                                                                    </div>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-4">
+                                                                                <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
+                                                                                <select disabled class="form-control labelInputEditUser modalBack" name="produtoCategoriaId" id="produtoCategoriaId">
+                                                                                    <option></option>
+                                                                                    @foreach($categorias as $categoria)    
+                                                                                    <option disabled value="{{$categoria->id}}" {{ $subcategoria->produtoCategoriaId == $categoria->id ? 'selected' : '' }} >{{$categoria->nome}}</option>
+                                                                                    @endforeach  
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-sm-6">
+                                                                                <label for="nome" class="control-label labelInputEditUser">Nome da Sub-Categoria:</label>
+                                                                                <input disabled type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$subcategoria->nome}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option disabled {{ $subcategoria->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option disabled {{ $subcategoria->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- FIM MODAL VISUALIZAR -->
+
+
+                                                <a href="{{route('excluirSubcategoria', $subcategoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                </center>
+                                            </td>
+                                        </tr>                         
+                                        @endforeach   
                                     </tbody>
                                 </table> 
                             </div> 
