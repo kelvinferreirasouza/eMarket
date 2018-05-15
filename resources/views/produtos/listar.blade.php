@@ -24,11 +24,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Produtos Cadastros</h5>
+                            <span>Listagem dos produtos cadastrados e suas informações</span>   
+                        </div>
                         <button class="btn btn-primary waves-effect waves-light btnCadProd"><a class="linkCancel" href="{{ route('cadastrarProduto') }}"><i class="fa fa-user-plus"></i>Cadastrar Produto</a></button>
-                        <h5>Lista de Produtos</h5>
-                        <span>Listagem dos produtos cadastrados e suas informações</span>   
-
                     </div>
                     <div class="card-block">
                         <div class="row">

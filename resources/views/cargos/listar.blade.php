@@ -26,11 +26,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Cargos</h5>
+                            <span>Listagem dos cargos de funcionários</span>   
+                        </div>
                         <a href="{{route('cadastrarCargo')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cargo</button></a>
-                        <h5>Lista de Cargos</h5>
-                        <span>Listagem de cargos dos usuários cadastrados.</span>   
-
                     </div>
                     <div class="card-block">
                         <div class="row">

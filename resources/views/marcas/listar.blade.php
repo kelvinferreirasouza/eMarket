@@ -26,11 +26,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Marcas</h5>
+                            <span>Listagem das marcas de produtos</span>   
+                        </div>
                         <a href="{{route('cadastrarMarca')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
-                        <h5>Lista de Marcas</h5>
-                        <span>Listagem das marcas de produtos cadastrados.</span>   
-
                     </div>
                     <div class="card-block">
                         <div class="row">

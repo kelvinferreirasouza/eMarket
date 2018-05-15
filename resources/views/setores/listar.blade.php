@@ -26,11 +26,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Setores Cadastros</h5>
+                            <span>Listagem dos setores cadastrados e suas informações</span>   
+                        </div>
                         <a href="{{route('cadastrarSetor')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Setor</button></a>
-                        <h5>Lista de Setores</h5>
-                        <span>Listagem dos setores de produtos cadastrados.</span>   
-
                     </div>
                     <div class="card-block">
                         <div class="row">

@@ -27,13 +27,13 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card">
+                <div class="card-header">
                     <form method="post" action="{{route ('atualizarCargo', $cargo->id)}}" class="formEditUser">
                         {{ csrf_field() }}
                         <div class="card-header">
-                            <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarCargos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
-                                <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar"><i class="icofont icofont-save"></i>Salvar</button></div>
+                            <div class="btnActions">
+                                <button type="submit" class="btn btn-primary" style="margin-right: 2px"><i class="icofont icofont-save"></i>Salvar</button>
+                                <button class="btn btn-warning"><a class="linkCancel" href="{{ route('listarCargos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button>
                             </div>
                             <h5>Editar Cargo</h5>
                         </div>

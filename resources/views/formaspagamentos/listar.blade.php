@@ -28,10 +28,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Formas de Pagamento</h5>
+                            <span>Listagem das formas de pagamento aceitas</span>   
+                        </div>
                         <a href="{{route('cadastrarFormaPag')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Forma Pagamento</button></a>
-                        <h5>Lista das Formas de Pagamento</h5>
-                        <span>Listagem das formas de pagamento cadastradas.</span>   
                     </div>
                     <div class="card-block">
                         <div class="row">

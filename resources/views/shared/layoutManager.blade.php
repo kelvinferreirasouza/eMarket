@@ -41,7 +41,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/ionicons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/manager.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/jquery.mCustomScrollbar.css') }}">
-        <link rel="stylesheet" type="text/css" href="{{ asset('//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>

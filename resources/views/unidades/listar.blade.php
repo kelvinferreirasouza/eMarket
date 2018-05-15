@@ -26,11 +26,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{route('cadastrarUnidade')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade</button></a>
-                        <h5>Lista de Unidades</h5>
-                        <span>Listagem das unidades de produtos cadastrados.</span>   
-
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Unidades</h5>
+                            <span>Listagem das unidades de produtos</span>   
+                        </div>
+                        <a href="{{route('cadastrarUnidade')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade </button></a>
                     </div>
                     <div class="card-block">
                         <div class="row">

@@ -30,11 +30,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{route('cadastrarSubcategoria')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Sub-Categoria</button></a>
-                        <h5>Lista de Sub-Categorias</h5>
-                        <span>Listagem das sub-categorias de produtos cadastrados.</span>   
-
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Sub-Categorias</h5>
+                            <span>Listagem das sub-categorias dos produtos</span>   
+                        </div>
+                        <a href="{{route('cadastrarSubcategoria')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Sub-Categoria </button></a>
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -72,7 +73,14 @@
                                             <td>
                                     <center>
                                         <!-- Botão Editar Modal -->
-                                        <img src="../../imgs/iconEdit.png" title="Alterar Setor" data-toggle="modal" data-target="#modalEditar" class="btnAcoes" ></a>  
+
+                                        <a href="javascript:;" data-id="{{ $subcategoria->id }}"><img src="../imgs/iconEdit.png" title="Alterar Setor" class="btnAcoes" data-toggle="modal" data-id="{{subcategoria->id}}" data-target="#modalEditar" ></a>
+
+                                        <script type="text/javascript">
+                                            $('.btnAcoes').on('click', function(event) {
+                                                console.log($(event.target).closest('a').attr('data-id'));
+                                            })
+                                        </script>    
 
                                         <!-- Modal de Editar -->
                                         <div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

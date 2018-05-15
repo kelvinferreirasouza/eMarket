@@ -32,15 +32,14 @@
                         {{ csrf_field() }}
 
                         @if( Auth::user()->cargoId == 2 && $usuario->cargoId == 1)
-
-                        <div class="card-header">
-                            <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
-                                <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar" style="display: none"><i class="icofont icofont-save"></i>Salvar</button></div>
-                            </div>  
-                            <h5>Editar Usuário</h5>
+                        <div class="card">
+                            <div class="btnActions">
+                                <button type="submit" class="btn btn-primary" style="margin-right: 2px"><i class="icofont icofont-save"></i>Salvar</button>
+                                <button class="btn btn-warning"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button>
+                                <h5>Editar Cargo</h5>
+                            </div>
+                            
                         </div>
-
                         <div class="card-block">
 
                             <div class="alert alert-danger background-danger">
@@ -149,13 +148,12 @@
                         @else
 
                         <div class="card-header">
-                            <div class="col-sm-2">
-                                <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarProdutos') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
-                                <div class="col-sm-6"><button type="submit" class="btn btn-primary btnSalvar"><i class="icofont icofont-save"></i>Salvar</button></div>
+                            <div class="btnActions">
+                                <button type="submit" class="btn btn-primary" style="margin-right: 2px"><i class="icofont icofont-save"></i>Salvar</button>
+                                <button class="btn btn-warning"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button>
                             </div>
-                            <h5>Editar Usuário</h5>
+                            <h5>Editar Cargo</h5>
                         </div>
-
                         <div class="card-block">
                             <div class="form-group row">
                                 <div class="col-sm-6">

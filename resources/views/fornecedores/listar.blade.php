@@ -26,11 +26,12 @@
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{route('cadastrarSetor')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>
-                        <h5>Lista de Fornecedores</h5>
-                        <span>Listagem dos fornecedores cadastrados.</span>   
-
+                    <div class="card-header card-header-flex">
+                        <div>
+                           <h5>Lista de Fornecedores</h5>
+                            <span>Listagem dos fornecedores cadastrados</span>   
+                        </div>
+                        <a href="{{route('cadastrarFormaPag')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>
                     </div>
                     <div class="card-block">
                         <div class="row">

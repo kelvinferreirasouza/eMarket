@@ -14,7 +14,7 @@ class FormaPagamentoController extends Controller
 
     public function listarFormasPag()
     {
-        $formaspagamentos = FormaPagamento::orderBy('nome')->get();
+        $formaspagamentos = FormaPagamento::all();
         return view('formaspagamentos.listar', compact('formaspagamentos'));
     }
 
