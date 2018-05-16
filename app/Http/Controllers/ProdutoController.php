@@ -25,8 +25,12 @@ class ProdutoController extends Controller
     public function listarProdutos()
     {
         $produtos = Produto::all();
+        $setores    = Setor::all();
+        $marcas     = Marca::all();
+        $unidades   = Unidade::all();
+        $categorias = Categoria::all();
 
-        return view('produtos.listar', compact('produtos'));
+        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias'));
     }
 
     public function salvarProduto(Request $request)

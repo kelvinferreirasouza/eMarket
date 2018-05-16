@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
-                           <h5>Lista de Unidades</h5>
+                            <h5>Lista de Unidades</h5>
                             <span>Listagem das unidades de produtos</span>   
                         </div>
                         <a href="{{route('cadastrarUnidade')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade </button></a>
@@ -54,17 +54,109 @@
                                             <td>{{$unidade->sigla}}</td>
                                             <td>
                                                 @if($unidade->isAtivo == 1)
-                                                    Ativo
+                                                Ativo
                                                 @else 
-                                                    Inativo
+                                                Inativo
                                                 @endif
                                             </td>
                                             <td>
-                                                <center>
-                                                   <a href="{{route('editarUnidade', $unidade->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Unidade" class="btnAcoes" ></a>  
-                                                   <a href="{{route('visualizarUnidade', $unidade->id)}}"><img src="../imgs/iconView.png" title="Visualizar Unidade" class="btnAcoes" ></a>  
-                                                   <a href="{{route('excluirUnidade', $unidade->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
-                                                </center>
+                                                <!-- BOTAO EDITAR MODAL -->
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$unidade->id}}" data-whatever="{{$unidade->id}}" data-whateverdescricao="{{$unidade->descricao}}" data-whateversigla="{{$unidade->sigla}}" data-whateverativo="{{$unidade->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Unidade" class="btnAcoes"></a>
+
+                                                <!-- MODAL DE EDITAR -->
+                                                <div class="modal fade" id="modalEditar{{$unidade->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Unidade #{{$unidade->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarUnidade', $unidade->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Editar Unidade</h5></CENTER>
+                                                                    </div>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-6">
+                                                                                <label for="descricao" class="control-label labelInputEditUser">Descrição:</label>
+                                                                                <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição da unidade" value="{{$unidade->descricao}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <label for="sigla" class="control-label labelInputEditUser">Sigla:</label>
+                                                                                <input type="text" class="form-control" name="sigla" placeholder="Digite a sigla da unidade" value="{{$unidade->sigla}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option value="1" {{ $unidade->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option value="0" {{ $unidade->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- FIM MODAL EDITAR -->
+
+                                                <!-- BOTAO VISUALIZAR MODAL -->
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$unidade->id}}" data-whatever="{{$unidade->id}}" data-whateverdescricao="{{$unidade->descricao}}" data-whateversigla="{{$unidade->sigla}}" data-whateverativo="{{$unidade->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Unidade" class="btnAcoes"></a>
+
+                                                <!-- MODAL DE VISUALIZAR -->
+                                                <div class="modal fade" id="modalVisualizar{{$unidade->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Unidade #{{$unidade->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarUnidade', $unidade->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Visualizar Unidade</h5></CENTER>
+                                                                    </div>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-6">
+                                                                                <label for="produtoCategoriaId" class="control-label labelInputEditUser">Descrição:</label>
+                                                                                <input disabled type="text" class="form-control" name="descricao" placeholder="Digite a descrição da unidade" value="{{$unidade->descricao}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                                                <label for="sigla" class="control-label labelInputEditUser">Sigla:</label>
+                                                                                <input disabled type="text" class="form-control" name="sigla" placeholder="Digite a sigla da unidade" value="{{$unidade->sigla}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option disabled {{ $unidade->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option disabled {{ $unidade->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- FIM MODAL VISUALIZAR -->
+                                                <a href="{{route('excluirUnidade', $unidade->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
                                         @endforeach                                
@@ -74,4 +166,4 @@
                         </div>
                     </div>
                 </div>
-@endsection
+                @endsection

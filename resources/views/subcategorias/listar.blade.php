@@ -73,7 +73,7 @@
                                             <td>
 
                                                 <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconEdit.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Sub-Categoria" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$subcategoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -127,7 +127,7 @@
                                                 <!-- FIM MODAL EDITAR -->
 
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconView.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$subcategoria->id}}" data-whatever="{{$subcategoria->id}}" data-whatevernome="{{$subcategoria->nome}}" data-whateverativo="{{$subcategoria->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Sub-Categoria" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$subcategoria->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -180,7 +180,7 @@
                                                 <!-- FIM MODAL VISUALIZAR -->
 
 
-                                                <a href="{{route('excluirSubcategoria', $subcategoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                <a href="{{route('excluirSubcategoria', $subcategoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Sub-Categoria" class="btnAcoes"></a>
                                                 </center>
                                             </td>
                                         </tr>                         

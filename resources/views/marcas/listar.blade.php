@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
-                           <h5>Lista de Marcas</h5>
+                            <h5>Lista de Marcas</h5>
                             <span>Listagem das marcas de produtos</span>   
                         </div>
                         <a href="{{route('cadastrarMarca')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
@@ -52,17 +52,103 @@
                                             <td>{{$marca->nome}}</td>
                                             <td>
                                                 @if($marca->isAtivo == 1)
-                                                    Ativo
+                                                Ativo
                                                 @else 
-                                                    Inativo
+                                                Inativo
                                                 @endif
                                             </td>
                                             <td>
-                                                <center>
-                                                   <a href="{{route('editarMarca', $marca->id)}}"><img src="../imgs/iconEdit.png" title="Alterar Marca" class="btnAcoes" ></a>  
-                                                   <a href="{{route('visualizarMarca', $marca->id)}}"><img src="../imgs/iconView.png" title="Visualizar Marca" class="btnAcoes" ></a>  
-                                                   <a href="{{route('excluirMarca', $marca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
-                                                </center>
+                                                <!-- BOTAO EDITAR MODAL -->
+
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$marca->id}}" data-whatever="{{$marca->id}}" data-whatevernome="{{$marca->nome}}" data-whateverativo="{{$marca->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Marca" class="btnAcoes"></a>
+
+                                                <!-- MODAL DE EDITAR -->
+                                                <div class="modal fade" id="modalEditar{{$marca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Marca #{{$marca->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarMarca', $marca->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Editar Marca</h5></CENTER>
+                                                                    </div>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-6">
+                                                                                <label for="nome" class="control-label labelInputEditUser">Marca:</label>
+                                                                                 <input type="text" class="form-control" name="nome" placeholder="Digite o nome da marca" value="{{$marca->nome}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option value="1" {{ $marca->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option value="0" {{ $marca->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- FIM MODAL EDITAR -->
+
+                                                <!-- BOTAO VISUALIZAR MODAL -->
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$marca->id}}" data-whatever="{{$marca->id}}" data-whatevernome="{{$marca->nome}}" data-whateverativo="{{$marca->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Marca" class="btnAcoes"></a>
+
+                                                <!-- MODAL DE VISUALIZAR -->
+                                                <div class="modal fade" id="modalVisualizar{{$marca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Marca #{{$marca->id}} <i class="fa fa-help"></i></h5>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true" style="color: #fff">×</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form method="post" action="{{route ('atualizarMarca', $marca->id)}}" class="formEditUser">
+                                                                    {{ csrf_field() }}
+                                                                    <div class="card-header">
+                                                                        <CENTER><h5>Visualizar Marca</h5></CENTER>
+                                                                    </div>
+                                                                    <div class="card-block">
+                                                                        <div class="form-group row">
+                                                                            <div class="col-sm-6">
+                                                                                <label for="nome" class="control-label labelInputEditUser">Marca:</label>
+                                                                                <input disabled type="text" class="form-control" name="nome" placeholder="Digite o nome da categoria" value="{{$marca->nome}}" required>
+                                                                            </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option disabled {{ $marca->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option disabled {{ $marca->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
+                                                                        </div>       
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                                <!-- FIM MODAL VISUALIZAR -->
+
+                                                <a href="{{route('excluirMarca', $marca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Marca" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
                                         @endforeach                                
@@ -72,4 +158,4 @@
                         </div>
                     </div>
                 </div>
-@endsection
+                @endsection
