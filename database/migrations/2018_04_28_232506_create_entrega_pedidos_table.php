@@ -14,15 +14,15 @@ class CreateEntregaPedidosTable extends Migration
     public function up()
     {
         Schema::create('entregapedidos', function (Blueprint $table) {	
-            $table->increments('entregaPedidoId');
+            $table->increments('id');
             $table->integer('freteId')->unsigned();
-            $table->foreign('freteId')->references('freteId')->on('fretes');
-            $table->integer('usuario_id')->unsigned();
-            $table->foreign('usuario_id')->references('id')->on('usuarios');
+            $table->foreign('freteId')->references('id')->on('fretes');
+            $table->integer('usuarioId')->unsigned();
+            $table->foreign('usuarioId')->references('id')->on('usuarios');
             $table->integer('veiculoId')->unsigned();
-            $table->foreign('veiculoId')->references('veiculoId')->on('veiculos');
+            $table->foreign('veiculoId')->references('id')->on('veiculos');
             $table->integer('pedidoId')->unsigned();
-            $table->foreign('pedidoId')->references('pedidoId')->on('pedidos');
+            $table->foreign('pedidoId')->references('id')->on('pedidos');
             $table->date('dataSaida');
             $table->time('horaSaida');
             $table->integer('isAtivo')->default(1);

@@ -14,9 +14,9 @@ class CreateFretesTable extends Migration
     public function up()
     {
         Schema::create('fretes', function (Blueprint $table) {	
-            $table->increments('freteId');
-            $table->string('freteNome', 50);
-            $table->decimal('freteValor', 12, 2)->default(0.00);
+            $table->increments('id');
+            $table->string('nome', 50);
+            $table->decimal('valor', 12, 2)->default(0.00);
             $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });

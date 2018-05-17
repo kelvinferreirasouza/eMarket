@@ -14,15 +14,15 @@ class CreateVeiculosTable extends Migration
     public function up()
     {
         Schema::create('veiculos', function (Blueprint $table) {	
-            $table->increments('veiculoId');
+            $table->increments('id');
             $table->integer('veiculoMarcaId')->unsigned();
-            $table->foreign('veiculoMarcaId')->references('veiculoMarcaId')->on('veiculomarcas');
+            $table->foreign('veiculoMarcaId')->references('id')->on('veiculomarcas');
             $table->integer('veiculoModeloId')->unsigned();
-            $table->foreign('veiculoModeloId')->references('veiculoModeloId')->on('veiculomodelos');
-            $table->string('veiculoAno', 4);
-            $table->string('veiculoPlaca', 8);
-            $table->string('veiculoRenavam', 20);
-            $table->string('veiculoCor', 50);
+            $table->foreign('veiculoModeloId')->references('id')->on('veiculomodelos');
+            $table->string('ano', 4);
+            $table->string('placa', 8);
+            $table->string('renavam', 20);
+            $table->string('cor', 50);
             $table->string('quilometragem', 50);
             $table->date('ultimaRevisao');
             $table->timestamps();

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddPedidoidToPedidoproduto extends Migration
+class AddFornecedoridToProduto extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AddPedidoidToPedidoproduto extends Migration
      */
     public function up()
     {
-        Schema::table('pedidoprodutos', function (Blueprint $table) {
-            $table->integer('pedidoId')->unsigned()->after('produtoId');
-
-            $table->foreign('pedidoId')
-                    ->references('id')->on('pedidos')
+        Schema::table('produtos', function (Blueprint $table) {
+            $table->integer('produtoFornecedorId')->unsigned()->after('produtoUnidadeId');
+            $table->foreign('produtoFornecedorId')
+                    ->references('id')->on('fornecedores')
                     ->onDelete('cascade');
         });
     }

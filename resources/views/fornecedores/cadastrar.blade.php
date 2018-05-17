@@ -51,12 +51,12 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-2">
-                                    <label for="cnpj" class="control-label labelInputEditUser">CNPJ:</label>
-                                    <input type="text" class="form-control" name="cnpj" placeholder="Digite o CNPJ" required>
+                                    <label for="cpfCnpj" class="control-label labelInputEditUser">CNPJ:</label>
+                                    <input type="text" class="form-control" name="cpfCnpj" placeholder="Digite o CNPJ" required>
                                 </div>
                                 <div class="col-sm-2">
-                                    <label for="ie" class="control-label labelInputEditUser">I.E:</label>
-                                    <input type="text" class="form-control" name="ie" placeholder=" Inscrição Estadual" required>
+                                    <label for="ieRg" class="control-label labelInputEditUser">I.E:</label>
+                                    <input type="text" class="form-control" name="ieRg" placeholder="Inscrição Estadual" required>
                                 </div>
                                 <div class="col-sm-6">
                                     <label for="email" class="control-label labelInputEditUser">E-mail:</label>

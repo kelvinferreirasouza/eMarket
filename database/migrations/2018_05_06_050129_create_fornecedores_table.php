@@ -17,8 +17,8 @@ class CreateFornecedoresTable extends Migration
             $table->increments('id');
             $table->string('razaoSocial', 100);  
             $table->string('nomeFantasia', 100);  
-            $table->string('cnpj', 20)->unique();
-            $table->string('ie')->nullable();          
+            $table->string('cpfCnpj', 20)->unique();
+            $table->string('ieRg')->nullable();          
             $table->string('email', 100);
             $table->string('cep', 9)->nullable();
             $table->string('lagradouro', 100)->nullable();

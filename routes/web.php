@@ -35,6 +35,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pessoas/fornecedores/cadastrar', 'FornecedorController@cadastrarFornecedor')->name('cadastrarFornecedor');
     Route::post('/pessoas/fornecedores/salvar', 'FornecedorController@salvarFornecedor')->name('salvarFornecedor');
     Route::get('/pessoas/fornecedores/excluir/{id}', 'FornecedorController@excluirFornecedor')->name('excluirFornecedor');
+    Route::get('/pessoas/fornecedores/editar/{id}', 'FornecedorController@editarFornecedor')->name('editarFornecedor');
+    Route::post('/pessoas/fornecedores/atualizar/{id}', 'FornecedorController@atualizarFornecedor')->name('atualizarFornecedor');
 
     /* Rotas Protegidas de Produtos */
     Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');

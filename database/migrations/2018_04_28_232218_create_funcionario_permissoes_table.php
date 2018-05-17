@@ -14,7 +14,7 @@ class CreateFuncionarioPermissoesTable extends Migration
     public function up()
     {
         Schema::create('funcionariopermissoes', function (Blueprint $table) {	
-            $table->increments('funcPermissaoId');
+            $table->increments('id');
             $table->integer('funcCargoId')->unsigned();
             $table->foreign('funcCargoId')->references('id')->on('usuariocargos');
             $table->integer('consultar')->default(0);

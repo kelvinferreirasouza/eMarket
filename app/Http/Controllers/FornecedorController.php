@@ -34,4 +34,14 @@ class FornecedorController extends Controller
 
         return redirect()->route('listarFornecedores');
     }
+
+    public function atualizarFornecedor(Request $request, $id)
+    {
+        $dados = $request->all();
+        $fornecedor = Fornecedor::find($id);
+ 
+        $fornecedor->update($dados);
+
+        return redirect()->route('listarFornecedores');
+    }
 }

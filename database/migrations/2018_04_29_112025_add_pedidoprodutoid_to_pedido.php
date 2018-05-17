@@ -14,10 +14,10 @@ class AddPedidoprodutoidToPedido extends Migration
     public function up()
     {
         Schema::table('pedidos', function (Blueprint $table) {
-            $table->integer('pedidoProdutoId')->unsigned()->after('usuario_id');
+            $table->integer('pedidoProdutoId')->unsigned()->before('empresaId');
 
             $table->foreign('pedidoProdutoId')
-                    ->references('pedidoProdutoId')->on('pedidoprodutos')
+                    ->references('id')->on('pedidoprodutos')
                     ->onDelete('cascade');
         });
     }
