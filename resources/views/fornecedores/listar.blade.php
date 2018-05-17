@@ -31,7 +31,7 @@
                             <h5>Lista de Fornecedores</h5>
                             <span>Listagem dos fornecedores cadastrados</span>   
                         </div>
-                        <!-- BOTAO CADASTRAR FORMA PAGAMENTO MODAL -->
+                        <!-- BOTAO CADASTRAR FORNECEDOR MODAL -->
                         @foreach($fornecedores as $fornecedor)
                         @if ($loop->first)
                         <a href="" data-toggle="modal" data-target="#modalCadastrar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlagradouro="{{$fornecedor->lagradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>

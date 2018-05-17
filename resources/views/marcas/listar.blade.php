@@ -31,7 +31,54 @@
                             <h5>Lista de Marcas</h5>
                             <span>Listagem das marcas de produtos</span>   
                         </div>
-                        <a href="{{route('cadastrarMarca')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
+                        <!-- BOTAO CADASTRAR MARCA MODAL -->
+                        @foreach($marcas as $marca)
+                        @if ($loop->first)
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$marca->id}}" data-whatever="{{$marca->id}}" data-whatevernome="{{$marca->nome}}" data-whateverativo="{{$marca->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
+
+                        <!-- MODAL DE CADASTRAR -->
+                        <div class="modal fade" id="modalCadastrar{{$marca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">MARCAS<i class="fa fa-help"></i></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" style="color: #fff">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{route ('salvarMarca')}}" class="formEditUser">
+                                            {{ csrf_field() }}
+                                            <div class="card-header">
+                                                <CENTER><h5>Cadastrar Marca</h5></CENTER>
+                                            </div>
+                                            <div class="card-block">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-6">
+                                                        <label for="nome" class="control-label labelInputEditUser">Nome da Marca:</label>
+                                                        <input type="text" class="form-control" name="nome" placeholder="Digite o nome da marca" required>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <label for="isAtivo" class="control-label labelInputEditUser">Ativo:</label>
+                                                        <select class="form-control labelInputEditUser" name="isAtivo">
+                                                            <option value="1">Ativo</option>
+                                                            <option value="0">Inativo</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                            <div class="modal-footer modal-footer-formpag">
+                                                <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            </div>       
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                        <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -59,7 +106,6 @@
                                             </td>
                                             <td>
                                                 <!-- BOTAO EDITAR MODAL -->
-
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$marca->id}}" data-whatever="{{$marca->id}}" data-whatevernome="{{$marca->nome}}" data-whateverativo="{{$marca->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Marca" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
@@ -82,7 +128,7 @@
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-6">
                                                                                 <label for="nome" class="control-label labelInputEditUser">Marca:</label>
-                                                                                 <input type="text" class="form-control" name="nome" placeholder="Digite o nome da marca" value="{{$marca->nome}}" required>
+                                                                                <input type="text" class="form-control" name="nome" placeholder="Digite o nome da marca" value="{{$marca->nome}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>

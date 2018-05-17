@@ -33,7 +33,7 @@
                             <h5>Lista de Categorias</h5>
                             <span>Listagem das categorias de produtos</span>   
                         </div>
-                        <!-- BOTAO CADASTRAR FORMA PAGAMENTO MODAL -->
+                        <!-- BOTAO CADASTRAR CATEGORIA MODAL -->
                         @foreach($categorias as $categoria)
                         @if ($loop->first)
                         <a href="" data-toggle="modal" data-target="#modalCadastrar{{$categoria->id}}" data-whatever="{{$categoria->id}}" data-whatevernome="{{$categoria->nome}}" data-whateversetor="{{$categoria->produtoSetorId}}" data-whateverativo="{{$categoria->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Categoria</button></a>

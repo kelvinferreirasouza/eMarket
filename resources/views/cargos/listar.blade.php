@@ -31,7 +31,7 @@
                             <h5>Lista de Cargos</h5>
                             <span>Listagem dos cargos de funcionários</span>   
                         </div>
-                        <!-- BOTAO CADASTRAR FORMA PAGAMENTO MODAL -->
+                        <!-- BOTAO CADASTRAR CARGO MODAL -->
                         @foreach($cargos as $cargo)
                         @if ($loop->first)
                         <a href="" data-toggle="modal" data-target="#modalCadastrar{{$cargo->id}}" data-whatever="{{$cargo->id}}" data-whatevernome="{{$cargo->nome}}" data-whateverdescricao="{{$cargo->descricao}}" data-whateverativo="{{$cargo->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cargo</button></a>
