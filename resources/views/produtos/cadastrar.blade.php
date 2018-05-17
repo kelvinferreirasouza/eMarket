@@ -47,22 +47,22 @@
                                     <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" required>
                                 </div>
                                 <div class="col-sm-2">
-                                        <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                        <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId">
-                                                <option></option>
-                                                @foreach($marcas as $marca)    
-                                                <option value="{{$marca->id}}">{{$marca->nome}}</option>
-                                                @endforeach  
-                                        </select>
+                                    <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
+                                    <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId">
+                                        <option></option>
+                                        @foreach($marcas as $marca)    
+                                        <option value="{{$marca->id}}">{{$marca->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <div class="col-sm-2">
-                                        <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
-                                        <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId">
-                                                <option></option>
-                                                @foreach($unidades as $unidade)    
-                                                <option value="{{$unidade->id}}">{{$unidade->sigla}}</option>
-                                                @endforeach  
-                                        </select>
+                                    <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
+                                    <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId">
+                                        <option></option>
+                                        @foreach($unidades as $unidade)    
+                                        <option value="{{$unidade->id}}">{{$unidade->sigla}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -91,51 +91,60 @@
                                 <div class="col-sm-2">
                                     <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
                                     <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId">
-                                            <option></option>
-                                            @foreach($setores as $setor)    
-                                            <option value="{{$setor->id}}">{{$setor->nome}}</option>
-                                            @endforeach  
-                                        </select>
+                                        <option></option>
+                                        @foreach($setores as $setor)    
+                                        <option value="{{$setor->id}}">{{$setor->nome}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
                                     <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
-                                            <option></option>
-                                            @foreach($categorias as $categoria)
-                                            <option></option>
-                                            @if($setor->id == $categoria->produtoSetorId )
-                                                <option value="{{$categoria->id}}">{{ $categoria->nome}}</option>
-                                            @endif
+                                        <option></option>
+                                        @foreach($categorias as $categoria)
+                                        <option></option>
+                                        @if($setor->id == $categoria->produtoSetorId )
+                                        <option value="{{$categoria->id}}">{{ $categoria->nome}}</option>
+                                        @endif
 
-                                            @endforeach  
-                                        </select>
+                                        @endforeach  
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
+                                    <select class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
+                                        <option></option>
+                                        @foreach($fornecedores as $fornecedor)
+                                        <option value="{{$fornecedor->id}}">{{$fornecedor->nomeFantasia}}</option>
+                                        @endforeach  
+                                    </select>
                                 </div>
                                 <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
                                 <script>
-                                        $('#produtoSetorId').on('change', function () {
-                                            var produtoSetorId = $(this).val();
-                                            if (produtoSetorId) {
-                                                $.ajax({
-                                                    type: "GET",
-                                                    url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
-                                                    success: function (res) {
-                                                        if (res) {
-                                                            $("#produtoCategoriaId").empty();
-                                                            $.each(res, function (key, value) {
-                                                                $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
-                                                            });
-        
-                                                        } else {
-                                                            $("#produtoSetorId").empty();
-                                                        }
-                                                    }
-                                                });
-                                            } else {
-                                                $("#produtoSetorId").empty();
-                                            }
-        
-                                        });
-                                    </script>
+                                    $('#produtoSetorId').on('change', function () {
+                                    var produtoSetorId = $(this).val();
+                                    if (produtoSetorId) {
+                                    $.ajax({
+                                    type: "GET",
+                                    url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
+                                    success: function (res) {
+                                    if (res) {
+                                    $("#produtoCategoriaId").empty();
+                                    $.each(res, function (key, value) {
+                                    $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
+                                    });
+
+                                    } else {
+                                    $("#produtoSetorId").empty();
+                                    }
+                                    }
+                                    });
+                                    } else {
+                                    $("#produtoSetorId").empty();
+                                    }
+
+                                    });
+                                </script>
                             </div>
                         </div>     
                     </form>

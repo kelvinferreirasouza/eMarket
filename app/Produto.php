@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     protected $fillable = [
-        'codBarras', 'produtoNome', 'qtd', 'qtdMin', 'precoCusto', 'precoVenda', 'margemLucro', 'produtoSetorId', 'produtoCategoriaId', 'produtoMarcaId', 'produtoUnidadeId', 'isAtivo' 
+        'codBarras', 'produtoNome', 'qtd', 'qtdMin', 'precoCusto', 'precoVenda', 'margemLucro', 'produtoSetorId', 'produtoCategoriaId', 'produtoMarcaId', 'produtoUnidadeId', 'produtoFornecedorId', 'isAtivo' 
     ];
 
     public function setor() {
@@ -24,5 +24,9 @@ class Produto extends Model
 
     public function unidade() {
         return $this->belongsTo('App\Unidade', 'produtoUnidadeId');
+    }
+
+        public function fornecedor() {
+        return $this->belongsTo('App\Fornecedor', 'produtoFornecedorId');
     }
 }

@@ -29,7 +29,152 @@
                             <h5>Lista de Produtos Cadastros</h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
-                        <button class="btn btn-primary waves-effect waves-light btnCadProd"><a class="linkCancel" href="{{ route('cadastrarProduto') }}"><i class="fa fa-user-plus"></i>Cadastrar Produto</a></button>
+                        @foreach($produtos as $produto)
+                        @if ($loop->first)
+                        <!-- BOTAO CADASTRAR PRODUTO MODAL -->
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarcaId}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
+
+                        <!-- MODAL DE CADASTRAR -->
+                        <div class="modal fade" id="modalCadastrar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modalProd" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">PRODUTOS<i class="fa fa-help"></i></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" style="color: #fff">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{route ('salvarProduto')}}" class="formEditUser">
+                                            {{ csrf_field() }}
+                                            <div class="card-header">
+                                                <CENTER><h5>Cadastrar Produto</h5></CENTER>
+                                            </div>
+                                            <div class="card-block">
+                                                <div class="card-block">
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-2">
+                                                            <label for="codBarras" class="control-label labelInputEditUser">Código de Barras:</label>
+                                                            <input type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" required>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label for="produtoNome" class="control-label labelInputEditUser">Descrição:</label>
+                                                            <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" required>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId">
+                                                                <option></option>
+                                                                @foreach($marcas as $marca)    
+                                                                <option value="{{$marca->id}}">{{$marca->nome}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId">
+                                                                <option></option>
+                                                                @foreach($unidades as $unidade)    
+                                                                <option value="{{$unidade->id}}">{{$unidade->sigla}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3">
+                                                            <label for="qtd" class="control-label labelInputEditUser">Qtd:</label>
+                                                            <input type="number" class="form-control" name="qtd" placeholder="Digite a quantidade" required>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label for="qtdMin" class="control-label labelInputEditUser">Qtd Min:</label>
+                                                            <input type="number" class="form-control" name="qtdMin" placeholder="Digite a quantidade minima">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precoCusto" class="control-label labelInputEditUser">Preço Custo:</label>
+                                                            <input type="number" step="any" id="precoCusto" class="form-control" name="precoCusto" placeholder="Digite o custo" required>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="precoVenda" class="control-label labelInputEditUser">Preço Venda:</label>
+                                                            <input type="number" step="any" class="form-control" name="precoVenda" placeholder="Digite o preco de venda">
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                            <label for="margemLucro" class="control-label labelInputEditUser">Margem Lucro %:</label>
+                                                            <input type="number" step="any" class="form-control" name="margemLucro" placeholder="Digite a margem" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <div class="col-sm-3">
+                                                            <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId">
+                                                                <option></option>
+                                                                @foreach($setores as $setor)    
+                                                                <option value="{{$setor->id}}">{{$setor->nome}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
+                                                                <option></option>
+                                                                @foreach($categorias as $categoria)
+                                                                <option></option>
+                                                                @if($setor->id == $categoria->produtoSetorId )
+                                                                <option value="{{$categoria->id}}">{{ $categoria->nome}}</option>
+                                                                @endif
+
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
+                                                                <option></option>
+                                                                @foreach($fornecedores as $fornecedor)
+                                                                <option value="{{$fornecedor->id}}">{{$fornecedor->nomeFantasia}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
+                                                        <script>
+                                                            $('#produtoSetorId').on('change', function () {
+                                                            var produtoSetorId = $(this).val();
+                                                            if (produtoSetorId) {
+                                                            $.ajax({
+                                                            type: "GET",
+                                                            url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
+                                                            success: function (res) {
+                                                            if (res) {
+                                                            $("#produtoCategoriaId").empty();
+                                                            $.each(res, function (key, value) {
+                                                            $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
+                                                            });
+
+                                                            } else {
+                                                            $("#produtoSetorId").empty();
+                                                            }
+                                                            }
+                                                            });
+                                                            } else {
+                                                            $("#produtoSetorId").empty();
+                                                            }
+
+                                                            });
+                                                        </script>
+                                                    </div>
+                                                </div> 
+                                            </div>    
+                                            <div class="modal-footer modal-footer-formpag">
+                                                <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            </div>       
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endif
+                        @endforeach
+                        <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">
                         <div class="row">

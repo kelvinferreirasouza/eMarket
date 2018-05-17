@@ -9,6 +9,7 @@ use App\Setor;
 use App\Categoria;
 use App\Marca;
 use App\Unidade;
+use App\Fornecedor;
 
 class ProdutoController extends Controller
 {
@@ -19,7 +20,8 @@ class ProdutoController extends Controller
         $marcas     = Marca::all();
         $unidades   = Unidade::all();
         $categorias = Categoria::all();
-        return view('produtos.cadastrar', compact('setores', 'marcas', 'unidades', 'categorias'));
+        $fornecedores = Fornecedor::all();
+        return view('produtos.cadastrar', compact('setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function listarProdutos()
@@ -29,8 +31,9 @@ class ProdutoController extends Controller
         $marcas     = Marca::all();
         $unidades   = Unidade::all();
         $categorias = Categoria::all();
+        $fornecedores = Fornecedor::all();
 
-        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias'));
+        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function salvarProduto(Request $request)
