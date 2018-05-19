@@ -31,58 +31,9 @@
                             <h5>Lista de Formas de Pagamento</h5>
                             <span>Listagem das formas de pagamento aceitas</span>   
                         </div>
-                        <!-- BOTAO CADASTRAR FORMA PAGAMENTO MODAL -->
                         @foreach($formaspagamentos as $formapagamento)
-                        @if ($loop->first)
-                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$formapagamento->id}}" data-whatever="{{$formapagamento->id}}" data-whatevernome="{{$formapagamento->nome}}" data-whateverdescricao="{{$formapagamento->descricao}}" data-whateverativo="{{$formapagamento->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Forma Pagamento</button></a>
-
-                        <!-- MODAL DE CADASTRAR -->
-                        <div class="modal fade" id="modalCadastrar{{$formapagamento->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
-                                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">FORMAS DE PAGAMENTOS<i class="fa fa-help"></i></h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true" style="color: #fff">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body">
-                                        <form method="post" action="{{route ('salvarFormaPag')}}" class="formEditUser">
-                                            {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Forma de Pagamento</h5></CENTER>
-                                            </div>
-                                            <div class="card-block">
-                                                <div class="form-group row">
-                                                    <div class="col-sm-6">
-                                                        <label for="nome" class="control-label labelInputEditUser">Forma de Pagamento:</label>
-                                                        <input type="text" class="form-control" name="nome" placeholder="Digite a forma de pagamento" required>
-                                                    </div>
-                                                    <div class="col-sm-4">
-                                                        <label for="descricao" class="control-label labelInputEditUser">Descrição:</label>
-                                                        <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição" required>
-                                                    </div>
-                                                    <div class="col-sm-2">
-                                                        <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                        <select class="form-control labelInputEditUser" name="isAtivo">
-                                                            <option value="1">Ativo</option>
-                                                            <option value="0">Inativo</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-                                            </div>     
-                                            <div class="modal-footer modal-footer-formpag">
-                                                <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                                            </div>       
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endif
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$formapagamento->id}}" data-whatever="{{$formapagamento->id}}" data-whatevernome="{{$formapagamento->nome}}" data-whateversetor="{{$formapagamento->produtoSetorId}}" data-whateverativo="{{$formapagamento->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Categoria</button></a>
                         @endforeach
-                        <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">
                         <div class="row">

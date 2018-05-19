@@ -42,7 +42,7 @@ class UsuarioPolicy
      */
     public function update(Usuario $user)
     {
-    return $user->cargoId === 1 || $user->cargoId === 2;
+    return $user->cargoId === 1 || $user->cargoId === 2 || $user->cargoId == 3;
     }
 
     /**

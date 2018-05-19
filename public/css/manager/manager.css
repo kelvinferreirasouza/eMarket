@@ -1,3 +1,7 @@
+.modal-dialog {
+    margin: 150px auto;
+}
+
 .formEditUser, .formEditProd {
     margin-bottom: -1.5%;
 }
@@ -27,10 +31,6 @@
 
 .modalBack {
     margin-bottom: -10%;
-}
-
-.modal-dialog {
-    margin: 200px auto;
 }
 
 .modal-body {
