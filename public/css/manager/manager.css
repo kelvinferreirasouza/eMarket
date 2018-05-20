@@ -30,7 +30,7 @@
 }
 
 .modal-dialog {
-    margin: 200px auto;
+    margin: 150px auto;
 }
 
 .modal-body {
@@ -67,7 +67,7 @@
 }
 
 .modalUser, .modalFornec {
-    max-width: 1070px;
+    max-width: 1150px;
 }
 
 .modal-footer-prod, .modal-footer-formpag {
