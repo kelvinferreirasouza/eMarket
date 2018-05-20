@@ -32,12 +32,11 @@
                             <span>Listagem das marcas de produtos</span>   
                         </div>
                         <!-- BOTAO CADASTRAR MARCA MODAL -->
-                        @foreach($marcas as $marca)
-                        @if ($loop->first)
-                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$marca->id}}" data-whatever="{{$marca->id}}" data-whatevernome="{{$marca->nome}}" data-whateverativo="{{$marca->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar" >
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
 
                         <!-- MODAL DE CADASTRAR -->
-                        <div class="modal fade" id="modalCadastrar{{$marca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -76,8 +75,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
                         <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">

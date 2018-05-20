@@ -29,13 +29,12 @@
                             <h5>Lista de Produtos Cadastros</h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
-                        @foreach($produtos as $produto)
-                        @if ($loop->first)
                         <!-- BOTAO CADASTRAR PRODUTO MODAL -->
-                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarcaId}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar" >
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
 
                         <!-- MODAL DE CADASTRAR -->
-                        <div class="modal fade" id="modalCadastrar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog modal-lg modalProd" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -137,26 +136,26 @@
                                                         <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
                                                         <script>
                                                             $('#produtoSetorId').on('change', function () {
-                                                            var produtoSetorId = $(this).val();
-                                                            if (produtoSetorId) {
-                                                            $.ajax({
-                                                            type: "GET",
-                                                            url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
-                                                            success: function (res) {
-                                                            if (res) {
-                                                            $("#produtoCategoriaId").empty();
-                                                            $.each(res, function (key, value) {
-                                                            $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
-                                                            });
+                                                                var produtoSetorId = $(this).val();
+                                                                if (produtoSetorId) {
+                                                                    $.ajax({
+                                                                        type: "GET",
+                                                                        url: "{{url('ajax/pegar-lista-categorias')}}?produtoSetorId=" + produtoSetorId,
+                                                                        success: function (res) {
+                                                                            if (res) {
+                                                                                $("#produtoCategoriaId").empty();
+                                                                                $.each(res, function (key, value) {
+                                                                                    $("#produtoCategoriaId").append('<option value="' + key + '">' + value + '</option>');
+                                                                                });
 
-                                                            } else {
-                                                            $("#produtoSetorId").empty();
-                                                            }
-                                                            }
-                                                            });
-                                                            } else {
-                                                            $("#produtoSetorId").empty();
-                                                            }
+                                                                            } else {
+                                                                                $("#produtoSetorId").empty();
+                                                                            }
+                                                                        }
+                                                                    });
+                                                                } else {
+                                                                    $("#produtoSetorId").empty();
+                                                                }
 
                                                             });
                                                         </script>
@@ -172,8 +171,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
                         <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">

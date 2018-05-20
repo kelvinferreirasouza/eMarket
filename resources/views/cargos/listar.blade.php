@@ -32,12 +32,11 @@
                             <span>Listagem dos cargos de funcionários</span>   
                         </div>
                         <!-- BOTAO CADASTRAR CARGO MODAL -->
-                        @foreach($cargos as $cargo)
-                        @if ($loop->first)
-                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$cargo->id}}" data-whatever="{{$cargo->id}}" data-whatevernome="{{$cargo->nome}}" data-whateverdescricao="{{$cargo->descricao}}" data-whateverativo="{{$cargo->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cargo</button></a>
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar" >
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cargo</button></a>
 
                         <!-- MODAL DE CADASTRAR -->
-                        <div class="modal fade" id="modalCadastrar{{$cargo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -80,8 +79,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
                         <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">

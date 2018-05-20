@@ -31,7 +31,56 @@
                             <h5>Lista de Unidades</h5>
                             <span>Listagem das unidades de produtos</span>   
                         </div>
-                        <a href="{{route('cadastrarUnidade')}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade </button></a>
+                        <!-- BOTAO CADASTRO MODAL -->
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar">
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade</button></a>
+                        <!-- FIM BOTAO CADASTRO MODAL -->
+
+                        <!-- MODAL DE CADASTRAR -->
+                        <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-lg modalProd" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
+                                        <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">UNIDADES<i class="fa fa-help"></i></h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" style="color: #fff">×</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="post" action="{{route ('salvarUnidade')}}" class="formEditUser">
+                                            {{ csrf_field() }}
+                                            <div class="card-header">
+                                                <CENTER><h5>Cadastrar Unidade</h5></CENTER>
+                                            </div>
+                                            <div class="card-block">
+                                                <div class="form-group row">
+                                                    <div class="col-sm-6">
+                                                        <label for="descricao" class="control-label labelInputEditUser">Descrição:</label>
+                                                        <input type="text" class="form-control" name="descricao" placeholder="Digite a descrição da unidade" required>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <label for="sigla" class="control-label labelInputEditUser">Sigla:</label>
+                                                        <input type="text" class="form-control" name="sigla" placeholder="Digite a sigla da unidade" required>
+                                                    </div>
+                                                    <div class="col-sm-2">
+                                                        <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                        <select class="form-control labelInputEditUser" name="isAtivo">
+                                                            <option value="1">Ativo</option>
+                                                            <option value="0">Inativo</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>  
+                                            <div class="modal-footer modal-footer-formpag">
+                                                <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                                            </div>       
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">
                         <div class="row">

@@ -32,12 +32,11 @@
                             <span>Listagem dos fornecedores cadastrados</span>   
                         </div>
                         <!-- BOTAO CADASTRAR FORNECEDOR MODAL -->
-                        @foreach($fornecedores as $fornecedor)
-                        @if ($loop->first)
-                        <a href="" data-toggle="modal" data-target="#modalCadastrar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlagradouro="{{$fornecedor->lagradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar">
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>
 
                         <!-- MODAL DE CADASTRAR -->
-                        <div class="modal fade" id="modalCadastrar{{$fornecedor->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                        <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog modal-lg modalFornec" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -126,8 +125,6 @@
                                 </div>
                             </div>
                         </div>
-                        @endif
-                        @endforeach
                         <!-- FIM MODAL CADASTRO -->
                     </div>
                     <div class="card-block">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\FormaPagamento;
+use App\Cargo;
 
 class FormaPagamentoController extends Controller
 {
@@ -14,8 +15,8 @@ class FormaPagamentoController extends Controller
 
     public function listarFormasPag()
     {
-        $formaspagamentos = FormaPagamento::all();
-        return view('formaspagamentos.listar', compact('formaspagamentos'));
+        $formasPagamentos = FormaPagamento::all();
+        return view('formaspagamentos.listar', compact('formasPagamentos'));
     }
 
     public function salvarFormaPag(Request $request)
@@ -28,9 +29,9 @@ class FormaPagamentoController extends Controller
 
     public function excluirFormaPag($id)
     {
-        $formapagamento = FormaPagamento::find($id);
+        $formaPag = FormaPagamento::find($id);
 
-        $formapagamento->delete();
+        $formaPag->delete();
 
         return redirect()->route('listarFormasPag');
     }
@@ -38,7 +39,7 @@ class FormaPagamentoController extends Controller
     public function visualizarFormaPag($id)
     
     {
-        $formapagamento = FormaPagamento::find($id);
+        $formaPag = FormaPagamento::find($id);
 
         return view('formaspagamentos.visualizar', compact('formapagamento'));
     }
@@ -46,16 +47,16 @@ class FormaPagamentoController extends Controller
     public function atualizarFormaPag(Request $request, $id)
     {
         $dados = $request->all();
-        $formapagamento = FormaPagamento::find($id);
+        $formaPag = FormaPagamento::find($id);
  
-        $formapagamento->update($dados);
+        $formaPag->update($dados);
 
         return redirect()->route('listarFormasPag');
     }
 
     public function editarFormaPag($id)
     {
-        $formapagamento = FormaPagamento::find($id);
+        $formaPag = FormaPagamento::find($id);
         
         return view('formaspagamentos.editar', compact('formapagamento'));
     }
