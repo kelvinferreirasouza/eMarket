@@ -45,7 +45,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
-        
+
     </head>
     <body>
         <!-- Pre-loader start -->
@@ -316,7 +316,6 @@
                                             </li>
                                         </ul>
                                     </li>
-
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fas fa-dolly"></i></span>
@@ -367,7 +366,45 @@
                                             </li>
                                         </ul>
                                     </li>
-
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Entregas</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" pcoded-hasmenu">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Veiculos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarVeiculos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Listar Veiculos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarVeiculoMarcas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Marcas</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class=" ">
+                                                        <a href="{{ route('listarVeiculoModelos') }}" data-i18n="nav.page_layout.vertical.compact">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Modelos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
                                     <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
