@@ -124,7 +124,7 @@
                                                                 @endforeach  
                                                             </select>
                                                         </div>
-                                                        <div class="col-sm-6">
+                                                        <div class="col-sm-4">
                                                             <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
                                                             <select class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
                                                                 <option></option>
@@ -133,6 +133,14 @@
                                                                 @endforeach  
                                                             </select>
                                                         </div>
+                                                        <div class="col-sm-2">
+                                                                                <label for="isPromocao" class="control-label labelInputEditUser">Promoção:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isPromocao">
+                                                                                    <option></option>
+                                                                                    <option value="1">Sim</option>
+                                                                                    <option value="0">Não</option>
+                                                                                </select>
+                                                                            </div>
                                                         <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
                                                         <script>
                                                             $('#produtoSetorId').on('change', function () {
@@ -278,12 +286,29 @@
                                                                                     @endforeach  
                                                                                 </select>
                                                                             </div>
-                                                                            <div class="col-sm-6">
+                                                                            <div class="col-sm-4">
                                                                                 <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
                                                                                 <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId" value="{{$produto->produtoCategoriaId}}">
                                                                                     @foreach($categorias as $categoria)    
                                                                                     <option value="{{$categoria->id}}" {{$categoria->id == $produto->produtoCategoriaId ? 'selected' : ''}}>{{$categoria->nome}}</option>
                                                                                     @endforeach  
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-sm-4">
+                                                            <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
+                                                            <select class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
+                                                                <option></option>
+                                                                @foreach($fornecedores as $fornecedor)
+                                                                <option value="{{$fornecedor->id}}" {{$fornecedor->id == $produto->produtoFornecedorId ? 'selected' : ''}}>{{$fornecedor->nomeFantasia}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                                                <label for="isPromocao" class="control-label labelInputEditUser">Promoção:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isPromocao">
+                                                                                    <option></option>
+                                                                                    <option value="1" {{ $produto->isPromocao == 1 ? 'selected' : ''}}>Sim</option>
+                                                                                    <option value="0" {{ $produto->isPromocao == 0 ? 'selected' : ''}}>Não</option>
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-sm-2">
@@ -378,13 +403,12 @@
                                                                             <div class="col-sm-4">
                                                                                 <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
                                                                                 <select disabled class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId" value="{{$produto->produtoSetorId}}">
-                                                                                    <option></option>
                                                                                     @foreach($setores as $setor)    
                                                                                     <option disabled value="{{$setor->id}}" {{$setor->id == $produto->produtoSetorId ? 'selected' : ''}}>{{$setor->nome}}</option>
                                                                                     @endforeach  
                                                                                 </select>
                                                                             </div>
-                                                                            <div class="col-sm-6">
+                                                                            <div class="col-sm-4">
                                                                                 <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
                                                                                 <select disabled class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId" value="{{$produto->produtoCategoriaId}}">
                                                                                     @foreach($categorias as $categoria)    
@@ -392,9 +416,24 @@
                                                                                     @endforeach  
                                                                                 </select>
                                                                             </div>
+                                                                            <div class="col-sm-4">
+                                                            <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
+                                                            <select disabled class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
+                                                                @foreach($fornecedores as $fornecedor)
+                                                                <option disabled value="{{$fornecedor->id}}" {{$fornecedor->id == $produto->produtoFornecedorId ? 'selected' : ''}}>{{$fornecedor->nomeFantasia}}</option>
+                                                                @endforeach  
+                                                            </select>
+                                                        </div>
+                                                        <div class="col-sm-2">
+                                                                                <label for="isPromocao" class="control-label labelInputEditUser">Promoção:</label>
+                                                                                <select disabled class="form-control labelInputEditUser" name="isPromocao">
+                                                                                    <option disabled value="1" {{ $produto->isPromocao == 1 ? 'selected' : ''}}>Sim</option>
+                                                                                    <option disabled value="0" {{ $produto->isPromocao == 0 ? 'selected' : ''}}>Não</option>
+                                                                                </select>
+                                                                            </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                                                <select disabled="" class="form-control labelInputEditUser" name="isAtivo">
+                                                                                <select disabled class="form-control labelInputEditUser" name="isAtivo">
                                                                                     <option disabled value="1" {{ $produto->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
                                                                                     <option disabled value="0" {{ $produto->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                                                                 </select>
