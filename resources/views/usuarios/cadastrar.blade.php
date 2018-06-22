@@ -113,7 +113,11 @@
                             <div class="form-group row">
                                 <div class="col-sm-3">
                                     <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
-                                    <input type="text" class="form-control" name="sexo" required>
+                                    <select class="form-control" name="sexo" required>
+                                        <option>Selecione..</option>
+                                        <option value="Masculino">Masculine</option>
+                                        <option value="Feminino">Feminino</option>
+                                    </select>
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">
                                     @if( Auth::user()->cargoId == 1)

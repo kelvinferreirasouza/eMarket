@@ -113,28 +113,33 @@
                                                         <input type="text" class="form-control" name="municipio" placeholder="Digite o municipio">
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        <label for="fone" class="control-label labelInputEditUser">Fone:</label>
-                                                        <input type="text" class="form-control" name="fone" placeholder="Digite o fone">
+                                                        <label for="fone" class="control-label labelInputEditUser">Telefone:</label>
+                                                        <input type="text" class="form-control" name="fone" placeholder="Digite o telefone">
                                                     </div>
                                                     <div class="col-sm-2">
-                                                        <label for="celular" class="control-label labelInputEditUser">Cel:</label>
-                                                        <input type="text" class="form-control" name="celular" placeholder="Digite o Celular" required>
+                                                        <label for="celular" class="control-label labelInputEditUser">Celular:</label>
+                                                        <input type="text" class="form-control" name="celular" placeholder="Digite o celular" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-3">
                                                         <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
-                                                        <input type="text" class="form-control" name="sexo" required>
+                                                        <select class="form-control" name="sexo" required>
+                                                            <option>Selecione..</option>
+                                                            <option value="Masculino">Masculine</option>
+                                                            <option value="Feminino">Feminino</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
                                                         <select class="form-control" name="cargoId" required>
+                                                            <option>Selecione..</option>
                                                             @foreach($cargos as $cargo)
                                                             <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-2">
                                                         <label for="cargoId" class="control-label labelInputEditUser">Status:</label>                    
                                                         <select class="form-control labelInputEditUser" name="isAtivo">
                                                             <option value="1">Ativo</option>
