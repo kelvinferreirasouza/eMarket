@@ -210,7 +210,13 @@
                                             <td>{{$produto->codBarras}}</td>
                                             <td>{{$produto->produtoNome}}</td>
                                             <td>{{$produto->qtd}}</td>
-                                            <td>{{$produto->produtoUnidadeId}}</td>
+                                            <td>
+                                                @foreach($unidades as $unidade)
+                                                    @if( $unidade->id == $produto->produtoUnidadeId )
+                                                        {{$unidade->descricao}}
+                                                    @endif
+                                                @endforeach
+                                            </td>
                                             <td>{{$produto->precoCusto}}</td>
                                             <td>{{$produto->precoVenda}}</td>
                                             <td>{{$produto->margemLucro}}</td>
@@ -278,7 +284,7 @@
                                                                                 <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
                                                                                 <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId" value="{{$produto->produtoUnidadeId}}">
                                                                                     @foreach($unidades as $unidade)    
-                                                                                    <option value="{{$unidade->id}}">{{$unidade->descricao}}</option>
+                                                                                    <option value="{{$unidade->id}}"{{$unidade->id == $produto->produtoUnidadeId ? 'selected' : ''}}>{{$unidade->descricao}}</option>
                                                                                     @endforeach  
                                                                                 </select>
                                                                             </div>
