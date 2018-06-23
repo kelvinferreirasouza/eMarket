@@ -212,9 +212,9 @@
                                             <td>{{$produto->qtd}}</td>
                                             <td>
                                                 @foreach($unidades as $unidade)
-                                                    @if( $unidade->id == $produto->produtoUnidadeId )
-                                                        {{$unidade->descricao}}
-                                                    @endif
+                                                @if( $unidade->id == $produto->produtoUnidadeId )
+                                                {{$unidade->descricao}}
+                                                @endif
                                                 @endforeach
                                             </td>
                                             <td>{{$produto->precoCusto}}</td>
@@ -437,6 +437,8 @@
                                                                                     @endforeach  
                                                                                 </select>
                                                                             </div>
+                                                                        </div>
+                                                                        <div class="form-group row">
                                                                             <div class="col-sm-2">
                                                                                 <label for="isPromocao" class="control-label labelInputEditUser">Promoção:</label>
                                                                                 <select disabled class="form-control labelInputEditUser" name="isPromocao">
@@ -444,14 +446,12 @@
                                                                                     <option disabled value="0" {{ $produto->isPromocao == 0 ? 'selected' : ''}}>Não</option>
                                                                                 </select>
                                                                             </div>
-                                                                            <div class="form-group row">
-                                                                                <div class="col-sm-2">
-                                                                                    <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                                                    <select disabled class="form-control labelInputEditUser" name="isAtivo">
-                                                                                        <option disabled value="1" {{ $produto->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                                                                        <option disabled value="0" {{ $produto->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
-                                                                                    </select>
-                                                                                </div>
+                                                                            <div class="col-sm-2">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select disabled class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option disabled value="1" {{ $produto->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option disabled value="0" {{ $produto->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
