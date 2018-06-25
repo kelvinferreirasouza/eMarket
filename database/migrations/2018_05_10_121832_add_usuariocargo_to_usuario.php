@@ -17,7 +17,7 @@ class AddUsuariocargoToUsuario extends Migration
             $table->integer('cargoId')->unsigned()->after('rg');
             $table->foreign('cargoId')
                     ->references('id')->on('usuariocargos')
-                    ->default(3)->onDelete('cascade');
+                    ->default(3);
         });
     }
 
