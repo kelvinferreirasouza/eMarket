@@ -26,7 +26,7 @@
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
-                            <h5>Lista de Produtos Cadastros</h5>
+                            <h5>Lista de Produtos Cadastros </h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
                         <!-- BOTAO CADASTRAR PRODUTO MODAL -->
