@@ -23,6 +23,7 @@
             <label><input type="radio" class="option-input radio" name="sexo" value="Masculino" required/>Masculino</label>
             <label><input type="radio" class="option-input radio" name="sexo" value="Feminino"/>Feminino</label>
             <label><input type="radio" class="option-input radio" name="sexo" value="Outro"/>Outro</label>
+            <input style="display: none" type="text" name="cargoId" value="1">
 
             <center><div class="g-recaptcha" data-sitekey="6LfDIVYUAAAAAD5GtthGjPBC_HQehSl1LC0xDEcW" style="margin-top:5%;margin-bottom:3%;"></div></center>
 

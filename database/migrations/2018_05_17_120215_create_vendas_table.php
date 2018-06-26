@@ -22,8 +22,6 @@ class CreateVendasTable extends Migration
             $table->integer('isCancelado')->default(0);
             $table->integer('isConfirmado')->default(0);
             $table->timestamps();
-
-
         });
     }
 

@@ -23,8 +23,6 @@ class CreateVeiculosTable extends Migration
             $table->string('placa', 8);
             $table->string('renavam', 20);
             $table->string('cor', 50);
-            $table->string('quilometragem', 50);
-            $table->date('ultimaRevisao');
             $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
