@@ -22,5 +22,19 @@ class UsuarioTableSeeder extends Seeder
             'sexo'          =>  'Masculino',
             'dataNasc'      =>  '1997-01-01'
         ]);
+
+        DB::table('usuarios')->insert([
+            'nome'          => 'Kelvin Ferreira Souza',
+            'login'         => 'kelvin',
+            'email'         => 'kelvin@ferreirasouza.com',
+            'senha'         =>  bcrypt('kelvin'),
+            'cpf'           =>  '037.662.190-73',
+            'rg'            =>  '1120854201',
+            'cargoId'       =>  1,
+            'sexo'          =>  'Masculino',
+            'dataNasc'      =>  '1997-01-17'
+        ]);
+
+
     }
 }
