@@ -13,7 +13,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+
+        // envia para a view o nome da rota para ser utilizada no menu como active
+        view()->composer('*', function ($view) {
+
+        $current_route_name = \Request::route()->getName();
+
+        $view->with('current_route_name', $current_route_name);
+
+    });
     }
 
     /**

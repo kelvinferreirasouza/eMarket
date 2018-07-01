@@ -1,5 +1,6 @@
 @extends('shared.layoutManager')
 
+
 @section('content')
 <div class="pcoded-content">
     <div class="pcoded-inner-content">
