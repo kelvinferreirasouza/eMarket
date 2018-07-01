@@ -1,5 +1,5 @@
 <p align="center">
-<img src="http://oi65.tinypic.com/2q99ua8.jpg" width="260" height="200;"></p>
+<a href="https://www.emarketsoftware.com.br"><img src="http://oi65.tinypic.com/2q99ua8.jpg" width="260" height="200;"></p></a>
 
 ## eMarket - E-Commerce para Supermercados
 
@@ -14,6 +14,16 @@ O sistema tem como objetivo ser um e-commerce gerenciavel que facilite o process
 * **PHP 5.6 ->**               http://php.net/docs.php
 * **Xampp 3.2.2 ->**      	   https://www.apachefriends.org/pt_br/index.html
 * **Laravel 5.4.22 ->**		   https://laravel.com/
+
+## Acesso ao Sistema
+
+1. Acesse: https://www.emarketsoftware.com.br
+
+2. Clique em Login
+
+3. Digite no campo Login: admin
+
+4. Digite no campo Senha: bancatcc1
 
 ### Execução do Projeto
 
