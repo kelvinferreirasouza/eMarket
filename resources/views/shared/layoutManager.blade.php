@@ -195,7 +195,7 @@
                                         </a>
                                         <ul class="pcoded-submenu">
                                             <li class=" ">
-                                                <a href="#" data-i18n="nav.navigate.navbar">
+                                                <a href="{{ route('listarClientes') }}" data-i18n="nav.navigate.navbar">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Clientes</span>
                                                     <span class="pcoded-mcaret"></span>

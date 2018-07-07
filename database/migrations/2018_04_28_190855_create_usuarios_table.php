@@ -21,7 +21,7 @@ class CreateUsuariosTable extends Migration
             $table->string('senha');
             $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
-            $table->string('sexo', 9);
+            $table->integer('sexo');
             $table->date('dataNasc');
             $table->integer('cargoId')->unsigned()->default(3);
             $table->foreign('cargoId')->references('id')->on('usuariocargos');

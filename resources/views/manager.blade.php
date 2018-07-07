@@ -62,7 +62,7 @@
                         <div class="circle-tile ">
                             <a href="#"><div class="circle-tile-heading purple"><i class="fa fa-line-chart fa-fw fa-3x"></i></div></a>
                             <div class="circle-tile-content purple">
-                                <div class="circle-tile-description text-faded"> Users Online </div>
+                                <div class="circle-tile-description text-faded"> Usuários Online </div>
                                 <div class="circle-tile-number text-faded ">10</div>
                                 <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>

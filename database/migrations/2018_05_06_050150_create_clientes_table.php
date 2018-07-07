@@ -20,7 +20,7 @@ class CreateClientesTable extends Migration
             $table->string('senha');
             $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
-            $table->string('sexo', 9);
+            $table->integer('sexo');
             $table->date('dataNasc');
             $table->string('cep', 9)->nullable();
             $table->string('lagradouro', 100)->nullable();

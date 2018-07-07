@@ -300,7 +300,10 @@
                                                                 <div class="form-group row">
                                                                     <div class="col-sm-3">
                                                                         <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
-                                                                        <input type="text" class="form-control" name="sexo" placeholder="Digite o Sexo" value="{{$usuario->sexo}}">
+                                                                        <select class="form-control" name="sexo" required>
+                                                                            <option value="1" {{ $usuario->sexo == 1 ? 'selected' : ''}}>Masculino</option>
+                                                                            <option value="0" {{ $usuario->sexo == 2 ? 'selected' : ''}}>Feminino</option>
+                                                                            </select>
                                                                     </div>
                                                                     <div class="col-sm-3 regraAlteracaoTipoUsuario">
                                                                         @if( Auth::user()->cargoId == 1)

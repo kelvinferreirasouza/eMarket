@@ -19,7 +19,7 @@ class UsuarioTableSeeder extends Seeder
             'cpf'           =>  '000.000.000-73',
             'rg'            =>  '0000000000',
             'cargoId'       =>  1,
-            'sexo'          =>  'Masculino',
+            'sexo'          =>  1,
             'dataNasc'      =>  '1997-01-01'
         ]);
 
@@ -31,7 +31,7 @@ class UsuarioTableSeeder extends Seeder
             'cpf'           =>  '037.662.190-73',
             'rg'            =>  '1120854201',
             'cargoId'       =>  1,
-            'sexo'          =>  'Masculino',
+            'sexo'          =>  1,
             'dataNasc'      =>  '1997-01-17'
         ]);
 
