@@ -75,11 +75,11 @@
                                                         <label for="rg" class="control-label labelInputEditUser">RG:</label>
                                                         <input type="text" class="form-control" name="rg" placeholder="Digite o RG">
                                                     </div>
-                                                    <div class="col-sm-2">
-                                                        <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
-                                                        <input type="date" class="form-control" name="dataNasc" required>
-                                                    </div>
                                                     <div class="col-sm-3">
+                                                        <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
+                                                        <input type="date" class="form-control" name="dataNasc" required style="padding-left: 5px">
+                                                    </div>
+                                                    <div class="col-sm-2">
                                                         <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                         <select class="form-control" name="sexo" required>
                                                             <option>Selecione..</option>
@@ -230,11 +230,11 @@
                                                                                 <label for="rg" class="control-label labelInputEditUser">RG:</label>
                                                                                 <input type="text" class="form-control" name="rg" placeholder="Digite o RG" value="{{$cliente->rg}}">
                                                                             </div>
-                                                                            <div class="col-sm-2">
+                                                                            <div class="col-sm-3">
                                                                                 <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
                                                                                 <input type="date" class="form-control" name="dataNasc" value="{{$cliente->dataNasc}}" required>
                                                                             </div>
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                                                 <select class="form-control" name="sexo" required>
                                                                                     <option value="1" {{ $cliente->sexo == 1 ? 'selected' : ''}}>Masculino</option>
@@ -347,11 +347,11 @@
                                                                                 <label for="rg" class="control-label labelInputEditUser">RG:</label>
                                                                                 <input disabled type="text" class="form-control" name="rg" placeholder="Digite o RG" value="{{$cliente->rg}}">
                                                                             </div>
-                                                                            <div class="col-sm-2">
+                                                                            <div class="col-sm-3">
                                                                                 <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
                                                                                 <input disabled type="date" class="form-control" name="dataNasc" value="{{$cliente->dataNasc}}" required>
                                                                             </div>
-                                                                            <div class="col-sm-3">
+                                                                            <div class="col-sm-2">
                                                                                 <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                                                 <select disabled class="form-control" name="sexo" required>
                                                                                     <option disabled value="1" {{ $cliente->sexo == 1 ? 'selected' : ''}}>Masculino</option>
