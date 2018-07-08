@@ -15,7 +15,7 @@ Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
 Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
 Route::get('/login', 'AutenticacaoController@login')->name('login');
 Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
-Route::get('/', 'AutenticacaoController@index')->name('index');
+Route::get('/', 'StoreController@index')->name('index');
 Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
 Route::middleware(['auth'])->group(function () {

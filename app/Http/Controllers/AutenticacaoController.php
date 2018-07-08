@@ -10,11 +10,6 @@ use App\Usuario;
  
 class AutenticacaoController extends Controller
 {
-    public function index()
-    {
-        return view('index');
-    }
- 
     public function manager()
     {
         return view('manager');

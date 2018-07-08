@@ -55,11 +55,11 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-2">
                                                             <label for="codBarras" class="control-label labelInputEditUser">Código de Barras:</label>
-                                                            <input type="text" class="form-control" name="codBarras" placeholder="Cód. Barras" required>
+                                                            <input type="text" class="form-control" name="codBarras" placeholder="Cód. Barras" value="{{old('codBarras')}}">
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <label for="produtoNome" class="control-label labelInputEditUser">Descrição:</label>
-                                                            <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" required>
+                                                            <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" value="{{old('produtoNome')}}">
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
@@ -74,7 +74,7 @@
                                                     <div class="form-group row">
                                                         <div class="col-sm-2">
                                                             <label for="qtd" class="control-label labelInputEditUser">Quantidade:</label>
-                                                            <input type="number" class="form-control" name="qtd" placeholder="Qtd. disp." required>
+                                                            <input type="number" class="form-control" name="qtd" placeholder="Qtd. disp." value="{{old('qtd')}}">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="qtdMin" class="control-label labelInputEditUser">Qtd Min:</label>
@@ -82,20 +82,20 @@
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="precoCusto" class="control-label labelInputEditUser">Preço Custo:</label>
-                                                            <input type="number" step="any" id="precoCusto" class="form-control" name="precoCusto" placeholder="Digite o custo" required>
+                                                            <input type="number" step="any" id="precoCusto" class="form-control" name="precoCusto" placeholder="Digite o custo">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="precoVenda" class="control-label labelInputEditUser">Preço Venda:</label>
-                                                            <input type="number" step="any" class="form-control" name="precoVenda" placeholder="Preco de venda">
+                                                            <input type="number" step="any" class="form-control" name="precoVenda" placeholder="Preco de venda" value="{{old('precoVenda')}}">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="margemLucro" class="control-label labelInputEditUser">Margem Lucro %:</label>
-                                                            <input type="number" step="any" class="form-control" name="margemLucro" placeholder="Lucro %" required>
+                                                            <input type="number" step="any" class="form-control" name="margemLucro" placeholder="Lucro %">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
                                                             <select class="form-control labelInputEditUser" name="produtoUnidadeId" id="produtoUnidadeId">
-                                                                <option>Selecione..</option>
+                                                                <option value="">Selecione..</option>
                                                                 @foreach($unidades as $unidade)    
                                                                 <option value="{{$unidade->id}}">{{$unidade->sigla}}</option>
                                                                 @endforeach  
@@ -106,7 +106,7 @@
                                                         <div class="col-sm-4">
                                                             <label for="produtoSetorId" class="control-label labelInputEditUser">Setor:</label>
                                                             <select class="form-control labelInputEditUser" name="produtoSetorId" id="produtoSetorId">
-                                                                <option>Selecione..</option>
+                                                                <option value="">Selecione..</option>
                                                                 @foreach($setores as $setor)    
                                                                 <option value="{{$setor->id}}">{{$setor->nome}}</option>
                                                                 @endforeach  
@@ -115,7 +115,7 @@
                                                         <div class="col-sm-4">
                                                             <label for="produtoCategoriaId" class="control-label labelInputEditUser">Categoria:</label>
                                                             <select class="form-control labelInputEditUser" name="produtoCategoriaId" id="produtoCategoriaId">
-                                                                <option>Selecione..</option>
+                                                                <option value="">Selecione..</option>
                                                                 @foreach($categorias as $categoria)
                                                                 <option></option>
                                                                 @if($setor->id == $categoria->produtoSetorId )
@@ -128,7 +128,7 @@
                                                         <div class="col-sm-4">
                                                             <label for="produtoFornecedorId" class="control-label labelInputEditUser">Fornecedor:</label>
                                                             <select class="form-control labelInputEditUser" name="produtoFornecedorId" id="produtoFornecedorId">
-                                                                <option>Selecione..</option>
+                                                                <option value="">Selecione..</option>
                                                                 @foreach($fornecedores as $fornecedor)
                                                                 <option value="{{$fornecedor->id}}">{{$fornecedor->nomeFantasia}}</option>
                                                                 @endforeach  
@@ -137,7 +137,7 @@
                                                         <div class="col-sm-2">
                                                             <label for="isPromocao" class="control-label labelInputEditUser">Promoção:</label>
                                                             <select class="form-control labelInputEditUser" name="isPromocao">
-                                                                <option>Selecione..</option>
+                                                                <option value="">Selecione..</option>
                                                                 <option value="1">Sim</option>
                                                                 <option value="0">Não</option>
                                                             </select>
@@ -176,6 +176,15 @@
                                                             });
                                                         </script>
                                                     </div>
+
+                                                    @if( isset($errors) && count($errors) > 0 )
+                                                    <div class="alert alert-danger">
+                                                        @foreach ( $errors->all() as $error )
+                                                        <p>{{$error}}</p>
+                                                        @endforeach
+                                                    </div>
+                                                    @endif
+
                                                 </div> 
                                             </div>    
                                             <div class="modal-footer modal-footer-formpag">

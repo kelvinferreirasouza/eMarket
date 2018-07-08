@@ -13,8 +13,14 @@ use App\Fornecedor;
 
 class ProdutoController extends Controller
 {
+    
+    private $produto;
+    
+    public function __construct(Produto $produto) {
+        $this->produto = $produto;
+    }
 
-    public function cadastrarProduto()
+        public function cadastrarProduto()
     {
         $setores    = Setor::all();
         $marcas     = Marca::all();
@@ -39,6 +45,9 @@ class ProdutoController extends Controller
     public function salvarProduto(Request $request)
     {
         $dados = $request->all();
+
+        $this->validate($request, $this->produto->rules, $this->produto->messages);
+
         Produto::create($dados);
  
         return redirect()->route('listarProdutos');
