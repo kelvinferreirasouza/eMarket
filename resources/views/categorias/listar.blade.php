@@ -234,6 +234,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $categorias->links() !!}
                             </div> 
                         </div>
                     </div>

@@ -12,7 +12,7 @@ class UsuarioController extends Controller
 {
     public function listarUsuarios()
     {
-        $usuarios = Usuario::all();
+        $usuarios = Usuario::paginate(10);
         $cargos = Cargo::all();
         return view('usuarios.listar', compact('usuarios', 'cargos'));
     }

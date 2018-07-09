@@ -14,7 +14,7 @@ class UnidadeController extends Controller
 
     public function listarUnidades()
     {
-        $unidades = Unidade::all();
+        $unidades = Unidade::paginate(10);
         return view('unidades.listar', compact('unidades'));
     }
 

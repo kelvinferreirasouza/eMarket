@@ -32,7 +32,7 @@ class ProdutoController extends Controller
 
     public function listarProdutos()
     {
-        $produtos = Produto::all();
+        $produtos = Produto::paginate(10);
         $setores    = Setor::all();
         $marcas     = Marca::all();
         $unidades   = Unidade::all();

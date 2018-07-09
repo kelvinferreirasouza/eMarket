@@ -211,6 +211,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $unidades->links() !!}
                             </div> 
                         </div>
                     </div>

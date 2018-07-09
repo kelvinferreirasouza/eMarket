@@ -24,7 +24,7 @@ class CategoriaController extends Controller
 
     public function listarCategorias()
     {
-        $categorias = Categoria::orderBy('produtoSetorId')->get();
+        $categorias = Categoria::orderBy('produtoSetorId')->paginate(10);
         $setores = Setor::all();
         return view('categorias.listar', compact('categorias', 'setores'));
     }

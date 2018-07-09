@@ -22,7 +22,7 @@ class MarcaController extends Controller
 
     public function listarMarcas()
     {
-        $marcas = Marca::all();
+        $marcas = Marca::paginate(10);
 
         return view('marcas.listar', compact('marcas'));
     }

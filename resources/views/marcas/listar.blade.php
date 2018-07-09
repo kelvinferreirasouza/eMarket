@@ -197,6 +197,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $marcas->links() !!}
                             </div> 
                         </div>
                     </div>

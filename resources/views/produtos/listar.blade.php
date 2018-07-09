@@ -481,6 +481,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $produtos->links() !!}
                             </div> 
                         </div>
                     </div>

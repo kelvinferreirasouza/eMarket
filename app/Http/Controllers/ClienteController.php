@@ -10,8 +10,7 @@ class ClienteController extends Controller
 {
     public function listarClientes()
     {
-        $clientes = Cliente::all();
-        $clientes = Cliente::all();
+        $clientes = Cliente::paginate(10);
         return view('clientes.listar', compact('clientes'));
     }
  

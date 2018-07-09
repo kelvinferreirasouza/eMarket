@@ -25,7 +25,7 @@ class SubcategoriaController extends Controller
 
     public function listarSubcategorias()
     {
-        $subcategorias = Subcategoria::orderBy('produtoCategoriaId')->get();
+        $subcategorias = Subcategoria::orderBy('produtoCategoriaId')->paginate(10);
         $categorias = Categoria::all();
         return view('subcategorias.listar', compact('subcategorias', 'categorias'));
     }

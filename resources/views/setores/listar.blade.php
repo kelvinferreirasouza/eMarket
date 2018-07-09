@@ -198,6 +198,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $setores->links() !!}
                             </div> 
                         </div>
                     </div>
