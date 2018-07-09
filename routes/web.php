@@ -40,6 +40,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pessoas/clientes/salvar', 'ClienteController@salvarCliente')->name('salvarCliente');
     Route::get('/pessoas/clientes/excluir/{id}', 'ClienteController@excluirCliente')->name('excluirCliente');
     
+     /* Rotas Protegidas de Empresas */
+    Route::get('/empresas', 'EmpresaController@listarEmpresas')->name('listarEmpresas');
+    Route::post('/empresas/atualizar/{id}', 'EmpresaController@atualizarEmpresa')->name('atualizarEmpresa');
+    Route::post('/empresas/salvar', 'EmpresaController@salvarEmpresa')->name('salvarEmpresa');
+    Route::get('/empresas/excluir/{id}', 'EmpresaController@excluirEmpresa')->name('excluirEmpresa');
+    
 
     /* Rotas Protegidas de Produtos */
     Route::get('/produtos', 'ProdutoController@listarProdutos')->name('listarProdutos');

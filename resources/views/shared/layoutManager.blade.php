@@ -186,7 +186,8 @@
                                     <li class="pcoded-hasmenu 
                                         {{ (
                                         \Request::route()->getName() == 'listarFornecedores' || 
-                                        \Request::route()->getName() == 'listarUsuarios'
+                                        \Request::route()->getName() == 'listarUsuarios' ||
+                                        \Request::route()->getName() == 'listarClientes'
                                          ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-users"></i></span>
@@ -194,7 +195,7 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
-                                            <li class=" ">
+                                            <li class="{{ (\Request::route()->getName() == 'listarClientes') ? 'active' : '' }}">
                                                 <a href="{{ route('listarClientes') }}" data-i18n="nav.navigate.navbar">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Clientes</span>

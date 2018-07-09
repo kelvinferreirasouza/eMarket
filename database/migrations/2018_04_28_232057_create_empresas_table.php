@@ -18,7 +18,7 @@ class CreateEmpresasTable extends Migration
             $table->string('razaoSocial', 150);
             $table->string('nomeFantasia', 100);
             $table->string('cnpj', 18);
-            $table->integer('ie');
+            $table->string('ie', 11);
             $table->string('cep', 9);
             $table->string('lagradouro', 100);
             $table->integer('numero');
@@ -26,7 +26,6 @@ class CreateEmpresasTable extends Migration
             $table->string('bairro', 100);
             $table->string('estado', 100);
             $table->string('municipio', 100);
-            $table->string('pais', 100);
             $table->string('fone', 15);
             $table->timestamps();
             $table->integer('isAtivo')->default(1);
