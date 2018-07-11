@@ -16,7 +16,7 @@
         <meta name="keywords" content="flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
         <meta name="author" content="#">
         <!-- Favicon iconn -->
-        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
         <!-- Google font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mada:300,400,500,600,700">
         <!-- Required Fremwork -->
@@ -333,8 +333,10 @@
                                 </ul>
                                 <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element">Configurações</div>
                                 <ul class="pcoded-item pcoded-left-item">
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)">
+                                    <li class="pcoded-hasmenu {{ (
+                                        \Request::route()->getName() == 'listarEmpresas'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="{{route('listarEmpresas')}}">
                                             <span class="pcoded-micon"><i class="fas fa-server"></i></span>
                                             <span class="pcoded-mtext">Empresa</span>
                                             <span class="pcoded-mcaret"></span>
@@ -373,7 +375,6 @@
             </div>
         </div>
     </body>
-
     <!-- Required Jqurey -->
     <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
@@ -420,4 +421,26 @@
     <script src="{{ asset('js/manager/demo-12.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
+    <script>
+        $('#cep').blur(function(e) {
+           var cep=$('#cep').val();
+           var url="https://viacep.com.br/ws/" + cep + "/json/";
+           var retorno = pesquisarCEP(url);
+        });
+        
+        function pesquisarCEP(endereco){
+            $.ajax({
+                type:"GET",
+                url:endereco
+            }).done(function(data){
+                console.log({{$usuario->id}});
+                $('#bairro').val(data.bairro);
+                $('#logradouro').val(data.logradouro);
+                $('#cidade').val(data.localidade);
+                $('#estado').val(data.uf);
+            }).fail(function(){
+                console.log("Erro!");
+            });
+        }
+    </script>
 </html>

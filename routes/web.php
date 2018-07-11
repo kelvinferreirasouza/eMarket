@@ -95,6 +95,12 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/financeiro/formaspagamentos/salvar', 'FormaPagamentoController@salvarFormaPag')->name('salvarFormaPag');  
     Route::get('/financeiro/formaspagamentos/excluir/{id}', 'FormaPagamentoController@excluirFormaPag')->name('excluirFormaPag');
     
+    /* Rotas Protegidas de Pedidos */
+    Route::get('/vendas/pedidos', 'PedidoController@listarPedidos')->name('listarPedidos');
+    Route::post('/vendas/pedidos/atualizar/{id}', 'PedidoController@atualizarPedido')->name('atualizarPedido'); 
+    Route::post('/vendas/pedidos/salvar', 'PedidoController@salvarPedido')->name('salvarPedido');  
+    Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
+    
     /* Rotas Protegidas de Veiculos */
     Route::get('/entregas/veiculos', 'VeiculoController@listarVeiculos')->name('listarVeiculos');
     Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo'); 
