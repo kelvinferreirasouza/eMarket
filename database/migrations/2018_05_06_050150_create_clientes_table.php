@@ -23,7 +23,7 @@ class CreateClientesTable extends Migration
             $table->integer('sexo');
             $table->date('dataNasc');
             $table->string('cep', 9)->nullable();
-            $table->string('lagradouro', 100)->nullable();
+            $table->string('logradouro', 100)->nullable();
             $table->integer('numero')->nullable();
             $table->string('bairro', 100)->nullable();
             $table->string('estado', 100)->nullable();

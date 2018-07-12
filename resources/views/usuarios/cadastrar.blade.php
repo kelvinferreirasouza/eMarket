@@ -80,8 +80,8 @@
                                     <input type="text" class="form-control" name="cep">
                                 </div>
                                 <div class="col-sm-6">
-                                    <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                    <input type="text" class="form-control" name="lagradouro">
+                                    <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                    <input type="text" class="form-control" name="logradouro">
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="numero" class="control-label labelInputEditUser">N°:</label>

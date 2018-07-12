@@ -22,7 +22,7 @@ class FornecedorController extends Controller
 
     public function listarFornecedores()
     {
-        $fornecedores = Fornecedor::all();
+        $fornecedores = Fornecedor::paginate(10);
         return view('fornecedores.listar', compact('fornecedores'));
     }
 

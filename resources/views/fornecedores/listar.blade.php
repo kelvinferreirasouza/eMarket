@@ -82,8 +82,8 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-6">
-                                                        <label for="lagradouro" class="control-label labelInputEditUser">Logradouro:</label>
-                                                        <input type="text" class="form-control" name="lagradouro" id="logradouro" placeholder="Digite o Logradouro" required>
+                                                        <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                        <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Digite o Logradouro" required>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="numero" class="control-label labelInputEditUser">Número:</label>
@@ -162,7 +162,7 @@
                                             <td>
 
                                                 <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlagradouro="{{$fornecedor->lagradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlogradouro="{{$fornecedor->logradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Usuário" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$fornecedor->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -211,8 +211,8 @@
                                                                         </div>
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-6">
-                                                                                <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                                                <input type="text" class="form-control" name="lagradouro" placeholder="Digite o Lagradouro" value="{{$fornecedor->lagradouro}}" required>
+                                                                                <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                                <input type="text" class="form-control" name="logradouro" placeholder="Digite o Logradouro" value="{{$fornecedor->logradouro}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="numero" class="control-label labelInputEditUser">Número:</label>
@@ -259,7 +259,7 @@
                                                 <!-- FIM MODAL EDITAR -->
 
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlagradouro="{{$fornecedor->lagradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlogradouro="{{$fornecedor->logradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$fornecedor->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -308,8 +308,8 @@
                                                                         </div>
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-6">
-                                                                                <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                                                <input disabled type="text" class="form-control" name="lagradouro" placeholder="Digite o Lagradouro" value="{{$fornecedor->lagradouro}}" required>
+                                                                                <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                                <input disabled type="text" class="form-control" name="logradouro" placeholder="Digite o Logradouro" value="{{$fornecedor->logradouro}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="numero" class="control-label labelInputEditUser">Número:</label>
@@ -358,6 +358,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
+                                {!! $fornecedores->links() !!}
                             </div> 
                         </div>
                     </div>

@@ -91,8 +91,8 @@
                                                         <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite o CEP">
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <label for="lagradouro" class="control-label labelInputEditUser">Logradouro:</label>
-                                                        <input type="text" class="form-control" name="lagradouro" id="logradouro" placeholder="Digite o Lagradouro">
+                                                        <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                        <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Digite o Logradouro">
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="numero" class="control-label labelInputEditUser">N°:</label>
@@ -206,7 +206,7 @@
                                                data-whatever="{{$usuario->id}}" data-whatevernome="{{$usuario->nome}}" data-whateveremail="{{$usuario->email}}"
                                                data-whateverlogin="{{$usuario->login}}" data-whateversenha="{{$usuario->senha}}"
                                                data-whatevercpf="{{$usuario->cpf}}" data-whateverrg="{{$usuario->rg}}" data-whateverdataNasc="{{$usuario->dataNasc}}"
-                                               data-whatevercep="{{$usuario->cep}}" data-whateverlagradouro="{{$usuario->lagradouro}}" data-whatevernumero="{{$usuario->numero}}"
+                                               data-whatevercep="{{$usuario->cep}}" data-whateverlogradouro="{{$usuario->logradouro}}" data-whatevernumero="{{$usuario->numero}}"
                                                data-whateverbairro="{{$usuario->bairro}}" data-whateverestado="{{$usuario->estado}}" data-whatevermunicipio="{{$usuario->municipio}}"
                                                data-whateverfone="{{$usuario->fone}}" data-whatevercelular="{{$usuario->celular}}" data-whateversexo="{{$usuario->sexo}}"
                                                data-whatevercargo="{{$usuario->cargoId}}" data-whateverativo="{{$usuario->isAtivo}}"><img src="../../imgs/iconEdit.png"
@@ -267,8 +267,8 @@
                                                                             <input type="text" class="form-control" name="cep" id="cep" id="cep" placeholder="Digite o CEP" value="{{$usuario->cep}}">
                                                                         </div>
                                                                         <div class="col-sm-6">
-                                                                            <label for="lagradouro" class="control-label labelInputEditUser">Logradouro:</label>
-                                                                            <input type="text" class="form-control" name="lagradouro" id="logradouro" placeholder="Digite o Lagradouro" value="{{$usuario->lagradouro}}">
+                                                                            <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                            <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Digite o logradouro" value="{{$usuario->logradouro}}">
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <label for="numero" class="control-label labelInputEditUser">N°:</label>
@@ -345,7 +345,7 @@
                                             <!-- FIM MODAL EDITAR -->
 
                                             <!-- BOTAO VISUALIZAR MODAL -->
-                                            <a href="" data-toggle="modal" data-target="#modalVisualizar{{$usuario->id}}" data-whatever="{{$usuario->id}}" data-whatevernome="{{$usuario->nome}}" data-whateveremail="{{$usuario->email}}" data-whateverlogin="{{$usuario->login}}" data-whateversenha="{{$usuario->senha}}" data-whatevercpf="{{$usuario->cpf}}" data-whateverrg="{{$usuario->rg}}" data-whateverdataNasc="{{$usuario->dataNasc}}" data-whatevercep="{{$usuario->cep}}" data-whateverlagradouro="{{$usuario->lagradouro}}" data-whatevernumero="{{$usuario->numero}}" data-whateverbairro="{{$usuario->bairro}}" data-whateverestado="{{$usuario->estado}}" data-whatevermunicipio="{{$usuario->municipio}}" data-whateverfone="{{$usuario->fone}}" data-whatevercelular="{{$usuario->celular}}" data-whateversexo="{{$usuario->sexo}}" data-whatevercargo="{{$usuario->cargoId}}" data-whateverativo="{{$usuario->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes"></a>
+                                            <a href="" data-toggle="modal" data-target="#modalVisualizar{{$usuario->id}}" data-whatever="{{$usuario->id}}" data-whatevernome="{{$usuario->nome}}" data-whateveremail="{{$usuario->email}}" data-whateverlogin="{{$usuario->login}}" data-whateversenha="{{$usuario->senha}}" data-whatevercpf="{{$usuario->cpf}}" data-whateverrg="{{$usuario->rg}}" data-whateverdataNasc="{{$usuario->dataNasc}}" data-whatevercep="{{$usuario->cep}}" data-whateverlogradouro="{{$usuario->logradouro}}" data-whatevernumero="{{$usuario->numero}}" data-whateverbairro="{{$usuario->bairro}}" data-whateverestado="{{$usuario->estado}}" data-whatevermunicipio="{{$usuario->municipio}}" data-whateverfone="{{$usuario->fone}}" data-whatevercelular="{{$usuario->celular}}" data-whateversexo="{{$usuario->sexo}}" data-whatevercargo="{{$usuario->cargoId}}" data-whateverativo="{{$usuario->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes"></a>
 
                                             <!-- MODAL DE VISUALIZAR -->
                                             <div class="modal fade" id="modalVisualizar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -405,8 +405,8 @@
                                                                             <input disabled type="text" class="form-control" name="cep" value="{{$usuario->cep}}">
                                                                         </div>
                                                                         <div class="col-sm-6">
-                                                                            <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                                            <input disabled type="text" class="form-control" name="lagradouro" value="{{$usuario->lagradouro}}">
+                                                                            <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                            <input disabled type="text" class="form-control" name="logradouro" value="{{$usuario->logradouro}}">
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <label for="numero" class="control-label labelInputEditUser">N°:</label>

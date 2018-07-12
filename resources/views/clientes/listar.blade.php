@@ -94,8 +94,8 @@
                                                         <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite o CEP">
                                                     </div>
                                                     <div class="col-sm-6">
-                                                        <label for="lagradouro" class="control-label labelInputEditUser">Logradouro:</label>
-                                                        <input type="text" class="form-control" name="lagradouro" id="logradouro" placeholder="Digite o Logradouro">
+                                                        <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                        <input type="text" class="form-control" name="logradouro" id="logradouro" placeholder="Digite o Logradouro">
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="numero" class="control-label labelInputEditUser">N°:</label>
@@ -187,7 +187,7 @@
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$cliente->id}}"
                                                    data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateversenha="{{$cliente->senha}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
-                                                   data-whatevercep="{{$cliente->cep}}" data-whateverlagradouro="{{$cliente->lagradouro}}" data-whatevernumero="{{$cliente->numero}}" data-whateverbairro="{{$cliente->bairro}}" data-whateverestado="{{$cliente->estado}}"data-whatevermunicipio="{{$cliente->municipio}}" data-whateverfone="{{$cliente->fone}}" data-whatevercelular="{{$cliente->celular}}" data-whateversexo="{{$cliente->sexo}}" data-whateverativo="{{$cliente->isAtivo}}">
+                                                   data-whatevercep="{{$cliente->cep}}" data-whateverlogradouro="{{$cliente->logradouro}}" data-whatevernumero="{{$cliente->numero}}" data-whateverbairro="{{$cliente->bairro}}" data-whateverestado="{{$cliente->estado}}"data-whatevermunicipio="{{$cliente->municipio}}" data-whateverfone="{{$cliente->fone}}" data-whatevercelular="{{$cliente->celular}}" data-whateversexo="{{$cliente->sexo}}" data-whateverativo="{{$cliente->isAtivo}}">
                                                     <img src="../../imgs/iconEdit.png" title="Editar Cliente" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
@@ -248,8 +248,8 @@
                                                                                 <input type="text" class="form-control" name="cep" placeholder="Digite o CEP" value="{{$cliente->cep}}">
                                                                             </div>
                                                                             <div class="col-sm-6">
-                                                                                <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                                                <input type="text" class="form-control" name="lagradouro" placeholder="Digite o Lagradouro" value="{{$cliente->lagradouro}}">
+                                                                                <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                                <input type="text" class="form-control" name="logradouro" placeholder="Digite o Logradouro" value="{{$cliente->logradouro}}">
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="numero" class="control-label labelInputEditUser">N°:</label>
@@ -304,7 +304,7 @@
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$cliente->id}}"
                                                    data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateversenha="{{$cliente->senha}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
-                                                   data-whatevercep="{{$cliente->cep}}" data-whateverlagradouro="{{$cliente->lagradouro}}" data-whatevernumero="{{$cliente->numero}}" data-whateverbairro="{{$cliente->bairro}}" data-whateverestado="{{$cliente->estado}}"data-whatevermunicipio="{{$cliente->municipio}}" data-whateverfone="{{$cliente->fone}}" data-whatevercelular="{{$cliente->celular}}" data-whateversexo="{{$cliente->sexo}}" data-whateverativo="{{$cliente->isAtivo}}">
+                                                   data-whatevercep="{{$cliente->cep}}" data-whateverlogradouro="{{$cliente->logradouro}}" data-whatevernumero="{{$cliente->numero}}" data-whateverbairro="{{$cliente->bairro}}" data-whateverestado="{{$cliente->estado}}"data-whatevermunicipio="{{$cliente->municipio}}" data-whateverfone="{{$cliente->fone}}" data-whatevercelular="{{$cliente->celular}}" data-whateversexo="{{$cliente->sexo}}" data-whateverativo="{{$cliente->isAtivo}}">
                                                     <img src="../../imgs/iconView.png" title="Editar Cliente" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
@@ -365,8 +365,8 @@
                                                                                 <input disabled type="text" class="form-control" name="cep" placeholder="Digite o CEP" value="{{$cliente->cep}}">
                                                                             </div>
                                                                             <div class="col-sm-6">
-                                                                                <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                                                <input disabled type="text" class="form-control" name="lagradouro" placeholder="Digite o Lagradouro" value="{{$cliente->lagradouro}}">
+                                                                                <label for="logradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                                                <input disabled type="text" class="form-control" name="logradouro" placeholder="Digite o Logradouro" value="{{$cliente->logradouro}}">
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="numero" class="control-label labelInputEditUser">N°:</label>
