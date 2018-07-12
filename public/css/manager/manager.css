@@ -189,3 +189,8 @@
 .text-faded {
     color: rgba(255, 255, 255, 0.7);
 }
+
+.pagination {
+    position: relative;
+    float: right;
+}

@@ -421,7 +421,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
-                                {!! $clientes->links() !!}
+                                <div class="pagination">{!! $clientes->links() !!}</div>
                             </div> 
                         </div>
                     </div>

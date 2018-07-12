@@ -358,7 +358,7 @@
                                         @endforeach                                
                                     </tbody>
                                 </table> 
-                                {!! $fornecedores->links() !!}
+                                <div class="pagination">{!! $fornecedores->links() !!}</div>
                             </div> 
                         </div>
                     </div>
