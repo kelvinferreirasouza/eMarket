@@ -421,26 +421,25 @@
     <script src="{{ asset('js/manager/demo-12.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
-    <script>
-        $('#cep').blur(function(e) {
-           var cep=$('#cep').val();
-           var url="https://viacep.com.br/ws/" + cep + "/json/";
-           var retorno = pesquisarCEP(url);
-        });
-        
-        function pesquisarCEP(endereco){
-            $.ajax({
-                type:"GET",
-                url:endereco
-            }).done(function(data){
-                console.log({{$usuario->id}});
+                <script>
+                $('#cep').blur(function(e) {
+                    var cep = $('#cep').val();
+                    var url = "https://viacep.com.br/ws/" + cep + "/json/";
+                    var retorno = pesquisarCEP(url);
+                });
+                
+                function pesquisarCEP(endereco){
+                    $.ajax({
+                        type:"GET",
+                        url:endereco
+                }).done(function(data){
                 $('#bairro').val(data.bairro);
                 $('#logradouro').val(data.logradouro);
                 $('#cidade').val(data.localidade);
                 $('#estado').val(data.uf);
-            }).fail(function(){
+                }).fail(function(){
                 console.log("Erro!");
-            });
-        }
-    </script>
+                });
+                }
+            </script>
 </html>
