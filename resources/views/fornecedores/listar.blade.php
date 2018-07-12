@@ -77,13 +77,13 @@
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="cep" class="control-label labelInputEditUser">CEP:</label>
-                                                        <input type="text" class="form-control" name="cep" placeholder="Digite a CEP" required>
+                                                        <input type="text" class="form-control" name="cep" id="cep" placeholder="Digite a CEP" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-6">
-                                                        <label for="lagradouro" class="control-label labelInputEditUser">Lagradouro:</label>
-                                                        <input type="text" class="form-control" name="lagradouro" placeholder="Digite o Lagradouro" required>
+                                                        <label for="lagradouro" class="control-label labelInputEditUser">Logradouro:</label>
+                                                        <input type="text" class="form-control" name="lagradouro" id="logradouro" placeholder="Digite o Logradouro" required>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="numero" class="control-label labelInputEditUser">Número:</label>
@@ -91,17 +91,17 @@
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
-                                                        <input type="text" class="form-control" name="bairro" placeholder="Digite o bairro" required>
+                                                        <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Digite o bairro" required>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-4">
-                                                        <label for="municipio" class="control-label labelInputEditUser">Cidade:</label>
-                                                        <input type="text" class="form-control" name="municipio" placeholder="Digite o Cidade" required>
+                                                        <label for="municipio" class="control-label labelInputEditUser">Município:</label>
+                                                        <input type="text" class="form-control" name="municipio" id="cidade" placeholder="Digite o Município" required>
                                                     </div>
                                                     <div class="col-sm-4">
                                                         <label for="estado" class="control-label labelInputEditUser">Estado:</label>
-                                                        <input type="text" class="form-control" name="estado" placeholder="Digite o Estado" required>
+                                                        <input type="text" class="form-control" name="estado" id="estado" placeholder="Digite o Estado" required>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="fone" class="control-label labelInputEditUser">Fone:</label>
