@@ -430,7 +430,7 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
 
-                                                <a href="{{route('excluirCliente', $cliente->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Cliente" class="btnAcoes"></a>
+                                                <a href="{{route('excluirCliente', $cliente->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Cliente" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
                                         @empty
