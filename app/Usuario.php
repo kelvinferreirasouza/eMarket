@@ -17,4 +17,16 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'senha'
     ];
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('nome', 'LIKE', "%{$keySearch}%")
+                ->orWhere('login', 'LIKE', "%{$keySearch}%")
+                ->orWhere('email', 'LIKE', "%{$keySearch}%")
+                ->orWhere('cpf', 'LIKE', "%{$keySearch}%")
+                ->orWhere('rg', 'LIKE', "%{$keySearch}%")
+                ->orWhere('dataNasc', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

@@ -22,10 +22,11 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
 
     /* Rotas Protegidas de Usuários */
-    Route::get('/usuarios', 'UsuarioController@listarUsuarios')->name('listarUsuarios');
-    Route::post('/usuarios/atualizar/{id}', 'UsuarioController@atualizarUsuario')->name('atualizarUsuario');
-    Route::post('/usuarios/salvar', 'UsuarioController@salvarUsuario')->name('salvarUsuario');
-    Route::get('/usuarios/excluir/{id}', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
+    Route::get('/pessoas/usuarios', 'UsuarioController@listarUsuarios')->name('listarUsuarios');
+    Route::post('/pessoas/usuarios/atualizar/{id}', 'UsuarioController@atualizarUsuario')->name('atualizarUsuario');
+    Route::post('/pessoas/usuarios/salvar', 'UsuarioController@salvarUsuario')->name('salvarUsuario');
+    Route::get('/pessoas/usuarios/excluir/{id}', 'UsuarioController@excluirUsuario')->name('excluirUsuario');
+    Route::post('/pessoas/usuarios/pesquisa', 'UsuarioController@pesquisarUsuario')->name('pesquisarUsuario');
     
 
      /* Rotas Protegidas de Fornecedores */
@@ -33,12 +34,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/pessoas/fornecedores/atualizar/{id}', 'FornecedorController@atualizarFornecedor')->name('atualizarFornecedor');
     Route::post('/pessoas/fornecedores/salvar', 'FornecedorController@salvarFornecedor')->name('salvarFornecedor');
     Route::get('/pessoas/fornecedores/excluir/{id}', 'FornecedorController@excluirFornecedor')->name('excluirFornecedor');
+    Route::post('/pessoas/fornecedores/pesquisa', 'FornecedorController@pesquisarFornecedor')->name('pesquisarFornecedor');
 
      /* Rotas Protegidas de Clientes */
     Route::get('/pessoas/clientes', 'ClienteController@listarClientes')->name('listarClientes');
     Route::post('/pessoas/clientes/atualizar/{id}', 'ClienteController@atualizarCliente')->name('atualizarCliente');
     Route::post('/pessoas/clientes/salvar', 'ClienteController@salvarCliente')->name('salvarCliente');
     Route::get('/pessoas/clientes/excluir/{id}', 'ClienteController@excluirCliente')->name('excluirCliente');
+    Route::post('/pessoas/clientes/pesquisa', 'ClienteController@pesquisarCliente')->name('pesquisarCliente');
     
      /* Rotas Protegidas de Empresas */
     Route::get('/empresas', 'EmpresaController@listarEmpresas')->name('listarEmpresas');
@@ -52,36 +55,42 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/produtos/atualizar/{id}', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
     Route::post('/produtos/salvar', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/produtos/excluir/{id}', 'ProdutoController@excluirProduto')->name('excluirProduto');
+    Route::post('/produtos/pesquisa', 'ProdutoController@pesquisarProduto')->name('pesquisarProduto');
 
     /* Rotas Protegidas de Setores */
     Route::get('/produtos/setores', 'SetorController@listarSetores')->name('listarSetores');
     Route::post('/produtos/setores/atualizar/{id}', 'SetorController@atualizarSetor')->name('atualizarSetor');
     Route::post('/produtos/setores/salvar', 'SetorController@salvarSetor')->name('salvarSetor');
     Route::get('/produtos/setores/excluir/{id}', 'SetorController@excluirSetor')->name('excluirSetor');
+    Route::post('/produtos/setores/pesquisa', 'SetorController@pesquisarSetor')->name('pesquisarSetor');
 
     /* Rotas Protegidas de Categorias */
     Route::get('/produtos/categorias', 'CategoriaController@listarCategorias')->name('listarCategorias'); 
     Route::post('/produtos/categorias/atualizar/{id}', 'CategoriaController@atualizarCategoria')->name('atualizarCategoria');
     Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
     Route::get('/produtos/categorias/excluir/{id}', 'CategoriaController@excluirCategoria')->name('excluirCategoria');
+    Route::post('/produtos/categorias/pesquisa', 'CategoriaController@pesquisarCategoria')->name('pesquisarCategoria');
 
     /* Rotas Protegidas de Sub-Categorias */
     Route::get('/produtos/categorias/subcategorias', 'SubcategoriaController@listarSubcategorias')->name('listarSubcategorias');
     Route::post('/produtos/categorias/subcategorias/atualizar/{id}', 'SubcategoriaController@atualizarSubcategoria')->name('atualizarSubcategoria');
     Route::post('/produtos/categorias/subcategorias/salvar', 'SubcategoriaController@salvarSubcategoria')->name('salvarSubcategoria');  
     Route::get('/produtos/categorias/subcategorias/excluir/{id}', 'SubcategoriaController@excluirSubcategoria')->name('excluirSubcategoria');
+    Route::post('/produtos/categorias/subcategorias/pesquisa', 'SubcategoriaController@pesquisarSubcategoria')->name('pesquisarSubcategoria');
     
     /* Rotas Protegidas de Unidades */
     Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');
     Route::post('/produtos/unidades/atualizar/{id}', 'UnidadeController@atualizarUnidade')->name('atualizarUnidade');
     Route::post('/produtos/unidades/salvar', 'UnidadeController@salvarUnidade')->name('salvarUnidade');    
     Route::get('/produtos/unidades/excluir/{id}', 'UnidadeController@excluirUnidade')->name('excluirUnidade');
+    Route::post('/produtos/unidades/pesquisa', 'UnidadeController@pesquisarUnidade')->name('pesquisarUnidade');
 
     /* Rotas Protegidas de Marcas */
     Route::get('/produtos/marcas', 'MarcaController@listarMarcas')->name('listarMarcas'); 
     Route::post('/produtos/marcas/atualizar/{id}', 'MarcaController@atualizarMarca')->name('atualizarMarca');
     Route::post('/produtos/marcas/salvar', 'MarcaController@salvarMarca')->name('salvarMarca');  
     Route::get('/produtos/marcas/excluir/{id}', 'MarcaController@excluirMarca')->name('excluirMarca');
+    Route::post('/produtos/marcas/pesquisa', 'MarcaController@pesquisarMarca')->name('pesquisarMarca');
 
     /* Rotas Protegidas de Cargos */
     Route::get('/usuarios/cargos', 'CargoController@listarCargos')->name('listarCargos'); 
@@ -106,18 +115,21 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo'); 
     Route::post('/entregas/veiculos/salvar', 'VeiculoController@salvarVeiculo')->name('salvarVeiculo');  
     Route::get('/entregas/veiculos/excluir/{id}', 'VeiculoController@excluirVeiculo')->name('excluirVeiculo');
+    Route::post('/entregas/veiculos/pesquisa', 'VeiculoController@pesquisarVeiculo')->name('pesquisarVeiculo');
     
     /* Rotas Protegidas de Marcas de Veiculos */
     Route::get('/entregas/veiculos/marcas', 'VeiculoMarcaController@listarVeiculoMarcas')->name('listarVeiculoMarcas');
     Route::post('/entregas/veiculos/marcas/atualizar/{id}', 'VeiculoMarcaController@atualizarVeiculoMarca')->name('atualizarVeiculoMarca'); 
     Route::post('/entregas/veiculos/marcas/salvar', 'VeiculoMarcaController@salvarVeiculoMarca')->name('salvarVeiculoMarca');  
     Route::get('/entregas/veiculos/marcas/excluir/{id}', 'VeiculoMarcaController@excluirVeiculoMarca')->name('excluirVeiculoMarca');
+    Route::post('/entregas/veiculos/marcas/pesquisa', 'VeiculoMarcaController@pesquisarVeiculoMarca')->name('pesquisarVeiculoMarca');
     
     /* Rotas Protegidas de Modelos de Veiculos */
     Route::get('/entregas/veiculos/modelos', 'VeiculoModeloController@listarVeiculoModelos')->name('listarVeiculoModelos');
     Route::post('/entregas/veiculos/modelos/atualizar/{id}', 'VeiculoModeloController@atualizarVeiculoModelo')->name('atualizarVeiculoModelo'); 
     Route::post('/entregas/veiculos/modelos/salvar', 'VeiculoModeloController@salvarVeiculoModelo')->name('salvarVeiculoModelo');  
     Route::get('/entregas/veiculos/modelos/excluir/{id}', 'VeiculoModeloController@excluirVeiculoModelo')->name('excluirVeiculoModelo');
+    Route::post('/entregas/veiculos/modelos/pesquisa', 'VeiculoModeloController@pesquisarVeiculoModelo')->name('pesquisarVeiculoModelo');
     
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias','ProdutoController@getCategoriasAjax');

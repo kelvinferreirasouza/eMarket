@@ -8,6 +8,13 @@ use App\Setor;
 
 class CategoriaController extends Controller
 {
+    private $categoria;
+
+    public function __construct(Categoria $categoria)
+    {
+        $this->categoria = $categoria;
+    }
+    
     public function cadastrarCategoria()
     {   
         $setores = Setor::all();
@@ -61,5 +68,13 @@ class CategoriaController extends Controller
         $categoria->delete();
 
         return redirect()->route('listarCategorias');
+    }
+    
+    public function pesquisarCategoria(Request $request) {
+        
+        $categorias = $this->categoria->pesquisa($request);
+        $setores = Setor::all();
+        
+        return view('categorias.listar', compact('categorias', 'setores'));
     }
 }

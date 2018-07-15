@@ -12,5 +12,15 @@ class Cliente extends Model
  
     protected $hidden = [
         'senha'
-    ];	
+    ];
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('nome', 'LIKE', "%{$keySearch}%")
+                ->orWhere('email', 'LIKE', "%{$keySearch}%")
+                ->orWhere('cpf', 'LIKE', "%{$keySearch}%")
+                ->orWhere('rg', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

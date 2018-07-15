@@ -31,6 +31,21 @@
                             <h5>Lista de Marcas</h5>
                             <span>Listagem das marcas de produtos</span>   
                         </div>
+
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarMarca', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+
+
                         <!-- BOTAO CADASTRAR MARCA MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar" >
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca</button></a>
@@ -90,7 +105,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($marcas as $marca)
+                                        @forelse($marcas as $marca)
                                         <tr>
                                             <td>{{$marca->id}}</td>
                                             <td>{{$marca->nome}}</td>
@@ -191,10 +206,14 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
 
-                                                <a href="{{route('excluirMarca', $marca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Marca" class="btnAcoes"></a>
+                                                <a href="{{route('excluirMarca', $marca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Marca" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                               
                                     </tbody>
                                 </table> 
                                 {!! $marcas->links() !!}

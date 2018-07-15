@@ -11,6 +11,13 @@ use App\VeiculoModelo;
 
 class VeiculoController extends Controller
 {
+    private $veiculo;
+
+    public function __construct(Veiculo $veiculo)
+    {
+        $this->veiculo = $veiculo;
+    }
+    
     public function cadastrarVeiculo()
     {   
         $veiculos = Veiculo::all();
@@ -76,5 +83,14 @@ class VeiculoController extends Controller
                     ->where("veiculoMarcaId", $request->veiculoMarcaId)
                     ->pluck("modelo","id");
         return response()->json($modelosAjax);
+    }
+    
+    public function pesquisarVeiculo(Request $request) {
+        
+        $veiculos = $this->veiculo->pesquisa($request);
+        $veiculomodelos = VeiculoModelo::all();
+        $veiculomarcas = VeiculoMarca::all();
+        
+        return view('veiculos.listar', compact('veiculos', 'veiculomodelos', 'veiculomarcas'));
     }
 }

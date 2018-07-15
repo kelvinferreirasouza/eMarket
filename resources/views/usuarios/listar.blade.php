@@ -31,6 +31,19 @@
                             <h5>Lista de Usuários Cadastros</h5>
                             <span>Listagem dos usuários cadastrados e suas informações</span>   
                         </div>
+
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarUsuario', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Usuário</button></a>
@@ -178,7 +191,7 @@
                                     </tr>
                                 </thead>            
                                 <tbody>            
-                                    @foreach($usuarios as $usuario)
+                                    @forelse($usuarios as $usuario)
                                     <tr>
                                         <td>{{$usuario->id}}</td>
                                         <td>{{$usuario->nome}}</td>
@@ -467,11 +480,15 @@
                                             </div>
                                             <!-- FIM MODAL VISUALIZAR -->
 
-                                            <a href="{{route('excluirUsuario', $usuario->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Usuário" class="btnAcoes"></a>
+                                            <a href="{{route('excluirUsuario', $usuario->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Usuário" class="btnAcoes"></a>
                                             </center>
                                         </td>
                                     </tr>                         
-                                    @endforeach                                
+                                    @empty
+                                    <tr>
+                                        <td colspan="200">Nenhum resultado encontrado!!</td>
+                                    </tr>
+                                    @endforelse                              
                                 </tbody>
                             </table> 
                             {!! $usuarios->links() !!}

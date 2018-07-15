@@ -61,8 +61,9 @@ class ProdutoController extends Controller
         $marcas     = Marca::all();
         $unidades   = Unidade::all();
         $categorias = Categoria::all();
+        $fornecedores = Fornecedor::all();
 
-        return view('produtos.visualizar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias'));
+        return view('produtos.visualizar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function excluirProduto($id)
@@ -81,8 +82,9 @@ class ProdutoController extends Controller
         $marcas     = Marca::all();
         $unidades   = Unidade::all();
         $categorias = Categoria::all();
+        $fornecedores = Fornecedor::all();
 
-        return view('produtos.editar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias'));
+        return view('produtos.editar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function atualizarProduto(Request $request, $id)
@@ -101,5 +103,17 @@ class ProdutoController extends Controller
                     ->where("produtoSetorId", $request->produtoSetorId)
                     ->pluck("nome","id");
         return response()->json($categoriasAjax);
+    }
+    
+    public function pesquisarProduto(Request $request) {
+        
+        $produtos = $this->produto->pesquisa($request);
+        $setores    = Setor::all();
+        $marcas     = Marca::all();
+        $unidades   = Unidade::all();
+        $categorias = Categoria::all();
+        $fornecedores = Fornecedor::all();
+        
+        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
     }
 }

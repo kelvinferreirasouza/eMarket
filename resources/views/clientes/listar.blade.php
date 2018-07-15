@@ -31,6 +31,21 @@
                             <h5>Lista de Clientes</h5>
                             <span>Listagem dos clientes cadastrados</span>   
                         </div>
+
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarCliente', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+
+
                         <!-- BOTAO CADASTRAR CLIENTE MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cliente</button></a>
@@ -162,14 +177,14 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($clientes as $cliente)
+                                        @forelse($clientes as $cliente)
                                         <tr>
                                             <td>{{$cliente->id}}</td>
                                             <td>{{$cliente->nome}}</td>
                                             <td>{{$cliente->email}}</td>
                                             <td>{{$cliente->cpf}}</td>
                                             <td>
-                                            	@if($cliente->sexo == 1)
+                                                @if($cliente->sexo == 1)
                                                 Masculino
                                                 @else 
                                                 Feminino
@@ -238,7 +253,7 @@
                                                                                 <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                                                 <select class="form-control" name="sexo" required>
                                                                                     <option value="1" {{ $cliente->sexo == 1 ? 'selected' : ''}}>Masculino</option>
-                                                                            		<option value="0" {{ $cliente->sexo == 2 ? 'selected' : ''}}>Feminino</option>
+                                                                                    <option value="0" {{ $cliente->sexo == 2 ? 'selected' : ''}}>Feminino</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -418,7 +433,11 @@
                                                 <a href="{{route('excluirCliente', $cliente->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Cliente" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                 
                                     </tbody>
                                 </table> 
                                 <div class="pagination">{!! $clientes->links() !!}</div>

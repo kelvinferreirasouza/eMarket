@@ -7,6 +7,13 @@ use App\Marca;
 
 class MarcaController extends Controller
 {
+    private $marca;
+
+    public function __construct(Marca $marca)
+    {
+        $this->marca = $marca;
+    }
+    
     public function cadastrarMarca()
     {
         return view('marcas.cadastrar');
@@ -58,5 +65,12 @@ class MarcaController extends Controller
         $marca->delete();
 
         return redirect()->route('listarMarcas');
+    }
+    
+    public function pesquisarMarca(Request $request) {
+        
+        $marcas = $this->marca->pesquisa($request);
+        
+        return view('marcas.listar', compact('marcas'));
     }
 }

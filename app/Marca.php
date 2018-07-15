@@ -11,4 +11,11 @@ class Marca extends Model
     ];
 
     protected $table = 'produtomarcas';
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('nome', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

@@ -11,7 +11,7 @@ class ClienteTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('clientes')->insert([
+       DB::table('clientes')->insert([
             'nome'          => 'Kelvin Souza',
             'email'         => 'kelvin@gmail.com',
             'senha'         => bcrypt('admin'),

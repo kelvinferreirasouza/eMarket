@@ -8,6 +8,13 @@ use App\VeiculoMarca;
 
 class VeiculoModeloController extends Controller
 {
+    private $veiculomodelo;
+
+    public function __construct(VeiculoModelo $veiculomodelo)
+    {
+        $this->veiculomodelo = $veiculomodelo;
+    }
+    
     public function cadastrarVeiculoModelo()
     {   
         $veiculomodelos = VeiculoModelo::all();
@@ -61,6 +68,14 @@ class VeiculoModeloController extends Controller
     {
         $veiculomodelo = VeiculoModelo::find($id);
         $veiculomarcas = VeiculoMarca::all();
-        return view('veiculomodelos.visualizar', compact('veiculomodelo', 'veiculomarca'));
+        return view('veiculomodelos.visualizar', compact('veiculomodelo', 'veiculomarcas'));
+    }
+    
+    public function pesquisarVeiculoModelo(Request $request) {
+        
+        $veiculomodelos = $this->veiculomodelo->pesquisa($request);
+        $veiculomarcas = VeiculoMarca::all();
+        
+        return view('veiculomodelos.listar', compact('veiculomodelos', 'veiculomarcas'));
     }
 }

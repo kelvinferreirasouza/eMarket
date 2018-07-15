@@ -31,6 +31,21 @@
                             <h5>Lista de Veículos de Entrega</h5>
                             <span>Listagem dos veículos cadastrados para realizarem entregas</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarVeiculo', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
+                        
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Veículo</button></a>
@@ -148,7 +163,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($veiculos as $veiculo)
+                                        @forelse($veiculos as $veiculo)
                                         <tr>
                                             <td>{{$veiculo->id}}</td>
                                             <td>
@@ -326,7 +341,11 @@
                                                 <a href="{{route('excluirVeiculo', $veiculo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                
                                     </tbody>
                                 </table> 
                             </div> 

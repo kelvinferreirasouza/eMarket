@@ -55,4 +55,12 @@ class Produto extends Model
         public function fornecedor() {
         return $this->belongsTo('App\Fornecedor', 'produtoFornecedorId');
     }
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('codBarras', 'LIKE', "%{$keySearch}%")
+                ->orWhere('produtoNome', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

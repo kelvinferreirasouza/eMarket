@@ -31,6 +31,21 @@
                             <h5>Lista de Unidades</h5>
                             <span>Listagem das unidades de produtos</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarUnidade', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
+                        
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Unidade</button></a>
@@ -96,7 +111,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($unidades as $unidade)
+                                        @forelse($unidades as $unidade)
                                         <tr>
                                             <td>{{$unidade->id}}</td>
                                             <td>{{$unidade->descricao}}</td>
@@ -205,10 +220,14 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                <a href="{{route('excluirUnidade', $unidade->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
+                                                <a href="{{route('excluirUnidade', $unidade->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                               
                                     </tbody>
                                 </table> 
                                 {!! $unidades->links() !!}

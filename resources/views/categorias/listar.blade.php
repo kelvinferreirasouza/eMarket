@@ -33,6 +33,20 @@
                             <h5>Lista de Categorias</h5>
                             <span>Listagem das categorias de produtos</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarCategoria', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
                         <!-- BOTAO CADASTRAR CATEGORIA MODAL -->
                         @foreach($categorias as $categoria)
                         @if ($loop->first)
@@ -105,7 +119,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($categorias as $categoria)
+                                        @forelse($categorias as $categoria)
                                         <tr>
                                             <td>{{$categoria->id}}</td>
                                             <td>
@@ -228,10 +242,14 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                <a href="{{route('excluirCategoria', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Categoria" class="btnAcoes"></a>
+                                                <a href="{{route('excluirCategoria', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Categoria" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                
                                     </tbody>
                                 </table> 
                                 {!! $categorias->links() !!}

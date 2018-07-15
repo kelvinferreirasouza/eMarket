@@ -8,6 +8,13 @@ use App\Categoria;
 
 class SubcategoriaController extends Controller
 {
+    private $subcategoria;
+
+    public function __construct(Subcategoria $subcategoria)
+    {
+        $this->subcategoria = $subcategoria;
+    }
+    
     public function cadastrarSubcategoria()
     {   
         $subcategorias = Subcategoria::all();
@@ -62,5 +69,13 @@ class SubcategoriaController extends Controller
         $subcategoria = Subcategoria::find($id);
         $categorias = Categoria::all();
         return view('subcategorias.visualizar', compact('subcategoria', 'categorias'));
+    }
+    
+    public function pesquisarSubcategoria(Request $request) {
+        
+        $subcategorias = $this->subcategoria->pesquisa($request);
+        $categorias = Categoria::all();
+        
+        return view('fornecedores.listar', compact('subcategorias', 'categorias'));
     }
 }

@@ -11,4 +11,12 @@ class Veiculo extends Model
     ];
 
     protected $table = 'veiculos';
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('placa', 'LIKE', "%{$keySearch}%")
+                ->orWhere('renavam', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }   
 }

@@ -33,6 +33,21 @@
                             <h5>Lista de Modelos de Veiculo</h5>
                             <span>Listagem das modelos de veiculos</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarVeiculoModelo', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
+                        
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Modelo</button></a>
@@ -103,7 +118,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($veiculomodelos as $veiculomodelo)
+                                        @forelse($veiculomodelos as $veiculomodelo)
                                         <tr>
                                             <td>{{$veiculomodelo->id}}</td>
                                             <td>
@@ -123,7 +138,7 @@
                                             </td>
                                             <td>
                                                 <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$veiculomodelo->id}}" data-whatever="{{$veiculomodelo->id}}" data-whatevermarca="{{$veiculomodelo->modelo}}" data-whatevermarcaid="{{$veiculomodelo->veiculoMarcaId}}" data-whateverativo="{{$veiculomodelo->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Modelo" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$veiculomodelo->id}}" data-whatever="{{$veiculomodelo->id}}" data-whatevermarca="{{$veiculomodelo->modelo}}" data-whatevermarcaid="{{$veiculomodelo->veiculoMarcaId}}" data-whateverativo="{{$veiculomodelo->isAtivo}}"><img src="../../../imgs/iconEdit.png" title="Editar Modelo" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$veiculomodelo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -176,7 +191,7 @@
                                                 <!-- FIM MODAL EDITAR -->
 
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$veiculomodelo->id}}" data-whatever="{{$veiculomodelo->id}}" data-whatevermarca="{{$veiculomodelo->modelo}}" data-whatevermarcaid="{{$veiculomodelo->veiculoMarcaId}}" data-whateverativo="{{$veiculomodelo->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Modelo" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$veiculomodelo->id}}" data-whatever="{{$veiculomodelo->id}}" data-whatevermarca="{{$veiculomodelo->modelo}}" data-whatevermarcaid="{{$veiculomodelo->veiculoMarcaId}}" data-whateverativo="{{$veiculomodelo->isAtivo}}"><img src="../../../imgs/iconView.png" title="Visualizar Modelo" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$veiculomodelo->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -226,10 +241,14 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                <a href="{{route('excluirVeiculoModelo', $veiculomodelo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
+                                                <a href="{{route('excluirVeiculoModelo', $veiculomodelo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                 
                                     </tbody>
                                 </table> 
                             </div> 

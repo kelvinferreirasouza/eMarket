@@ -33,6 +33,21 @@
                             <h5>Lista de Marcas de Veiculo</h5>
                             <span>Listagem das marcas de veiculos</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarVeiculoMarca', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
+                        
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Marca de Veiculo</button></a>
@@ -93,7 +108,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($veiculomarcas as $veiculomarca)
+                                        @forelse($veiculomarcas as $veiculomarca)
                                         <tr>
                                             <td>{{$veiculomarca->id}}</td>
                                             <td>{{$veiculomarca->marca}}</td>
@@ -106,7 +121,7 @@
                                             </td>
                                             <td>
                                                 <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$veiculomarca->id}}" data-whatever="{{$veiculomarca->id}}" data-whatevermarca="{{$veiculomarca->marca}}" data-whateverativo="{{$veiculomarca->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Marca" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$veiculomarca->id}}" data-whatever="{{$veiculomarca->id}}" data-whatevermarca="{{$veiculomarca->marca}}" data-whateverativo="{{$veiculomarca->isAtivo}}"><img src="../../../../imgs/iconEdit.png" title="Editar Marca" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$veiculomarca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -151,7 +166,7 @@
                                                 <!-- FIM MODAL EDITAR -->
 
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$veiculomarca->id}}" data-whatever="{{$veiculomarca->id}}" data-whatevermarca="{{$veiculomarca->marca}}" data-whateverativo="{{$veiculomarca->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Marca" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$veiculomarca->id}}" data-whatever="{{$veiculomarca->id}}" data-whatevermarca="{{$veiculomarca->marca}}" data-whateverativo="{{$veiculomarca->isAtivo}}"><img src="../../../imgs/iconView.png" title="Visualizar Marca" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$veiculomarca->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -193,10 +208,14 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                <a href="{{route('excluirVeiculoMarca', $veiculomarca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
+                                                <a href="{{route('excluirVeiculoMarca', $veiculomarca->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                               
                                     </tbody>
                                 </table> 
                             </div> 

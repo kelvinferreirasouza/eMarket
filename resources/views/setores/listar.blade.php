@@ -31,11 +31,25 @@
                             <h5>Lista de Setores Cadastros</h5>
                             <span>Listagem dos setores cadastrados e suas informações</span>   
                         </div>
+
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarSetor', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+
+
                         <!-- BOTAO CADASTRO MODAL -->
-                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
-                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
+                        <a href="" data-toggle="modal" data-target="#modalCadastrar">
+                            <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
                         <!-- FIM BOTAO CADASTRO MODAL -->
-                      
+
                         <!-- MODAL DE CADASTRAR -->
                         <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                             <div class="modal-dialog modal-lg modalProd" role="document">
@@ -91,7 +105,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($setores as $setor)
+                                        @forelse($setores as $setor)
                                         <tr>
                                             <td>{{$setor->id}}</td>
                                             <td>{{$setor->nome}}</td>
@@ -192,10 +206,14 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
 
-                                                <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Setor" class="btnAcoes"></a>
+                                                <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Setor" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                
                                     </tbody>
                                 </table> 
                                 {!! $setores->links() !!}

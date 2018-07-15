@@ -35,6 +35,19 @@
                             <h5>Lista de Sub-Categorias</h5>
                             <span>Listagem das sub-categorias dos produtos</span>   
                         </div>
+
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarSubcategoria', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Sub-Categoria</button></a>
@@ -106,7 +119,7 @@
                                     </thead>            
                                     <tbody>  
                                         <tr>
-                                            @foreach($subcategorias as $subcategoria)
+                                            @forelse($subcategorias as $subcategoria)
 
                                             <td>{{$subcategoria->id}}</td>
                                             <td>
@@ -238,7 +251,11 @@
                                                 </center>
                                             </td>
                                         </tr>                         
-                                        @endforeach   
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse   
                                     </tbody>
                                 </table> 
                                 {!! $subcategorias->links() !!}

@@ -7,6 +7,13 @@ use App\Unidade;
 
 class UnidadeController extends Controller
 {
+    private $unidade;
+
+    public function __construct(Unidade $unidade)
+    {
+        $this->unidade = $unidade;
+    }
+    
     public function cadastrarUnidade()
     {
         return view('unidades.cadastrar');
@@ -57,5 +64,12 @@ class UnidadeController extends Controller
         $unidade->delete();
 
         return redirect()->route('listarUnidades');
+    }
+    
+    public function pesquisarUnidade(Request $request) {
+        
+        $unidades = $this->unidade->pesquisa($request);
+        
+        return view('unidades.listar', compact('unidades'));
     }
 }

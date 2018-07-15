@@ -30,6 +30,21 @@
                             <h5>Lista de Produtos Cadastros </h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
+                        
+                        <!-- FORMULÁRIO DE BUSCA -->
+
+                        <div class="form-search">
+                            {!! Form::open(['route' => 'pesquisarProduto', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
+
+                            <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
+                            {!! Form::close() !!}
+
+                        </div>
+
+                        <!-- FIM FORMULÁRIO DE BUSCA -->
+                        
+                        
                         <!-- BOTAO CADASTRAR PRODUTO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar" >
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
@@ -215,7 +230,7 @@
                                         </tr>
                                     </thead>            
                                     <tbody>            
-                                        @foreach($produtos as $produto)
+                                        @forelse($produtos as $produto)
                                         <tr>
                                             <td>{{$produto->codBarras}}</td>
                                             <td>{{$produto->produtoNome}}</td>
@@ -475,10 +490,14 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
 
-                                                <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
-                                        @endforeach                                
+                                        @empty
+                                        <tr>
+                                            <td colspan="200">Nenhum resultado encontrado!!</td>
+                                        </tr>
+                                        @endforelse                                 
                                     </tbody>
                                 </table> 
                                 <div class="pagination">{!! $produtos->links() !!}</div>

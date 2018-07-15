@@ -11,4 +11,14 @@ class Fornecedor extends Model
     ];
 
     protected $table = 'fornecedores';
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('nomeFantasia', 'LIKE', "%{$keySearch}%")
+                ->orWhere('razaoSocial', 'LIKE', "%{$keySearch}%")
+                ->orWhere('cpfCnpj', 'LIKE', "%{$keySearch}%")
+                ->orWhere('ieRG', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

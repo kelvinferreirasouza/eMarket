@@ -11,4 +11,11 @@ class Categoria extends Model
     ];
 
     protected $table = 'produtocategorias';
+    
+    public function pesquisa($request){
+        $keySearch = $request->key_search;
+        
+        return $this->where('nome', 'LIKE', "%{$keySearch}%")
+                ->paginate(10);
+    }
 }

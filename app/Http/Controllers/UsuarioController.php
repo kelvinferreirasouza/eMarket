@@ -10,6 +10,15 @@ use Auth;
  
 class UsuarioController extends Controller
 {
+    
+    private $usuario;
+
+    public function __construct(Usuario $usuario)
+    {
+        $this->usuario = $usuario;
+    }
+    
+    
     public function listarUsuarios()
     {
         $usuarios = Usuario::paginate(10);
@@ -101,5 +110,14 @@ class UsuarioController extends Controller
     public function cadastrarUsuario()
     {
         return view('usuarios.cadastrar');
+    }
+    
+    public function pesquisarUsuario(Request $request) {
+        
+        $usuarios = $this->usuario->pesquisa($request);
+        
+        $cargos = Cargo::all();
+        
+        return view('usuarios.listar', compact('usuarios', 'cargos'));
     }
 }
