@@ -1,116 +1,106 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Kelvin Ferreira Souza">
-    <title>eMarket Software</title>
-    {{ asset('css/store/index.min.css') }}
-    <link href="{{ asset('css/store/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/store/index.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-  </head>
-
-  <body id="page-top">
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="imgs/logo.jpg" style="width: 40%"></a>
-        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          Menu
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="inicio.html">Home</a>
-            </li>
-            <li class="nav-item mx-0 mx-lg-1">
-              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/login">Login</a>
-            </li>
-          </ul>
+<html>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="{{ asset('css/store/store.js') }}" type="text/javascript"></script>
+        <link href="{{ asset('css/store/store.css') }}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <title>eMarket</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    </head>
+    <body>
+        <div id="navbar" class="navbar fixed-top">
+            <div class="container">
+                <div class="row row1">
+                    <ul class="largenav pull-right">
+                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-dolly"></i> Meus Pedidos</a></li>
+                        <li class="upper-links"><a class="links" href="#"><i class="far fa-address-card"></i> Minha Conta</a></li>
+                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-building"></i> Quem Somos</a></li>
+                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-comments"></i> Atendimento</a></li>
+                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
+                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
+                        <li class="upper-links dropdown"><a class="links" href="#"><i class="far fa-user"></i> Login | Cadastre-se</a>
+                            <ul class="dropdown-menu">
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row row2">
+                    <div class="col-sm-2">
+                        <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
+                        <h1 style="margin:0px;"><span class="largenav"><img class="logoNav" src="{{ asset('../imgs/logoContorno2.png') }}"></span></h1>
+                    </div>  
+                    <div class="navbar-search smallsearch col-sm-8 col-xs-11">
+                        <div class="row">
+                            <input class="navbar-input col-xs-11" type="text" placeholder="Pesquisar Produtos..." name="search">
+                            <button class="navbar-button col-xs-1">
+                                <svg width="15px" height="15px">
+                                <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="cart largenav col-sm-2">
+                        <a class="cart-button">
+                            <svg class="cart-svg " width="16 " height="16 " viewBox="0 0 16 16 ">
+                            <path d="M15.32 2.405H4.887C3 2.405 2.46.805 2.46.805L2.257.21C2.208.085 2.083 0 1.946 0H.336C.1 0-.064.24.024.46l.644 1.945L3.11 9.767c.047.137.175.23.32.23h8.418l-.493 1.958H3.768l.002.003c-.017 0-.033-.003-.05-.003-1.06 0-1.92.86-1.92 1.92s.86 1.92 1.92 1.92c.99 0 1.805-.75 1.91-1.712l5.55.076c.12.922.91 1.636 1.867 1.636 1.04 0 1.885-.844 1.885-1.885 0-.866-.584-1.593-1.38-1.814l2.423-8.832c.12-.433-.206-.86-.655-.86 " fill="#fff "></path>
+                            </svg> Carrinho
+                            <span class="item-number ">0</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </nav>
-
-    <!-- Header -->
-    <header class="masthead bg-primary text-white text-center">
-      <div class="container">
-        <img class="img-fluid mb-5 d-block mx-auto" src="imgs/developer.png" alt="">
-        <h1 class="text-uppercase mb-0 titulo">Em Desenvolvimento!</h1>
-        <hr class="star-light">
-        <h2 class="font-weight-light mb-0x subtitulo">O software está em fase de desenvolvimento!</h2>
-      </div>
-    </header>
-
-    <!-- Footer -->
-    <footer class="footer text-center">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Localização</h4>
-            <p class="lead mb-0">Rua Rui Barbosa, 53
-              <br>Pedro Osório, RS</p>
-          </div>
-          <div class="col-md-4 mb-5 mb-lg-0">
-            <h4 class="text-uppercase mb-4">Redes Sociais</h4>
-            <ul class="list-inline mb-0">
-              <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                  <i class="fa fa-fw fa-facebook"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                  <i class="fa fa-fw fa-google-plus"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                  <i class="fa fa-fw fa-twitter"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                  <i class="fa fa-fw fa-linkedin"></i>
-                </a>
-              </li>
-              <li class="list-inline-item">
-                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
-                  <i class="fa fa-fw fa-dribbble"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <h4 class="text-uppercase mb-4">Sobre</h4>
-            <p class="lead mb-0">eMarket é um e-commerce para supermercardos desenvolvido por
-              <a href="https://www.facebook.com/kelvinferreiraa">Kelvin Ferreira Souza</a>.</p>
-          </div>
+        <div id="mySidenav" class="sidenav">
+            <div class="container" style="background-color: #2874f0; padding-top: 10px;">
+                <span class="sidenav-heading">Home</span>
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            </div>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
+            <a href="#">Link</a>
         </div>
-      </div>
-    </footer>
 
-    <div class="copyright py-4 text-center text-white">
-      <div class="container">
-        <small>Copyright &copy; eMarket 2018</small>
-      </div>
-    </div>
+        <div class="conteudo">
 
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
-    <div class="scroll-to-top d-lg-none position-fixed ">
-      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
-        <i class="fa fa-chevron-up"></i>
-      </a>
-    </div>
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('js/store/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('js/store/jquery.magnific-popup.min.js') }}"></script>
-    <script src="{{ asset('js/store/jquery-3.3.1.min.js') }}"></script>
-  </body>
-
+        </div>
+    </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
