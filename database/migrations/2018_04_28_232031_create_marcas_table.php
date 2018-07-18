@@ -14,10 +14,9 @@ class CreateMarcasTable extends Migration
     public function up()
     {
         Schema::create('produtomarcas', function (Blueprint $table) {	
-            $table->increments('produtoMarcaId');
-            $table->string('produtoMarca');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->increments('id');
+            $table->string('nome');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
@@ -29,6 +28,5 @@ class CreateMarcasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('marcas');
     }
 }

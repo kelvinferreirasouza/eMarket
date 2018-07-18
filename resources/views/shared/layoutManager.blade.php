@@ -16,7 +16,7 @@
         <meta name="keywords" content="flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
         <meta name="author" content="#">
         <!-- Favicon iconn -->
-        <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
         <!-- Google font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mada:300,400,500,600,700">
         <!-- Required Fremwork -->
@@ -39,11 +39,431 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/linearicons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/simple-line-icons.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/ionicons.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/manager.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/jquery.mCustomScrollbar.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
+        <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
+
     </head>
-
     <body>
-        @yield('content')
-    </body>
+        <!-- Pre-loader start -->
+        <div class="theme-loader">
+            <div class="ball-scale">
+                <div></div>
+            </div>
+        </div>
+        <div id="pcoded" class="pcoded">
+            <div class="pcoded-overlay-box"></div>
+            <div class="pcoded-container navbar-wrapper">
+                <nav class="navbar header-navbar pcoded-header" >
+                    <div class="navbar-wrapper">
+                        <div class="navbar-logo" data-navbar-theme="theme4">
+                            <a class="mobile-menu" id="mobile-collapse" href="#!">
+                                <i class="ti-menu"></i>
+                            </a>
+                            <a class="mobile-search morphsearch-search" href="#">
+                                <i class="ti-search"></i>
+                            </a>
+                            <a href="index.html">
+                                <img class="img-fluid" src="../../../imgs/logoEmarket.jpg" alt="eMarket" style="width: 140px;" />
+                            </a>
+                            <a class="mobile-options">
+                                <i class="ti-more"></i>
+                            </a>
+                        </div>
+                        <div class="navbar-container container-fluid">
+                            <div>
+                                <ul class="nav-left">
+                                    <li>
+                                        <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                                    </li>
+                                    <li>
+                                        <a class="main-search morphsearch-search" href="#">
+                                            <!-- themify icon -->
+                                            <i class="ti-search"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#!" onclick="javascript:toggleFullScreen()">
+                                            <i class="ti-fullscreen"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul class="nav-right">
+                                    <li class="user-profile header-notification">
+                                        <a href="#!">
+                                            <img src="../../imgs/user.png" alt="User-Profile-Image">
+                                            @if (Auth::check())
+                                            <span>{{ Auth::user()->nome }}</span>
+                                            @endif
+                                            <i class="ti-angle-down"></i>
+                                        </a>
+                                        <ul class="show-notification profile-notification">
+                                            <li>
+                                                <a href="#!">
+                                                    <i class="ti-settings"></i> Configurações
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="user-profile.html">
+                                                    <i class="ti-user"></i> Perfil
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ route('logout') }}">
+                                                    <i class="ti-layout-sidebar-left"></i> Logout
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                <!-- search -->
+                                <div id="morphsearch" class="morphsearch">
+                                    <form class="morphsearch-form">
+                                        <input class="morphsearch-input" type="search" placeholder="Search..." />
+                                        <button class="morphsearch-submit" type="submit">Search</button>
+                                    </form>
+                                    <div class="morphsearch-content">
+                                    </div>
+                                    <!-- /morphsearch-content -->
+                                    <span class="morphsearch-close"><i class="icofont icofont-search-alt-1"></i></span>
+                                </div>
+                                <!-- search end -->
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+                <div class="pcoded-main-container">
+                    <div class="pcoded-wrapper">
+                        <nav class="pcoded-navbar" >
+                            <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                            <div class="pcoded-inner-navbar main-menu">
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.navigation">Menu</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="{{ (\Request::route()->getName() == 'manager') ? 'active' : '' }}">
+                                        <a href="{{ route('manager') }}">
+                                            <span class="pcoded-micon"><i class="fas fa-home"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.dash.main">Inicio</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Administrativo</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class=" pcoded-hasmenu">
+                                                <ul class="pcoded-submenu">
+                                                </ul>
+                                            </li>
+                                            <li class=" pcoded-hasmenu">
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu
+                                        {{ (
+                                        \Request::route()->getName() == 'listarFormasPag'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-donate"></i></span>
+                                            <span class="pcoded-mtext">Financeiro</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarFormasPag') ? 'active' : '' }}">
+                                                <a href="{{ route('listarFormasPag') }}" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Formas de Pagamento</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu 
+                                        {{ (
+                                        \Request::route()->getName() == 'listarFornecedores' || 
+                                        \Request::route()->getName() == 'listarUsuarios' ||
+                                        \Request::route()->getName() == 'listarClientes' || 
+                                        \Request::route()->getName() == 'pesquisarFornecedor' ||
+                                        \Request::route()->getName() == 'pesquisarUsuario' ||
+                                        \Request::route()->getName() == 'pesquisarCliente'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-users"></i></span>
+                                            <span class="pcoded-mtext">Pessoas</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarClientes' ||
+                                                           \Request::route()->getName() == 'pesquisarCliente') ? 'active' : '' }}">
+                                                <a href="{{ route('listarClientes') }}" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Clientes</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarFornecedores' || 
+                                                            \Request::route()->getName() == 'pesquisarFornecedor') ? 'active' : '' }}">
+                                                <a href="{{ route('listarFornecedores') }}" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Fornecedores</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarUsuarios' ||
+                                                            \Request::route()->getName() == 'pesquisarUsuario') ? 'active' : '' }}">
+                                                <a href="{{route('listarUsuarios')}}" data-i18n="nav.navigate.navbar-with-elements">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Usuários</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu 
+                                        {{ (
+                                        \Request::route()->getName() == 'listarProdutos' || 
+                                        \Request::route()->getName() == 'listarSetores' ||
+                                        \Request::route()->getName() == 'listarCategorias' || 
+                                        \Request::route()->getName() == 'listarSubcategorias' ||
+                                        \Request::route()->getName() == 'listarUnidades' || 
+                                        \Request::route()->getName() == 'listarMarcas' ||
+                                        \Request::route()->getName() == 'pesquisarSetor' ||
+                                        \Request::route()->getName() == 'pesquisarCategoria' ||
+                                        \Request::route()->getName() == 'pesquisarMarca' ||
+                                        \Request::route()->getName() == 'pesquisarUnidade' ||
+                                        \Request::route()->getName() == 'pesquisarSubcategoria' ||
+                                        \Request::route()->getName() == 'pesquisarProduto'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fas fa-dolly"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Produtos</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarProdutos' ||
+                                                           \Request::route()->getName() == 'pesquisarProduto') ? 'active' : '' }}">
+                                                <a href="{{ route('listarProdutos') }}" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Produtos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarSetores' ||
+                                                           \Request::route()->getName() == 'pesquisarSetor') ? 'active' : '' }}">
+                                                <a href="{{ route('listarSetores') }}" data-i18n="nav.navigate.navbar">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Setores</span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarCategorias' ||
+                                                           \Request::route()->getName() == 'pesquisarCategoria') ? 'active' : '' }}">
+                                                <a href="{{ route('listarCategorias') }}" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Categorias</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarSubcategorias' ||
+                                                           \Request::route()->getName() == 'pesquisarSubcategoria') ? 'active' : '' }}">
+                                                <a href="{{ route('listarSubcategorias') }}" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Sub-Categorias</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarUnidades' ||
+                                                           \Request::route()->getName() == 'pesquisarUnidade') ? 'active' : '' }}">
+                                                <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Unidades</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarMarcas' ||
+                                                           \Request::route()->getName() == 'pesquisarMarca') ? 'active' : '' }}">
+                                                <a href="{{ route('listarMarcas') }}" data-i18n="nav.page_layout.horizontal.main">
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Marcas</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu
+                                        {{ (
+                                                \Request::route()->getName() == 'listarVeiculos' || 
+                                                \Request::route()->getName() == 'listarVeiculoMarcas' ||
+                                                \Request::route()->getName() == 'listarVeiculoModelos' || 
+                                                \Request::route()->getName() == 'pesquisarVeiculo' ||
+                                                \Request::route()->getName() == 'pesquisarVeiculoModelo' ||
+                                                \Request::route()->getName() == 'pesquisarVeiculoMarca'
+                                                ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="javascript:void(0)">
+                                            <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Entregas</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="pcoded-hasmenu pcoded-trigger">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Veiculos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculos' ||
+                                                                   \Request::route()->getName() == 'pesquisarVeiculo') ? 'active' : '' }}">
+                                                        <a href="{{ route('listarVeiculos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Listar Veiculos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculoMarcas' ||
+                                                                   \Request::route()->getName() == 'pesquisarVeiculoMarca') ? 'active' : '' }}">
+                                                        <a href="{{ route('listarVeiculoMarcas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Marcas</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculoModelos' ||
+                                                                   \Request::route()->getName() == 'pesquisarVeiculoModelo') ? 'active' : '' }}">
+                                                        <a href="{{ route('listarVeiculoModelos') }}" data-i18n="nav.page_layout.vertical.compact">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Modelos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="pcoded-hasmenu">
+                                        <a href="javascript:void(0)" data-i18n="nav.navigate.main">
+                                            <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
+                                            <span class="pcoded-mtext">Relatórios</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                        </ul>
+                                    </li>
 
+                                </ul>
+                                <div class="pcoded-navigatio-lavel" data-i18n="nav.category.ui-element">Configurações</div>
+                                <ul class="pcoded-item pcoded-left-item">
+                                    <li class="pcoded-hasmenu {{ (
+                                        \Request::route()->getName() == 'listarEmpresas'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="{{route('listarEmpresas')}}">
+                                            <span class="pcoded-micon"><i class="fas fa-server"></i></span>
+                                            <span class="pcoded-mtext">Empresa</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                    <li class="pcoded-hasmenu
+                                        {{ (
+                                        \Request::route()->getName() == 'listarCargos'
+                                         ) ? 'active pcoded-trigger' : '' }}">
+                                        <a href="javascript:void(0)" data-i18n="nav.extra-components.main">
+                                            <span class="pcoded-micon"><i class="fas fa-sitemap"></i></span>
+                                            <span class="pcoded-mtext">Permissões</span>
+                                            <span class="pcoded-mcaret"></span>
+                                        </a>
+                                        <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarCargos') ? 'active' : '' }}">
+                                                <a href="{{route('listarCargos')}}" data-i18n="nav.extra-components.session-timeout">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Cargos de Usuário</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                        <div class="page-body">
+                            <div class="row">
+                                <div class="conteudo col-sm-12">
+                                    @yield('content')
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <!-- Required Jqurey -->
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery-ui.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/popper.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/bootstrap.min.js') }}"></script>
+    <!-- jquery slimscroll js -->
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.slimscroll.js') }}"></script>
+    <!-- modernizr js -->
+    <script type="text/javascript" src="{{ asset('js/manager/modernizr.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/css-scrollbars.js') }}"></script>
+    <!-- Calender js -->
+    <script type="text/javascript" src="{{ asset('js/manager/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/pignose.calendar.min.js') }}"></script>
+    <!-- classie js -->
+    <script type="text/javascript" src="{{ asset('js/manager/classie.js') }}"></script>
+    <!-- c3 chart js -->
+    <script src="{{ asset('js/manager/c3.js') }}"></script>
+    <!-- knob js -->
+    <script src="{{ asset('js/manager/jquery.knob.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/jquery.sparkline.js') }}"></script>
+    <!-- Rickshow Chart js -->
+    <script src="{{ asset('js/manager/d3.js') }}"></script>
+    <script src="{{ asset('js/manager/rickshaw.js') }}"></script>
+    <!-- Morris Chart js -->
+    <script src="{{ asset('js/manager/morris.raphael.min.js') }}"></script>
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
+    <!-- Float Chart js -->
+    <script src="{{ asset('js/manager/morris.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.categories.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.flot.pie.js') }}"></script>
+    <!-- Horizontal-Timeline js -->
+    <script type="text/javascript" src="{{ asset('js/manager/main.js') }}"></script>
+    <!-- i18next.min.js -->
+    <script type="text/javascript" src="{{ asset('js/manager/i18next.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextXHRBackend.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/i18nextBrowserLanguageDetector.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/jquery-i18next.min.js') }}"></script>
+    <!-- Custom js -->
+    <script type="text/javascript" src="{{ asset('js/manager/custom-dashboard.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/script.js') }}"></script>
+    <!-- pcmenu js -->
+    <script src="{{ asset('js/manager/pcoded.min.js') }}"></script>
+    <script src="{{ asset('js/manager/demo-12.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
+    <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
+    <script>
+    $('#cep').blur(function (e) {
+        var cep = $('#cep').val();
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+        var retorno = pesquisarCEP(url);
+    });
+
+    function pesquisarCEP(endereco) {
+        $.ajax({
+            type: "GET",
+            url: endereco
+        }).done(function (data) {
+            $('#bairro').val(data.bairro);
+            $('#logradouro').val(data.logradouro);
+            $('#cidade').val(data.localidade);
+            $('#estado').val(data.uf);
+        }).fail(function () {
+            console.log("Erro!");
+        });
+    }
+    </script>
 </html>

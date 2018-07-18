@@ -14,9 +14,9 @@ class CreatePedidoProdutosTable extends Migration
     public function up()
     {
         Schema::create('pedidoprodutos', function (Blueprint $table) {	
-            $table->increments('pedidoProdutoId');
+            $table->increments('id');
             $table->integer('produtoId')->unsigned();
-            $table->foreign('produtoId')->references('produtoId')->on('produtos');
+            $table->foreign('produtoId')->references('id')->on('produtos');
             $table->decimal('qtd', 12, 3)->default(0.000);
             $table->decimal('valor', 12, 2)->default(0.00);
             $table->decimal('valorDesconto', 12, 2)->default(0.00);

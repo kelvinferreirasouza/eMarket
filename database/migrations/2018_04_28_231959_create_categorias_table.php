@@ -14,12 +14,11 @@ class CreateCategoriasTable extends Migration
     public function up()
     {
         Schema::create('produtocategorias', function (Blueprint $table) {	
-            $table->increments('produtoCategoriaId');
-            $table->string('produtoCategoria');
+            $table->increments('id');
+            $table->string('nome');
             $table->integer('produtoSetorId')->unsigned();
-            $table->foreign('produtoSetorId')->references('produtoSetorId')->on('produtoSetores');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->foreign('produtoSetorId')->references('id')->on('produtosetores');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
@@ -31,6 +30,6 @@ class CreateCategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categorias');
+        //
     }
 }

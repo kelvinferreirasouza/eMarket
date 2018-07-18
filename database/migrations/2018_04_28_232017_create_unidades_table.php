@@ -14,11 +14,10 @@ class CreateUnidadesTable extends Migration
     public function up()
     {
         Schema::create('produtounidades', function (Blueprint $table) {	
-            $table->increments('produtoUnidadeId');
-            $table->string('produtoUnidade');
-            $table->string('produtoUnidadeSigla');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->increments('id');
+            $table->string('descricao');
+            $table->string('sigla');
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
@@ -30,6 +29,5 @@ class CreateUnidadesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('unidades');
     }
 }

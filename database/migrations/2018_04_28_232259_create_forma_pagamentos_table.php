@@ -14,12 +14,10 @@ class CreateFormaPagamentosTable extends Migration
     public function up()
     {
         Schema::create('formapagamentos', function (Blueprint $table) {	
-            $table->increments('formaPagamentoId');
-            $table->string('formaPagamento', 100);
-            $table->integer('empresaId')->unsigned();
-            $table->foreign('empresaId')->references('empresaId')->on('empresas');
-            $table->date('dataCadastro');
-            $table->time('horaCadastro');
+            $table->increments('id');
+            $table->string('nome', 100);
+            $table->string('descricao', 200)->nullable();
+            $table->timestamps();
             $table->integer('isAtivo')->default(1);
         });
     }
