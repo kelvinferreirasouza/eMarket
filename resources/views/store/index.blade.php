@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-        <script src="{{ asset('css/store/store.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('js/store/jquery-3.3.1.js') }}"></script>
+        <link href="{{ asset('css/store/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
+        <script src="{{ asset('js/store/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/store/store.js') }}" type="text/javascript"></script>
         <link href="{{ asset('css/store/store.css') }}" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+        <link rel="shortcut icon" type="image/ico" href="../imgs/favicon.ico"/>
         <title>eMarket</title>
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
@@ -23,10 +24,6 @@
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
                         <li class="upper-links dropdown"><a class="links" href="#"><i class="far fa-user"></i> Login | Cadastre-se</a>
                             <ul class="dropdown-menu">
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
                                 <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
                                 <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
                                 <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
@@ -71,8 +68,50 @@
             <a href="#">Link</a>
         </div>
 
-        <div class="conteudo">
+        <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel">
+            <!-- Overlay -->
+            <div class="overlay"></div>
 
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#bs-carousel" data-slide-to="1"></li>
+                <li data-target="#bs-carousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item slides active">
+                    <div class="slide-1"></div>
+                    <div class="hero">
+                        <hgroup>
+                            <h1>Hortifruti</h1>        
+                            <h3>Trabalhamos apenas com legumes e frutas fresquinhas!</h3>
+                        </hgroup>
+                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+                    </div>
+                </div>
+                <div class="item slides">
+                    <div class="slide-2"></div>
+                    <div class="hero">        
+                        <hgroup>
+                            <h1>Açougue</h1>        
+                            <h3>Get start your next awesome project</h3>
+                        </hgroup>       
+                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+                    </div>
+                </div>
+                <div class="item slides">
+                    <div class="slide-3"></div>
+                    <div class="hero">        
+                        <hgroup>
+                            <h1>Padaria</h1>        
+                            <h3>Get start your next awesome project</h3>
+                        </hgroup>
+                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
+                    </div>
+                </div>
+            </div> 
         </div>
     </body>
 </html>
