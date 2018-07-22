@@ -5,11 +5,11 @@
         <link href="{{ asset('css/store/bootstrap.min.css') }}" rel="stylesheet" id="bootstrap-css">
         <script src="{{ asset('js/store/bootstrap.min.js') }}"></script>
         <script src="{{ asset('js/store/store.js') }}" type="text/javascript"></script>
-        <link href="{{ asset('css/store/store.css') }}" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="{{ asset('css/store/store.css') }}" type="text/css"/>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
         <link rel="shortcut icon" type="image/ico" href="../imgs/favicon.ico"/>
         <title>eMarket</title>
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
     <body>
         <div id="navbar" class="navbar fixed-top">
