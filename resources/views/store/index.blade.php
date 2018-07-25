@@ -12,9 +12,10 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
     <body>
-        <div id="navbar" class="navbar fixed-top">
+
+        <div id="navbar" class="navbar">
             <div class="container">
-                <div class="row row1">
+                <div class="ro row1">
                     <ul class="largenav pull-right">
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-dolly"></i> Meus Pedidos</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="far fa-address-card"></i> Minha Conta</a></li>
@@ -33,12 +34,12 @@
                 </div>
                 <div class="row row2">
                     <div class="col-sm-2">
-                        <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Brand</span></h2>
+                        <h2 style="margin:0px;"><span class="smallnav menu" onclick="openNav()">☰ Menu</span></h2>
                         <h1 style="margin:0px;"><span class="largenav"><img class="logoNav" src="{{ asset('../imgs/logoContorno2.png') }}"></span></h1>
                     </div>  
                     <div class="navbar-search smallsearch col-sm-8 col-xs-11">
                         <div class="row">
-                            <input class="navbar-input col-xs-11" type="text" placeholder="Pesquisar Produtos..." name="search">
+                            <input class="navbar-input col-xs-11" type="text" placeholder="O que você procura?" name="search">
                             <button class="navbar-button col-xs-1">
                                 <svg width="15px" height="15px">
                                 <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
@@ -68,6 +69,200 @@
             <a href="#">Link</a>
         </div>
 
+        <div class="subnav navbar-default">
+            <div class="container">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-slide-dropdown">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <!-- Sub Navbar -->
+                <div class="collapse navbar-collapse" id="bs-slide-dropdown">
+                    <ul class="nav navbar-nav mr-auto">
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/menu-icon.svg" class="svg-icon"></i></p>
+                                    Todos</center>
+                            </a>				
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Bazar</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg" class="svg-icon-all"> Bebidas</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg" class="svg-icon-all"> Carnes</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg" class="svg-icon-all"> Congelados</a></li><hr>                               
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Mercearia</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg" class="svg-icon-all"> Frios & Laticinios</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg" class="svg-icon-all"> Hortifruti</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg" class="svg-icon-all"> Padaria</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg" class="svg-icon-all"> Higiene</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg" class="svg-icon-all"> Limpeza</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg" class="svg-icon-all"> Pet Shop</a></li>
+
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon"></p>
+                                    Mercearia</center>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Arroz & Feijão</a></li><hr>
+                                <li><a href="#">Açúcar & Adoçante</a></li><hr>
+                                <li><a href="#">Biscoitos & Salgadinhos</a></li><hr>
+                                <li><a href="#">Bomboniere</a></li><hr>
+                                <li><a href="#">Caldos & Temperos</a></li><hr>
+                                <li><a href="#">Conservas & Enlatados</a></li><hr>
+                                <li><a href="#">Cereais & Grãos</a></li><hr>
+                                <li><a href="#">Doces & Sobremesas</a></li><hr>
+                                <li><a href="#">Farinhas & Farofas</a></li><hr>
+                                <li><a href="#">Óleos & Azeites</a></li><hr>
+                                <li><a href="#">Massas & Molhos</a></li><hr>
+                                <li><a href="#">Matinais</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg" class="svg-icon"></i></p>
+                                    Carnes</center>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Aves</a></li><hr>
+                                <li><a href="#">Bovinos</a></li><hr>
+                                <li><a href="#">Frango</a></li><hr>
+                                <li><a href="#">Peixes & Frutos do Mar</a></li><hr>
+                                <li><a href="#">Suínos</a></li><hr>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg" class="svg-icon"></p>
+                                    Congelados</center>
+                            </a>				
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Petiscos & Empanados</a></li><hr>
+                                <li><a href="#">Hambúrguer</a></li><hr>
+                                <li><a href="#">Pizzas</a></li><hr>
+                                <li><a href="#">Lasanhas</a></li><hr>
+                                <li><a href="#">Legumes</a></li><hr>
+                                <li><a href="#">Sorvetes</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg" class="svg-icon"></p>
+                                    Frios & Laticinios</center>
+                            </a>				
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Cremes & Requeijão</a></li><hr>   
+                                <li><a href="#">Defumados</a></li><hr>  
+                                <li><a href="#">Leites & Lácteos</a></li><hr>
+                                <li><a href="#">Manteiga & Margarina</a></li><hr>
+                                <li><a href="#">Presuntos & Queijos</a></li><hr>
+                                <li><a href="#">Iogurtes & Sobremesas</a></li><hr>
+                                <li><a href="#">Massas Frescas</a></li>
+
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg" class="svg-icon"></p>
+                                    Bebidas</center>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Água Mineral</a></li><hr>
+                                <li><a href="#">Aguardente & Cachaça</a></li><hr>
+                                <li><a href="#">Cervejas</a></li><hr>
+                                <li><a href="#">Chá</a></li><hr>
+                                <li><a href="#">Champagne & Espumante</a></li><hr>
+                                <li><a href="#">Energéticos</a></li><hr>
+                                <li><a href="#">Refrigerante</a></li><hr>
+                                <li><a href="#">Vinhos</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg" class="svg-icon"></p>
+                                    Hortifruti</center>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Frutas</a></li><hr>
+                                <li><a href="#">Legumes</a></li><hr>
+                                <li><a href="#">Verduras</a></li><hr>
+                                <li><a href="#">Ovos</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg" class="svg-icon"></p>
+                                    Padaria</center>
+                            </a>				
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Pães</a></li><hr>
+                                <li><a href="#">Bolos & Tortas</a></li><hr>
+                                <li><a href="#">Doces</a></li><hr>
+                                <li><a href="#">Folhados</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg" class="svg-icon"></p>
+                                    Higiene</center>
+                            </a>				
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Higiene Bucal</a></li><hr>
+                                <li><a href="#">Higiene Pessoal</a></li><hr>
+                                <li><a href="#">Higiene Íntima</a></li>
+                            </ul>                
+                        </li>
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg" class="svg-icon"></p>
+                                    Limpeza</center>
+                            </a>				
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Casa</a></li><hr>
+                                <li><a href="#">Roupas</a></li><hr>
+                                <li><a href="#">Cozinha</a></li><hr>
+                                <li><a href="#">Banheiro</a></li>
+                            </ul>                
+                        </li>       
+
+                        <li class="dropdown nav-item">
+                            <a class="nav-link" href="#">
+                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg" class="svg-icon"></p>
+                                    Pet Shop</center>
+                            </a>				
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Aves</a></li><hr>
+                                <li><a href="#">Cães</a></li><hr>
+                                <li><a href="#">Gatos</a></li>
+                            </ul>                
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </div>
+
         <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel">
             <!-- Overlay -->
             <div class="overlay"></div>
@@ -77,19 +272,13 @@
                 <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#bs-carousel" data-slide-to="1"></li>
                 <li data-target="#bs-carousel" data-slide-to="2"></li>
+                <li data-target="#bs-carousel" data-slide-to="3"></li>
             </ol>
 
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item slides active">
                     <div class="slide-1"></div>
-                    <div class="hero">
-                        <hgroup>
-                            <h1>Hortifruti</h1>        
-                            <h3>Trabalhamos apenas com legumes e frutas fresquinhas!</h3>
-                        </hgroup>
-                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
-                    </div>
                 </div>
                 <div class="item slides">
                     <div class="slide-2"></div>
@@ -111,9 +300,45 @@
                         <button class="btn btn-hero btn-lg" role="button">See all features</button>
                     </div>
                 </div>
+                <div class="item slides">
+                    <div class="slide-4"></div>
+                </div>
             </div> 
         </div>
+
+        <script>
+            window.onscroll = function () {
+                myFunction()
+            };
+
+            var navbar = document.getElementById("navbar");
+            var sticky = navbar.offsetTop;
+
+            function myFunction() {
+                if (window.pageYOffset > sticky) {
+                    navbar.classList.add("sticky");
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+        <script>
+            $(document).ready(function () {
+                $(".dropdown").hover(
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+                            $(this).toggleClass('open');
+                        },
+                        function () {
+                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+                            $(this).toggleClass('open');
+                        }
+                );
+            });
+        </script>
+
     </body>
+
 </html>
 
 

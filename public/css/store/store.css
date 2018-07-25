@@ -1,19 +1,14 @@
-.html {
-    background-color: #fdfdfd;
+html {
+    background-color: #eee;
 }
 
 navbar-search {
     background-color: #f9f9f9;
 }
 
-#navbar {
-    background-color: #24529c;
-    color: #FFFFFF;
-}
-
 .logoNav {
     width: 116%;
-    margin-top: -20%;
+    margin-top: 15%;
     margin-bottom: -15%;
     margin-left: -22%;
 }
@@ -24,6 +19,12 @@ navbar-search {
 
 .row2 {
     padding-bottom: 20px;
+}
+
+.navbar {
+    border-radius: 0;
+    background-color: #24529c;
+    color: #FFFFFF;
 }
 
 .navbar-input {
@@ -136,6 +137,15 @@ navbar-search {
     box-shadow: 0 4px 8px -3px #555454;
     margin: 0;
     padding: 0px;
+}
+
+.dropdown-menu>li>a {
+    padding: 8px 20px;
+}
+
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+    background-color: #3471d4;
+    padding: 8px 20px;
 }
 
 .links {
@@ -251,9 +261,9 @@ Image credits: unsplash.com
 }
 .fade-carousel .carousel-indicators > li {
     margin: 0 2px;
-    background-color: #ffff;
+    background-color: #fff;
     border-color: #ccc;
-    opacity: .7;
+    opacity: 1;
 }
 .fade-carousel .carousel-indicators > li.active {
     width: 10px;
@@ -312,7 +322,7 @@ Image credits: unsplash.com
     height: 100%;
     z-index: 2;
     background-color: #080d15;
-    opacity: .2;
+    opacity: 0;
 }
 
 /********************************/
@@ -341,22 +351,28 @@ Image credits: unsplash.com
 /********************************/
 .fade-carousel .slides .slide-1, 
 .fade-carousel .slides .slide-2,
-.fade-carousel .slides .slide-3 {
+.fade-carousel .slides .slide-3
+.fade-carousel .slides .slide-4 {
     height: 100vh;
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-    background-image: url("http://emarketsoftware.com.br/imgs/banner1.jpg");
+    background-image: url("https://loja.praticosupermercado.com.br/banners/m2Mwo9n/hortifruti_desktop.jpg");
     height: 50vh;  
 }
 .fade-carousel .slides .slide-2 {
     background-image: url("http://emarketsoftware.com.br/imgs/banner2.jpg");
-     height: 50vh;
+    height: 50vh;
 }
 .fade-carousel .slides .slide-3 {
     background-image: url("https://static4.depositphotos.com/1012068/309/i/950/depositphotos_3093107-stock-photo-fresh-raw-meat-background.jpg");
+    height: 50vh; 
+}
+
+.fade-carousel .slides .slide-4 {
+    background-image: url("https://loja.praticosupermercado.com.br/banners/RMwv62z/ofertas-da-semana_desktop.jpg");
     height: 50vh; 
 }
 
@@ -371,6 +387,98 @@ Image credits: unsplash.com
 }
 
 .propaganda {
-    margin-top: -1.1%;
+    margin-top: -1%;
     height: 50vh;
 }
+
+body {
+    margin: 0;
+    font-family: Arial;
+}
+
+.content {
+    padding: 16px;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.sticky + .content {
+    padding-top: 102px;
+}
+
+/*          Sub Navbar       */
+
+.subnav {
+    background-color: #0b3577;
+    margin-top: -1.1%;
+    margin-bottom: 1%;
+}
+
+.subnav .navbar-nav .nav-link > p > .fa {
+    position: relative;
+    width: 36px;
+    font-size: 24px;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.subnav .navbar-nav .nav-link > p > .fa > .badge {
+    font-size: 0.75rem;
+    position: absolute;
+    right: 0;
+    font-family: sans-serif;
+}
+
+.subnav .navbar-nav .nav-link > p > .fa {
+    top: 3px;
+    line-height: 12px;
+}
+
+.subnav .navbar-nav .nav-link > .fa > .badge {
+    top: -10px;
+}
+
+.navbar-default {
+    border: 0;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #fff;
+    border-color: #000;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a {
+    color: #fff;
+    background-color: #24529c;
+}
+
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    color: #fff;
+    background-color: #3471d4;
+}
+
+.oferta {
+    background-color: #a71a15;
+    color: #fff;
+}
+
+.svg-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.svg-icon-all {
+    width: 30px;
+    height: 30px;
+    margin-left: -5px;
+}
+
+hr {
+    margin-top: 1px;
+    margin-bottom: 1px;
+}
+
