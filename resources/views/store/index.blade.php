@@ -95,7 +95,7 @@
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg" class="svg-icon-all"> Bebidas</a></li><hr>
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg" class="svg-icon-all"> Carnes</a></li><hr>
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg" class="svg-icon-all"> Congelados</a></li><hr>                               
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
+                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/natural-icon.svg" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Mercearia</a></li><hr>
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg" class="svg-icon-all"> Frios & Laticinios</a></li><hr>
                                 <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg" class="svg-icon-all"> Hortifruti</a></li><hr>
