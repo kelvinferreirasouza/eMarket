@@ -87,29 +87,28 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/menu-icon.svg" class="svg-icon"></i></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/menu-icon.svg') }}" class="svg-icon"></i></p>
                                     Todos</center>
                             </a>				
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Bazar</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg" class="svg-icon-all"> Bebidas</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg" class="svg-icon-all"> Carnes</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg" class="svg-icon-all"> Congelados</a></li><hr>                               
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/natural-icon.svg" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon-all"> Mercearia</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg" class="svg-icon-all"> Frios & Laticinios</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg" class="svg-icon-all"> Hortifruti</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg" class="svg-icon-all"> Padaria</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg" class="svg-icon-all"> Higiene</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg" class="svg-icon-all"> Limpeza</a></li><hr>
-                                <li><a href="#"><img src="https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg" class="svg-icon-all"> Pet Shop</a></li>
-
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon-all"> Bazar</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg') }}" class="svg-icon-all"> Bebidas</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg') }}" class="svg-icon-all"> Carnes</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg') }}" class="svg-icon-all"> Congelados</a></li><hr>                               
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/natural-icon.svg') }}" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon-all"> Mercearia</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg') }}" class="svg-icon-all"> Frios & Laticinios</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg') }}" class="svg-icon-all"> Hortifruti</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg') }}" class="svg-icon-all"> Padaria</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg') }}" class="svg-icon-all"> Higiene</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg') }}" class="svg-icon-all"> Limpeza</a></li><hr>
+                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg') }}" class="svg-icon-all"> Pet Shop</a></li>
                             </ul>                
                         </li>
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon"></p>
                                     Mercearia</center>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -130,7 +129,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg" class="svg-icon"></i></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg') }}" class="svg-icon"></i></p>
                                     Carnes</center>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -144,7 +143,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg') }}" class="svg-icon"></p>
                                     Congelados</center>
                             </a>				
 
@@ -160,7 +159,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg') }}" class="svg-icon"></p>
                                     Frios & Laticinios</center>
                             </a>				
 
@@ -178,7 +177,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg') }}" class="svg-icon"></p>
                                     Bebidas</center>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -195,7 +194,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg') }}" class="svg-icon"></p>
                                     Hortifruti</center>
                             </a>
                             <ul class="dropdown-menu" role="menu">
@@ -208,7 +207,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg') }}" class="svg-icon"></p>
                                     Padaria</center>
                             </a>				
                             <ul class="dropdown-menu" role="menu">
@@ -221,10 +220,9 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg') }}" class="svg-icon"></p>
                                     Higiene</center>
                             </a>				
-
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Higiene Bucal</a></li><hr>
                                 <li><a href="#">Higiene Pessoal</a></li><hr>
@@ -234,10 +232,9 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg') }}" class="svg-icon"></p>
                                     Limpeza</center>
-                            </a>				
-
+                            </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Casa</a></li><hr>
                                 <li><a href="#">Roupas</a></li><hr>
@@ -248,19 +245,19 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg" class="svg-icon"></p>
+                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg') }}" class="svg-icon"></p>
                                     Pet Shop</center>
                             </a>				
-
                             <ul class="dropdown-menu" role="menu">
                                 <li><a href="#">Aves</a></li><hr>
                                 <li><a href="#">Cães</a></li><hr>
                                 <li><a href="#">Gatos</a></li>
                             </ul>                
                         </li>
+
                     </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
+                </div>
+            </div>
         </div>
 
         <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel">
@@ -306,38 +303,522 @@
             </div> 
         </div>
 
-        <script>
-            window.onscroll = function () {
-                myFunction()
-            };
+        <hr>
+    <center><h1>Ofertas</h1></center>
 
-            var navbar = document.getElementById("navbar");
-            var sticky = navbar.offsetTop;
+    <section class="containerFlex flex flex-wrap gridProducts">
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
 
-            function myFunction() {
-                if (window.pageYOffset > sticky) {
-                    navbar.classList.add("sticky");
-                } else {
-                    navbar.classList.remove("sticky");
-                }
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+        <div class="itemFlex">
+            <figure class="card card-product effectHover">
+                <div class="img-wrap"><img src="{{ asset('https://emarketsoftware.com.br/imgs/produtos/nescau.png') }}"></div>
+                <figcaption class="info-wrap">
+                    <h4 class="title">Achoc. Nescau 2.0 400g</h4>
+                </figcaption>
+
+                <div class="bottom-wrap">
+                    <div class="price-wrap h5">
+                        <p><del class="price-old">De: R$12,95</del></p>
+                        <span class="price-new">Por: R$10,98</span>
+                    </div>
+
+                    <div class="col-sm-8 input-group seletorQtd">
+                        <span class="input-group-btn">
+                            <button type="button" class="quantity-left-minus btn btn-primary btn-number"  data-type="minus" data-field="">
+                                <i class="fas fa-minus"></i>
+                            </button>
+                        </span>
+                        <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="1" min="0" max="100">
+                        <span class="input-group-btn">
+                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+                <center><button class="btn btn-sm btn-primary btnCart"><i class="fas fa-cart-plus fa-2x"></i> Adicionar ao Carrinho</button></center>
+            </figure>
+        </div>
+
+
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 footerleft ">
+                    <h6 class="heading7">Sobre</h6>
+                    <p align="justify">O eMarket está sendo desenvolvido por Kelvin Ferreira Souza como projeto de TCC para a Faculdade de Tecnologia Senac Pelotas.
+                        Tem como objetivo desenvolver um e-commerce completo totalmente gerenciavel para oferecer aos seus clientes mais um canal de vendas.</p>
+                    <p itemprop="address" itemscope itemtype="http://schema.org/PostalAddress"><i class="fa fa-map-pin"></i>
+                        <span itemprop="streetAddress">Av. Jose Bonifácio, 57 - Pedro Osório / RS - Brasil</span>
+                    <p><i class="fa fa-phone"></i> Telefone:
+                        <span itemprop="telephone"><a href="tel:(53) 99167-3413" class="fields"
+                                                      title="Contact Madgeek Pvt Ltd"> (53) 99167-3413</a></span></p>
+                    <p><i class="fa fa-envelope"></i> E-mail :
+                        <span itemprop="email"><a href="mailto:kelvin@ferreirasouza.com" class="fields"
+                                                  title="Kelvin Ferreira Souza">kelvin@ferreirasouza.com</a></span></p>
+
+                </div>
+                <div class="col-md-2 col-sm-6 paddingtop-bottom">
+                    <h6 class="heading7">Links Úteis</h6>
+                    <ul class="footer-ul">
+                        <li><a href="#" title="Sobre Nos"> <i class="fa fm fa-angle-double-right"></i> Sobre Nós</a>
+                        </li>
+                        <li><a href="#" title="Politica de Privacidade"> <i class="fa fm fa-angle-double-right"></i> Privacidade</a></li>
+                        <li><a href="#" title="Termos & Condições"> <i class="fa fm fa-angle-double-right"></i>
+                                T & Condições</a></li>
+                        <li><a href="#" title="Contato"> <i
+                                    class="fa fm fa-angle-double-right"></i> Contato</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                    <h6 class="heading7">Facebook</h6>
+                    <div class="fb-page" data-href="https://www.facebook.com/mercadobomchurrasco/" data-tabs="timeline"
+                         data-small-header="true" data-width="270px" data-hide-cover="true"
+                         data-height="260px"
+                         data-show-facepile="true">
+                        <blockquote cite="https://www.facebook.com/mercadobomchurrasco//" class="fb-xfbml-parse-ignore"><a
+                                href="https://www.facebook.com/mercadobomchurrasco/">Bom Churrasco</a></blockquote>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                    <h6 class="heading7">Redes Sociais</h6>
+                    <ul class="footer-ul">
+                        <li>
+                            <div class="fb-like" data-href="https://www.facebook.com/mercadobomchurrasco/" data-layout="standard"
+                                 data-width="250px"
+                                 data-action="recommend" data-size="small" data-show-faces="true" data-share="true"></div>
+                        </li>
+                        <li>
+                            <a href="https://twitter.com/kelvinferreiraa" class="twitter-follow-button"
+                               data-show-count="false">Follow @eMarket</a>
+                            <script defer async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </li>
+                        <li>
+                            <div class="g-follow" data-href="https://plus.google.com/107750645446351770147"
+                                 data-rel="relationshipType"></div>
+                            <script src="https://apis.google.com/js/platform.js" async defer></script>
+                        </li>
+                        <li>
+                            <script defer src="//platform.linkedin.com/in.js" type="text/javascript"> lang: en_US</script>
+                            <script defer type="IN/FollowCompany" data-id="7599317" data-counter="right" async></script>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="copyright">
+        <div class="container">
+            <div class="col-md-12 col-sm-12">
+                <p>© 2018 - Todos os Direitos Reservados. <a href="//madgeek.in">Kelvin Ferreira Souza MEI</a> | CNPJ : 23.045.909/0001-10</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.onscroll = function () {
+            myFunction()
+        };
+
+        var navbar = document.getElementById("navbar");
+        var sticky = navbar.offsetTop;
+
+        function myFunction() {
+            if (window.pageYOffset > sticky) {
+                navbar.classList.add("sticky");
+            } else {
+                navbar.classList.remove("sticky");
             }
-        </script>
-        <script>
-            $(document).ready(function () {
-                $(".dropdown").hover(
-                        function () {
-                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
-                            $(this).toggleClass('open');
-                        },
-                        function () {
-                            $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
-                            $(this).toggleClass('open');
-                        }
-                );
-            });
-        </script>
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".dropdown").hover(
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideDown("fast");
+                        $(this).toggleClass('open');
+                    },
+                    function () {
+                        $('.dropdown-menu', this).not('.in .dropdown-menu').stop(true, true).slideUp("fast");
+                        $(this).toggleClass('open');
+                    }
+            );
+        });
+    </script>
 
-    </body>
+    <script>
+        $(document).ready(function () {
+
+            var quantitiy = 0;
+            $('.addQtd').click(function (e) {
+
+                e.preventDefault();
+
+                var quantity = parseInt($('#quantity').val());
+
+                $('#quantity').val(quantity + 1);
+
+            });
+
+            $('.quantity-left-minus').click(function (e) {
+                // Stop acting like a button
+                e.preventDefault();
+                // Get the field name
+                var quantity = parseInt($('#quantity').val());
+
+                // If is not undefined
+
+                // Increment
+                if (quantity > 1) {
+                    $('#quantity').val(quantity - 1);
+                }
+            });
+
+        });
+    </script>
+    <script src="{{ asset('js/store/face.js') }}" type="text/javascript"></script>
+</body>
 
 </html>
 
