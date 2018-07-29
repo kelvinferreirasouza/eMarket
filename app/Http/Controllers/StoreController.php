@@ -10,4 +10,9 @@ class StoreController extends Controller
     {
         return view('store.index');
     }
+    
+    public function carrinho()
+    {
+        return view('store.carrinho');
+    }
 }
