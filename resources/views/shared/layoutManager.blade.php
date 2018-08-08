@@ -66,7 +66,7 @@
                             <a class="mobile-search morphsearch-search" href="#">
                                 <i class="ti-search"></i>
                             </a>
-                            <a href="index.html">
+                            <a href="{{ route('manager') }}">
                                 <img class="img-fluid" src="../../../imgs/logoEmarket.jpg" alt="eMarket" style="width: 140px;" />
                             </a>
                             <a class="mobile-options">
@@ -119,18 +119,6 @@
                                         </ul>
                                     </li>
                                 </ul>
-                                <!-- search -->
-                                <div id="morphsearch" class="morphsearch">
-                                    <form class="morphsearch-form">
-                                        <input class="morphsearch-input" type="search" placeholder="Search..." />
-                                        <button class="morphsearch-submit" type="submit">Search</button>
-                                    </form>
-                                    <div class="morphsearch-content">
-                                    </div>
-                                    <!-- /morphsearch-content -->
-                                    <span class="morphsearch-close"><i class="icofont icofont-search-alt-1"></i></span>
-                                </div>
-                                <!-- search end -->
                             </div>
                         </div>
                     </div>
