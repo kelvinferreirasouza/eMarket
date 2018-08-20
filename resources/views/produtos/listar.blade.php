@@ -30,7 +30,7 @@
                             <h5>Lista de Produtos Cadastros </h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
-                        
+
                         <!-- FORMULÁRIO DE BUSCA -->
 
                         <div class="form-search">
@@ -43,8 +43,8 @@
                         </div>
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
-                        
-                        
+
+
                         <!-- BOTAO CADASTRAR PRODUTO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar" >
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
@@ -60,7 +60,7 @@
                                         </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="post" action="{{route ('salvarProduto')}}" class="formEditUser">
+                                        <form method="post" action="{{route ('salvarProduto')}}" enctype="multipart/form-data" class="formEditUser">
                                             {{ csrf_field() }}
                                             <div class="card-header">
                                                 <CENTER><h5>Cadastrar Produto</h5></CENTER>
@@ -163,6 +163,11 @@
                                                                 <option value="1">Ativo</option>
                                                                 <option value="0">Inativo</option>
                                                             </select>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <label for="image" class="control-label">Imagem:</label>
+                                                            <input type="file" name="image" id="image" class="form-control">
+                                                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                         </div>
                                                         <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
                                                         <script>
