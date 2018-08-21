@@ -272,6 +272,23 @@
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
+                                                                                @php        
+                                                                                if(file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.jpg'))){
+                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.jpg';
+                                                                                } else if (file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.png'))) {
+                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.png';
+                                                                                } else {
+                                                                                    $foto = '../imgs/produtos/sem_foto.jpg';    
+                                                                                }    
+                                                                                @endphp
+                                            
+                                                                                {!!"
+                                                                                    <div class='col-sm-12'>
+                                                                                        <center>
+                                                                                        <img src=$foto id='imagem' width='150' height='150' alt='Foto'>
+                                                                                        </center>
+                                                                                    </div>
+                                                                                "!!}
                                                                             <div class="col-sm-2">
                                                                                 <label for="codBarras" class="control-label labelInputEditUser">Codigo de Barras:</label>
                                                                                 <input type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" value="{{$produto->codBarras}}" required>
@@ -395,6 +412,23 @@
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
+                                                                                @php        
+                                                                                if(file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.jpg'))){
+                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.jpg';
+                                                                                } else if (file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.png'))) {
+                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.png';
+                                                                                } else {
+                                                                                    $foto = '../imgs/produtos/sem_foto.jpg';    
+                                                                                }    
+                                                                                @endphp
+                                            
+                                                                                {!!"
+                                                                                    <div class='col-sm-12'>
+                                                                                        <center>
+                                                                                        <img src=$foto id='imagem' width='150' height='150' alt='Foto'>
+                                                                                        </center>
+                                                                                    </div>
+                                                                                "!!}
                                                                             <div class="col-sm-2">
                                                                                 <label for="codBarras" class="control-label labelInputEditUser">Codigo de Barras:</label>
                                                                                 <input disabled type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" value="{{$produto->codBarras}}" required>
