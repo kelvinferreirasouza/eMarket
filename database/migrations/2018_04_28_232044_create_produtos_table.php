@@ -15,7 +15,7 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {	
             $table->increments('id', 10);
-            $table->string('codBarras', 50);
+            $table->string('codBarras', 50)->unique;
             $table->string('produtoNome', 100);
             $table->decimal('qtd', 20, 3)->default(0.000);
             $table->decimal('qtdMin', 20, 3)->default(0.000)->nullable();

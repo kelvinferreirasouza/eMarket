@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use App\ImgProduto;
 use App\Produto;
 use App\Setor;
 use App\Categoria;
@@ -36,8 +37,9 @@ class ProdutoController extends Controller {
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
+        $imagens = ImgProduto::all();
 
-        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
+        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores', 'imagens'));
     }
 
     public function salvarProduto(Request $request) {
@@ -47,19 +49,20 @@ class ProdutoController extends Controller {
 
         $this->validate($request, $this->produto->rules, $this->produto->messages);
 
-        $produto = new produto;
-        
-        $produto->title = $codBarras;
-        
-        if (Input::hasFile('image')) {
-            
-            $produto = Input::file('image');
-            $extensao = $produto->getClientOriginalExtension();
-            $produto->move(public_path() . '/imgs/produtos', $codBarras . '.' . $extensao);
-            $produto->name = $codBarras;
-        }
-
         Produto::create($dados);
+
+        if($request->hasFile('file')) {
+            foreach($request->file as $file) {
+                $file_extension = $file->getClientOriginalExtension();
+                $filename = $codBarras . "_" . rand(100000,999999) . "." . $file_extension;
+                $destination_path = public_path('/imgs/produtos');
+                $file->move($destination_path,$filename);
+                $imgProduto = new ImgProduto;
+                $imgProduto->codbarras = $codBarras;
+                $imgProduto->endereco = $filename;
+                $imgProduto->save();
+            }
+        }
 
         return redirect()->route('listarProdutos');
     }

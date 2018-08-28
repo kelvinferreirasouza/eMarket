@@ -51,7 +51,7 @@
 
                         <!-- MODAL DE CADASTRAR -->
                         <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                            <div class="modal-dialog modal-lg modalProd" role="document">
+                            <div class="modal-dialog modal-lg modalProd modalProdutos" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
                                         <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">PRODUTOS<i class="fa fa-help"></i></h5>
@@ -68,6 +68,17 @@
                                             <div class="card-block">
                                                 <div class="card-block">
                                                     <div class="form-group row">
+                                                        <div class="col-sm-12">
+                                                            <center>
+                                                                @php        
+                                                                $foto = '../imgs/produtos/sem_foto.jpg';
+                                                                @endphp
+
+                                                                {!!"
+                                                                <img src=$foto alt='js' width='300px' height='200px' style='margin-top: -4%'>
+                                                                     "!!}
+                                                            </center>
+                                                        </div>
                                                         <div class="col-sm-2">
                                                             <label for="codBarras" class="control-label labelInputEditUser">Código de Barras:</label>
                                                             <input type="text" class="form-control" name="codBarras" placeholder="Cód. Barras" value="{{old('codBarras')}}">
@@ -166,7 +177,7 @@
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <label for="image" class="control-label">Imagem:</label>
-                                                            <input type="file" name="image" id="image" class="form-control">
+                                                            <input type="file" name="file[]" class="form-control" multiple>
                                                             <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                         </div>
                                                         <!-- SCRIPT QUE VAI PEGAR O SETOR SELECIONADO E MOSTRAR APENAS AS CATEGORIAS RELACIONADAS A ELE -->
@@ -256,7 +267,7 @@
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg modalProd" role="document">
+                                                    <div class="modal-dialog modal-lg modalProd modalProdutos" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
                                                                 <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Produto #{{$produto->id}} <i class="fa fa-help"></i></h5>
@@ -272,23 +283,21 @@
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
-                                                                                @php        
-                                                                                if(file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.jpg'))){
-                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.jpg';
-                                                                                } else if (file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.png'))) {
-                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.png';
-                                                                                } else {
-                                                                                    $foto = '../imgs/produtos/sem_foto.jpg';    
-                                                                                }    
-                                                                                @endphp
-                                            
-                                                                                {!!"
-                                                                                    <div class='col-sm-12'>
-                                                                                        <center>
-                                                                                        <img src=$foto id='imagem' width='150' height='150' alt='Foto'>
-                                                                                        </center>
-                                                                                    </div>
-                                                                                "!!}
+                                                                            <div class="col-sm-12">
+                                                                                <center>
+                                                                                    @foreach($imagens as $imagem)       
+                                                                                    @if ($produto->codBarras == $imagem->codBarras)
+                                                                                    <?php
+                                                                                    $foto = '../imgs/produtos/' . $imagem->endereco;
+                                                                                    ?>
+                                                                                    {!!"
+                                                                                    <img src=$foto alt='js' width='200px' height='250px'/>
+                                                                                    "!!}
+                                                                                    @endif  
+                                                                                    @endforeach
+                                                                                </center>
+                                                                            </div>
+
                                                                             <div class="col-sm-2">
                                                                                 <label for="codBarras" class="control-label labelInputEditUser">Codigo de Barras:</label>
                                                                                 <input type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" value="{{$produto->codBarras}}" required>
@@ -396,7 +405,7 @@
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg modalProd" role="document">
+                                                    <div class="modal-dialog modal-lg modalProd modalProdutos" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
                                                                 <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Produto #{{$produto->id}} <i class="fa fa-help"></i></h5>
@@ -412,23 +421,21 @@
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
-                                                                                @php        
-                                                                                if(file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.jpg'))){
-                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.jpg';
-                                                                                } else if (file_exists(public_path('imgs/produtos/'.$produto->codBarras.'.png'))) {
-                                                                                    $foto = '../imgs/produtos/'.$produto->codBarras.'.png';
-                                                                                } else {
-                                                                                    $foto = '../imgs/produtos/sem_foto.jpg';    
-                                                                                }    
-                                                                                @endphp
-                                            
-                                                                                {!!"
-                                                                                    <div class='col-sm-12'>
-                                                                                        <center>
-                                                                                        <img src=$foto id='imagem' width='150' height='150' alt='Foto'>
-                                                                                        </center>
-                                                                                    </div>
-                                                                                "!!}
+                                                                            <div class="col-sm-12">
+                                                                                <center>
+                                                                                    @foreach($imagens as $imagem)       
+                                                                                    @if ($produto->codBarras == $imagem->codBarras)
+                                                                                    <?php
+                                                                                    $foto = '../imgs/produtos/' . $imagem->endereco;
+                                                                                    ?>
+                                                                                    {!!"
+                                                                                    <img src=$foto alt='js' width='200px' height='250px'/>
+                                                                                    "!!}
+                                                                                    @endif  
+                                                                                    @endforeach
+                                                                                </center>
+                                                                            </div>
+
                                                                             <div class="col-sm-2">
                                                                                 <label for="codBarras" class="control-label labelInputEditUser">Codigo de Barras:</label>
                                                                                 <input disabled type="text" class="form-control" name="codBarras" placeholder="Digite o Código de Barras" value="{{$produto->codBarras}}" required>

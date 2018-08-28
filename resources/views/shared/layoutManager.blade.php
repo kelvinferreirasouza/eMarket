@@ -45,7 +45,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
-
+        
     </head>
     <body>
         <!-- Pre-loader start -->
@@ -433,6 +433,7 @@
     <script src="{{ asset('js/manager/demo-12.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/manager/slick.min.js') }}"></script>
     <script>
     $('#cep').blur(function (e) {
         var cep = $('#cep').val();
@@ -454,4 +455,5 @@
         });
     }
     </script>
+
 </html>

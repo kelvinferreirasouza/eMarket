@@ -66,6 +66,18 @@
     max-width: 990px;
 }
 
+.modalSetor {
+    max-width: 600px;
+}
+
+.modalProdutos {
+    margin: 40px auto;
+}
+
+.divImg {
+    margin-top: -4%;
+}
+
 .modalUser, .modalFornec {
     max-width: 1070px;
 }
@@ -193,4 +205,13 @@
 .pagination {
     position: relative;
     float: right;
+}
+
+.divFile {
+    margin-left: -11%;
+    margin-bottom: 7%;
+}
+
+.inputFile {
+   width: 134%;
 }

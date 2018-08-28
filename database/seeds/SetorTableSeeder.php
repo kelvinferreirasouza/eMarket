@@ -12,12 +12,7 @@ class SetorTableSeeder extends Seeder
     public function run()
     {
         DB::table('produtosetores')->insert([
-            'nome'    => 'Padaria',
-            'isAtivo' => 1
-        ]);
-
-        DB::table('produtosetores')->insert([
-            'nome'    => 'HortiFruti',
+            'nome'    => 'Bazar',
             'isAtivo' => 1
         ]);
 
@@ -27,7 +22,37 @@ class SetorTableSeeder extends Seeder
         ]);
 
         DB::table('produtosetores')->insert([
+            'nome'    => 'Carnes',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
+            'nome'    => 'Congelados',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
+            'nome'    => 'Dietéticos & Naturais',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
+            'nome'    => 'Mercearia',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
             'nome'    => 'Frios & Laticinios',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
+            'nome'    => 'Hortifruti',
+            'isAtivo' => 1
+        ]);
+
+        DB::table('produtosetores')->insert([
+            'nome'    => 'Padaria',
             'isAtivo' => 1
         ]);
 
@@ -42,17 +67,7 @@ class SetorTableSeeder extends Seeder
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Mercearia',
-            'isAtivo' => 1
-        ]);
-
-        DB::table('produtosetores')->insert([
-            'nome'    => 'Congelados',
-            'isAtivo' => 1
-        ]);
-
-        DB::table('produtosetores')->insert([
-            'nome'    => 'Carnes',
+            'nome'    => 'Pet Shop',
             'isAtivo' => 1
         ]);
 
