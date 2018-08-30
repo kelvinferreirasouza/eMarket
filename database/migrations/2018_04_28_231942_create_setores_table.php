@@ -16,8 +16,9 @@ class CreateSetoresTable extends Migration
         Schema::create('produtosetores', function (Blueprint $table) {	
             $table->increments('id');
             $table->string('nome');
-            $table->string('imagem')->default("");
+            $table->string('imagem')->default("")->nullable();
             $table->timestamps();
+            $table->integer('isDestaque')->default(0);
             $table->integer('isAtivo')->default(1);
         });
     }

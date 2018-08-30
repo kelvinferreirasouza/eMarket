@@ -276,7 +276,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" class="formEditUser">
+                                                                <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" enctype="multipart/form-data" class="formEditUser">
                                                                     {{ csrf_field() }}
                                                                     <div class="card-header">
                                                                         <CENTER><h5>Editar Produto</h5></CENTER>

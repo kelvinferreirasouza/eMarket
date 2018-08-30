@@ -24,6 +24,19 @@ class SetorController extends Controller {
         return view('setores.listar', compact('setores'));
     }
 
+    public function excluirSetor($id) {
+        $setor = Setor::find($id);
+
+        $setor->delete();
+
+        return redirect()->route('listarSetores');
+    }
+
+    public function editarSetor($id) {
+        $setor = Setor::find($id);
+        return view('setores.editar', compact('setor'));
+    }
+
     public function salvarSetor(Request $request) {
         
         $nome = $request->nome;
@@ -51,36 +64,27 @@ class SetorController extends Controller {
         return redirect()->route('listarSetores');
     }
 
-    public function excluirSetor($id) {
-        $setor = Setor::find($id);
-
-        $setor->delete();
-
-        return redirect()->route('listarSetores');
-    }
-
-    public function editarSetor($id) {
-        $setor = Setor::find($id);
-        return view('setores.editar', compact('setor'));
-    }
-
     public function atualizarSetor(Request $request, $id) {
-        $dados = $request->all();
         $setor = Setor::find($id);
-        
+        $nome = $request->nome;
+        $imagem = Setor::find($id)->imagem;
+        $isAtivo = $request->isAtivo;
+
         if($request->hasFile('file')) {
             foreach($request->file as $file) {
                 $file_extension = $file->getClientOriginalExtension();
                 $filename = $id . "." . $file_extension;
                 DB::table('produtosetores')
                     ->where('id', $id)
-                    ->update(array('imagem' => $filename));
+                    ->update(['nome'=>$nome, 'imagem'=>$filename, 'isAtivo'=>$isAtivo]);
                 $destination_path = public_path('/imgs/setores');
                 $file->move($destination_path,$filename);
             }
+        } else {
+            DB::table('produtosetores')
+                    ->where('id', $id)
+                    ->update(['nome'=>$nome, 'imagem'=>$imagem, 'isAtivo'=>$isAtivo]);
         }
-        
-        $setor->update($dados);
 
         return redirect()->route('listarSetores');
     }

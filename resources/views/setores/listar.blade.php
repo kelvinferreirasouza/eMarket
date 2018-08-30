@@ -118,6 +118,7 @@
                                             <th>ID</th>
                                             <th>Nome do Setor</th>
                                             <th>Imagem</th>
+                                            <th>Destaque</th>
                                             <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
@@ -143,6 +144,13 @@
                                                @endif
                                             </td>
                                     <td>
+                                        @if($setor->isDestaque == 1)
+                                        Sim
+                                        @else 
+                                        Não
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if($setor->isAtivo == 1)
                                         Ativo
                                         @else 
@@ -163,7 +171,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form method="post" action="{{route ('atualizarSetor', $setor->id)}}" class="formEditUser">
+                                                        <form method="post" action="{{route ('atualizarSetor', $setor->id)}}" enctype="multipart/form-data" class="formEditUser">
                                                             {{ csrf_field() }}
                                                             <div class="card-header">
                                                                 <CENTER><h5>Editar Setor</h5></CENTER>

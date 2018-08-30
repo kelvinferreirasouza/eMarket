@@ -13,22 +13,29 @@ class SetorTableSeeder extends Seeder
     {
         DB::table('produtosetores')->insert([
             'nome'    => 'Bazar',
+            'imagem'  => '',
             'isAtivo' => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Bebidas',
-            'isAtivo' => 1
+            'nome'       => 'Bebidas',
+            'imagem'     => '2.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Carnes',
-            'isAtivo' => 1
+            'nome'       => 'Carnes',
+            'imagem'     => '3.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Congelados',
-            'isAtivo' => 1
+            'nome'       => 'Congelados',
+            'imagem'     => '4.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
@@ -37,38 +44,52 @@ class SetorTableSeeder extends Seeder
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Mercearia',
-            'isAtivo' => 1
+            'nome'       => 'Mercearia',
+            'imagem'     => '6.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Frios & Laticinios',
-            'isAtivo' => 1
+            'nome'       => 'Frios & Laticinios',
+            'imagem'     => '7.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Hortifruti',
-            'isAtivo' => 1
+            'nome'       => 'Hortifruti',
+            'imagem'     => '8.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Padaria',
-            'isAtivo' => 1
+            'nome'       => 'Padaria',
+            'imagem'     => '9.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Higiene',
-            'isAtivo' => 1
+            'nome'       => 'Higiene',
+            'imagem'     => '10.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Limpeza',
-            'isAtivo' => 1
+            'nome'       => 'Limpeza',
+            'imagem'     => '11.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
         DB::table('produtosetores')->insert([
-            'nome'    => 'Pet Shop',
-            'isAtivo' => 1
+            'nome'       => 'Pet Shop',
+            'imagem'     => '12.svg',
+            'isDestaque' => 1,
+            'isAtivo'    => 1
         ]);
 
 
