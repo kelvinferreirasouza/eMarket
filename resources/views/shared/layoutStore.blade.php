@@ -91,170 +91,34 @@
                                     Todos</center>
                             </a>				
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon-all"> Bazar</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg') }}" class="svg-icon-all"> Bebidas</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg') }}" class="svg-icon-all"> Carnes</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg') }}" class="svg-icon-all"> Congelados</a></li><hr>                               
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/natural-icon.svg') }}" class="svg-icon-all"> Dietéticos & Naturais</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon-all"> Mercearia</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg') }}" class="svg-icon-all"> Frios & Laticinios</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg') }}" class="svg-icon-all"> Hortifruti</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg') }}" class="svg-icon-all"> Padaria</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg') }}" class="svg-icon-all"> Higiene</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg') }}" class="svg-icon-all"> Limpeza</a></li><hr>
-                                <li><a href="#"><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg') }}" class="svg-icon-all"> Pet Shop</a></li>
-                            </ul>                
+                                @foreach($setores as $setor)
+                                @if($setor->imagem != "")
+                                <li><a href="#"><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
+                                @else
+                                <li><a href="#"><img src="../imgs/setores/sem_foto.jpg" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
+                                @endif
+                                @endforeach
+                            </ul>                  
                         </li>
 
+                        @foreach($setores as $setor)
+                        @if ($setor->isDestaque == 1 && $setor->imagem != "")
                         <li class="dropdown nav-item">
                             <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/mercearia-icon.svg') }}" class="svg-icon"></p>
-                                    Mercearia</center>
+                                <center><p><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon"></p> {{$setor->nome}}</center>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Arroz & Feijão</a></li><hr>
-                                <li><a href="#">Açúcar & Adoçante</a></li><hr>
-                                <li><a href="#">Biscoitos & Salgadinhos</a></li><hr>
-                                <li><a href="#">Bomboniere</a></li><hr>
-                                <li><a href="#">Caldos & Temperos</a></li><hr>
-                                <li><a href="#">Conservas & Enlatados</a></li><hr>
-                                <li><a href="#">Cereais & Grãos</a></li><hr>
-                                <li><a href="#">Doces & Sobremesas</a></li><hr>
-                                <li><a href="#">Farinhas & Farofas</a></li><hr>
-                                <li><a href="#">Óleos & Azeites</a></li><hr>
-                                <li><a href="#">Massas & Molhos</a></li><hr>
-                                <li><a href="#">Matinais</a></li>
+                                @foreach($categorias as $categoria)
+                                    @if($categoria->produtoSetorId == $setor->id)
+                                        <li><a href="#">{{$categoria->nome}}</a></li>
+                                    @endif
+                                @endforeach
                             </ul>                
                         </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/carnes-icon.svg') }}" class="svg-icon"></i></p>
-                                    Carnes</center>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Aves</a></li><hr>
-                                <li><a href="#">Bovinos</a></li><hr>
-                                <li><a href="#">Frango</a></li><hr>
-                                <li><a href="#">Peixes & Frutos do Mar</a></li><hr>
-                                <li><a href="#">Suínos</a></li><hr>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/congelados-icon.svg') }}" class="svg-icon"></p>
-                                    Congelados</center>
-                            </a>				
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Petiscos & Empanados</a></li><hr>
-                                <li><a href="#">Hambúrguer</a></li><hr>
-                                <li><a href="#">Pizzas</a></li><hr>
-                                <li><a href="#">Lasanhas</a></li><hr>
-                                <li><a href="#">Legumes</a></li><hr>
-                                <li><a href="#">Sorvetes</a></li>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/friosLaticinios-icon.svg') }}" class="svg-icon"></p>
-                                    Frios & Laticinios</center>
-                            </a>				
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Cremes & Requeijão</a></li><hr>   
-                                <li><a href="#">Defumados</a></li><hr>  
-                                <li><a href="#">Leites & Lácteos</a></li><hr>
-                                <li><a href="#">Manteiga & Margarina</a></li><hr>
-                                <li><a href="#">Presuntos & Queijos</a></li><hr>
-                                <li><a href="#">Iogurtes & Sobremesas</a></li><hr>
-                                <li><a href="#">Massas Frescas</a></li>
-
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/bebidas-icon.svg') }}" class="svg-icon"></p>
-                                    Bebidas</center>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Água Mineral</a></li><hr>
-                                <li><a href="#">Aguardente & Cachaça</a></li><hr>
-                                <li><a href="#">Cervejas</a></li><hr>
-                                <li><a href="#">Chá</a></li><hr>
-                                <li><a href="#">Champagne & Espumante</a></li><hr>
-                                <li><a href="#">Energéticos</a></li><hr>
-                                <li><a href="#">Refrigerante</a></li><hr>
-                                <li><a href="#">Vinhos</a></li>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/hortifruti-icon.svg') }}" class="svg-icon"></p>
-                                    Hortifruti</center>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Frutas</a></li><hr>
-                                <li><a href="#">Legumes</a></li><hr>
-                                <li><a href="#">Verduras</a></li><hr>
-                                <li><a href="#">Ovos</a></li>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/padaria-icon.svg') }}" class="svg-icon"></p>
-                                    Padaria</center>
-                            </a>				
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Pães</a></li><hr>
-                                <li><a href="#">Bolos & Tortas</a></li><hr>
-                                <li><a href="#">Doces</a></li><hr>
-                                <li><a href="#">Folhados</a></li>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/higiene-icon.svg') }}" class="svg-icon"></p>
-                                    Higiene</center>
-                            </a>				
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Higiene Bucal</a></li><hr>
-                                <li><a href="#">Higiene Pessoal</a></li><hr>
-                                <li><a href="#">Higiene Íntima</a></li>
-                            </ul>                
-                        </li>
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/limpeza-icon.svg') }}" class="svg-icon"></p>
-                                    Limpeza</center>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Casa</a></li><hr>
-                                <li><a href="#">Roupas</a></li><hr>
-                                <li><a href="#">Cozinha</a></li><hr>
-                                <li><a href="#">Banheiro</a></li>
-                            </ul>                
-                        </li>       
-
-                        <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/petShop-icon.svg') }}" class="svg-icon"></p>
-                                    Pet Shop</center>
-                            </a>				
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Aves</a></li><hr>
-                                <li><a href="#">Cães</a></li><hr>
-                                <li><a href="#">Gatos</a></li>
-                            </ul>                
-                        </li>
-
+                        @elseif ($setor->imagem == "")
+                        
+                        @endif
+                        @endforeach
                     </ul>
                 </div>
             </div>
