@@ -284,17 +284,32 @@
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-12">
-                                                                                <center>
-                                                                                    @foreach($imagens as $imagem)       
-                                                                                    @if ($produto->codBarras == $imagem->codBarras)
+                                                                                <center>     
                                                                                     <?php
-                                                                                    $foto = '../imgs/produtos/' . $imagem->endereco;
+                                                                                    if($produto->imagem1 != ""){
+                                                                                    $foto1 = '../imgs/produtos/' . $produto->imagem1;
+                                                                                    } else {
+                                                                                    $foto1 = '../imgs/produtos/sem_foto.jpg';
+                                                                                    }
+
+                                                                                    if($produto->imagem2 != ""){
+                                                                                    $foto2 = '../imgs/produtos/' . $produto->imagem2;
+                                                                                    } else {
+                                                                                    $foto2 = '../imgs/produtos/sem_foto.jpg';
+                                                                                    }
+
+                                                                                    if($produto->imagem3 != ""){
+                                                                                    $foto3 = '../imgs/produtos/' . $produto->imagem3;
+                                                                                    } else {
+                                                                                    $foto3 = '../imgs/produtos/sem_foto.jpg';
+                                                                                    }
+
                                                                                     ?>
                                                                                     {!!"
-                                                                                    <img src=$foto alt='js' width='200px' height='250px'/>
+                                                                                    <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                    <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                    <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
                                                                                     "!!}
-                                                                                    @endif  
-                                                                                    @endforeach
                                                                                 </center>
                                                                             </div>
 
@@ -387,6 +402,11 @@
                                                                                     <option value="0" {{ $produto->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                                                                 </select>
                                                                             </div>
+                                                                            <div class="col-sm-8">
+                                                                                    <label for="image" class="control-label">Imagem:</label>
+                                                                                    <input type="file" name="file[]" class="form-control" multiple>
+                                                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                                            </div>
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Salvar</button>
@@ -423,16 +443,31 @@
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-12">
                                                                                 <center>
-                                                                                    @foreach($imagens as $imagem)       
-                                                                                    @if ($produto->codBarras == $imagem->codBarras)
-                                                                                    <?php
-                                                                                    $foto = '../imgs/produtos/' . $imagem->endereco;
-                                                                                    ?>
-                                                                                    {!!"
-                                                                                    <img src=$foto alt='js' width='200px' height='250px'/>
-                                                                                    "!!}
-                                                                                    @endif  
-                                                                                    @endforeach
+                                                                                        <?php
+                                                                                        if($produto->imagem1 != ""){
+                                                                                        $foto1 = '../imgs/produtos/' . $produto->imagem1;
+                                                                                        } else {
+                                                                                        $foto1 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        }
+    
+                                                                                        if($produto->imagem2 != ""){
+                                                                                        $foto2 = '../imgs/produtos/' . $produto->imagem2;
+                                                                                        } else {
+                                                                                        $foto2 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        }
+    
+                                                                                        if($produto->imagem3 != ""){
+                                                                                        $foto3 = '../imgs/produtos/' . $produto->imagem3;
+                                                                                        } else {
+                                                                                        $foto3 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        }
+    
+                                                                                        ?>
+                                                                                        {!!"
+                                                                                        <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                        <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                        <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                        "!!}
                                                                                 </center>
                                                                             </div>
 

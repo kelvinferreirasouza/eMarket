@@ -49,18 +49,35 @@ class ProdutoController extends Controller {
 
         $this->validate($request, $this->produto->rules, $this->produto->messages);
 
-        Produto::create($dados);
+                $prod = new Produto();
+                $prod->codBarras           = $request->codBarras;
+                $prod->produtoNome         = $request->produtoNome;
+                $prod->qtd                 = $request->qtd;
+                $prod->qtdMin              = $request->qtdMin;
+                $prod->precoCusto          = $request->precoCusto;
+                $prod->precoVenda          = $request->precoVenda;
+                $prod->margemLucro         = $request->margemLucro;
+                $prod->produtoSetorId      = $request->produtoSetorId;
+                $prod->produtoCategoriaId  = $request->produtoCategoriaId;
+                $prod->produtoMarcaId      = $request->produtoMarcaId;
+                $prod->produtoUnidadeId    = $request->produtoUnidadeId;
+                $prod->produtoFornecedorId = $request->produtoFornecedorId;
+                $prod->isPromocao          = $request->isPromocao;
+                $prod->isAtivo             = $request->isAtivo; 
+                $prod->save();
+                $id = $prod->id;
 
         if($request->hasFile('file')) {
+            $contador = 1;
             foreach($request->file as $file) {
                 $file_extension = $file->getClientOriginalExtension();
-                $filename = $codBarras . "_" . rand(100000,999999) . "." . $file_extension;
+                $filename = $id . "-" . $contador. "." . $file_extension;
+                DB::table('produtos')
+                    ->where('id', $id)
+                    ->update(array('imagem'.$contador => $filename));
                 $destination_path = public_path('/imgs/produtos');
                 $file->move($destination_path,$filename);
-                $imgProduto = new ImgProduto;
-                $imgProduto->codbarras = $codBarras;
-                $imgProduto->endereco = $filename;
-                $imgProduto->save();
+                $contador = $contador + 1;
             }
         }
 
@@ -100,8 +117,23 @@ class ProdutoController extends Controller {
     public function atualizarProduto(Request $request, $id) {
         $dados = $request->all();
         $produto = Produto::find($id);
-
+        $codBarras = $request->codBarras;
         $produto->update($dados);
+        $id = $produto->id;
+
+        if($request->hasFile('file')) {
+            $contador = 1;
+            foreach($request->file as $file) {
+                $file_extension = $file->getClientOriginalExtension();
+                $filename = $id . "-" . $contador. "." . $file_extension;
+                DB::table('produtos')
+                    ->where('id', $id)
+                    ->update(array('imagem'.$contador => $filename));
+                $destination_path = public_path('/imgs/produtos');
+                $file->move($destination_path,$filename);
+                $contador = $contador + 1;
+            }
+        }
 
         return redirect()->route('listarProdutos');
     }

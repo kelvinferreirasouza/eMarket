@@ -111,6 +111,7 @@
                                 @foreach($categorias as $categoria)
                                     @if($categoria->produtoSetorId == $setor->id)
                                         <li><a href="#">{{$categoria->nome}}</a></li>
+                                        <hr>
                                     @endif
                                 @endforeach
                             </ul>                

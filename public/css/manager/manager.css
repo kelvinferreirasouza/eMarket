@@ -215,3 +215,19 @@
 .inputFile {
    width: 134%;
 }
+
+.fotoProduto {
+    border: #ccc solid;
+    padding: 3px;
+    margin: 0px 10px 10px 0;
+    border-radius: 10px;
+}
+
+.fotoProduto:hover {
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    border-radius: 10px;
+}

@@ -88,12 +88,21 @@
                                                             <label for="nome" class="control-label labelInputEditUser">Nome do Setor:</label>
                                                             <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" required>
                                                         </div>
-                                                        <div class="col-sm-6" style="margin-top: 1%;">
-                                                            <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                            <select class="form-control labelInputEditUser" name="isAtivo">
-                                                                <option value="1">Ativo</option>
-                                                                <option value="0">Inativo</option>
-                                                            </select>
+                                                        <div class="col-sm-6">
+                                                            <div class="col-sm-6" style="margin-top: 1%;">
+                                                                <label for="isDestaque" class="control-label labelInputEditUser">Destaque:</label>
+                                                                <select class="form-control labelInputEditUser" name="isDestaque">
+                                                                    <option value="1">Sim</option>
+                                                                    <option value="0">Não</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-sm-6" style="margin-top: 1%;">
+                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                <select class="form-control labelInputEditUser" name="isAtivo">
+                                                                    <option value="1">Ativo</option>
+                                                                    <option value="0">Inativo</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -130,19 +139,19 @@
                                             <td>{{$setor->nome}}</td>
                                             <td>    
                                                 @if (($setor->id . '.svg') == $setor->imagem ||
-                                                     ($setor->id . '.jpg') == $setor->imagem ||
-                                                     ($setor->id . '.png') == $setor->imagem)
-                                                    <?php
-                                                      $foto = '../imgs/setores/' . $setor->imagem;
-                                                    ?>
-                                                    {!!" <center><img src=$foto alt='js' width='40px' height='40px'></center> "!!}
-                                               @else 
-                                                    <?php
-                                                        $foto = '../imgs/setores/sem_foto.jpg';
-                                                    ?>
-                                                    {!!" <center><img src=$foto alt='js' width='60px' height='40px'></center> "!!}
-                                               @endif
-                                            </td>
+                                                ($setor->id . '.jpg') == $setor->imagem ||
+                                                ($setor->id . '.png') == $setor->imagem)
+                                                <?php
+                                                $foto = '../imgs/setores/' . $setor->imagem;
+                                                ?>
+                                                {!!" <center><img src=$foto alt='js' width='40px' height='40px'></center> "!!}
+                                    @else 
+                                    <?php
+                                    $foto = '../imgs/setores/sem_foto.jpg';
+                                    ?>
+                                    {!!" <center><img src=$foto alt='js' width='60px' height='40px'></center> "!!}
+                                    @endif
+                                    </td>
                                     <td>
                                         @if($setor->isDestaque == 1)
                                         Sim

@@ -9,7 +9,7 @@ class Produto extends Model
     protected $fillable = [
         'codBarras', 'produtoNome', 'qtd', 'qtdMin', 'precoCusto', 'precoVenda',
         'margemLucro', 'produtoSetorId', 'produtoCategoriaId', 'produtoMarcaId', 
-        'produtoUnidadeId', 'produtoFornecedorId', 'image', 'isPromocao','isAtivo' 
+        'produtoUnidadeId', 'produtoFornecedorId', 'imagem1', 'imagem2', 'imagem3', 'isPromocao','isAtivo' 
     ];
 
     public $rules = [
