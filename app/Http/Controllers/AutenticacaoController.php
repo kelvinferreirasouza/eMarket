@@ -27,7 +27,7 @@ class AutenticacaoController extends Controller
         $login = $dados['login'];
         $senha = $dados['senha'];
  
-        $usuario = Usuario::where('login', $login)->first();
+        $usuario = Usuario::where('email', $login)->first();
  
         if(Auth::check() || ($usuario && Hash::check($senha, $usuario->senha))){
             Auth::login($usuario);

@@ -21,6 +21,12 @@ Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 Route::get('/', 'StoreController@index')->name('index');
 Route::get('/carrinho', 'StoreController@carrinho')->name('carrinho');
 
+/* Rotas do Cliente no Ecommerce */
+Route::get('/clientes/login', 'AuthClientController@loginUser')->name('loginUser');
+Route::get('/clientes/cadastrar', 'ClienteController@registerUser')->name('registerUser');
+Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->name('cadastroCliente');
+Route::post('/clientes/logar', 'AuthClientController@logarUser')->name('logarUser');
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
 

@@ -30,6 +30,7 @@ class CreateClientesTable extends Migration
             $table->string('municipio', 100)->nullable();
             $table->string('fone')->nullable();
             $table->string('celular')->nullable();
+            $table->string('foto')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->integer('isAtivo')->default(1);

@@ -23,12 +23,7 @@
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-comments"></i> Atendimento</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
-                        <li class="upper-links dropdown"><a class="links" href="#"><i class="far fa-user"></i> Login | Cadastre-se</a>
-                            <ul class="dropdown-menu">
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                                <li class="profile-li"><a class="profile-links" href="#">Link</a></li>
-                            </ul>
+                        <li class="upper-links dropdown"><a class="links" href="{{ route('loginUser') }}"><i class="far fa-user"></i> Login | Cadastre-se</a>
                         </li>
                     </ul>
                 </div>
@@ -109,15 +104,15 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($categorias as $categoria)
-                                    @if($categoria->produtoSetorId == $setor->id)
-                                        <li><a href="#">{{$categoria->nome}}</a></li>
-                                        <hr>
-                                    @endif
+                                @if($categoria->produtoSetorId == $setor->id)
+                                <li><a href="#">{{$categoria->nome}}</a></li>
+                                <hr>
+                                @endif
                                 @endforeach
                             </ul>                
                         </li>
                         @elseif ($setor->imagem == "")
-                        
+
                         @endif
                         @endforeach
                     </ul>
@@ -125,7 +120,10 @@
             </div>
         </div>
 
-        <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel" style="{{ (\Request::route()->getName() == 'carrinho') ? 'display:none' : '' }}">
+        <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel" style="
+             {{ (\Request::route()->getName() == 'carrinho' ||
+                  Request::route()->getName() == 'loginUser' ||
+                  Request::route()->getName() == 'registerUser') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>
 

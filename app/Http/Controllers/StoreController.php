@@ -20,6 +20,9 @@ class StoreController extends Controller
     
     public function carrinho()
     {
-        return view('store.carrinho');
+        $produtos = Produto::all();
+        $setores = Setor::all();
+        $categorias = Categoria::all();
+        return view('store.carrinho', compact('produtos','setores', 'categorias'));
     }
 }

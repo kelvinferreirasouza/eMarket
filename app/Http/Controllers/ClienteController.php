@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Cliente;
+use App\Setor;
+use App\Categoria;
 
 class ClienteController extends Controller {
 
@@ -12,6 +14,12 @@ class ClienteController extends Controller {
 
     public function __construct(Cliente $cliente) {
         $this->cliente = $cliente;
+    }
+    
+    public function registerUser() {
+        $setores = Setor::all();
+        $categorias = Categoria::all();
+        return view('store.cliente.loginUser', compact('setores', 'categorias'));
     }
 
     public function listarClientes() {
@@ -68,6 +76,15 @@ class ClienteController extends Controller {
         Cliente::create($dados);
 
         return redirect()->route('listarClientes');
+    }
+    
+    public function cadastroCliente(Request $request) {
+        $dados = $request->all();
+        $dados['senha'] = bcrypt($dados['senha']);
+
+        Cliente::create($dados);
+
+        return redirect()->route('loginUser');
     }
 
     public function cadastrarCliente() {
