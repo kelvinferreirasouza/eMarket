@@ -89,14 +89,14 @@
                                                             <input type="text" class="form-control" name="nome" placeholder="Digite o nome do setor" required>
                                                         </div>
                                                         <div class="col-sm-6">
-                                                            <div class="col-sm-6" style="margin-top: 1%;">
+                                                            <div class="col-sm-12" style="margin-top: 1%;">
                                                                 <label for="isDestaque" class="control-label labelInputEditUser">Destaque:</label>
                                                                 <select class="form-control labelInputEditUser" name="isDestaque">
                                                                     <option value="1">Sim</option>
                                                                     <option value="0">Não</option>
                                                                 </select>
                                                             </div>
-                                                            <div class="col-sm-6" style="margin-top: 1%;">
+                                                            <div class="col-sm-12" style="margin-top: 1%; margin-bottom: 20%">
                                                                 <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
                                                                 <select class="form-control labelInputEditUser" name="isAtivo">
                                                                     <option value="1">Ativo</option>
@@ -213,12 +213,22 @@
                                                                             <label for="nome" class="control-label labelInputEditUser">Nome do Setor:</label>
                                                                             <input type="text" class="form-control" name="nome" value="{{$setor->nome}}" required>
                                                                         </div>
-                                                                        <div class="col-sm-6" style="margin-top: 1%;">
-                                                                            <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
-                                                                            <select class="form-control labelInputEditUser" name="isAtivo">
-                                                                                <option value="1" {{ $setor->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
-                                                                                <option value="0" {{ $setor->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
-                                                                            </select>
+
+                                                                        <div class="col-sm-6">
+                                                                            <div class="col-sm-12" style="margin-top: 1%;">
+                                                                                <label for="isDestaque" class="control-label labelInputEditUser">Destaque:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isDestaque">
+                                                                                    <option value="1" {{ $setor->isDestaque == 1 ? 'selected' : ''}}>Sim</option>
+                                                                                    <option value="0" {{ $setor->isDestaque == 0 ? 'selected' : ''}}>Não</option>
+                                                                                </select>
+                                                                            </div>
+                                                                            <div class="col-sm-12" style="margin-top: 1%; margin-bottom: 20%">
+                                                                                <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select class="form-control labelInputEditUser" name="isAtivo">
+                                                                                    <option value="1" {{ $setor->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option value="0" {{ $setor->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
+                                                                                </select>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>

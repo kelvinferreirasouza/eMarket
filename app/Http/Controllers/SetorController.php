@@ -69,6 +69,7 @@ class SetorController extends Controller {
         $nome = $request->nome;
         $imagem = Setor::find($id)->imagem;
         $isAtivo = $request->isAtivo;
+        $isDestaque = $request->isDestaque;
 
         if($request->hasFile('file')) {
             foreach($request->file as $file) {
@@ -76,14 +77,14 @@ class SetorController extends Controller {
                 $filename = $id . "." . $file_extension;
                 DB::table('produtosetores')
                     ->where('id', $id)
-                    ->update(['nome'=>$nome, 'imagem'=>$filename, 'isAtivo'=>$isAtivo]);
+                    ->update(['nome'=>$nome, 'imagem'=>$filename, 'isDestaque'=>$isDestaque, 'isAtivo'=>$isAtivo]);
                 $destination_path = public_path('/imgs/setores');
                 $file->move($destination_path,$filename);
             }
         } else {
             DB::table('produtosetores')
                     ->where('id', $id)
-                    ->update(['nome'=>$nome, 'imagem'=>$imagem, 'isAtivo'=>$isAtivo]);
+                    ->update(['nome'=>$nome, 'imagem'=>$imagem, 'isDestaque'=>$isDestaque,'isAtivo'=>$isAtivo]);
         }
 
         return redirect()->route('listarSetores');

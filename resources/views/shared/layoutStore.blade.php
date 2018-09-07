@@ -23,7 +23,13 @@
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-comments"></i> Atendimento</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
-                        <li class="upper-links dropdown"><a class="links" href="{{ route('loginUser') }}"><i class="far fa-user"></i> Login | Cadastre-se</a>
+                        <li class="upper-links dropdown"><a class="links" href="{{ route('loginUser') }}"><i class="far fa-user"></i>
+                                @if (Auth::check())
+                                {{ Auth::user()->nome }}
+                                @else 
+                                Login | Cadastre-se
+                                @endif
+                            </a>
                         </li>
                     </ul>
                 </div>
