@@ -34,7 +34,8 @@
                     </span>
                 </div>
             </div>
-            <center><button class='btn btn-sm btn-primary btnCart'><i class='fas fa-cart-plus fa-2x'></i> Adicionar ao Carrinho</button></center>
+            <center>
+                <a href="{{route ('addCarrinho', $produto->id)}}" class="btn btn-sm btn-primary btnCart"><i class='fas fa-cart-plus fa-2x'></i> Adicionar ao Carrinho</a></center>
         </figure>
     </div>
     @endif

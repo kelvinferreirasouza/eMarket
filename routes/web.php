@@ -19,7 +19,9 @@ Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
 /* Rotas da Store */
 Route::get('/', 'StoreController@index')->name('index');
-Route::get('/carrinho', 'StoreController@carrinho')->name('carrinho');
+Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
+Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
+Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
 
 /* Rotas do Cliente no Ecommerce */
 Route::get('/clientes/login', 'AuthClientController@loginUser')->name('loginUser');

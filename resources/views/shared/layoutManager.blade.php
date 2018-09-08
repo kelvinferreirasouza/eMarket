@@ -25,8 +25,8 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/themify-icons.css') }}">
         <!-- ico font -->
         <link rel="stylesheet" href="{{ asset('css/manager/icofont.css') }}">
-        <!-- font awesome -->
-        <link rel="stylesheet" href="{{ asset('https://use.fontawesome.com/releases/v5.0.10/css/all.css') }}" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
         <!-- flag icon framework css -->
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/flag-icon.min.css') }}">
         <!-- Menu-Search css -->
