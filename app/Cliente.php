@@ -7,12 +7,15 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Cliente extends Authenticatable
 {
+
+    protected $guard = 'clientes';
+
     protected $fillable = [
-        'nome', 'email', 'senha', 'cpf', 'rg', 'sexo', 'dataNasc', 'cep', 'logradouro', 'numero', 'bairro', 'estado', 'municipio', 'fone', 'celular', 'isAtivo'
+        'nome', 'email', 'password', 'cpf', 'rg', 'sexo', 'dataNasc', 'cep', 'logradouro', 'numero', 'bairro', 'estado', 'municipio', 'fone', 'celular', 'isAtivo'
     ];
  
     protected $hidden = [
-        'senha'
+        'password'
     ];
     
     public function pesquisa($request){

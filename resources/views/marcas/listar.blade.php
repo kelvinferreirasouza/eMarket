@@ -63,8 +63,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarMarca')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Marca</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Marca</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -133,8 +133,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarMarca', $marca->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Marca</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Marca</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -178,8 +178,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarMarca', $marca->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Marca</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Marca</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

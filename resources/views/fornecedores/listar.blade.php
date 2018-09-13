@@ -62,8 +62,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarFornecedor')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Fornecedor</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Fornecedor</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -191,8 +191,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarFornecedor', $fornecedor->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Fornecedor</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Fornecedor</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -288,8 +288,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarFornecedor', $fornecedor->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Fornecedor</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Fornecedor</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

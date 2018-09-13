@@ -12,7 +12,7 @@
         <form method="post" action="{{route ('logar')}}">
             {{ csrf_field() }}
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
-            <input type="password" id="password" class="fadeIn third" name="senha" placeholder="Senha">
+            <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">
             <input type="submit" class="fadeIn fourth" value="Acessar" style="margin-top: 2%; margin-bottom: 3%;">
         </form>
 

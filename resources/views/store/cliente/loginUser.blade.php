@@ -9,14 +9,14 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-12">
-                            <form id="login-form" action="{{route ('logarUser')}}" method="post" role="form" style="display: block;">
+                            <form id="login-form" action="{{route ('logarCliente')}}" method="post" role="form" style="display: block;">
                                 {{ csrf_field() }}
                                 <center><img src="http://www.fenixaerocarga.com.br/img/avatar.png" width="30%"></center>
                                 <div class="form-group">
                                     <input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" name="senha" id="senha" tabindex="2" class="form-control" placeholder="Senha" required>
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
                                 </div>
                                 <div class="col-xs-6 form-group pull-left checkbox">
                                     <input id="checkbox1" type="checkbox" name="remember">

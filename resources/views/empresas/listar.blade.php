@@ -46,8 +46,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarEmpresa')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Empresa</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Empresa</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -176,8 +176,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarEmpresa', $empresa->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Empresa</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Empresa</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -274,8 +274,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarEmpresa', $empresa->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Empresa</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Empresa</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

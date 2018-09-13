@@ -64,8 +64,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarUnidade')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Unidade</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Unidade</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -140,8 +140,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarUnidade', $unidade->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Unidade</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Unidade</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -189,8 +189,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarUnidade', $unidade->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Unidade</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Unidade</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

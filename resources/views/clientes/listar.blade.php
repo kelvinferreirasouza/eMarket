@@ -63,8 +63,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarCliente')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Cliente</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Cliente</h5>
                                             </div>
                                             <div class="card-block">                            
                                                 <div class="form-group row">
@@ -218,8 +218,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarCliente', $cliente->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Cliente</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Cliente</h5>
                                                                     </div>
                                                                     <div class="card-block">                            
                                                                         <div class="form-group row">
@@ -335,8 +335,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarCliente', $cliente->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Cliente</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Cliente</h5>
                                                                     </div>
                                                                     <div class="card-block">                            
                                                                         <div class="form-group row">

@@ -48,8 +48,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarPedido')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Pedido</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Pedido</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="card-block">
@@ -258,8 +258,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Produto</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Produto</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -381,8 +381,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Produto</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Produto</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

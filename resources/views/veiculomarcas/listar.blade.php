@@ -66,8 +66,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarVeiculoMarca')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Marca de Veiculo</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Marca de Veiculo</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -136,8 +136,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarVeiculoMarca', $veiculomarca->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Marca</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Marca</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -181,8 +181,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarVeiculoMarca', $veiculomarca->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Marca</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Marca</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

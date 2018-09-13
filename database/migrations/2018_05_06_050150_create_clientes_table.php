@@ -17,7 +17,7 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('nome', 100);
             $table->string('email', 100)->unique();
-            $table->string('senha');
+            $table->string('password');
             $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
             $table->integer('sexo');

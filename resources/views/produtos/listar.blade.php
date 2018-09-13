@@ -62,22 +62,20 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarProduto')}}" enctype="multipart/form-data" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Produto</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Produto</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="card-block">
                                                     <div class="form-group row">
-                                                        <div class="col-sm-12">
-                                                            <center>
-                                                                @php        
-                                                                $foto = '../imgs/produtos/sem_foto.jpg';
-                                                                @endphp
+                                                        <div class="col-sm-12 text-center">
+                                                            @php        
+                                                            $foto = '../imgs/produtos/sem_foto.jpg';
+                                                            @endphp
 
-                                                                {!!"
-                                                                <img src=$foto alt='js' width='300px' height='200px' style='margin-top: -4%'>
-                                                                     "!!}
-                                                            </center>
+                                                            {!!"
+                                                            <img src=$foto alt='js' width='300px' height='200px' style='margin-top: -4%'>
+                                                            "!!}
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="codBarras" class="control-label labelInputEditUser">Código de Barras:</label>
@@ -278,39 +276,36 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" enctype="multipart/form-data" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Produto</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Produto</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
-                                                                            <div class="col-sm-12">
-                                                                                <center>     
+                                                                            <div class="col-sm-12 text-center">   
                                                                                     <?php
-                                                                                    if($produto->imagem1 != ""){
-                                                                                    $foto1 = '../imgs/produtos/' . $produto->imagem1;
+                                                                                    if ($produto->imagem1 != "") {
+                                                                                        $foto1 = '../imgs/produtos/' . $produto->imagem1;
                                                                                     } else {
-                                                                                    $foto1 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        $foto1 = '../imgs/produtos/sem_foto.jpg';
                                                                                     }
 
-                                                                                    if($produto->imagem2 != ""){
-                                                                                    $foto2 = '../imgs/produtos/' . $produto->imagem2;
+                                                                                    if ($produto->imagem2 != "") {
+                                                                                        $foto2 = '../imgs/produtos/' . $produto->imagem2;
                                                                                     } else {
-                                                                                    $foto2 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        $foto2 = '../imgs/produtos/sem_foto.jpg';
                                                                                     }
 
-                                                                                    if($produto->imagem3 != ""){
-                                                                                    $foto3 = '../imgs/produtos/' . $produto->imagem3;
+                                                                                    if ($produto->imagem3 != "") {
+                                                                                        $foto3 = '../imgs/produtos/' . $produto->imagem3;
                                                                                     } else {
-                                                                                    $foto3 = '../imgs/produtos/sem_foto.jpg';
+                                                                                        $foto3 = '../imgs/produtos/sem_foto.jpg';
                                                                                     }
-
                                                                                     ?>
                                                                                     {!!"
                                                                                     <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
                                                                                     <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
                                                                                     <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
                                                                                     "!!}
-                                                                                </center>
                                                                             </div>
 
                                                                             <div class="col-sm-2">
@@ -403,9 +398,9 @@
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-sm-8">
-                                                                                    <label for="image" class="control-label">Imagem:</label>
-                                                                                    <input type="file" name="file[]" class="form-control" multiple>
-                                                                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                                                                <label for="image" class="control-label">Imagem:</label>
+                                                                                <input type="file" name="file[]" class="form-control" multiple>
+                                                                                <input type="hidden" name="_token" value="{{csrf_token()}}">
                                                                             </div>
                                                                         </div>
                                                                         <div class="modal-footer">
@@ -436,39 +431,36 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarProduto', $produto->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Produto</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Produto</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
-                                                                            <div class="col-sm-12">
-                                                                                <center>
-                                                                                        <?php
-                                                                                        if($produto->imagem1 != ""){
+                                                                            <div class="col-sm-12 text-center">
+                                                                                    <?php
+                                                                                    if ($produto->imagem1 != "") {
                                                                                         $foto1 = '../imgs/produtos/' . $produto->imagem1;
-                                                                                        } else {
+                                                                                    } else {
                                                                                         $foto1 = '../imgs/produtos/sem_foto.jpg';
-                                                                                        }
-    
-                                                                                        if($produto->imagem2 != ""){
+                                                                                    }
+
+                                                                                    if ($produto->imagem2 != "") {
                                                                                         $foto2 = '../imgs/produtos/' . $produto->imagem2;
-                                                                                        } else {
+                                                                                    } else {
                                                                                         $foto2 = '../imgs/produtos/sem_foto.jpg';
-                                                                                        }
-    
-                                                                                        if($produto->imagem3 != ""){
+                                                                                    }
+
+                                                                                    if ($produto->imagem3 != "") {
                                                                                         $foto3 = '../imgs/produtos/' . $produto->imagem3;
-                                                                                        } else {
+                                                                                    } else {
                                                                                         $foto3 = '../imgs/produtos/sem_foto.jpg';
-                                                                                        }
-    
-                                                                                        ?>
-                                                                                        {!!"
-                                                                                        <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                        <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                        <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                        "!!}
-                                                                                </center>
+                                                                                    }
+                                                                                    ?>
+                                                                                    {!!"
+                                                                                    <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                    <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                    <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                    "!!}
                                                                             </div>
 
                                                                             <div class="col-sm-2">

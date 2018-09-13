@@ -49,8 +49,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarFormaPag')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Forma de Pagamento</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Forma de Pagamento</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -125,8 +125,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarFormaPag', $formapagamento->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Forma de Pagamento</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Forma de Pagamento</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -174,8 +174,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarFormaPag', $formapagamento->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Forma de Pagamento</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Forma de Pagamento</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

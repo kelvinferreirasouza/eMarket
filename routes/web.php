@@ -17,19 +17,30 @@ Route::get('/login', 'AutenticacaoController@login')->name('login');
 Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
 Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
+/* Rotas do Cliente no Ecommerce */
+Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
+Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('logarCliente');
+Route::get('/clientes/cadastrar', 'AutenticacaoController@registerUser')->name('registerUser');
+Route::post('/clientes/cadastrar/salvar', 'AutenticacaoController@cadastroCliente')->name('cadastroCliente');
+Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
+
+
 /* Rotas da Store */
 Route::get('/', 'StoreController@index')->name('index');
 Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
 Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
 
-/* Rotas do Cliente no Ecommerce */
-Route::get('/clientes/login', 'AuthClientController@loginUser')->name('loginUser');
-Route::get('/clientes/cadastrar', 'ClienteController@registerUser')->name('registerUser');
-Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->name('cadastroCliente');
-Route::post('/clientes/logar', 'AuthClientController@logarUser')->name('logarUser');
+/* Middware de Clientes */
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
+});
+
+/* Middware do Manager */
+
+Route::middleware(['manager'])->group(function () {
+
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
 
     /* Rotas Protegidas de Usuários */

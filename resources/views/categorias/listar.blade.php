@@ -65,8 +65,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarCategoria')}}" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Categoria</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Categoria</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -154,8 +154,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarCategoria', $categoria->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Editar Categoria</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Editar Categoria</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
@@ -207,8 +207,8 @@
                                                             <div class="modal-body">
                                                                 <form method="post" action="{{route ('atualizarCategoria', $categoria->id)}}" class="formEditUser">
                                                                     {{ csrf_field() }}
-                                                                    <div class="card-header">
-                                                                        <CENTER><h5>Visualizar Categoria</h5></CENTER>
+                                                                    <div class="card-header text-center">
+                                                                        <h5>Visualizar Categoria</h5>
                                                                     </div>
                                                                     <div class="card-block">
                                                                         <div class="form-group row">

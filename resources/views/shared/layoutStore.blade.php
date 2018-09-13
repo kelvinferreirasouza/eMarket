@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
         <link rel="shortcut icon" type="image/ico" href="../imgs/favicon.ico"/>
         <title>eMarket</title>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
     </head>
     <body>
@@ -24,12 +25,12 @@
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-comments"></i> Atendimento</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
-                        <li class="upper-links dropdown"><a class="links" href="{{ route('loginUser') }}"><i class="far fa-user"></i>
-                                @if (Auth::check())
-                                {{ Auth::user()->nome }}
-                                @else 
-                                Login | Cadastre-se
-                                @endif
+                        <li class="upper-links dropdown"><a class="links" href="{{ route('loginCliente') }}"><i class="far fa-user"></i>
+                            @if(auth()->guard('clientes')->check())
+                                        {{ Auth::guard('clientes')->user()->nome }}
+                            @else
+                                        Login | Register
+                            @endif
                             </a>
                         </li>
                     </ul>
@@ -94,9 +95,9 @@
                     <ul class="nav navbar-nav mr-auto">
 
                         <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/menu-icon.svg') }}" class="svg-icon"></i></p>
-                                    Todos</center>
+                            <a class="nav-link text-center" href="#">
+                                <p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/menu-icon.svg') }}" class="svg-icon"></i></p>
+                                    Todos
                             </a>				
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($setores as $setor)
@@ -112,8 +113,8 @@
                         @foreach($setores as $setor)
                         @if ($setor->isDestaque == 1 && $setor->imagem != "")
                         <li class="dropdown nav-item">
-                            <a class="nav-link" href="#">
-                                <center><p><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon"></p> {{$setor->nome}}</center>
+                            <a class="nav-link text-center" href="#">
+                                <p><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon"></p> {{$setor->nome}}
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($categorias as $categoria)
@@ -135,7 +136,7 @@
 
         <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel" style="
              {{ (\Request::route()->getName() == 'carrinho' ||
-                  Request::route()->getName() == 'loginUser' ||
+                  Request::route()->getName() == 'loginCliente' ||
                   Request::route()->getName() == 'registerUser') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>

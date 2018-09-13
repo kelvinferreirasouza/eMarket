@@ -2,12 +2,12 @@
 
 @section('conteudoStore')
 
-<center><h1>Ofertas</h1></center>
+<div class="col-sm-12 text-center"><h1>Ofertas</h1></div>
 
 <section class="containerFlex flex flex-wrap gridProducts">
     @foreach($produtos as $produto)
-    @if($produto->isPromocao == 1)
-    <div class='itemFlex'>
+        @if($produto->isPromocao == 1)
+        <div class='itemFlex'>
         <figure class='card card-product effectHover'>
             <div class='img-wrap'><img src='../imgs/produtos/{{$produto->imagem1}}'></div>
             <figcaption class='info-wrap'>
@@ -34,11 +34,12 @@
                     </span>
                 </div>
             </div>
-            <center>
-                <a href="{{route ('addCarrinho', $produto->id)}}" class="btn btn-sm btn-primary btnCart"><i class='fas fa-cart-plus fa-2x'></i> Adicionar ao Carrinho</a></center>
+            <div class="text-center">
+                <a href="{{route ('addCarrinho', $produto->id)}}" class="btn btn-sm btn-primary btnCart"><i class='fas fa-cart-plus fa-2x'></i> Adicionar ao Carrinho</a></div>
         </figure>
-    </div>
-    @endif
+        </div>
+        @endif
+    
     @endforeach
 </section>
 

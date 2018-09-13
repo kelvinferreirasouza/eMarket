@@ -63,8 +63,8 @@
                                     <div class="modal-body">
                                         <form method="post" action="{{route ('salvarSetor')}}" enctype="multipart/form-data" class="formEditUser">
                                             {{ csrf_field() }}
-                                            <div class="card-header">
-                                                <CENTER><h5>Cadastrar Setor</h5></CENTER>
+                                            <div class="card-header text-center">
+                                                <h5>Cadastrar Setor</h5>
                                             </div>
                                             <div class="card-block">
                                                 <div class="form-group row">
@@ -182,8 +182,8 @@
                                                     <div class="modal-body">
                                                         <form method="post" action="{{route ('atualizarSetor', $setor->id)}}" enctype="multipart/form-data" class="formEditUser">
                                                             {{ csrf_field() }}
-                                                            <div class="card-header">
-                                                                <CENTER><h5>Editar Setor</h5></CENTER>
+                                                            <div class="card-header text-center">
+                                                                <h5>Editar Setor</h5>
                                                             </div>
                                                             <div class="card-block">
                                                                 <div class="form-group row">
@@ -260,8 +260,8 @@
                                                     <div class="modal-body">
                                                         <form method="post" action="{{route ('atualizarSetor', $setor->id)}}" class="formEditUser">
                                                             {{ csrf_field() }}
-                                                            <div class="card-header">
-                                                                <CENTER><h5>Visualizar Setor</h5></CENTER>
+                                                            <div class="card-header text-center">
+                                                                <h5>Visualizar Setor</h5>
                                                             </div>
                                                             <div class="card-block">
                                                                 <div class="form-group row">
