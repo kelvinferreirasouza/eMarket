@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use App\Usuario;
-use App\Cliente;
-use App\Setor;
-use App\Categoria;
+use App\Models\Usuario;
+use App\Models\Cliente;
+use App\Models\Setor;
+use App\Models\Categoria;
 
 class AutenticacaoController extends Controller {
 

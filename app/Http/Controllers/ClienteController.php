@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Cliente;
-use App\Setor;
-use App\Categoria;
+use App\Models\Cliente;
+use App\Models\Setor;
+use App\Models\Categoria;
 
 class ClienteController extends Controller {
 
@@ -40,13 +40,13 @@ class ClienteController extends Controller {
         $dados = $request->all();
         $cliente = Cliente::find($id);
 
-        if (!$dados['senha']) {
-            $senha_antiga = $cliente->senha;
-            $dados['senha'] = $senha_antiga;
+        if (!$dados['password']) {
+            $senha_antiga = $cliente->password;
+            $dados['password'] = $senha_antiga;
             $cliente->update($dados);
         } else {
-            $senha_nova = Hash::make($dados['senha']);
-            $dados['senha'] = $senha_nova;
+            $senha_nova = Hash::make($dados['password']);
+            $dados['password'] = $senha_nova;
             $cliente->update($dados);
         }
 
@@ -71,7 +71,7 @@ class ClienteController extends Controller {
 
     public function salvarCliente(Request $request) {
         $dados = $request->all();
-        $dados['senha'] = bcrypt($dados['senha']);
+        $dados['password'] = bcrypt($dados['password']);
 
         Cliente::create($dados);
 
@@ -80,7 +80,7 @@ class ClienteController extends Controller {
     
     public function cadastroCliente(Request $request) {
         $dados = $request->all();
-        $dados['senha'] = bcrypt($dados['senha']);
+        $dados['password'] = bcrypt($dados['password']);
 
         Cliente::create($dados);
 
@@ -89,6 +89,14 @@ class ClienteController extends Controller {
 
     public function cadastrarCliente() {
         return view('clientes.cadastrar');
+    }
+
+    public function perfil(Request $request, $id) {
+
+        $cliente = Cliente::find($id);
+
+        return view('store.cliente.perfil', compact('cliente'));
+
     }
     
     public function pesquisarCliente(Request $request) {

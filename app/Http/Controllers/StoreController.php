@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Produto;
-use App\Setor;
-use App\Categoria;
+use App\Models\Produto;
+use App\Models\Setor;
+use App\Models\Categoria;
 
 class StoreController extends Controller
 {

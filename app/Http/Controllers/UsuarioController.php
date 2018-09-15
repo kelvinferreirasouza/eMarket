@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
-use App\Usuario;
-use App\Cargo;
 use Illuminate\Support\Facades\Hash;
+use App\Models\Usuario;
+use App\Models\Cargo;
+
 use Auth;
  
 class UsuarioController extends Controller
@@ -42,13 +43,13 @@ class UsuarioController extends Controller
         $dados = $request->all();
         $usuario = Usuario::find($id);
  
-        if(!$dados['senha']){
+        if(!$dados['password']){
             $senha_antiga = $usuario->senha;
-            $dados['senha'] = $senha_antiga;
+            $dados['password'] = $senha_antiga;
             $usuario->update($dados);
         }else{
-            $senha_nova = Hash::make($dados['senha']);
-            $dados['senha'] = $senha_nova;
+            $senha_nova = Hash::make($dados['password']);
+            $dados['password'] = $senha_nova;
             $usuario->update($dados);
         }
  

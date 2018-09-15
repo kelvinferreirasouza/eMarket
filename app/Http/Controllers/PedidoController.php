@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
-use App\Empresa;
-use App\Frete;
-use App\FormaPagamento;
-use App\PedidoProduto;
+use App\Models\Cliente;
+use App\Models\Empresa;
+use App\Models\Frete;
+use App\Models\FormaPagamento;
+use App\Models\PedidoProduto;
 
 class PedidoController extends Controller
 {

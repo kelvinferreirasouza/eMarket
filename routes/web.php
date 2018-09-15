@@ -13,9 +13,8 @@
 
 Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
 Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
-Route::get('/login', 'AutenticacaoController@login')->name('login');
+Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
 Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
-Route::get('/logout', 'AutenticacaoController@logout')->name('logout');
 
 /* Rotas do Cliente no Ecommerce */
 Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
@@ -35,6 +34,7 @@ Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove'
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
+    Route::get('/clientes/perfil/{$id}', 'ClienteController@perfilCliente')->name('perfilCliente');
 });
 
 /* Middware do Manager */
@@ -42,6 +42,7 @@ Route::middleware(['auth'])->group(function () {
 Route::middleware(['manager'])->group(function () {
 
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
+    Route::get('/manager/logout', 'AutenticacaoController@logout')->name('logout');
 
     /* Rotas Protegidas de Usuários */
     Route::get('/pessoas/usuarios', 'UsuarioController@listarUsuarios')->name('listarUsuarios');

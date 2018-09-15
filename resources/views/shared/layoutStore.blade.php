@@ -29,7 +29,7 @@
                             @if(auth()->guard('clientes')->check())
                                         {{ Auth::guard('clientes')->user()->nome }}
                             @else
-                                        Login | Register
+                                        Login | Registre-se
                             @endif
                             </a>
                         </li>
@@ -137,7 +137,8 @@
         <div class="carousel fade-carousel slide propaganda" data-ride="carousel" data-interval="4000" id="bs-carousel" style="
              {{ (\Request::route()->getName() == 'carrinho' ||
                   Request::route()->getName() == 'loginCliente' ||
-                  Request::route()->getName() == 'registerUser') ? 'display:none' : '' }}">
+                  Request::route()->getName() == 'registerUser' ||
+                  Request::route()->getName() == 'perfilCliente') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>
 

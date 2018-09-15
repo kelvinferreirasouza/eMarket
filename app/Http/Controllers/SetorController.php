@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Setor;
 use Illuminate\Support\Facades\DB;
+use App\Models\Setor;
 
 class SetorController extends Controller {
 

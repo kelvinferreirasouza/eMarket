@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
-use App\ImgProduto;
-use App\Produto;
-use App\Setor;
-use App\Categoria;
-use App\Marca;
-use App\Unidade;
-use App\Fornecedor;
+use App\Models\Produto;
+use App\Models\Setor;
+use App\Models\Categoria;
+use App\Models\Marca;
+use App\Models\Unidade;
+use App\Models\Fornecedor;
 
 class ProdutoController extends Controller {
 
