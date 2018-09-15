@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Cliente;
-use App\Models\Setor;
-use App\Models\Categoria;
+use App\Cliente;
+use App\Setor;
+use App\Categoria;
 
 class ClienteController extends Controller {
 

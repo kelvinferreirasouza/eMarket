@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Veiculo;
-use App\Models\VeiculoMarca;
-use App\Models\VeiculoModelo;
+use App\Veiculo;
+use App\VeiculoMarca;
+use App\VeiculoModelo;
 
 
 class VeiculoController extends Controller

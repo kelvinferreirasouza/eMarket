@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\VeiculoModelo;
-use App\Models\VeiculoMarca;
+use App\VeiculoModelo;
+use App\VeiculoMarca;
 
 class VeiculoModeloController extends Controller
 {

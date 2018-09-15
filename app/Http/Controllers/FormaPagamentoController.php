@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\FormaPagamento;
-use App\Models\Cargo;
+use App\FormaPagamento;
+use App\Cargo;
 
 class FormaPagamentoController extends Controller
 {

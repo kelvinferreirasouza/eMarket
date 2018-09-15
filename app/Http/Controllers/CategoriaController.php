@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Categoria;
-use App\Models\Setor;
+use App\Categoria;
+use App\Setor;
 
 class CategoriaController extends Controller
 {

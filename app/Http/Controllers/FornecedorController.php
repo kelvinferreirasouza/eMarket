@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Fornecedor;
+use App\Fornecedor;
 
 class FornecedorController extends Controller {
     

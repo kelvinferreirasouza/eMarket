@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\VeiculoMarca;
+use App\VeiculoMarca;
 
 class VeiculoMarcaController extends Controller
 {
