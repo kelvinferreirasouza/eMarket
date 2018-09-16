@@ -16,6 +16,15 @@ Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
 Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
 Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
 
+/* Rotas do Pagseguro */
+
+Route::get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');    
+Route::get('pagseguroLightBox', 'PagSeguroController@lightbox')->name('pagseguroLightBox');    
+Route::post('pagseguroLightBox', 'PagSeguroController@lightboxCode')->name('pagseguroLightBoxCode');
+Route::post('pagseguroTransparente', 'PagSeguroController@getCode')->name('pagseguroTransparenteCode');
+Route::get('pagseguroTransparente', 'PagSeguroController@transparente')->name('pagseguroTransparente');
+
+
 /* Rotas do Cliente no Ecommerce */
 Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
 Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('logarCliente');
