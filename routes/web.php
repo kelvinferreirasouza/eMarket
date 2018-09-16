@@ -18,11 +18,19 @@ Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
 
 /* Rotas do Pagseguro */
 
-Route::get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');    
-Route::get('pagseguroLightBox', 'PagSeguroController@lightbox')->name('pagseguroLightBox');    
-Route::post('pagseguroLightBox', 'PagSeguroController@lightboxCode')->name('pagseguroLightBoxCode');
-Route::post('pagseguroTransparente', 'PagSeguroController@getCode')->name('pagseguroTransparenteCode');
-Route::get('pagseguroTransparente', 'PagSeguroController@transparente')->name('pagseguroTransparente');
+$this->post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
+$this->post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
+$this->get('pagseguro-transparente', 'PagSeguroController@transparente')->name('pagseguro.transparente');
+
+$this->get('pagseguro-lightbox', 'PagSeguroController@lightbox')->name('pagseuguro.lightbox');
+
+$this->post('pagseguro-lightbox', 'PagSeguroController@lightboxCode')->name('pagseguro.lightbox.code');
+
+$this->get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');
+
+$this->get('pagseguro-btn', function(){
+    return view('pagseguro-btn');
+});
 
 
 /* Rotas do Cliente no Ecommerce */

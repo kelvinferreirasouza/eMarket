@@ -13,37 +13,53 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
         <script>
-$(function () {
-$('.btn-buy').click(function () {
-$.ajax({
-url: "{{route('pagseguroLightBoxCode')}}",
-        method: "POST",
-        data: {_token: $('input[name=_token]').val()},
-        beforeSend: startPreloader()
-}).fail(function(){
-    alert("Erro inesperado, tente novamente!")
-});
-});
-return false;
-});
-});
-function lightbox(code) {
-var isOpenLightbox = PagSeguroLightbox({
-code: code
-}, {
-success: function (transactionCode) {
-alert("Pedido Realizado com Sucesso: " + transactionCode);
-},
-        abort: function () {
-        alert("Compra cancelada!");
+        $(function(){
+            $('.btn-buy').click(function(){                
+                $.ajax({
+                    url: "{{route('pagseguro.lightbox.code')}}",
+                    method: "POST",
+                    data: {_token: $('input[name=_token]').val()},
+                    beforeSend: startPreloader()
+                }).done(function(code){
+                    lightbox(code);
+                }).fail(function(){
+                    alert("Erro inesperado, tente novamente!");
+                }).always(function(){
+                    stopPreloader();
+                });
+                
+                return false;
+            });
+        });
+        
+        function lightbox(code)
+        {
+            var isOpenLightbox = PagSeguroLightbox({
+                code: code
+            }, {
+                success: function(transactionCode){
+                    $('.msg-return').html("Pedido realizado com sucesso: "+transactionCode);
+                },
+                abort: function(){
+                    alert("Compra Abortada!");
+                }
+            });
+            
+            if( !isOpenLightbox ) {
+                location.href="{{config('pagseguro.url_redirect_after_request')}}"+code;
+            }
         }
-});
-//verifica se o navegador tem suporte para lightbox se n redireciona para a pagina do pagseguro        
-if (!isOpenLightbox) {
-location.href = "{{config('pagseguro.url_redirect_after_request')}}" + code;
-}
-}
-        </script>
+        
+        function startPreloader()
+        {
+            $('.preloader').show();
+        }
+        
+        function stopPreloader()
+        {
+            $('.preloader').hide();
+        }
+    </script>
 
         <script src="{{config('pagseguro.url_lightbox_sandbox')}}"></script>
 
