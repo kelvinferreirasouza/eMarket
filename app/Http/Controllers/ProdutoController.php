@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Input;
 use App\Produto;
 use App\Setor;
 use App\Categoria;
-use App\Marca;
 use App\Unidade;
 use App\Fornecedor;
 
@@ -22,23 +21,20 @@ class ProdutoController extends Controller {
 
     public function cadastrarProduto() {
         $setores = Setor::all();
-        $marcas = Marca::all();
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
-        return view('produtos.cadastrar', compact('setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
+        return view('produtos.cadastrar', compact('setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function listarProdutos() {
         $produtos = Produto::paginate(10);
         $setores = Setor::all();
-        $marcas = Marca::all();
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
-        $imagens = ImgProduto::all();
 
-        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores', 'imagens'));
+        return view('produtos.listar', compact('produtos', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function salvarProduto(Request $request) {
@@ -58,7 +54,7 @@ class ProdutoController extends Controller {
                 $prod->margemLucro         = $request->margemLucro;
                 $prod->produtoSetorId      = $request->produtoSetorId;
                 $prod->produtoCategoriaId  = $request->produtoCategoriaId;
-                $prod->produtoMarcaId      = $request->produtoMarcaId;
+                $prod->produtoMarca        = $request->produtoMarca;
                 $prod->produtoUnidadeId    = $request->produtoUnidadeId;
                 $prod->produtoFornecedorId = $request->produtoFornecedorId;
                 $prod->isPromocao          = $request->isPromocao;
@@ -86,12 +82,11 @@ class ProdutoController extends Controller {
     public function visualizarProduto($id) {
         $produto = Produto::find($id);
         $setores = Setor::all();
-        $marcas = Marca::all();
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
 
-        return view('produtos.visualizar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
+        return view('produtos.visualizar', compact('produto', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function excluirProduto($id) {
@@ -105,12 +100,11 @@ class ProdutoController extends Controller {
     public function editarProduto($id) {
         $produto = Produto::find($id);
         $setores = Setor::all();
-        $marcas = Marca::all();
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
 
-        return view('produtos.editar', compact('produto', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
+        return view('produtos.editar', compact('produto', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function atualizarProduto(Request $request, $id) {
@@ -148,12 +142,11 @@ class ProdutoController extends Controller {
 
         $produtos = $this->produto->pesquisa($request);
         $setores = Setor::all();
-        $marcas = Marca::all();
         $unidades = Unidade::all();
         $categorias = Categoria::all();
         $fornecedores = Fornecedor::all();
 
-        return view('produtos.listar', compact('produtos', 'setores', 'marcas', 'unidades', 'categorias', 'fornecedores'));
+        return view('produtos.listar', compact('produtos', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
 }

@@ -39,6 +39,6 @@ class CreateEmpresasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('empresas');
     }
 }

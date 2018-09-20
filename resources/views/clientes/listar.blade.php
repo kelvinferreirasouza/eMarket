@@ -201,7 +201,7 @@
                                             <td>
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$cliente->id}}"
-                                                   data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateversenha="{{$cliente->senha}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
+                                                   data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateverpassword="{{$cliente->password}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
                                                    data-whatevercep="{{$cliente->cep}}" data-whateverlogradouro="{{$cliente->logradouro}}" data-whatevernumero="{{$cliente->numero}}" data-whateverbairro="{{$cliente->bairro}}" data-whateverestado="{{$cliente->estado}}"data-whatevermunicipio="{{$cliente->municipio}}" data-whateverfone="{{$cliente->fone}}" data-whatevercelular="{{$cliente->celular}}" data-whateversexo="{{$cliente->sexo}}" data-whateverativo="{{$cliente->isAtivo}}">
                                                     <img src="../../imgs/iconEdit.png" title="Editar Cliente" class="btnAcoes"></a>
 
@@ -235,7 +235,7 @@
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-3">
                                                                                 <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                                                                <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
+                                                                                <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="cpf" class="control-label labelInputEditUser">CPF:</label>

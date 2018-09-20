@@ -30,6 +30,6 @@ class CreateVeiculoModelosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('veiculo_modelo');
+        Schema::dropIfExists('veiculomodelos');
     }
 }

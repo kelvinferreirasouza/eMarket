@@ -29,6 +29,6 @@ class CreateUsuarioCargosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('usuariocargos');
     }
 }

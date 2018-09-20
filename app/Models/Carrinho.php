@@ -77,5 +77,11 @@ class Carrinho extends Model {
         // retorna a quantidade de itens do carrinho
         return count($this->items);
     }
+    
+    public function carrinhoVazio(){
+        if(Session::has('carrinho')) {
+            Session::forget('carrinho');
+        }
+    }
 
 }

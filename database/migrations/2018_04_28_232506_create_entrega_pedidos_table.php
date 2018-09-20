@@ -36,6 +36,6 @@ class CreateEntregaPedidosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('entregapedidos');
     }
 }

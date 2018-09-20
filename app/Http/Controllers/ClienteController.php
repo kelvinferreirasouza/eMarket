@@ -91,11 +91,12 @@ class ClienteController extends Controller {
         return view('clientes.cadastrar');
     }
 
-    public function perfil(Request $request, $id) {
+    public function perfil() {
+        
+        $setores = Setor::all();
+        $categorias = Categoria::all();
 
-        $cliente = Cliente::find($id);
-
-        return view('store.cliente.perfil', compact('cliente'));
+        return view('store.cliente.perfil', compact('setores', 'categorias'));
 
     }
     

@@ -359,20 +359,20 @@ Image credits: unsplash.com
     background-repeat: no-repeat;
 }
 .fade-carousel .slides .slide-1 {
-    background-image: url("https://loja.praticosupermercado.com.br/banners/m2Mwo9n/hortifruti_desktop.jpg");
+    background-image: url("../../imgs/carousel/ofertas.jpg");
     height: 50vh;  
 }
 .fade-carousel .slides .slide-2 {
-    background-image: url("http://emarketsoftware.com.br/imgs/banner2.jpg");
+    background-image: url("../../imgs/carousel/hortifruti.jpg");
     height: 50vh;
 }
 .fade-carousel .slides .slide-3 {
-    background-image: url("https://static4.depositphotos.com/1012068/309/i/950/depositphotos_3093107-stock-photo-fresh-raw-meat-background.jpg");
-    height: 50vh; 
+    background-image: url("../../imgs/carousel/carnes.jpg");
+    height: 60vh; 
 }
 
 .fade-carousel .slides .slide-4 {
-    background-image: url("https://loja.praticosupermercado.com.br/banners/RMwv62z/ofertas-da-semana_desktop.jpg");
+    background-image: url("");
     height: 50vh; 
 }
 

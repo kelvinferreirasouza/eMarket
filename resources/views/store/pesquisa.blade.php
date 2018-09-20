@@ -2,11 +2,11 @@
 
 @section('conteudoStore')
 
-<div class="col-sm-12 text-center"><h1>Ofertas</h1></div>
+<div class="col-sm-12 text-center"><h1>Resultados de "{{$busca}}":</h1></div>
 
 <section class="containerFlex flex flex-wrap gridProducts">
-    @forelse($ofertas as $produto)
-    
+    @forelse($produtos as $produto)
+
     <div class='itemFlex'>
         <figure class='card card-product effectHover'>
             <div class='img-wrap'><img src='../imgs/produtos/{{$produto->imagem1}}'></div>
@@ -39,7 +39,7 @@
         </figure>
     </div>
     @empty
-    <p>Não há produtos em oferta!</p>
+    <p>Nenhum produto encontrado!</p>
     @endforelse
 </section>
 

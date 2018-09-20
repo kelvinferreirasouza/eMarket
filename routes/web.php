@@ -11,51 +11,36 @@
   |
  */
 
-Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
-Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
+/* Rotas Publicas */
+Route::get('/', 'StoreController@index')->name('index');
+Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
+
+
+/* Rotas Publicas do Manager */
 Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
-Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
-
-/* Rotas do Pagseguro */
-
-/* Rota de Cartao */
-Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card  '); 
-Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
-/* Rota de Boleto */
-Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
-Route::post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
-Route::get('pagseguro-transparente', 'PagSeguroController@transparente')->name('pagseguro.transparente');
-
-Route::get('pagseguro-lightbox', 'PagSeguroController@lightbox')->name('pagseuguro.lightbox');
-
-Route::post('pagseguro-lightbox', 'PagSeguroController@lightboxCode')->name('pagseguro.lightbox.code');
-
-Route::get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');
-
-Route::get('pagseguro-btn', function(){
-    return view('pagseguro-btn');
-});
+Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
+Route::get('/manager/registrar', 'UsuarioController@registrar')->name('registrar');
+Route::post('/manager/salvar', 'UsuarioController@salvar')->name('salvar');
 
 
-/* Rotas do Cliente no Ecommerce */
+/* Rotas do Carrinho */ 
+Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
+Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
+Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
+
+
+/* Rotas de Cliente */
 Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
 Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('logarCliente');
 Route::get('/clientes/cadastrar', 'AutenticacaoController@registerUser')->name('registerUser');
 Route::post('/clientes/cadastrar/salvar', 'AutenticacaoController@cadastroCliente')->name('cadastroCliente');
-Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
-
-
-/* Rotas da Store */
-Route::get('/', 'StoreController@index')->name('index');
-Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
-Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
-Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
 
 /* Middware de Clientes */
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
-    Route::get('/clientes/perfil/{$id}', 'ClienteController@perfilCliente')->name('perfilCliente');
+    Route::get('/clientes/perfil', 'ClienteController@perfil')->name('perfil');
+    Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 });
 
 /* Middware do Manager */
@@ -129,13 +114,6 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/produtos/unidades/excluir/{id}', 'UnidadeController@excluirUnidade')->name('excluirUnidade');
     Route::any('/produtos/unidades/pesquisa', 'UnidadeController@pesquisarUnidade')->name('pesquisarUnidade');
 
-    /* Rotas Protegidas de Marcas */
-    Route::get('/produtos/marcas', 'MarcaController@listarMarcas')->name('listarMarcas');
-    Route::post('/produtos/marcas/atualizar/{id}', 'MarcaController@atualizarMarca')->name('atualizarMarca');
-    Route::post('/produtos/marcas/salvar', 'MarcaController@salvarMarca')->name('salvarMarca');
-    Route::get('/produtos/marcas/excluir/{id}', 'MarcaController@excluirMarca')->name('excluirMarca');
-    Route::any('/produtos/marcas/pesquisa', 'MarcaController@pesquisarMarca')->name('pesquisarMarca');
-
     /* Rotas Protegidas de Cargos */
     Route::get('/usuarios/cargos', 'CargoController@listarCargos')->name('listarCargos');
     Route::post('/usuarios/cargos/atualizar/{id}', 'CargoController@atualizarCargo')->name('atualizarCargo');
@@ -178,4 +156,24 @@ Route::middleware(['manager'])->group(function () {
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias', 'ProdutoController@getCategoriasAjax');
     Route::get('ajax/pegar-lista-modelos', 'VeiculoController@getModelosAjax');
+});
+
+/* Rotas do Pagseguro */
+
+/* Rota de Cartao */
+Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card  ');
+Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
+/* Rota de Boleto */
+Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
+Route::post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
+Route::get('pagseguro-transparente', 'PagSeguroController@transparente')->name('pagseguro.transparente');
+
+Route::get('pagseguro-lightbox', 'PagSeguroController@lightbox')->name('pagseuguro.lightbox');
+
+Route::post('pagseguro-lightbox', 'PagSeguroController@lightboxCode')->name('pagseguro.lightbox.code');
+
+Route::get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');
+
+Route::get('pagseguro-btn', function() {
+    return view('pagseguro-btn');
 });

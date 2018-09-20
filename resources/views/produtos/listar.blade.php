@@ -86,13 +86,8 @@
                                                             <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" value="{{old('produtoNome')}}">
                                                         </div>
                                                         <div class="col-sm-4">
-                                                            <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                                            <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId">
-                                                                <option>Selecione..</option>
-                                                                @foreach($marcas as $marca)    
-                                                                <option value="{{$marca->id}}">{{$marca->nome}}</option>
-                                                                @endforeach  
-                                                            </select>
+                                                            <label for="produtoMarca" class="control-label labelInputEditUser">Marca:</label>
+                                                                <input type="text" class="form-control" name="produtoMarca" placeholder="Digite a Marca do Produto">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -233,35 +228,43 @@
                                 <table class="table table-striped table-bordered nowrap">
                                     <thead>
                                         <tr>
-                                            <th>Código Barras</th>
-                                            <th>Descrição</th>
-                                            <th>Qtd</th>
-                                            <th>Unidade</th>
-                                            <th>Preço Custo</th>  
-                                            <th>Preço Venda</th>
-                                            <th>Margem Lucro</th>
-                                            <th>Ações</th>
+                                            <th class="text-center">Código Barras</th>
+                                            <th class="text-center">Descrição</th>
+                                            <th class="text-center">Quantidade</th>
+                                            <th class="text-center">Unidade</th>
+                                            <th class="text-center">Preço Custo R$</th>  
+                                            <th class="text-center">Preço Venda R$</th>
+                                            <th class="text-center">Margem Lucro %</th>
+                                            <th class="text-center">Promoção</th>
+                                            <th class="text-center">Ações</th>
                                         </tr>
                                     </thead>            
                                     <tbody>            
                                         @forelse($produtos as $produto)
                                         <tr>
-                                            <td>{{$produto->codBarras}}</td>
+                                            <td class="text-center">{{$produto->codBarras}}</td>
                                             <td>{{$produto->produtoNome}}</td>
-                                            <td>{{$produto->qtd}}</td>
-                                            <td>
+                                            <td class="text-center">{{$produto->qtd}}</td>
+                                            <td class="text-center">
                                                 @foreach($unidades as $unidade)
                                                 @if( $unidade->id == $produto->produtoUnidadeId )
                                                 {{$unidade->descricao}}
                                                 @endif
                                                 @endforeach
                                             </td>
-                                            <td>{{$produto->precoCusto}}</td>
-                                            <td>{{$produto->precoVenda}}</td>
-                                            <td>{{$produto->margemLucro}}</td>
+                                            <td class="text-center">R${{$produto->precoCusto}}</td>
+                                            <td class="text-center">R${{$produto->precoVenda}}</td>
+                                            <td class="text-center">{{$produto->margemLucro}}%</td>
+                                            <td class="text-center">
+                                                @if( $produto->isPromocao == 1)
+                                                Sim
+                                                @else
+                                                Não
+                                                @endif
+                                            </td>
                                             <td>
                                                 <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarcaId}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Produto" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarca}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Produto" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -282,30 +285,30 @@
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-12 text-center">   
-                                                                                    <?php
-                                                                                    if ($produto->imagem1 != "") {
-                                                                                        $foto1 = '../imgs/produtos/' . $produto->imagem1;
-                                                                                    } else {
-                                                                                        $foto1 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
+                                                                                <?php
+                                                                                if ($produto->imagem1 != "") {
+                                                                                    $foto1 = '../imgs/produtos/' . $produto->imagem1;
+                                                                                } else {
+                                                                                    $foto1 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
 
-                                                                                    if ($produto->imagem2 != "") {
-                                                                                        $foto2 = '../imgs/produtos/' . $produto->imagem2;
-                                                                                    } else {
-                                                                                        $foto2 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
+                                                                                if ($produto->imagem2 != "") {
+                                                                                    $foto2 = '../imgs/produtos/' . $produto->imagem2;
+                                                                                } else {
+                                                                                    $foto2 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
 
-                                                                                    if ($produto->imagem3 != "") {
-                                                                                        $foto3 = '../imgs/produtos/' . $produto->imagem3;
-                                                                                    } else {
-                                                                                        $foto3 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
-                                                                                    ?>
-                                                                                    {!!"
-                                                                                    <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    "!!}
+                                                                                if ($produto->imagem3 != "") {
+                                                                                    $foto3 = '../imgs/produtos/' . $produto->imagem3;
+                                                                                } else {
+                                                                                    $foto3 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
+                                                                                ?>
+                                                                                {!!"
+                                                                                <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                "!!}
                                                                             </div>
 
                                                                             <div class="col-sm-2">
@@ -317,12 +320,8 @@
                                                                                 <input type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" value="{{$produto->produtoNome}}" required>
                                                                             </div>
                                                                             <div class="col-sm-4">
-                                                                                <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                                                                <select class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId" value="{{$produto->produtoMarcaId}}">
-                                                                                    @foreach($marcas as $marca)    
-                                                                                    <option value="{{$marca->id}}" {{$marca->id == $produto->produtoMarcaId ? 'selected' : ''}}>{{$marca->nome}}</option>
-                                                                                    @endforeach  
-                                                                                </select>
+                                                                                <label for="produtoMarca" class="control-label labelInputEditUser">Marca:</label>
+                                                                                <input type="text" class="form-control" name="produtoMarca" placeholder="Digite a Marca do Produto" value="{{$produto->produtoMarca}}">
                                                                             </div>
                                                                         </div>
                                                                         <div class="form-group row">
@@ -416,7 +415,7 @@
                                                 <!-- FIM MODAL EDITAR -->
 
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarcaId}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Produto" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modalVisualizar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarca}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Produto" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -437,30 +436,30 @@
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-12 text-center">
-                                                                                    <?php
-                                                                                    if ($produto->imagem1 != "") {
-                                                                                        $foto1 = '../imgs/produtos/' . $produto->imagem1;
-                                                                                    } else {
-                                                                                        $foto1 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
+                                                                                <?php
+                                                                                if ($produto->imagem1 != "") {
+                                                                                    $foto1 = '../imgs/produtos/' . $produto->imagem1;
+                                                                                } else {
+                                                                                    $foto1 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
 
-                                                                                    if ($produto->imagem2 != "") {
-                                                                                        $foto2 = '../imgs/produtos/' . $produto->imagem2;
-                                                                                    } else {
-                                                                                        $foto2 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
+                                                                                if ($produto->imagem2 != "") {
+                                                                                    $foto2 = '../imgs/produtos/' . $produto->imagem2;
+                                                                                } else {
+                                                                                    $foto2 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
 
-                                                                                    if ($produto->imagem3 != "") {
-                                                                                        $foto3 = '../imgs/produtos/' . $produto->imagem3;
-                                                                                    } else {
-                                                                                        $foto3 = '../imgs/produtos/sem_foto.jpg';
-                                                                                    }
-                                                                                    ?>
-                                                                                    {!!"
-                                                                                    <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
-                                                                                    "!!}
+                                                                                if ($produto->imagem3 != "") {
+                                                                                    $foto3 = '../imgs/produtos/' . $produto->imagem3;
+                                                                                } else {
+                                                                                    $foto3 = '../imgs/produtos/sem_foto.jpg';
+                                                                                }
+                                                                                ?>
+                                                                                {!!"
+                                                                                <img src=$foto1 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                <img src=$foto2 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                <img src=$foto3 alt='js' class='fotoProduto' width='200px' height='250px'/>
+                                                                                "!!}
                                                                             </div>
 
                                                                             <div class="col-sm-2">
@@ -472,12 +471,8 @@
                                                                                 <input disabled type="text" class="form-control" name="produtoNome" placeholder="Digite a Descrição" value="{{$produto->produtoNome}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
-                                                                                <label for="produtoMarcaId" class="control-label labelInputEditUser">Marca:</label>
-                                                                                <select disabled class="form-control labelInputEditUser" name="produtoMarcaId" id="produtoMarcaId" value="{{$produto->produtoMarcaId}}">
-                                                                                    @foreach($marcas as $marca)    
-                                                                                    <option disabled value="{{$marca->id}}" {{$marca->id == $produto->produtoMarcaId ? 'selected' : ''}}>{{$marca->nome}}</option>
-                                                                                    @endforeach  
-                                                                                </select>
+                                                                                <label for="produtoMarca" class="control-label labelInputEditUser">Marca:</label>
+                                                                                <input disabled type="text" class="form-control" name="produtoMarca" placeholder="Digite a Marca do Produto" value="{{$produto->produtoMarca}}">
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>

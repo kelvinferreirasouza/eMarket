@@ -28,6 +28,6 @@ class CreateVeiculoMarcaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('veiculomarcas');
     }
 }

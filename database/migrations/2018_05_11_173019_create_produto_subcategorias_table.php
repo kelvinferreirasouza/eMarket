@@ -30,6 +30,6 @@ class CreateProdutoSubcategoriasTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('produtosubcategorias');
     }
 }

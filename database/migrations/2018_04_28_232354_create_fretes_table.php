@@ -29,6 +29,6 @@ class CreateFretesTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('fretes');
     }
 }

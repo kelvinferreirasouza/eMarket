@@ -29,6 +29,6 @@ class CreateFormaPagamentosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('formapagamentos');
     }
 }

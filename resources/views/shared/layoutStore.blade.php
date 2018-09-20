@@ -42,12 +42,16 @@
                     </div>  
                     <div class="navbar-search smallsearch col-sm-8 col-xs-11">
                         <div class="row">
-                            <input class="navbar-input col-xs-11" type="text" placeholder="O que você procura?" name="search">
+                            
+                            {!! Form::open(['route' => 'buscaProduto', 'class' => 'form form-inline']) !!}
+                            {!! Form::text('key_search', null, ['class' => 'navbar-input col-xs-11', 'placeholder' => 'O que você procura?']) !!}
+                            
                             <button class="navbar-button col-xs-1">
                                 <svg width="15px" height="15px">
                                 <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
                                 </svg>
                             </button>
+                            {!! Form::close() !!}
                         </div>
                     </div>
                     <div class="cart largenav col-sm-2">
@@ -138,7 +142,8 @@
              {{ (\Request::route()->getName() == 'carrinho' ||
                   Request::route()->getName() == 'loginCliente' ||
                   Request::route()->getName() == 'registerUser' ||
-                  Request::route()->getName() == 'perfilCliente') ? 'display:none' : '' }}">
+                  Request::route()->getName() == 'perfil' ||
+                  Request::route()->getName() == 'buscaProduto') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>
 
@@ -147,7 +152,6 @@
                 <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
                 <li data-target="#bs-carousel" data-slide-to="1"></li>
                 <li data-target="#bs-carousel" data-slide-to="2"></li>
-                <li data-target="#bs-carousel" data-slide-to="3"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -157,26 +161,9 @@
                 </div>
                 <div class="item slides">
                     <div class="slide-2"></div>
-                    <div class="hero">        
-                        <hgroup>
-                            <h1>Açougue</h1>        
-                            <h3>Get start your next awesome project</h3>
-                        </hgroup>       
-                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
-                    </div>
                 </div>
                 <div class="item slides">
                     <div class="slide-3"></div>
-                    <div class="hero">        
-                        <hgroup>
-                            <h1>Padaria</h1>        
-                            <h3>Get start your next awesome project</h3>
-                        </hgroup>
-                        <button class="btn btn-hero btn-lg" role="button">See all features</button>
-                    </div>
-                </div>
-                <div class="item slides">
-                    <div class="slide-4"></div>
                 </div>
             </div> 
         </div>

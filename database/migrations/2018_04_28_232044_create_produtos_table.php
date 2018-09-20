@@ -26,8 +26,7 @@ class CreateProdutosTable extends Migration
             $table->foreign('produtoSetorId')->references('id')->on('produtosetores')->onDelete('cascade');
             $table->integer('produtoCategoriaId')->nullable()->unsigned()->onDelete('cascade');
             $table->foreign('produtoCategoriaId')->references('id')->on('produtocategorias')->onDelete('cascade');
-            $table->integer('produtoMarcaId')->nullable()->unsigned()->onDelete('cascade');
-            $table->foreign('produtoMarcaId')->references('id')->on('produtomarcas')->onDelete('cascade');
+            $table->string('produtoMarca')->nullable();
             $table->integer('produtoUnidadeId')->nullable()->unsigned()->onDelete('cascade');
             $table->foreign('produtoUnidadeId')->references('id')->on('produtounidades')->onDelete('cascade');
             $table->string('imagem1')->nullable();
@@ -46,6 +45,6 @@ class CreateProdutosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::drop('produtos');
     }
 }

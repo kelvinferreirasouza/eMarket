@@ -12,43 +12,43 @@ class UnidadeTableSeeder extends Seeder
     public function run()
     {
         DB::table('produtounidades')->insert([
-            'descricao'    => 'UNIDADE',
+            'descricao'    => 'Unidade',
             'sigla'        => 'UN',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'KILOGRAMA',
+            'descricao'    => 'Kilograma',
             'sigla'        => 'KG',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'CAIXA',
+            'descricao'    => 'Caixa',
             'sigla'        => 'CX',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'DUZIA',
+            'descricao'    => 'Dúzia',
             'sigla'        => 'DZ',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'FARDO',
+            'descricao'    => 'Fardo',
             'sigla'        => 'FRD',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'LITRO',
+            'descricao'    => 'Litro',
             'sigla'        => 'L',
             'isAtivo'      => 1
         ]); 
 
         DB::table('produtounidades')->insert([
-            'descricao'    => 'PEÇA',
+            'descricao'    => 'Pacote',
             'sigla'        => 'PC',
             'isAtivo'      => 1
         ]);

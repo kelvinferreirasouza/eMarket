@@ -30,6 +30,6 @@ class CreateSetoresTable extends Migration
      */
     public function down()
     {
-        
+        Schema::drop('produtosetores');
     }
 }

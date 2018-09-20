@@ -219,10 +219,8 @@
                                         \Request::route()->getName() == 'listarCategorias' || 
                                         \Request::route()->getName() == 'listarSubcategorias' ||
                                         \Request::route()->getName() == 'listarUnidades' || 
-                                        \Request::route()->getName() == 'listarMarcas' ||
                                         \Request::route()->getName() == 'pesquisarSetor' ||
                                         \Request::route()->getName() == 'pesquisarCategoria' ||
-                                        \Request::route()->getName() == 'pesquisarMarca' ||
                                         \Request::route()->getName() == 'pesquisarUnidade' ||
                                         \Request::route()->getName() == 'pesquisarSubcategoria' ||
                                         \Request::route()->getName() == 'pesquisarProduto'
@@ -269,14 +267,6 @@
                                                 <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.main">
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
                                                     <span class="pcoded-mtext">Unidades</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
-                                            <li class="{{ (\Request::route()->getName() == 'listarMarcas' ||
-                                                           \Request::route()->getName() == 'pesquisarMarca') ? 'active' : '' }}">
-                                                <a href="{{ route('listarMarcas') }}" data-i18n="nav.page_layout.horizontal.main">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Marcas</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
