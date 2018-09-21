@@ -43,23 +43,23 @@ class StoreController extends Controller {
         return view('store.pesquisa', compact('produtos', 'busca', 'setores', 'categorias'));
     }
 
-    public function buscaMenu($setor, $categoria) {
-        $setores = Setor::all();
-        $categorias = Categoria::all();
-
-        $pesqSetor = $setores->where('nome', $setor)->first();
-        $setorId = $pesqSetor->id;
-
-        $pesqCategoria = $categorias->where('nome', $categoria)->first();
-        $categoriaId = $pesqCategoria->id;
-
-        $produtos = Produto::all();
-        $busca = $produtos->sortBy('produtoNome')
-                ->where('produtoSetorId', $setorId)
-                ->where('produtoCategoriaId', $categoriaId);
-                
-
-        return view('store.categorias', compact('busca', 'setores', 'categorias'));
-    }
+//    public function buscaMenu($setor, $categoria) {
+//        $setores = Setor::all();
+//        $categorias = Categoria::all();
+//
+//        $pesqSetor = $setores->where('nome', $setor)->first();
+//        $setorId = $pesqSetor->id;
+//
+//        $pesqCategoria = $categorias->where('nome', $categoria)->first();
+//        $categoriaId = $pesqCategoria->id;
+//
+//        $produtos = Produto::all();
+//        $busca = $produtos->sortBy('produtoNome')
+//                ->where('produtoSetorId', $setorId)
+//                ->where('produtoCategoriaId', $categoriaId);
+//                
+//
+//        return view('store.categorias', compact('busca', 'setores', 'categorias'));
+//    }
 
 }

@@ -54,12 +54,8 @@
                             </div>
                             <div class="form-group row">
                                 <div class="col-sm-3">
-                                    <label for="login" class="control-label labelInputEditUser">Login:</label>
-                                    <input type="text" class="form-control" name="login" required>
-                                </div>
-                                <div class="col-sm-3">
-                                    <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                    <input type="password" class="form-control" name="senha" required>
+                                    <label for="passwors" class="control-label labelInputEditUser">Senha:</label>
+                                    <input type="password" class="form-control" name="password" required>
                                 </div>
                                 <div class="col-sm-2">
                                     <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
@@ -115,8 +111,8 @@
                                     <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                     <select class="form-control" name="sexo" required>
                                         <option>Selecione..</option>
-                                        <option value="Masculino">Masculine</option>
-                                        <option value="Feminino">Feminino</option>
+                                        <option value="1">Masculino</option>
+                                        <option value="2">Feminino</option>
                                     </select>
                                 </div>
                                 <div class="col-sm-3 regraAlteracaoTipoUsuario">

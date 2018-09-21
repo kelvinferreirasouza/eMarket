@@ -84,7 +84,7 @@ class ClienteController extends Controller {
 
         Cliente::create($dados);
 
-        return redirect()->route('loginUser');
+        return redirect()->route('loginCliente');
     }
 
     public function cadastrarCliente() {

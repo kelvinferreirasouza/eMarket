@@ -29,16 +29,18 @@ class AutenticacaoController extends Controller {
     public function logar(Request $request) {
         $dados = $request->all();
 
-        $login = $dados['login'];
+        $email = $dados['email'];
         $password = $dados['password'];
 
-        $usuario = Usuario::where('email', $login)->first();
+        $usuario = Usuario::where('email', $email)->first();
 
         if (Auth::check() || ($usuario && Hash::check($password, $usuario->password))) {
             Auth::login($usuario);
             return redirect(route('manager'));
         } else {
-            return redirect(route('login'));
+            return redirect()
+                            ->route('login')
+                            ->withErrors(['Login e/ou senha inválido(s)!']);
         }
     }
 
@@ -51,7 +53,7 @@ class AutenticacaoController extends Controller {
         return redirect()
                         ->route('loginCliente')
                         ->withInput()
-                        ->withError(['Dados inválidos!']);
+                        ->withErrors(['Login e/ou senha inválido(s)!']);
     }
 
     public function logout() {

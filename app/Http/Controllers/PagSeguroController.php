@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\PagSeguro;
-
 class PagSeguroController extends Controller
 {
     public function pagseguro(PagSeguro $pagseguro)

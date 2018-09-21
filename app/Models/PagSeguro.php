@@ -1,10 +1,7 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Database\Eloquent\Model;
 use GuzzleHttp\Client as Guzzle;
-
 class PagSeguro extends Model
 {
     public function generate()

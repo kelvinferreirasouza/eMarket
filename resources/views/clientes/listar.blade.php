@@ -80,7 +80,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-sm-3">
                                                         <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                                        <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
+                                                        <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
@@ -235,7 +235,7 @@
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-3">
                                                                                 <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                                                                <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>
+                                                                                <input type="password" class="form-control" name="password" placeholder="Digite uma senha">
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
@@ -297,8 +297,8 @@
                                                                             <div class="col-sm-2">
                                                                                 <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>                    
                                                                                 <select class="form-control labelInputEditUser" name="isAtivo">
-                                                                                    <option value="1">Ativo</option>
-                                                                                    <option value="0">Inativo</option>
+                                                                                    <option value="1" {{ $cliente->isAtivo == 1 ? 'selected' : ''}}>Ativo</option>
+                                                                                    <option value="0" {{ $cliente->isAtivo == 0 ? 'selected' : ''}}>Inativo</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>

@@ -44,7 +44,7 @@ class UsuarioController extends Controller
         $usuario = Usuario::find($id);
  
         if(!$dados['password']){
-            $senha_antiga = $usuario->senha;
+            $senha_antiga = $usuario->password;
             $dados['password'] = $senha_antiga;
             $usuario->update($dados);
         }else{
@@ -84,7 +84,7 @@ class UsuarioController extends Controller
     public function salvar(Request $request)
     {
         $dados = $request->all();
-        $dados['senha'] = bcrypt($dados['senha']);
+        $dados['password'] = bcrypt($dados['password']);
         Usuario::create($dados);
  
         return redirect()->route('manager');
@@ -93,7 +93,7 @@ class UsuarioController extends Controller
     public function salvarUsuario(Request $request)
     {
         $dados = $request->all();
-        $dados['senha'] = bcrypt($dados['senha']);
+        $dados['password'] = bcrypt($dados['password']);
         
 
         if (Auth::user()->cargoId != 1){

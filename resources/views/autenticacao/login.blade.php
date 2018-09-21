@@ -1,5 +1,5 @@
 @extends('shared.layoutLogin')
- 
+
 @section('content')
 <div class="wrapper fadeInDown">
     <div id="formContent">
@@ -11,10 +11,14 @@
         <h3>Login</h3>
         <form method="post" action="{{route ('logar')}}">
             {{ csrf_field() }}
-            <input type="text" id="login" class="fadeIn second" name="login" placeholder="Login">
+            <input type="text" id="email" class="fadeIn second" name="email" placeholder="Login">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">
             <input type="submit" class="fadeIn fourth" value="Acessar" style="margin-top: 2%; margin-bottom: 3%;">
         </form>
+
+        @if($errors->any())
+        <div class="col-sm-12"><h4 style="color: red">{{$errors->first()}}</h4></div>
+        @endif
 
         <div id="formFooter">
             <a class="underlineHover" style="margin-right: 5%;" href="#">Esqueceu a senha?</a>

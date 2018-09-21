@@ -78,10 +78,6 @@
                                                 </div>
                                                 <div class="form-group row">
                                                     <div class="col-sm-3">
-                                                        <label for="login" class="control-label labelInputEditUser">Login:</label>
-                                                        <input type="text" class="form-control" name="login" placeholder="Digite o login" required>
-                                                    </div>
-                                                    <div class="col-sm-3">
                                                         <label for="senha" class="control-label labelInputEditUser">Senha:</label>
                                                         <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
                                                     </div>
@@ -96,6 +92,15 @@
                                                     <div class="col-sm-2">
                                                         <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
                                                         <input type="date" class="form-control" name="dataNasc" required>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                                        <select class="form-control" name="cargoId" required>
+                                                            <option>Selecione..</option>
+                                                            @foreach($cargos as $cargo)
+                                                            <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                                 <div class="form-group row">
@@ -143,15 +148,6 @@
                                                             <option value="Feminino">Feminino</option>
                                                         </select>
                                                     </div>
-                                                    <div class="col-sm-3">
-                                                        <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
-                                                        <select class="form-control" name="cargoId" required>
-                                                            <option>Selecione..</option>
-                                                            @foreach($cargos as $cargo)
-                                                            <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
                                                     <div class="col-sm-2">
                                                         <label for="cargoId" class="control-label labelInputEditUser">Status:</label>                    
                                                         <select class="form-control labelInputEditUser" name="isAtivo">
@@ -182,8 +178,7 @@
                                         <th>ID</th>
                                         <th>Nome</th>
                                         <th>E-mail</th>
-                                        <th>CPF</th>  
-                                        <th>Login</th>
+                                        <th>CPF</th>
                                         <th>Cargo</th>
                                         <th>Contato</th>
                                         <th>Status</th>
@@ -197,7 +192,6 @@
                                         <td>{{$usuario->nome}}</td>
                                         <td>{{$usuario->email}}</td>
                                         <td>{{$usuario->cpf}}</td>
-                                        <td>{{$usuario->login}}</td>
                                         <td>
                                             @foreach($cargos as $cargo)
                                             @if( $usuario->cargoId == $cargo->id)
@@ -254,12 +248,8 @@
                                                                     </div>
                                                                     <div class="form-group row">
                                                                         <div class="col-sm-3">
-                                                                            <label for="login" class="control-label labelInputEditUser">Login:</label>
-                                                                            <input type="text" class="form-control" name="login" placeholder="Digite o login" value="{{$usuario->login}}" required>
-                                                                        </div>
-                                                                        <div class="col-sm-3">
                                                                             <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                                                            <input type="password" class="form-control" name="senha" placeholder="Para manter a mesma senha, deixe em branco">
+                                                                            <input type="password" class="form-control" name="password" placeholder="Para manter a mesma senha, deixe em branco">
                                                                         </div>
                                                                         <div class="col-sm-2">
                                                                             <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
@@ -272,6 +262,16 @@
                                                                         <div class="col-sm-2">
                                                                             <label for="dataNasc" class="control-label labelInputEditUser">Data Nascimento:</label>
                                                                             <input type="date" class="form-control" name="dataNasc" placeholder="Digite a Data de Nascimento" value="{{$usuario->dataNasc}}" required>
+                                                                        </div>
+                                                                        <div class="col-sm-3">
+                                                                            <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
+                                                                            <select class="form-control" name="cargoId" required>
+                                                                                <option>Selecione..</option>
+                                                                                @foreach($cargos as $cargo)
+                                                                                <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargoId ? 'selected' : ''}}>{{$cargo->nome}}</option>
+                                                                                @endforeach
+                                                                                
+                                                                            </select>
                                                                         </div>
                                                                     </div>
                                                                     <div class="form-group row">

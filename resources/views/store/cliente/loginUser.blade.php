@@ -25,6 +25,9 @@
                                 <div class="col-xs-6 form-group pull-right">     
                                     <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                                 </div>
+                                @if($errors->any())
+                                <div class="col-sm-12"><h4 style="color: red">{{$errors->first()}}</h4></div>
+                                @endif
                             </form>
                             <form id="register-form" action="{{route ('cadastroCliente')}}" method="post" role="form" style="display: none;">
                                 {{ csrf_field() }}
@@ -39,7 +42,7 @@
                                     <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" required>
                                 </div>
                                 <div class="form-group col-sm-6">
-                                    <input type="password" name="senha" id="senha" tabindex="2" class="form-control" placeholder="Senha" required>
+                                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Senha" required>
                                 </div>
 
                                 <div class="form-group col-sm-6">
