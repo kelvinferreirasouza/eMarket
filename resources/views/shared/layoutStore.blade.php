@@ -12,6 +12,9 @@
         <title>eMarket</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <script src="{{ asset('js/store/jquery.maskedinput-1.1.4.pack.js') }}"></script>
+        <script type="text/javascript">
+        </script>
     </head>
     <body>
 

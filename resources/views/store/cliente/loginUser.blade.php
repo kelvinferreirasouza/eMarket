@@ -130,5 +130,40 @@
         });
     });
 </script>
+<script>
+    $('#cep').blur(function (e) {
+        var cep = $('#cep').val();
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+        var retorno = pesquisarCEP(url);
+    });
+
+    $(document).ready(function () {
+        $("#cep").mask("99999-999");
+    });
+
+    function pesquisarCEP(endereco) {
+        $.ajax({
+            type: "GET",
+            url: endereco
+        }).done(function (data) {
+            $('#bairro').val(data.bairro);
+            $('#logradouro').val(data.logradouro);
+            $('#municipio').val(data.localidade);
+            $('#estado').val(data.uf);
+        }).fail(function () {
+            console.log("Erro!");
+        });
+    }
+</script>
+<script>
+    $(document).ready(function () {
+        $("#cpf").mask("999.999.999-99");
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("#fone").mask("(99)9999-9999");
+    });
+</script>
 
 @endsection
