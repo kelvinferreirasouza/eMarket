@@ -2,14 +2,14 @@
 
 @section('conteudoStore')
 
-<div class="col-sm-12 text-center"><h1>Resultados de "{{$busca}}":</h1></div>
+<div class="col-sm-12 text-center"><h1>Resultados:</h1></div>
 
 <section class="containerFlex flex flex-wrap gridProducts">
-    @forelse($produtos as $produto)
+    @forelse($busca as $produto)
 
     <div class='itemFlex'>
         <figure class='card card-product effectHover'>
-            <div class='img-wrap'><img src='../imgs/produtos/{{$produto->imagem1}}'></div>
+            <div class='img-wrap'><img src='../../imgs/produtos/{{$produto->imagem1}}'></div>
             <figcaption class='info-wrap'>
                 <h4 class='title'>{{$produto->produtoNome}}</h4>
             </figcaption>

@@ -11,16 +11,17 @@
   |
  */
 
+Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
+Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
+Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
+Route::post('/logar', 'AutenticacaoController@logar')->name('logar');
+
+
 /* Rotas Publicas */
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
-
-
-/* Rotas Publicas do Manager */
-Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
-Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
-Route::get('/manager/registrar', 'UsuarioController@registrar')->name('registrar');
-Route::post('/manager/salvar', 'UsuarioController@salvar')->name('salvar');
+Route::any('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
+Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 
 
 /* Rotas do Carrinho */ 
@@ -38,15 +39,12 @@ Route::post('/clientes/cadastrar/salvar', 'AutenticacaoController@cadastroClient
 /* Middware de Clientes */
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
     Route::get('/clientes/perfil', 'ClienteController@perfil')->name('perfil');
-    Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 });
 
 /* Middware do Manager */
 
 Route::middleware(['manager'])->group(function () {
-
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
     Route::get('/manager/logout', 'AutenticacaoController@logout')->name('logout');
 

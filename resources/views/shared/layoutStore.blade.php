@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="{{ asset('css/store/store.css') }}" type="text/css"/>
         <!-- Font Awesome -->
         <link rel="stylesheet" href="{{url('assets/css/all.css')}}">
-        <link rel="shortcut icon" type="image/ico" href="../imgs/favicon.ico"/>
+        <link rel="shortcut icon" type="image/ico" href="../../imgs/favicon.ico"/>
         <title>eMarket</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
@@ -26,12 +26,17 @@
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
                         <li class="upper-links dropdown"><a class="links" href="{{ route('loginCliente') }}"><i class="far fa-user"></i>
-                            @if(auth()->guard('clientes')->check())
-                                        {{ Auth::guard('clientes')->user()->nome }}
-                            @else
-                                        Login | Registre-se
-                            @endif
+                                @if(auth()->guard('clientes')->check())
+                                {{ Auth::guard('clientes')->user()->nome }}
                             </a>
+                            <ul class="dropdown-menu">
+                                <li class="profile-li"><a class="profile-links" href="{{route('logoutCliente')}}">Logout</a></li>
+                            </ul>
+                            @else
+                            Login | Registre-se
+                            </a>
+                            @endif
+
                         </li>
                     </ul>
                 </div>
@@ -42,10 +47,10 @@
                     </div>  
                     <div class="navbar-search smallsearch col-sm-8 col-xs-11">
                         <div class="row">
-                            
+
                             {!! Form::open(['route' => 'buscaProduto', 'class' => 'form form-inline']) !!}
                             {!! Form::text('key_search', null, ['class' => 'navbar-input col-xs-11', 'placeholder' => 'O que você procura?']) !!}
-                            
+
                             <button class="navbar-button col-xs-1">
                                 <svg width="15px" height="15px">
                                 <path d="M11.618 9.897l4.224 4.212c.092.09.1.23.02.312l-1.464 1.46c-.08.08-.222.072-.314-.02L9.868 11.66M6.486 10.9c-2.42 0-4.38-1.955-4.38-4.367 0-2.413 1.96-4.37 4.38-4.37s4.38 1.957 4.38 4.37c0 2.412-1.96 4.368-4.38 4.368m0-10.834C2.904.066 0 2.96 0 6.533 0 10.105 2.904 13 6.486 13s6.487-2.895 6.487-6.467c0-3.572-2.905-6.467-6.487-6.467 "></path>
@@ -61,9 +66,9 @@
                             </svg> Carrinho
                             <span class="item-number">
                                 @if(Session::has('carrinho'))
-                                    {{Session::get('carrinho')->totalItems()}}
+                                {{Session::get('carrinho')->totalItems()}}
                                 @else
-                                    0
+                                0
                                 @endif
                             </span>
                         </a>
@@ -101,14 +106,14 @@
                         <li class="dropdown nav-item">
                             <a class="nav-link text-center" href="#">
                                 <p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/menu-icon.svg') }}" class="svg-icon"></i></p>
-                                    Todos
+                                Todos
                             </a>				
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($setores as $setor)
                                 @if($setor->imagem != "")
-                                <li><a href="#"><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
+                                <li><a href="#"><img src="../../imgs/setores/{{$setor->imagem}}" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
                                 @else
-                                <li><a href="#"><img src="../imgs/setores/sem_foto.jpg" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
+                                <li><a href=""><img src="../../imgs/setores/sem_foto.jpg" class="svg-icon-all"> {{$setor->nome}}</a></li><hr>
                                 @endif
                                 @endforeach
                             </ul>                  
@@ -118,12 +123,12 @@
                         @if ($setor->isDestaque == 1 && $setor->imagem != "")
                         <li class="dropdown nav-item">
                             <a class="nav-link text-center" href="#">
-                                <p><img src="../imgs/setores/{{$setor->imagem}}" class="svg-icon"></p> {{$setor->nome}}
+                                <p><img src="../../imgs/setores/{{$setor->imagem}}" class="svg-icon"></p> {{$setor->nome}}
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($categorias as $categoria)
                                 @if($categoria->produtoSetorId == $setor->id)
-                                <li><a href="#">{{$categoria->nome}}</a></li>
+                                <li><a href="{{ route('buscaMenu', ['setor' => $setor->nome, 'categoria' => $categoria->nome]) }}">{{$categoria->nome}}</a></li>
                                 <hr>
                                 @endif
                                 @endforeach

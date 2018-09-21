@@ -10,7 +10,7 @@ use App\Setor;
 use App\Categoria;
 
 class StoreController extends Controller {
-    
+
     private $produto;
 
     public function __construct(Produto $produto) {
@@ -30,7 +30,7 @@ class StoreController extends Controller {
         $produtos = Produto::all();
         $setores = Setor::all();
         $categorias = Categoria::all();
-        
+
         return view('store.carrinho', compact('produtos', 'setores', 'categorias'));
     }
 
@@ -41,6 +41,25 @@ class StoreController extends Controller {
         $categorias = Categoria::all();
 
         return view('store.pesquisa', compact('produtos', 'busca', 'setores', 'categorias'));
+    }
+
+    public function buscaMenu($setor, $categoria) {
+        $setores = Setor::all();
+        $categorias = Categoria::all();
+
+        $pesqSetor = $setores->where('nome', $setor)->first();
+        $setorId = $pesqSetor->id;
+
+        $pesqCategoria = $categorias->where('nome', $categoria)->first();
+        $categoriaId = $pesqCategoria->id;
+
+        $produtos = Produto::all();
+        $busca = $produtos->sortBy('produtoNome')
+                ->where('produtoSetorId', $setorId)
+                ->where('produtoCategoriaId', $categoriaId);
+                
+
+        return view('store.categorias', compact('busca', 'setores', 'categorias'));
     }
 
 }

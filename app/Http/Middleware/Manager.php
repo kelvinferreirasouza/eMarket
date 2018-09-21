@@ -15,8 +15,8 @@ class Manager {
      * @return mixed
      */
     public function handle($request, Closure $next) {
-        if (Auth::guard('clientes')->check()) {
-            return redirect(route('index'));
+        if (!Auth::check() || Auth::guard('clientes')->check()) {
+            return redirect(route('login'));
         }
 
         return $next($request);
