@@ -76,7 +76,7 @@ class PagSeguro extends Model
     {
         $params = [
             'email' => config('pagseguro.email'),
-            'token' => 'AD3C45C6C5EE45D59F21E1CDC4315576',
+            'token' => config('pagseguro.token'),
             'senderHash' => $sendHash,
             'paymentMode' => 'default',
             'paymentMethod' => 'boleto',
@@ -107,7 +107,6 @@ class PagSeguro extends Model
             'shippingAddressState' => 'RS',
             'shippingAddressCountry' => 'ATA',
         ];
-        //$params = http_build_query($params);
         
         $guzzle = new Guzzle;
         $response = $guzzle->request('POST', config('pagseguro.url_payment_transparent_production'), [

@@ -131,14 +131,12 @@
                             <ul class="dropdown-menu" role="menu">
                                 @foreach($categorias as $categoria)
                                 @if($categoria->produtoSetorId == $setor->id)
-                                <li><a href="{{ route('index', ['setor' => $setor->nome, 'categoria' => $categoria->nome]) }}">{{$categoria->nome}}</a></li>
+                                <li><a href="{{ route('buscaMenu', ['setor' => $setor->nome, 'categoria' => $categoria->nome]) }}">{{$categoria->nome}}</a></li>
                                 <hr>
                                 @endif
                                 @endforeach
                             </ul>                
                         </li>
-                        @elseif ($setor->imagem == "")
-
                         @endif
                         @endforeach
                     </ul>

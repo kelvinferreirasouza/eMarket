@@ -17,7 +17,7 @@ Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
 /* Rotas Publicas */
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
-//Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
+Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
 Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 /* Rotas do Carrinho */
 Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');

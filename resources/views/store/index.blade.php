@@ -2,7 +2,7 @@
 
 @section('conteudoStore')
 
-<div class="col-sm-12 text-center"><h1>Ofertas</h1></div>
+<div class="col-sm-12 text-center"><h1>OFERTAS</h1></div>
 
 <section class="containerFlex flex flex-wrap gridProducts">
     @forelse($ofertas as $produto)
