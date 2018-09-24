@@ -29,8 +29,9 @@ Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('log
 Route::get('/clientes/cadastrar', 'AutenticacaoController@registerUser')->name('registerUser');
 Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->name('cadastroCliente');
 /* Middware de Clientes */
-Route::middleware(['auth'])->group(function () {
-    Route::get('/clientes/perfil', 'ClienteController@perfil')->name('perfil');
+Route::middleware(['web'])->group(function () {
+    Route::get('/minhaconta', 'ClienteController@minhaConta')->name('minhaConta');
+    Route::get('/meuspedidos', 'ClienteController@meusPedidos')->name('meusPedidos');
 });
 /* Middware do Manager */
 Route::middleware(['manager'])->group(function () {

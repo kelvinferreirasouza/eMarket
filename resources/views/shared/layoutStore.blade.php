@@ -22,18 +22,20 @@
             <div class="container">
                 <div class="ro row1">
                     <ul class="largenav pull-right">
-                        <li class="upper-links"><a class="links" href="#"><i class="fas fa-dolly"></i> Meus Pedidos</a></li>
-                        <li class="upper-links"><a class="links" href="#"><i class="far fa-address-card"></i> Minha Conta</a></li>
+                        <li class="upper-links"><a class="links" href="{{route('meusPedidos')}}"><i class="fas fa-dolly"></i> Meus Pedidos</a></li>
+                        <li class="upper-links"><a class="links" href="{{route('minhaConta')}}"><i class="far fa-address-card"></i> Minha Conta</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-building"></i> Quem Somos</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-comments"></i> Atendimento</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-user-shield"></i> Sac</a></li>
                         <li class="upper-links"><a class="links" href="#"><i class="fas fa-phone"></i> (53) 3255-1492</a></li>
                         <li class="upper-links dropdown"><a class="links" href="{{ route('loginCliente') }}"><i class="far fa-user"></i>
                                 @if(auth()->guard('clientes')->check())
-                                {{ Auth::guard('clientes')->user()->nome }}
+                                Olá, {{ Auth::guard('clientes')->user()->nome }}
                             </a>
                             <ul class="dropdown-menu">
-                                <li class="profile-li"><a class="profile-links" href="{{route('logoutCliente')}}">Logout</a></li>
+                                <li class="profile-li"><a href="{{route('minhaConta')}}"><i class="far fa-address-card"></i> Minha Conta</a></li>
+                                <li class="profile-li"><a class="profile-links" href="{{route('meusPedidos')}}"><i class="fas fa-dolly"></i> Meus Pedidos</a></li>
+                                <li class="profile-li"><a class="profile-links" href="{{route('logoutCliente')}}"><i class="fas fa-user-times"></i> Logout</a></li>
                             </ul>
                             @else
                             Login | Registre-se
@@ -149,6 +151,8 @@
                   Request::route()->getName() == 'loginCliente' ||
                   Request::route()->getName() == 'registerUser' ||
                   Request::route()->getName() == 'perfil' ||
+                  Request::route()->getName() == 'minhaConta' ||
+                  Request::route()->getName() == 'meusPedidos' ||
                   Request::route()->getName() == 'buscaProduto') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>

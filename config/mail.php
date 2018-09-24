@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'contato@emarket.com.br'),
-        'name' => env('MAIL_FROM_NAME', 'eMarket'),
+        'address' => env('MAIL_FROM_ADDRESS', 'contato@emarketsoftware.com.br'),
+        'name' => env('MAIL_FROM_NAME', 'eMarket Software'),
     ],
 
     /*

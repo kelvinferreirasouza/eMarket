@@ -56,5 +56,9 @@ class StoreController extends Controller {
         
         return view('store.categorias', compact('busca', 'setores', 'categorias'));
     }
+    
+    public function resetPassword(){
+        return view('auth.passwords.reset');
+    }
 
 }

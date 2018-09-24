@@ -91,12 +91,21 @@ class ClienteController extends Controller {
         return view('clientes.cadastrar');
     }
 
-    public function perfil() {
+    public function minhaConta() {
         
         $setores = Setor::all();
         $categorias = Categoria::all();
 
-        return view('store.cliente.perfil', compact('setores', 'categorias'));
+        return view('store.cliente.minhaConta', compact('setores', 'categorias'));
+
+    }
+    
+    public function meusPedidos() {
+        
+        $setores = Setor::all();
+        $categorias = Categoria::all();
+
+        return view('store.cliente.meusPedidos', compact('setores', 'categorias'));
 
     }
     
