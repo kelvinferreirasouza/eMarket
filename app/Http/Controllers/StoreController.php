@@ -60,5 +60,12 @@ class StoreController extends Controller {
     public function resetPassword(){
         return view('auth.passwords.reset');
     }
+    
+    public function metodoPagamento(){
+        $setores = Setor::all();
+        $categorias = Categoria::all();
+        
+        return view('store.pedido.metodoPagamento', compact('setores', 'categorias'));
+    }
 
 }

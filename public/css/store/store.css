@@ -1213,3 +1213,101 @@ label {
     border-radius: 0;
     color: #000 !important;
 }
+
+.icon-payment {
+    width: 10%;
+    margin-bottom: 2%;
+}
+
+.container-profile {
+    max-width: 1500px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 15%;
+}
+
+.iconPedido{
+    width: 26px;
+}
+
+.lblue {
+    background-color: #098bea   ;
+    color: #ffffff;
+}
+
+.flat {
+    border-radius: 0px;
+}
+
+.flatPanel {
+    font-size: large;
+    border-radius: 0;
+    color: black;
+}
+
+.pad {
+    padding: 10px;
+    margin-bottom: 0px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pad {
+    padding: 15px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.panel-primary>.panel-heading {
+    width: 950px;
+    margin-left: -15px;
+    background-color: #0c51a1;
+}
+
+.panel-produtos-pedido {
+    width: 950px;
+    margin-left: -15px;
+    background-color: #0050a7;
+    color: #fff;
+    border-color: #428bca;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+}
+
+.panel-body{
+    padding: 20px 0 10px 0;
+}
+
+.divInfoPedido {
+    padding: 10px;
+}
+
+.divPerfil{
+    margin-bottom: 15px;
+}
+
+.btnEditPerfil{
+    background-color: #4caf50;
+    position: relative;
+    float: right;
+    margin-top: -4px;
+}
+
+.btnEditPerfil:hover{
+    background-color: #4ace4f;
+}
+
+.btnSalvar {
+    background-color: #d64416;
+    position: relative;
+    float: right;
+    margin-top: -4px;
+}
+
+.btnSalvar:hover{
+    background-color: #f54e1a;
+}

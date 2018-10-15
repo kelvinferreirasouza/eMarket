@@ -3,9 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Auth;
+use App\Carrinho;
 
-class CheckCustomAuth
+class CheckQtdItemsCart
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,12 @@ class CheckCustomAuth
      */
     public function handle($request, Closure $next)
     {
-        if( !Auth::check() || !Auth::guard('clientes')->check() )
-            return redirect()->back();
-
+        $carrinho = new Carrinho;
+        
+        // verifica se existe algum item no carrinho
+        if($carrinho->totalItems() < 1)
+            return redirect()->back()->with('message', 'Não existe itens no carrinho!');
+        
         return $next($request);
     }
 }

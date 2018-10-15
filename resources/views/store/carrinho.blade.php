@@ -97,7 +97,7 @@
                         <button class="btn btn-block btn-info">Continuar Comprando <i class="fas fa-undo"></i></button>
                     </div>
                     <div class="col-sm-12 col-md-6 text-right">
-                        <button class="btn btn-block btn-success text-uppercase">Finalizar Pedido <i class="fas fa-check"></i></button>
+                        <a href="{{route('metodoPagamento')}}" class="btn btn-block btn-success text-uppercase">Finalizar Pedido <i class="fas fa-check"></i> </a>
                     </div>
                 </div>
             </div>

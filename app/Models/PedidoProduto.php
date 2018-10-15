@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PedidoProduto extends Model
 {
      protected $fillable = [
-        'produtoId', 'pedidoId', 'qtd', 'valor', 'valorDesconto', 'valorAcrescimo', 'valorTotal', 'isAtivo'
+        'produto_id', 'pedido_id', 'qtd', 'valor', 'valorDesconto', 'valorAcrescimo', 'valorTotal', 'isAtivo'
     ];
 
     protected $table = 'pedidoprodutos';

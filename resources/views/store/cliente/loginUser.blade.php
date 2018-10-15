@@ -80,18 +80,17 @@
                                 <div class="form-group col-sm-6">
                                     <input type="text" name="bairro" id="bairro" tabindex="2" class="form-control" required placeholder="Bairro">
                                 </div>  
-
-                                <div class="form-group">
-                                    <input type="text" name="fone" id="fone" tabindex="2" class="form-control" required placeholder="Contato">
+                                <div class="form-group col-sm-6">
+                                    <input type="text" name="complemento" id="complemento" tabindex="2" class="form-control" required placeholder="Complemento">
                                 </div>
-
-
-                                <div class="form-group">
-                                    <div class="row">
-                                        <div class="col-sm-6 col-sm-offset-3">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Criar minha conta">
-                                        </div>
-                                    </div>
+                                <div class="form-group col-sm-6">
+                                    <input type="text" name="celular" id="celular" tabindex="2" class="form-control" required placeholder="Celular" required>
+                                </div>
+                                <div class="col-sm-12">
+                                    <center><div class="g-recaptcha" data-sitekey="6LfDIVYUAAAAAD5GtthGjPBC_HQehSl1LC0xDEcW"></div></center>
+                                </div>
+                                <div class="col-sm-12" style="margin-top: 130px;">
+                                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Criar minha conta">
                                 </div>
                             </form>
                         </div>

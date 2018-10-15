@@ -11,8 +11,10 @@
         <link rel="shortcut icon" type="image/ico" href="../../imgs/favicon.ico"/>
         <title>eMarket</title>
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <script src="{{ asset('js/store/jquery.maskedinput-1.1.4.pack.js') }}"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
         <script type="text/javascript">
         </script>
     </head>
@@ -110,7 +112,7 @@
 
                         <li class="dropdown nav-item">
                             <a class="nav-link text-center" href="#">
-                                <p><img src="{{ asset('https://emarketsoftware.com.br/imgs/icons/menu-icon.svg') }}" class="svg-icon"></i></p>
+                                <p><img src="{{ asset('../../imgs/SVG/menu-icon.svg') }}" class="svg-icon"></i></p>
                                 Todos
                             </a>				
                             <ul class="dropdown-menu" role="menu">
@@ -153,7 +155,9 @@
                   Request::route()->getName() == 'perfil' ||
                   Request::route()->getName() == 'minhaConta' ||
                   Request::route()->getName() == 'meusPedidos' ||
-                  Request::route()->getName() == 'buscaProduto') ? 'display:none' : '' }}">
+                  Request::route()->getName() == 'buscaProduto' ||
+                  Request::route()->getName() == 'metodoPagamento' ||
+                  Request::route()->getName() == 'detalhesPedido') ? 'display:none' : '' }}">
             <!-- Overlay -->
             <div class="overlay"></div>
 
@@ -250,7 +254,6 @@
                 </div>
             </div>
         </footer>
-
         <div class="copyright">
             <div class="container">
                 <div class="col-md-12 col-sm-12">
@@ -258,7 +261,7 @@
                 </div>
             </div>
         </div>
-
+        @stack('scripts')
         <script>
             window.onscroll = function () {
                 myFunction()

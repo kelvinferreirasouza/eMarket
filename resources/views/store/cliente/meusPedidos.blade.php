@@ -2,10 +2,10 @@
 
 @section('conteudoStore')
 
-<div class="container">
+<div class="container container-profile">
     <div class="profile-block col-sm-6">
         <div class="panel text-center">
-            <div class="user-heading"> <a href="#"><img src="http://cumbrianrun.co.uk/wp-content/uploads/2014/02/default-placeholder-300x300.png" alt="" title=""></a>
+            <div class="user-heading"> <a href="#"><img src="{{'../imgs/clientes/' . Auth::guard('clientes')->user()->foto}}" alt="" title=""></a>
                 <h1>{{ Auth::guard('clientes')->user()->nome }}</h1>
                 <p>{{ Auth::guard('clientes')->user()->email }}</p>
             </div>
@@ -25,21 +25,25 @@
                         <tr>
                             <th class="text-center">Nº Pedido</th>
                             <th class="text-center">Data</th>
-                            <th class="text-center">Pagamento</th>
+                            <th class="text-center">Forma de Pagamento</th>
                             <th class="text-center">Total R$</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Ações</th>
                         </tr>
                     </thead>            
-                    <tbody>            
+                    <tbody> 
+                        @forelse($pedidos as $pedido)
                         <tr>
-                            <td class="text-center">523424123</td>
-                            <td class="text-center">00/00/00</td>
-                            <td class="text-center">Boleto</td>
-                            <td class="text-center">R$129,99</td>
-                            <td class="text-center">Aprovado</td>
-                            <td class="text-center"></td>
+                            <td class="text-center">{{$pedido->id}}</td>
+                            <td class="text-center">{{$pedido->data}}</td>
+                            <td class="text-center">{{$pedido->getFormaPagamento($pedido->metodo_pagamento)}}</td>
+                            <td class="text-center">{{$pedido->total}}</td>
+                            <td class="text-center">{{$pedido->getStatus($pedido->status)}}</td>
+                            <td class="text-center"><a href="{{route('detalhesPedido', $pedido->id)}}"><img src="../imgs/visualizar.png" class="iconPedido" alt="Visualizar Pedido"</a></td>
                         </tr>
+                        @empty
+                    <p>Nenhum Pedido encontrado!</p>
+                    @endforelse()
                     </tbody>
                 </table> 
             </div> 

@@ -70,6 +70,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'manager' => \App\Http\Middleware\Manager::class,
+        'cliente' => \App\Http\Middleware\Cliente::class,
+        'check.qtd.cart' => \App\Http\Middleware\CheckQtdItemsCart::class,
 
     ];
 }

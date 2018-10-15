@@ -23,6 +23,8 @@ class AutenticacaoController extends Controller {
     public function loginCliente() {
         $setores = Setor::all();
         $categorias = Categoria::all();
+        session(['link' => url()->previous()]);
+        
         return view('store.cliente.loginUser', compact('setores', 'categorias'));
     }
 
@@ -48,7 +50,7 @@ class AutenticacaoController extends Controller {
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('clientes')->attempt($credentials))
-            return redirect()->route('index');
+            return redirect(session('link'));
 
         return redirect()
                         ->route('loginCliente')

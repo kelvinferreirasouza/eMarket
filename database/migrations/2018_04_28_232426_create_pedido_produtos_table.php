@@ -15,14 +15,12 @@ class CreatePedidoProdutosTable extends Migration
     {
         Schema::create('pedidoprodutos', function (Blueprint $table) {	
             $table->increments('id');
-            $table->integer('produtoId')->unsigned();
-            $table->foreign('produtoId')->references('id')->on('produtos');
+            $table->integer('pedido_id')->unsigned();
+            $table->foreign('pedido_id')->references('id')->on('pedidos')->onDelete('cascade');
+            $table->integer('produto_id')->unsigned();
+            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->decimal('qtd', 12, 3)->default(0.000);
-            $table->decimal('valor', 12, 2)->default(0.00);
-            $table->decimal('valorDesconto', 12, 2)->default(0.00);
-            $table->decimal('valorAcrescimo', 12, 2)->default(0.00);
-            $table->decimal('valorTotal', 12, 2)->default(0.00);
-            $table->integer('isAtivo')->default(1);
+            $table->decimal('valor', 10, 2)->default(0.00);
         });
     }
 

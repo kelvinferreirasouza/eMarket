@@ -18,7 +18,6 @@ Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
 Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
-Route::get('/clientes/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 /* Rotas do Carrinho */
 Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
@@ -29,10 +28,21 @@ Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('log
 Route::get('/clientes/cadastrar', 'AutenticacaoController@registerUser')->name('registerUser');
 Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->name('cadastroCliente');
 /* Middware de Clientes */
-Route::middleware(['web'])->group(function () {
+
+Route::middleware(['cliente'])->group(function () {
+    /* Rotas de Carrinho */
+    Route::get('/pedido/forma-pagamento', 'StoreController@metodoPagamento')->middleware('check.qtd.cart')->name('metodoPagamento');
+    Route::post('pagseguro-getcode', 'PagSeguroController@getCode')->name('pagseguro.code.transparent');
+    Route::post('pagseguro-payment-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
+
+    /* Rotas de Perfil de Clientes */
     Route::get('/minhaconta', 'ClienteController@minhaConta')->name('minhaConta');
+    Route::post('/minhaconta/atualizar', 'ClienteController@atualizarPerfilCliente')->name('atualizarPerfilCliente');
     Route::get('/meuspedidos', 'ClienteController@meusPedidos')->name('meusPedidos');
+    Route::get('/meuspedidos/visualizar/{id}', 'ClienteController@detalhesPedido')->name('detalhesPedido');
+    Route::get('/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 });
+
 /* Middware do Manager */
 Route::middleware(['manager'])->group(function () {
     Route::get('/manager', 'AutenticacaoController@manager')->name('manager');
