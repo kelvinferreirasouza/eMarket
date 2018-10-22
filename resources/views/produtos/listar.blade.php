@@ -87,7 +87,7 @@
                                                         </div>
                                                         <div class="col-sm-4">
                                                             <label for="produtoMarca" class="control-label labelInputEditUser">Marca:</label>
-                                                                <input type="text" class="form-control" name="produtoMarca" placeholder="Digite a Marca do Produto">
+                                                            <input type="text" class="form-control" name="produtoMarca" placeholder="Digite a Marca do Produto">
                                                         </div>
                                                     </div>
                                                     <div class="form-group row">
@@ -105,11 +105,11 @@
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="precoVenda" class="control-label labelInputEditUser">Preço Venda:</label>
-                                                            <input type="number" step="any" class="form-control" name="precoVenda" placeholder="Preco de venda" value="{{old('precoVenda')}}">
+                                                            <input type="number" step="any" class="form-control" name="precoVenda" id="precoVenda" placeholder="Preco de venda" value="{{old('precoVenda')}}" onchange="calcularMargem()">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="margemLucro" class="control-label labelInputEditUser">Margem Lucro %:</label>
-                                                            <input type="number" step="any" class="form-control" name="margemLucro" placeholder="Lucro %">
+                                                            <input type="number" step="any" class="form-control" id="margemLucro" name="margemLucro" placeholder="Lucro %" onchange="calcularMargem()">
                                                         </div>
                                                         <div class="col-sm-2">
                                                             <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
@@ -335,15 +335,15 @@
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="precoCusto" class="control-label labelInputEditUser">Preço Custo:</label>
-                                                                                <input type="number" step="any" id="precoCusto" class="form-control" name="precoCusto" placeholder="Digite o custo do produto" value="{{$produto->precoCusto}}" required>
+                                                                                <input type="number" step="any" class="form-control" name="precoCusto" id="precoCusto{{$produto->id}}" placeholder="Digite o custo do produto" value="{{$produto->precoCusto}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="precoVenda" class="control-label labelInputEditUser">Preço Venda:</label>
-                                                                                <input type="number" step="any" class="form-control" name="precoVenda" placeholder="Digite o preco de venda" value="{{$produto->precoVenda}}">
+                                                                                <input type="number" step="any" class="form-control" name="precoVenda" id="precoVenda{{$produto->id}}" placeholder="Digite o preco de venda" value="{{$produto->precoVenda}}" onchange="calcularMargemModal({{$produto->id}})">
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="margemLucro" class="control-label labelInputEditUser">Margem Lucro %:</label>
-                                                                                <input type="number" step="any" class="form-control" name="margemLucro" placeholder="Digite a margem de lucro" value="{{$produto->margemLucro}}" required>
+                                                                                <input type="number" step="any" class="form-control" name="margemLucro" id="margemLucro{{$produto->id}}" placeholder="Digite a margem de lucro" value="{{$produto->margemLucro}}" onchange="calcularMargemModal({{$produto->id}})" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="produtoUnidadeId" class="control-label labelInputEditUser">Unidade:</label>
@@ -494,7 +494,7 @@
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="precoCusto" class="control-label labelInputEditUser">Preço Custo:</label>
-                                                                                <input disabled type="number" step="any" id="precoCusto" class="form-control" name="precoCusto" placeholder="Digite o custo do produto" value="{{$produto->precoCusto}}" required>
+                                                                                <input disabled type="number" step="any" class="form-control" name="precoCusto" placeholder="Digite o custo do produto" value="{{$produto->precoCusto}}" required>
                                                                             </div>
                                                                             <div class="col-sm-2">
                                                                                 <label for="precoVenda" class="control-label labelInputEditUser">Preço Venda:</label>
@@ -574,3 +574,55 @@
                     </div>
                 </div>
                 @endsection
+                @push('scripts')
+                <script>
+                    function calcularMargem() {
+                        
+                        var precoCusto  = document.getElementById('precoCusto').value;
+                        var precoVenda  = document.getElementById('precoVenda').value;
+                        var margemLucro = document.getElementById('margemLucro').value;
+                        
+                        var total = 0;
+                        
+                        if(precoCusto !== 0){
+                            if(precoVenda > 0){
+                                total = ((precoVenda - precoCusto) / precoCusto) * 100;
+                                if(total < 0){
+                                    $('#margemLucro').css("color", "red");
+                                }
+                                document.getElementById('margemLucro').value = total.toFixed(2);
+                                $( "#produtoUnidadeId" ).focus();
+                            } else if(margemLucro !== 0){
+                                var totalParcial = (precoCusto * margemLucro) / 100;
+                                total = parseFloat(precoCusto) + ((parseFloat(precoCusto) * parseFloat(margemLucro) / 100));
+                                document.getElementById('precoVenda').value = total.toFixed(2);
+                            }
+                        }
+                    }
+                    
+                    function calcularMargemModal(id) {
+                        var idUser = id;
+                        var precoCusto  = document.getElementById('precoCusto' + idUser).value;
+                        var precoVenda  = document.getElementById('precoVenda' + idUser).value;
+                        var margemLucro = document.getElementById('margemLucro' + idUser).value;
+                        
+                        var total = 0;
+                        
+                        if(precoCusto !== 0){
+                            if(precoVenda > 0){
+                                total = ((precoVenda - precoCusto) / precoCusto) * 100;
+                                if(total < 0){
+                                    $('#margemLucro' + idUser).css("color", "red");
+                                } else {
+                                    $('#margemLucro' + idUser).css("color", "black");
+                                }
+                                document.getElementById('margemLucro' + idUser).value = total.toFixed(2);
+                            } else if(margemLucro !== 0){
+                                var totalParcial = (precoCusto * margemLucro) / 100;
+                                total = parseFloat(precoCusto) + ((parseFloat(precoCusto) * parseFloat(margemLucro) / 100));
+                                document.getElementById('precoVenda' + idUser).value = total.toFixed(2);
+                            }
+                        }
+                    }
+                </script>
+                @endpush

@@ -16,10 +16,12 @@
             </ul>
         </div>
     </div>
-
-    <div class="card-block">
+    <div class="flatPanel panel panel-primary col-sm-8">
+        <div class="flatPanel panel-produtos-pedido"><i class="fas fa-dolly"></i> Meus Pedidos:</div>
+        <div class="panel-body">
+            <div class="card-block">
         <div class="row">
-            <div class="col-md-6 table-responsive">
+            <div class="col-sm-12 table-responsive">
                 <table class="table table-striped table-bordered nowrap">
                     <thead>
                         <tr>
@@ -47,6 +49,8 @@
                     </tbody>
                 </table> 
             </div> 
+        </div>
+    </div>
         </div>
     </div>
 </div>

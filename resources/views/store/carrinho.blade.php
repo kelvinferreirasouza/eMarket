@@ -5,7 +5,13 @@
 <div class="carrinhoPedido">
     <section class="jumbotron text-center">
         <div class="container">
-            <h1 class="jumbotron-heading">CARRINHO DE COMPRAS</h1>
+            <div class="col-sm-3">
+                <img src="../imgs/shopping-cart.png" class="imgCart">
+            </div>
+            <div class="col-sm-9">
+                <h1 class="jumbotron-heading">CARRINHO DE COMPRAS</h1>
+            </div>
+            
         </div>
     </section>
 

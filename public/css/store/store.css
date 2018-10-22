@@ -1214,22 +1214,6 @@ label {
     color: #000 !important;
 }
 
-.icon-payment {
-    width: 10%;
-    margin-bottom: 2%;
-}
-
-.container-profile {
-    max-width: 1500px;
-    padding-right: 0;
-    padding-left: 0;
-    margin-left: 15%;
-}
-
-.iconPedido{
-    width: 26px;
-}
-
 .lblue {
     background-color: #098bea   ;
     color: #ffffff;
@@ -1310,4 +1294,23 @@ label {
 
 .btnSalvar:hover{
     background-color: #f54e1a;
+}
+
+.imgCart {
+    width: 120px;
+}
+
+.jumbotron-heading{
+    font-family: 'Comfortaa', cursive;
+}
+
+.container-profile {
+    max-width: 1500px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-left: 15%;
+}
+
+.iconPedido{
+    width: 26px;
 }

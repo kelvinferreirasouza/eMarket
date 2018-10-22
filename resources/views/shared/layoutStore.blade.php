@@ -15,6 +15,9 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <script src="{{ asset('js/store/jquery.maskedinput-1.1.4.pack.js') }}"></script>
         <script src="https://www.google.com/recaptcha/api.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
         <script type="text/javascript">
         </script>
     </head>
@@ -219,13 +222,7 @@
                     </div>
                     <div class="col-md-3 col-sm-6 paddingtop-bottom">
                         <h6 class="heading7">Facebook</h6>
-                        <div class="fb-page" data-href="https://www.facebook.com/mercadobomchurrasco/" data-tabs="timeline"
-                             data-small-header="true" data-width="270px" data-hide-cover="true"
-                             data-height="260px"
-                             data-show-facepile="true">
-                            <blockquote cite="https://www.facebook.com/mercadobomchurrasco//" class="fb-xfbml-parse-ignore"><a
-                                    href="https://www.facebook.com/mercadobomchurrasco/">Bom Churrasco</a></blockquote>
-                        </div>
+
                     </div>
                     <div class="col-md-3 col-sm-6 paddingtop-bottom">
                         <h6 class="heading7">Redes Sociais</h6>
@@ -272,9 +269,9 @@
 
             function myFunction() {
                 if (window.pageYOffset > sticky) {
-                    navbar.classList.add("sticky");
+                    $(navbar).addClass('sticky');
                 } else {
-                    navbar.classList.remove("sticky");
+                    $(navbar).removeClass('sticky');
                 }
             }
         </script>
@@ -292,38 +289,6 @@
                 );
             });
         </script>
-
-        <script>
-            $(document).ready(function () {
-
-                var quantitiy = 0;
-                $('.addQtd').click(function (e) {
-
-                    e.preventDefault();
-
-                    var quantity = parseInt($('#quantity').val());
-
-                    $('#quantity').val(quantity + 1);
-
-                });
-
-                $('.quantity-left-minus').click(function (e) {
-                    // Stop acting like a button
-                    e.preventDefault();
-                    // Get the field name
-                    var quantity = parseInt($('#quantity').val());
-
-                    // If is not undefined
-
-                    // Increment
-                    if (quantity > 1) {
-                        $('#quantity').val(quantity - 1);
-                    }
-                });
-
-            });
-        </script>
-        <script src="{{ asset('js/store/face.js') }}" type="text/javascript"></script>
     </body>
 
 </html>

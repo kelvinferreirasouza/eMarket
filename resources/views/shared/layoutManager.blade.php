@@ -424,6 +424,7 @@
     <script src="{{ asset('js/manager/jquery.mCustomScrollbar.concat.min.js') }}"></script>
     <script src="{{ asset('js/manager/jquery.mousewheel.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/manager/slick.min.js') }}"></script>
+    @stack('scripts')
     <script>
     $('#cep').blur(function (e) {
         var cep = $('#cep').val();

@@ -136,7 +136,6 @@
         $("#celular").removeAttr('disabled');
         $("#btnEditPerfil").hide();
         $("#btnSalvar").show();
-        
     });
 </script>
 
