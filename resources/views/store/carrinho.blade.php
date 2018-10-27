@@ -53,7 +53,7 @@
                                     </div>
                                 </td>
                                 <td class="text-center">R$ {{$produto['item']->precoVenda}}</td>
-                                <td class="text-right"> R$ {{ $produto['item']->precoVenda * $produto['qtd'] }}</td>
+                                <td class="text-right"> R$ {{$produto['item']->precoVenda * $produto['qtd'] }}</td>
                                 <td class="text-right"><button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> </button> </td>    
                             </tr>
                             @empty

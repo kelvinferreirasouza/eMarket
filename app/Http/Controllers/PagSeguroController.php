@@ -1,6 +1,8 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Models\PagSeguro;
 use App\Pedido;
 use App\Carrinho;
@@ -36,13 +38,50 @@ class PagSeguroController extends Controller
         return $pagseguro->getSessionId();
     }
     
+    public function getCodeSandBox(PagSeguro $pagseguro)
+    {
+        return $pagseguro->getSessionIdCard();
+    }
+
+
     public function billet(Request $request, PagSeguro $pagseguro, Pedido $pedido)
     {
-        $response = $pagseguro->paymentBillet($request->sendHash);
+        $idPedido = DB::table('pedidos')
+                    ->where('cliente_id', Auth::guard('clientes')->user()->id)
+                    ->orderBy('id', 'desc')
+                    ->pluck('id')
+                    ->first();
+        
+        $idPedido = $idPedido + 1;
+        
+        $response = $pagseguro->paymentBillet($request->sendHash, $idPedido);
         
         $carrinho = new Carrinho;
         // gera um novo pedido
         $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $total = $carrinho->total(), $status = 1, $metodo_pagamento = 2);
+        
+        // limpa o carrinho
+        $carrinho->carrinhoVazio();
+        
+        return response()->json($response, 200);
+    }
+    
+    public function cardTransaction(Request $request, PagSeguro $pagseguro, Pedido $pedido)
+    {
+        $idPedido = DB::table('pedidos')
+                    ->where('cliente_id', Auth::guard('clientes')->user()->id)
+                    ->orderBy('id', 'desc')
+                    ->pluck('id')
+                    ->first();
+        
+        $idPedido = $idPedido + 1;
+        
+        $carrinho = new Carrinho;
+        
+        $response = $pagseguro->paymentCredCard($request->sendHash, $request->cardToken, $carrinho->total(), $idPedido);
+        
+        // gera um novo pedido
+        $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $total = $carrinho->total(), $status = 1, $metodo_pagamento = 1);
         // limpa o carrinho
         $carrinho->carrinhoVazio();
         
@@ -51,10 +90,5 @@ class PagSeguroController extends Controller
     
     public function card(){
         return view('pagseguro-transparent-card');
-    }
-    
-    public function cardTransaction(Request $request, PagSeguro $pagseguro)
-    {
-        return $pagseguro->paymentCredCard($request);
     }
 }

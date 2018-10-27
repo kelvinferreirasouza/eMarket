@@ -48,6 +48,7 @@
                     @endforelse()
                     </tbody>
                 </table> 
+                <center><div class="pagination paginationPedidos">{!! $pedidos->links() !!}</div></center>
             </div> 
         </div>
     </div>

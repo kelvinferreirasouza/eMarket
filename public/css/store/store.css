@@ -1314,3 +1314,8 @@ label {
 .iconPedido{
     width: 26px;
 }
+
+.paginationPedidos {
+    margin-top: -20px;
+    margin-bottom: -10px;
+}

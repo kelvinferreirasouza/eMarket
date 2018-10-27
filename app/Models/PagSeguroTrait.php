@@ -8,10 +8,17 @@ use Session;
 
 trait PagSeguroTrait {
 
-    public function getConfigs() {
+    public function getConfigsProduction() {
         return [
-            'email' => config('pagseguro.email'),
-            'token' => config('pagseguro.token'),
+            'email' => config('pagseguro.emailProduction'),
+            'token' => config('pagseguro.tokenProduction'),
+        ];
+    }
+    
+    public function getConfigsSandBox() {
+        return [
+            'email' => config('pagseguro.emailSandBox'),
+            'token' => config('pagseguro.tokenSandBox'),
         ];
     }
 
@@ -35,6 +42,65 @@ trait PagSeguroTrait {
         }
 
         return $items;
+    }
+    
+    public function getSender() {
+        $cpf = $this->removeMaskCpf($this->user->cpf);
+        $areaCode = $this->getAreaCode($this->user->celular);
+        $phone = $this->getPhone($this->user->celular);
+
+        return [
+            'senderName'     => $this->user->nome,
+            'senderAreaCode' => $areaCode,
+            'senderPhone'    => $phone,
+            'senderEmail'    => 'c39356058805329727941@sandbox.pagseguro.com.br',
+            'senderCPF'      => $cpf,
+        ];
+    }
+
+    public function getShipping() {
+        $cep = $this->removeMaskCep($this->user->cep);
+
+        return [
+            'shippingType'              => '1',
+            'shippingAddressStreet'     => $this->user->logradouro,
+            'shippingAddressNumber'     => $this->user->numero,
+            'shippingAddressComplement' => $this->user->complemento,
+            'shippingAddressDistrict'   => $this->user->bairro,
+            'shippingAddressPostalCode' => $cep,
+            'shippingAddressCity'       => $this->resolveAcentuacao($this->user->municipio),
+            'shippingAddressState'      => $this->user->estado,
+            'shippingAddressCountry'    => 'BRA',
+        ];
+    }
+    
+    public function getCreditCardHolder() {
+        $cpf = $this->removeMaskCpf($this->user->cpf);
+        $areaCode = $this->getAreaCode($this->user->celular);
+        $phone = $this->getPhone($this->user->celular);
+        
+        return [
+            'creditCardHolderName'          => $this->user->nome,
+            'creditCardHolderCPF'           => $cpf,
+            'creditCardHolderBirthDate'     => '01/01/1997',
+            'creditCardHolderAreaCode'      => $areaCode,
+            'creditCardHolderPhone'         => $phone,
+        ];
+    }
+    
+    public function getBilling() {
+        $cep = $this->removeMaskCep($this->user->cep);
+
+        return [
+            'billingAddressStreet'      => $this->user->logradouro,
+            'billingAddressNumber'      => $this->user->numero,
+            'billingAddressComplement'  => $this->user->complemento,
+            'billingAddressDistrict'    => $this->user->bairro,
+            'billingAddressPostalCode'  => $cep,
+            'billingAddressCity'        => $this->resolveAcentuacao($this->user->municipio),
+            'billingAddressState'       => $this->user->estado,
+            'billingAddressCountry'     => 'BRA',
+        ];
     }
 
     public function removeMaskCpf($cpf) {
@@ -76,36 +142,6 @@ trait PagSeguroTrait {
     function resolveAcentuacao($campo) {
         $arrumar = mb_convert_encoding($campo, 'UTF-8', 'ISO-8859-1');
         return $arrumar;
-    }
-
-    public function getSender() {
-        $cpf = $this->removeMaskCpf($this->user->cpf);
-        $areaCode = $this->getAreaCode($this->user->celular);
-        $phone = $this->getPhone($this->user->celular);
-
-        return [
-            'senderName' => $this->user->nome,
-            'senderAreaCode' => $areaCode,
-            'senderPhone' => $phone,
-            'senderEmail' => $this->user->email,
-            'senderCPF' => $cpf,
-        ];
-    }
-
-    public function getShipping() {
-        $cep = $this->removeMaskCep($this->user->cep);
-
-        return [
-            'shippingType' => '1',
-            'shippingAddressStreet' => $this->user->logradouro,
-            'shippingAddressNumber' => $this->user->numero,
-            'shippingAddressComplement' => $this->user->complemento,
-            'shippingAddressDistrict' => $this->user->bairro,
-            'shippingAddressPostalCode' => $cep,
-            'shippingAddressCity' => $this->resolveAcentuacao($this->user->municipio),
-            'shippingAddressState' => $this->user->estado,
-            'shippingAddressCountry' => 'BRA',
-        ];
     }
 
 }

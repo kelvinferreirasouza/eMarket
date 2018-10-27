@@ -106,10 +106,10 @@ class ClienteController extends Controller {
         $setores = Setor::all();
         $categorias = Categoria::all();
         
-        $pedidos = Pedido::orderBy('pedidos.id')
+        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('cliente_id', $this->cliente->getClienteAuth()->id)
-                ->get();
-
+                ->paginate(10);
+        
         return view('store.cliente.meusPedidos', compact('setores', 'categorias', 'pedidos'));
     }
     

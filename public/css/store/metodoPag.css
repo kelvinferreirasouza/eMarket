@@ -385,3 +385,19 @@ input {
     border-radius: 10px;
     background-color: #0095e5;
 }
+
+.btnPagarCard {
+    margin-left: 440px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    background-color: rgb(0, 149, 229);
+    border-radius: 10px;
+    color: #fff;
+    width: 20%;
+    height: 1%;
+}
+
+.btnPagarCard:hover {
+    background-color: #0b3577;
+    color: #fff;
+}

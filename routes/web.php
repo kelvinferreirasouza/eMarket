@@ -146,8 +146,9 @@ Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')
 /* Rota de Boleto */
 Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 Route::post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
+Route::post('pagseguro-transparente', 'PagSeguroController@getCodeSandBox')->name('pagseguro.code.transparente.sandbox');
 Route::get('pagseguro-transparente', 'PagSeguroController@transparente')->name('pagseguro.transparente');
-Route::get('pagseguro-lightbox', 'PagSeguroController@lightbox')->name('pagseuguro.lightbox');
+Route::get('pagseguro-lightbox', 'PagSeguroController@lightbox')->name('pagseguro.lightbox');
 Route::post('pagseguro-lightbox', 'PagSeguroController@lightboxCode')->name('pagseguro.lightbox.code');
 Route::get('pagseguro', 'PagSeguroController@pagseguro')->name('pagseguro');
 Route::get('pagseguro-btn', function() {

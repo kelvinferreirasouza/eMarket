@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Cliente;
+use Illuminate\Support\Facades\DB;
 use App\Empresa;
 use App\Frete;
 use App\FormaPagamento;

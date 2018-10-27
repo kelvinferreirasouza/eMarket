@@ -60,7 +60,7 @@
                             <div class="col-sm-12">
                                 <div class="col-sm-6 divPerfil">
                                     <label>Email:</label>
-                                    <input type="text" class="form-control" name="email" id="email" placeholder="CPF" value="{{ Auth::guard('clientes')->user()->email }}" required disabled>
+                                    <input type="text" class="form-control" name="email" id="email" placeholder="Email" value="{{ Auth::guard('clientes')->user()->email }}" required disabled>
                                 </div>
                                 <div class="col-sm-6 divPerfil">
                                     <label>Senha: </label>
