@@ -94,5 +94,9 @@ class Pedido extends Model {
         return Carbon::parse($data)->format('d/m/Y');
     }
     
+    public function formatValue($value)
+    {
+        return number_format((float)$value, 2, '.', '');
+    }
 
 }

@@ -9,6 +9,7 @@ use App\Cliente;
 use App\Setor;
 use App\Categoria;
 use App\Pedido;
+use App\Unidade;
 
 class ClienteController extends Controller {
 
@@ -117,6 +118,7 @@ class ClienteController extends Controller {
         
         $setores = Setor::all();
         $categorias = Categoria::all();
+        $unidades = Unidade::all();
         
         $cliente = $this->cliente->getClienteAuth();
         
@@ -132,7 +134,7 @@ class ClienteController extends Controller {
         if(!$pedido)
             return redirect()->back();
         
-        return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'setores', 'categorias'));
+        return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'setores', 'categorias', 'unidades'));
     }
 
     public function pesquisarCliente(Request $request) {

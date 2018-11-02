@@ -154,14 +154,22 @@
                                     </li>
                                     <li class="pcoded-hasmenu
                                         {{ (
+                                        \Request::route()->getName() == 'listarPedidos' ||
                                         \Request::route()->getName() == 'listarFormasPag'
                                          ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-donate"></i></span>
-                                            <span class="pcoded-mtext">Financeiro</span>
+                                            <span class="pcoded-mtext">Vendas</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarPedidos') ? 'active' : '' }}">
+                                                <a href="{{ route('listarPedidos') }}" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Pedidos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
                                             <li class="{{ (\Request::route()->getName() == 'listarFormasPag') ? 'active' : '' }}">
                                                 <a href="{{ route('listarFormasPag') }}" data-i18n="nav.navigate.navbar-inverse">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>

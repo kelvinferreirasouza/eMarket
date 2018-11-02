@@ -52,8 +52,8 @@
                                         </span>
                                     </div>
                                 </td>
-                                <td class="text-center">R$ {{$produto['item']->precoVenda}}</td>
-                                <td class="text-right"> R$ {{$produto['item']->precoVenda * $produto['qtd'] }}</td>
+                                <td class="text-center">R$ {{number_format((float)$produto['item']->precoVenda, 2, '.', '')}}</td>
+                                <td class="text-right"> R$ {{number_format((float)$produto['item']->precoVenda * $produto['qtd'], 2, '.', '')}}</td>
                                 <td class="text-right"><button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> </button> </td>    
                             </tr>
                             @empty
@@ -66,7 +66,7 @@
                             <td></td>
                             <td></td>
                             <td class="subTotal text-right">Sub-Total:</td>
-                            <td class="subTotalValor text-right ">R$ {{$total}}</td>
+                            <td class="subTotalValor text-right ">R$ {{number_format((float)$total, 2, '.', '')}}</td>
                         </tr>
                         <tr>
                             <td></td>
@@ -91,7 +91,7 @@
                             <td></td>
                             <td></td>
                             <td class="totalPedido text-right">Total:</td>
-                            <td class="totalPedidoValor text-right ">R$ {{$total}}</td>
+                            <td class="totalPedidoValor text-right ">R$ {{number_format((float)$total, 2, '.', '')}}</td>
                         </tr>
                         </tbody>
                     </table>

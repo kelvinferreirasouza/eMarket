@@ -4,10 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Empresa;
-use App\Frete;
-use App\FormaPagamento;
 use App\PedidoProduto;
+use App\Produto;
+use App\Pedido;
+use App\Cliente;
+use App\Setor;
+use App\Categoria;
+use App\Fornecedor;
+use App\Unidade;
 
 class PedidoController extends Controller
 {
@@ -23,14 +27,15 @@ class PedidoController extends Controller
 
     public function listarPedidos()
     {
-        $pedidos          = Pedido::paginate(10);
+        $pedidos = Pedido::orderBy('pedidos.id', 'desc')->paginate(10);
+        $produtos         = Produto::all();
         $clientes         = Cliente::all();
-        $empresas         = Empresa::all();
-        $fretes           = Frete::all();
-        $formaPagamentos  = FormaPagamento::all();
-        $pedidoProdutos   = PedidoProduto::all();
+        $setores          = Setor::all();
+        $categorias       = Categoria::all();
+        $fornecedores     = Fornecedor::all();
+        $unidades         = Unidade::all();
 
-        return view('pedidos.listar', compact('pedidos', 'clientes', 'empresas', 'fretes', 'formaPagamentos', 'pedidoProdutos'));
+        return view('pedidos.listar', compact('pedidos', 'produtos', 'clientes', 'setores', 'categorias', 'fornecedores', 'unidades'));
     }
 
     public function salvarPedido(Request $request)

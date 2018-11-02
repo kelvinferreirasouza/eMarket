@@ -28,7 +28,7 @@
                         <p><b><i class="far fa-credit-card"></i> Forma de Pagamento:</b> {{$pedido->getFormaPagamento($pedido->metodo_pagamento)}}</p>
                     </div>
                     <div class="col-sm-12">
-                        <p><b><i class="far fa-money-bill-alt"></i> Valor Total:</b> R${{$pedido->total}}</p>
+                        <p><b><i class="far fa-money-bill-alt"></i> Valor Total:</b> R${{number_format((float)$pedido->total, 2, '.', '')}}</p>
                     </div>
                     <div class="col-sm-12">
                         <p><b><i class="fas fa-flag-checkered"></i> Status:</b> {{$pedido->getStatus($pedido->status)}}</p>
@@ -64,9 +64,16 @@
                         <tr>
                             <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
                             <td class="text-center">{{$produto->produtoNome}}</td>
-                            <td class="text-center">{{$produto->pivot->qtd}}</td>
-                            <td class="text-center">R$ {{$produto->pivot->valor}}</td>
-                            <td class="text-center">R$ {{$produto->pivot->valor * $produto->pivot->qtd}}</td>
+                            <td class="text-center">
+                                {{number_format((float)$produto->pivot->qtd, 0, '.', '')}}
+                                @foreach($unidades as $unidade)
+                                   @if($unidade->id == $produto->produtoUnidadeId )
+                                        {{$unidade->sigla}}
+                                   @endif 
+                                @endforeach
+                            </td>
+                            <td class="text-center">R$ {{number_format((float)$produto->pivot->valor, 2, '.', '')}}</td>
+                            <td class="text-center">R$ {{number_format((float)$produto->pivot->valor * $produto->pivot->qtd, 2, '.', '')}}</td>
                         </tr>
                         @empty
                     <p>Nenhum Produto encontrado!</p>
