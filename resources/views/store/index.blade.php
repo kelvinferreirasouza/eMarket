@@ -16,7 +16,7 @@
 
             <div class='bottom-wrap text-center'>
                 <div class='price-wrap h5'>
-                    <p><del class='price-old'>De: R$12,95</del></p>
+                    <p><del class='price-old'>De: R${{$produto->precoVendaAnterior}}</del></p>
                     <span class='price-new'>Por: R${{$produto->precoVenda}}</span>
                 </div>
             </div>

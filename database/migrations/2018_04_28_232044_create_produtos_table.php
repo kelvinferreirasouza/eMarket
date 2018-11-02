@@ -21,6 +21,7 @@ class CreateProdutosTable extends Migration
             $table->decimal('qtdMin', 20, 3)->default(0.000)->nullable();
             $table->decimal('precoCusto', 20, 2)->default(0.00)->nullable();
             $table->decimal('precoVenda', 20, 2)->default(0.00);
+            $table->decimal('precoVendaAnterior', 20, 2)->default(0.00)->nullable();
             $table->decimal('margemLucro', 20, 2)->default(0.00)->nullable();
             $table->integer('produtoSetorId')->nullable()->unsigned()->onDelete('cascade');
             $table->foreign('produtoSetorId')->references('id')->on('produtosetores')->onDelete('cascade');

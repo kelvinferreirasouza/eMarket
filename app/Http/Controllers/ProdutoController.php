@@ -39,39 +39,40 @@ class ProdutoController extends Controller {
 
     public function salvarProduto(Request $request) {
         $dados = $request->all();
-        
+
         $codBarras = $request->codBarras;
 
         $this->validate($request, $this->produto->rules, $this->produto->messages);
 
-                $prod = new Produto();
-                $prod->codBarras           = $request->codBarras;
-                $prod->produtoNome         = $request->produtoNome;
-                $prod->qtd                 = $request->qtd;
-                $prod->qtdMin              = $request->qtdMin;
-                $prod->precoCusto          = $request->precoCusto;
-                $prod->precoVenda          = $request->precoVenda;
-                $prod->margemLucro         = $request->margemLucro;
-                $prod->produtoSetorId      = $request->produtoSetorId;
-                $prod->produtoCategoriaId  = $request->produtoCategoriaId;
-                $prod->produtoMarca        = $request->produtoMarca;
-                $prod->produtoUnidadeId    = $request->produtoUnidadeId;
-                $prod->produtoFornecedorId = $request->produtoFornecedorId;
-                $prod->isPromocao          = $request->isPromocao;
-                $prod->isAtivo             = $request->isAtivo; 
-                $prod->save();
-                $id = $prod->id;
+        $prod = new Produto();
+        $prod->codBarras = $request->codBarras;
+        $prod->produtoNome = $request->produtoNome;
+        $prod->qtd = $request->qtd;
+        $prod->qtdMin = $request->qtdMin;
+        $prod->precoCusto = $request->precoCusto;
+        $prod->precoVenda = $request->precoVenda;
+        $prod->precoVendaAnterior = $request->precoVenda + 0.30;
+        $prod->margemLucro = $request->margemLucro;
+        $prod->produtoSetorId = $request->produtoSetorId;
+        $prod->produtoCategoriaId = $request->produtoCategoriaId;
+        $prod->produtoMarca = $request->produtoMarca;
+        $prod->produtoUnidadeId = $request->produtoUnidadeId;
+        $prod->produtoFornecedorId = $request->produtoFornecedorId;
+        $prod->isPromocao = $request->isPromocao;
+        $prod->isAtivo = $request->isAtivo;
+        $prod->save();
+        $id = $prod->id;
 
-        if($request->hasFile('file')) {
+        if ($request->hasFile('file')) {
             $contador = 1;
-            foreach($request->file as $file) {
+            foreach ($request->file as $file) {
                 $file_extension = $file->getClientOriginalExtension();
-                $filename = $id . "-" . $contador. "." . $file_extension;
+                $filename = $id . "-" . $contador . "." . $file_extension;
                 DB::table('produtos')
-                    ->where('id', $id)
-                    ->update(array('imagem'.$contador => $filename));
+                        ->where('id', $id)
+                        ->update(array('imagem' . $contador => $filename));
                 $destination_path = public_path('/imgs/produtos');
-                $file->move($destination_path,$filename);
+                $file->move($destination_path, $filename);
                 $contador = $contador + 1;
             }
         }
@@ -111,19 +112,32 @@ class ProdutoController extends Controller {
         $dados = $request->all();
         $produto = Produto::find($id);
         $codBarras = $request->codBarras;
+
+        // verifica se o preco de venda da alteracao é maior que o preco anterior
+        if ($request->precoVenda > $produto->precoVendaAnterior) {
+            $produto->precoVendaAnterior = $request->precoVenda + 0.29;
+        } else if ($request->precoVenda == $produto->precoVendaAnterior) {
+            $produto->precoVendaAnterior = $request->precoVenda + 0.29;
+        } else if ($request->precoVenda > $produto->precoVenda) {
+            $produto->precoVenda = $request->precoVenda;
+        } else {
+            $produto->precoVendaAnterior = $produto->precoVenda;
+            $produto->precoVenda = $request->precoVenda;
+        }
+
         $produto->update($dados);
         $id = $produto->id;
 
-        if($request->hasFile('file')) {
+        if ($request->hasFile('file')) {
             $contador = 1;
-            foreach($request->file as $file) {
+            foreach ($request->file as $file) {
                 $file_extension = $file->getClientOriginalExtension();
-                $filename = $id . "-" . $contador. "." . $file_extension;
+                $filename = $id . "-" . $contador . "." . $file_extension;
                 DB::table('produtos')
-                    ->where('id', $id)
-                    ->update(array('imagem'.$contador => $filename));
+                        ->where('id', $id)
+                        ->update(array('imagem' . $contador => $filename));
                 $destination_path = public_path('/imgs/produtos');
-                $file->move($destination_path,$filename);
+                $file->move($destination_path, $filename);
                 $contador = $contador + 1;
             }
         }
