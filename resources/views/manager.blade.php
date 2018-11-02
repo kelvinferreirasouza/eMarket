@@ -30,8 +30,8 @@
                             <a href="#"><div class="circle-tile-heading dark-blue"><i class="fa fa-users fa-fw fa-3x"></i></div></a>
                             <div class="circle-tile-content dark-blue">
                                 <div class="circle-tile-description text-faded"> Clientes </div>
-                                <div class="circle-tile-number text-faded ">265</div>
-                                <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
+                                <div class="circle-tile-number text-faded ">{{$clientes}}</div>
+                                <a class="circle-tile-footer" href="{{route ('listarClientes')}}">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>
@@ -41,8 +41,8 @@
                             <a href="#"><div class="circle-tile-heading red"><i class="fa fa-truck fa-3x"></i></div></a>
                             <div class="circle-tile-content red">
                                 <div class="circle-tile-description text-faded"> Pedidos </div>
-                                <div class="circle-tile-number text-faded ">10</div>
-                                <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
+                                <div class="circle-tile-number text-faded ">{{$pedidos}}</div>
+                                <a class="circle-tile-footer" href="{{route ('listarPedidos')}}">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div> 

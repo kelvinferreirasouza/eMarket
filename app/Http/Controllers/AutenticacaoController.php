@@ -9,11 +9,17 @@ use App\Usuario;
 use App\Cliente;
 use App\Setor;
 use App\Categoria;
+use App\Pedido;
 
 class AutenticacaoController extends Controller {
 
     public function manager() {
-        return view('manager');
+        
+        $clientes = Cliente::count();
+        $pedidos = Pedido::count();
+        
+        return view('manager', compact('clientes', 'pedidos'));
+        
     }
 
     public function login() {
