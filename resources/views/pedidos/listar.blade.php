@@ -508,7 +508,7 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
                                                 
-                                                <a href="{{route('excluirProduto', $pedido->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                <a href="{{route('excluirPedido', $pedido->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Pedido" class="btnAcoes"></a>
                                             </td>
                                         </tr>                         
                                         @empty

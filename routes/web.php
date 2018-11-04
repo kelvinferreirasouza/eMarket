@@ -116,6 +116,7 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/vendas/pedidos/salvar', 'PedidoController@salvarPedido')->name('salvarPedido');
     Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
     Route::any('/vendas/pedidos/pesquisa', 'PedidoController@pesquisarPedido')->name('pesquisarPedido');
+    Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
     /* Rotas Protegidas de Veiculos */
     Route::get('/entregas/veiculos', 'VeiculoController@listarVeiculos')->name('listarVeiculos');
     Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo');
