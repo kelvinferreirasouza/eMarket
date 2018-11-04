@@ -17,6 +17,7 @@
         </div>
     </div>
     <div class="flatPanel panel panel-primary col-sm-8">
+        <a href="{{route('cancelarPedido', $pedido->id)}}" class="btn btn-primary btnCancelarPedido" onclick="return confirm('Tem certeza que deseja cancelar este pedido?')"><i class="fas fa-calendar-times"></i> Cancelar Pedido</a>
         <div class="flatPanel panel-produtos-pedido"><i class="fas fa-info-circle"></i> Dados do Pedido: #{{$pedido->id}}</div>
         <div class="panel-body">
             <div class="col-sm-12">
@@ -31,7 +32,23 @@
                         <p><b><i class="far fa-money-bill-alt"></i> Valor Total:</b> R${{number_format((float)$pedido->total, 2, '.', '')}}</p>
                     </div>
                     <div class="col-sm-12">
-                        <p><b><i class="fas fa-flag-checkered"></i> Status:</b> {{$pedido->getStatus($pedido->status)}}</p>
+                        @if($pedido->getStatus($pedido->status) == 'Cancelado')
+                            <p style="color: #bd2130"><b><i class="fas fa-flag-checkered"></i> Status:</b> 
+                                {{$pedido->getStatus($pedido->status)}}
+                            </p>
+                        @elseif($pedido->getStatus($pedido->status) == 'Pagamento Aprovado')
+                            <p style="color: #239a55"><b><i class="fas fa-flag-checkered"></i> Status:</b> 
+                                {{$pedido->getStatus($pedido->status)}}
+                            </p>
+                        @elseif($pedido->getStatus($pedido->status) == 'Aguardando Pagamento')
+                            <p style="color: #f09235"><b><i class="fas fa-flag-checkered"></i> Status:</b> 
+                                {{$pedido->getStatus($pedido->status)}}
+                            </p>
+                        @else
+                            <p><b><i class="fas fa-flag-checkered"></i> Status:</b> 
+                                {{$pedido->getStatus($pedido->status)}}
+                            </p>
+                        @endif
                     </div>
                 </div>
                 <div class="col-sm-6">

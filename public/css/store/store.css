@@ -1285,6 +1285,17 @@ label {
     background-color: #4ace4f;
 }
 
+.btnCancelarPedido{
+    background-color: #a0051d;
+    position: relative;
+    float: right;
+    margin-top: 5px;
+}
+
+.btnCancelarPedido:hover{
+    background-color: #ca0524;
+}
+
 .btnSalvar {
     background-color: #d64416;
     position: relative;

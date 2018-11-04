@@ -40,6 +40,7 @@ Route::middleware(['cliente'])->group(function () {
     Route::post('/minhaconta/atualizar', 'ClienteController@atualizarPerfilCliente')->name('atualizarPerfilCliente');
     Route::get('/meuspedidos', 'ClienteController@meusPedidos')->name('meusPedidos');
     Route::get('/meuspedidos/visualizar/{id}', 'ClienteController@detalhesPedido')->name('detalhesPedido');
+    Route::get('/meuspedidos/cancelar/{id}', 'ClienteController@cancelarPedido')->name('cancelarPedido');
     Route::get('/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
 });
 

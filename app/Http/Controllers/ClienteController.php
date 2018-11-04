@@ -136,6 +136,20 @@ class ClienteController extends Controller {
         
         return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'setores', 'categorias', 'unidades'));
     }
+    
+    public function cancelarPedido($id){
+        
+        $pedido = Pedido::find($id);
+        
+        if($pedido->status != 7){
+            $pedido->status = 7;
+            $pedido->save();
+        }
+        
+        
+
+        return redirect()->back();
+    }
 
     public function pesquisarCliente(Request $request) {
 
