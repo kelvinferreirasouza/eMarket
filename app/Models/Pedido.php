@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class Pedido extends Model {
 
     protected $fillable = [
-        'cliente_id', 'referencia', 'codigo', 'total', 'status', 'metodo_pagamento', 'data'
+        'cliente_id', 'referencia', 'codigo', 'total', 'frete', 'status', 'metodo_pagamento', 'data'
     ];
     
     protected $table = 'pedidos';
@@ -97,6 +97,17 @@ class Pedido extends Model {
     public function formatValue($value)
     {
         return number_format((float)$value, 2, '.', '');
+    }
+    
+    public function pesquisa($request) {
+        $keySearch = $request->key_search;
+        
+        
+
+        return $this->where('id', "{$keySearch}")
+                        ->orWhere('codigo', "{$keySearch}")
+                        ->orWhere('referencia', "{$keySearch}")
+                        ->paginate(10);
     }
 
 }

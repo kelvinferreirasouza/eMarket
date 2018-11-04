@@ -15,6 +15,13 @@ use App\Unidade;
 
 class PedidoController extends Controller
 {
+    
+    private $pedido;
+    
+    public function __construct(Pedido $pedido) {
+        $this->pedido = $pedido;
+    }
+    
         public function cadastrarPedido()
     {
         $clientes         = Cliente::all();
@@ -27,15 +34,16 @@ class PedidoController extends Controller
 
     public function listarPedidos()
     {
-        $pedidos = Pedido::orderBy('pedidos.id', 'desc')->paginate(10);
+        $pedidos          = Pedido::orderBy('pedidos.id', 'desc')->paginate(10);
         $produtos         = Produto::all();
         $clientes         = Cliente::all();
+        $clientesModal    = Cliente::orderBy('nome');
         $setores          = Setor::all();
         $categorias       = Categoria::all();
         $fornecedores     = Fornecedor::all();
         $unidades         = Unidade::all();
 
-        return view('pedidos.listar', compact('pedidos', 'produtos', 'clientes', 'setores', 'categorias', 'fornecedores', 'unidades'));
+        return view('pedidos.listar', compact('pedidos', 'produtos', 'clientes', 'clientesModal', 'setores', 'categorias', 'fornecedores', 'unidades'));
     }
 
     public function salvarPedido(Request $request)
@@ -89,5 +97,14 @@ class PedidoController extends Controller
         $pedido->update($dados);
 
         return redirect()->route('listarPedidos');
+    }
+    
+    
+    public function pesquisarPedido(Request $request) {
+
+        $pedidos = $this->pedido->pesquisa($request);
+        $clientes = Cliente::all();
+
+        return view('pedidos.listar', compact('pedidos', 'clientes'));
     }
 }
