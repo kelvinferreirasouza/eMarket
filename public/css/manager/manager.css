@@ -235,3 +235,17 @@
 .iconPedido{
     width: 26px;
 }
+
+.totalPedido, .totalPedidoValor {
+    font-size: 14pt;
+    text-transform: uppercase; 
+    font-weight: bold;
+}
+
+.trTotal{
+    background-color: #fff !important;
+    border-top: 1px solid #000 !important ;
+    font-size: 15pt;
+    text-transform: uppercase; 
+    font-weight: bold;
+}

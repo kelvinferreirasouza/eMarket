@@ -193,6 +193,7 @@
                                                                                                 </tr>
                                                                                             </thead>            
                                                                                             <tbody> 
+                                                                                                <?php $total_pedido = 0 ?>
                                                                                                 <!-- Lista os Pedidos Produtos -->
                                                                                                 @forelse($pedidoProdutos as $pedidoProduto)
                                                                                                     <!-- Filtra apenas os produtos do pedido selecionado -->
@@ -211,17 +212,15 @@
                                                                                                                             @endif 
                                                                                                                         @endforeach
                                                                                                                     </td>
-                                                                                                                    <td class="text-center">R$ {{ number_format((float)$pedidoProduto->valor, 2, '.', '') }} </td>
-                                                                                                                    <td class="text-center">R$ {{ number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', '') }} </td>
+                                                                                                                    <?php 
+                                                                                                                        $valor        = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
+                                                                                                                        $total        = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
+                                                                                                                        $frete        = str_replace(".", ",", number_format((float)$pedido->frete, 2, '.', ''));
+                                                                                                                        $total_pedido = number_format((float)($pedidoProduto->valor * $pedidoProduto->qtd) + $total_pedido, 2, '.', '');
+                                                                                                                    ?>
+                                                                                                                    <td class="text-center">R$ {{$valor}}</td>
+                                                                                                                    <td class="text-center">R$ {{$total}}</td>
                                                                                                                 </tr>
-                                                                                                                <tr>
-                                                                                                                    <td></td>
-                                                                                                                    <td></td>
-                                                                                                                    <td></td>
-                                                                                                                    <td></td>
-                                                                                                                    <td class="totalPedido">Teste</td>
-                                                                                                                </tr>
-                                                                                                                
                                                                                                             @endif
                                                                                                         @endforeach
                                                                                                     @endif
@@ -229,6 +228,20 @@
                                                                                                     <p>Nenhum Produto encontrado!</p>
                                                                                                 @endforelse()
                                                                                             </tbody>
+                                                                                                                <tr style="background-color: #fff">
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td class="totalPedido text-right" style="border-color: #fff">Frete:</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$frete}}</td>
+                                                                                                                </tr>
+                                                                                                                <tr style="background-color: #fff">
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td class="totalPedido text-right" style="border-color: #fff">Total:</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido = str_replace(".", ",", $total_pedidox)}}</td>
+                                                                                                                </tr>
                                                                                         </table> 
                                                                                     </div>
                                                                                     <div id="menu2{{$pedido->id}}" class="container tab-pane fade"><br>

@@ -16,8 +16,8 @@
 
             <div class='bottom-wrap text-center'>
                 <div class='price-wrap h5'>
-                    <p><del class='price-old'>De: R${{$produto->precoVendaAnterior}}</del></p>
-                    <span class='price-new'>Por: R${{$produto->precoVenda}}</span>
+                    <p><del class='price-old'>De: R${{str_replace(".", ",", number_format((float)$produto->precoVendaAnterior, 2, '.', ''))}}</del></p>
+                    <span class='price-new'>Por: R${{str_replace(".", ",", number_format((float)$produto->precoVenda, 2, '.', ''))}}</span>
                 </div>
             </div>
             <div class="text-center">
