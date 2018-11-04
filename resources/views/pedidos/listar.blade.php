@@ -105,19 +105,19 @@
                                                                             <div class="col-sm-12">
                                                                                 <ul class="nav nav-tabs" role="tablist">
                                                                                     <li class="nav-item">
-                                                                                        <a class="nav-link active" data-toggle="tab" href="#home">Pedido</a>
+                                                                                        <a class="nav-link active" data-toggle="tab" href="#home{{$pedido->id}}">Pedido</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#menu1">Produtos</a>
+                                                                                        <a class="nav-link" data-toggle="tab" href="#menu1{{$pedido->id}}">Produtos</a>
                                                                                     </li>
                                                                                     <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#menu2">Entrega</a>
+                                                                                        <a class="nav-link" data-toggle="tab" href="#menu2{{$pedido->id}}">Entrega</a>
                                                                                     </li>
                                                                                 </ul>
 
                                                                                 <!-- Tab panes -->
                                                                                 <div class="tab-content">
-                                                                                    <div id="home" class="container tab-pane active"><br>
+                                                                                    <div id="home{{$pedido->id}}" class="container tab-pane active"><br>
                                                                                         <div class="row">
                                                                                             <div class="col-sm-2">
                                                                                                 <label for="data" class="control-label labelInputEditUser">Nº Pedido:</label>
@@ -164,16 +164,16 @@
                                                                                             </div>
                                                                                             <div class="col-sm-2">
                                                                                                 <label for="total" class="control-label labelInputEditUser">Valor Total:</label>
-                                                                                                <input type="number" step="any" class="form-control" name="total" value="{{$pedido->total}}" required>
+                                                                                                <input disabled type="number" step="any" class="form-control" name="total" value="{{$pedido->total}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-2">
                                                                                                 <label for="precoVenda" class="control-label labelInputEditUser">Frete:</label>
-                                                                                                <input type="number" step="any" class="form-control" name="frete" value="{{$pedido->frete}}">
+                                                                                                <input disabled type="number" step="any" class="form-control" name="frete" value="{{$pedido->frete}}">
                                                                                             </div>
 
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="codigo" class="control-label labelInputEditUser">Código da Transação:</label>
-                                                                                                <input type="text" id="codigo" class="form-control" name="codigo" value="{{$pedido->codigo}}" required>
+                                                                                                <input disabled type="text" id="codigo" class="form-control" name="codigo" value="{{$pedido->codigo}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="referencia" class="control-label labelInputEditUser">Referencia:</label>
@@ -181,13 +181,91 @@
                                                                                             </div>
                                                                                         </div>
                                                                                     </div>
-                                                                                    <div id="menu1" class="container tab-pane fade"><br>
-                                                                                        <h3>Menu 1</h3>
-                                                                                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                                                    <div id="menu1{{$pedido->id}}" class="container tab-pane fade"><br>
+                                                                                        <table class="table table-striped table-bordered table-hover nowrap">
+                                                                                            <thead>
+                                                                                                <tr>
+                                                                                                    <th class="text-center"><i class="far fa-images"></i></th>
+                                                                                                    <th class="text-center">Produto</th>
+                                                                                                    <th class="text-center">Quantidade</th>
+                                                                                                    <th class="text-center">Preço Unitário</th>
+                                                                                                    <th class="text-center">Subtotal</th>
+                                                                                                </tr>
+                                                                                            </thead>            
+                                                                                            <tbody> 
+                                                                                                <!-- Lista os Pedidos Produtos -->
+                                                                                                @forelse($pedidoProdutos as $pedidoProduto)
+                                                                                                    <!-- Filtra apenas os produtos do pedido selecionado -->
+                                                                                                    @if($pedidoProduto->pedido_id == $pedido->id)
+                                                                                                        <!-- Lista os Produtos -->
+                                                                                                        @foreach($produtos as $produto)
+                                                                                                            <!-- Mostra as informacoes do produto -->
+                                                                                                            @if($pedidoProduto->produto_id == $produto->id)
+                                                                                                                <tr>
+                                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
+                                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
+                                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
+                                                                                                                        @foreach($unidades as $unidade)
+                                                                                                                            @if($unidade->id == $produto->produtoUnidadeId )
+                                                                                                                                {{$unidade->sigla}}
+                                                                                                                            @endif 
+                                                                                                                        @endforeach
+                                                                                                                    </td>
+                                                                                                                    <td class="text-center">R$ {{ number_format((float)$pedidoProduto->valor, 2, '.', '') }} </td>
+                                                                                                                    <td class="text-center">R$ {{ number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', '') }} </td>
+                                                                                                                </tr>
+                                                                                                                <tr>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td></td>
+                                                                                                                    <td class="totalPedido">Teste</td>
+                                                                                                                </tr>
+                                                                                                                
+                                                                                                            @endif
+                                                                                                        @endforeach
+                                                                                                    @endif
+                                                                                                @empty
+                                                                                                    <p>Nenhum Produto encontrado!</p>
+                                                                                                @endforelse()
+                                                                                            </tbody>
+                                                                                        </table> 
                                                                                     </div>
-                                                                                    <div id="menu2" class="container tab-pane fade"><br>
-                                                                                        <h3>Menu 2</h3>
-                                                                                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                                                                    <div id="menu2{{$pedido->id}}" class="container tab-pane fade"><br>
+                                                                                        @foreach($clientes as $cliente)
+                                                                                        @if($pedido->cliente_id == $cliente->id)
+                                                                                        <div class="row">
+                                                                                            <div class="col-sm-3">
+                                                                                                <label for="cep" class="control-label labelInputEditUser">CEP:</label>
+                                                                                                <input type="text" class="form-control" name="cep" value="{{$cliente->cep}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <label for="endereco" class="control-label labelInputEditUser">Endereço:</label>
+                                                                                                <input type="text" class="form-control" name="logradouro" value="{{$cliente->logradouro}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-3">
+                                                                                                <label for="numero" class="control-label labelInputEditUser">Número:</label>
+                                                                                                <input type="number" class="form-control" name="numero" value="{{$cliente->numero}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
+                                                                                                <input type="text" class="form-control" name="complemento" value="{{$cliente->complemento}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
+                                                                                                <input type="text" class="form-control" name="bairro" value="{{$cliente->bairro}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <label for="estado" class="control-label labelInputEditUser">Estado:</label>
+                                                                                                <input type="text" class="form-control" name="estado" value="{{$cliente->estado}}">
+                                                                                            </div>
+                                                                                            <div class="col-sm-6">
+                                                                                                <label for="municipio" class="control-label labelInputEditUser">Municipio:</label>
+                                                                                                <input type="text" class="form-control" name="municipio" value="{{$cliente->municipio}}">
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        @endif
+                                                                                        @endforeach
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
