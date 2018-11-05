@@ -11,7 +11,7 @@
             <div class="col-sm-9">
                 <h1 class="jumbotron-heading">CARRINHO DE COMPRAS</h1>
             </div>
-            
+
         </div>
     </section>
 
@@ -40,13 +40,13 @@
                                 <td>
                                     <div class="col-sm-6 input-group seletorQtdCart ">
                                         <span class="input-group-btn">
-                                            <button type="button" class="quantity-left-minus btn btn-primary btn-number" data-type="minus" data-field="" onclick="window.location.href='{{route ('remove', $produto['item']->id)}}'">
+                                            <button type="button" class="quantity-left-minus btn btn-primary btn-number" data-type="minus" data-field="" onclick="window.location.href ='{{route ('remove', $produto['item']->id)}}'">
                                                 <i class="fas fa-minus"></i>
                                             </button>
                                         </span>
                                         <input type="text" id="quantity1" name="quantity1" class="form-control input-number" style="text-align: center" value="{{$produto['qtd']}}" min="0" max="100">
                                         <span class="input-group-btn">
-                                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="" onclick="window.location.href='{{route ('addCarrinho', $produto['item']->id)}}'" >
+                                            <button type="button" class="addQtd btn btn-primary btn-number" data-type="plus" data-field="" onclick="window.location.href ='{{route ('addCarrinho', $produto['item']->id)}}'" >
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </span>
@@ -74,7 +74,7 @@
                                 <div class="row form-group calcFrete">
                                     <div class="input-group">
                                         <span class="input-group-addon danger"><i class="fas fa-map-marker-alt"></i></span>
-                                        <input type="text" class="form-control" placeholder="Digite seu CEP">
+                                        <input type="text" class="form-control" placeholder="Digite seu CEP" value="{{ Auth::guard('clientes')->user()->cep }}">
                                     </div>
                                 </div>
                             </td>
@@ -82,7 +82,20 @@
                             <td></td>
                             <td></td>
                             <td class="frete text-right">Frete:</td>
-                            <td class="freteValor text-right ">R$ 0,00</td>
+                                <?php $valor_frete = 0.00 ?>
+                                @foreach($fretes as $frete)
+                                    @if($frete->estado == Auth::guard('clientes')->user()->estado)
+                                        @if($frete->municipio == Auth::guard('clientes')->user()->municipio)
+                                            <?php $valor_frete = $frete->valor ?>
+                                        @endif
+                                    @endif  
+                                @endforeach
+                                @if($valor_frete == 0)
+                                <td class="freteValor text-right">INDISPONÍVEL</td>
+                                <script> $("#finalizarPedido").attr('disabled', 'disabled');</script>
+                                @else
+                                    <td class="freteValor text-right">R$ {{str_replace(".", ",", number_format((float)$valor_frete, 2, '.', ''))}}</td>
+                                @endif
                         </tr>
                         <tr>
                             <td></td>
@@ -91,7 +104,7 @@
                             <td></td>
                             <td></td>
                             <td class="totalPedido text-right">Total:</td>
-                            <td class="totalPedidoValor text-right ">R$ {{str_replace(".", ",", number_format((float)$total, 2, '.', ''))}}</td>
+                            <td class="totalPedidoValor text-right ">R$ {{str_replace(".", ",", number_format((float)$total + $valor_frete, 2, '.', ''))}}</td>
                         </tr>
                         </tbody>
                     </table>
@@ -103,12 +116,18 @@
                         <button class="btn btn-block btn-info">Continuar Comprando <i class="fas fa-undo"></i></button>
                     </div>
                     <div class="col-sm-12 col-md-6 text-right">
-                        <a href="{{route('metodoPagamento')}}" class="btn btn-block btn-success text-uppercase">Finalizar Pedido <i class="fas fa-check"></i> </a>
+                        <a href="{{route('metodoPagamento')}}" id="finalizarPedido" class="btn btn-block btn-success text-uppercase">Finalizar Pedido <i class="fas fa-check"></i> </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<<script>
+    function disabledFinalizarPedido(){
+        $("#finalizarPedido").attr('disabled', 'disabled');
+    }
+ </script>
 
 @endsection

@@ -827,7 +827,7 @@ footer {
 
 .totalPedido, .totalPedidoValor {
     border-top: 1px solid #000 !important ;
-    font-size: 15pt;
+    font-size: 13pt;
     text-transform: uppercase; 
     font-weight: bold;
 }
@@ -1329,4 +1329,8 @@ label {
 .paginationPedidos {
     margin-top: -20px;
     margin-bottom: -10px;
+}
+
+.panel-produtos-order {
+    margin-bottom: -30px;
 }

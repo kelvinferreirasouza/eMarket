@@ -15,10 +15,10 @@ class CreateFretesTable extends Migration
     {
         Schema::create('fretes', function (Blueprint $table) {	
             $table->increments('id');
-            $table->string('nome', 50);
+            $table->string('estado', 50);
+            $table->string('municipio', 50);
             $table->decimal('valor', 12, 2)->default(0.00);
             $table->timestamps();
-            $table->integer('isAtivo')->default(1);
         });
     }
 

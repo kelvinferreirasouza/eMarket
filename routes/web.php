@@ -19,7 +19,7 @@ Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
 Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
 /* Rotas do Carrinho */
-Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
+
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
 Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
 /* Rotas de Cliente */
@@ -31,6 +31,7 @@ Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->
 
 Route::middleware(['cliente'])->group(function () {
     /* Rotas de Carrinho */
+    Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
     Route::get('/pedido/forma-pagamento', 'StoreController@metodoPagamento')->middleware('check.qtd.cart')->name('metodoPagamento');
     Route::post('pagseguro-getcode', 'PagSeguroController@getCode')->name('pagseguro.code.transparent');
     Route::post('pagseguro-payment-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
@@ -42,6 +43,10 @@ Route::middleware(['cliente'])->group(function () {
     Route::get('/meuspedidos/visualizar/{id}', 'ClienteController@detalhesPedido')->name('detalhesPedido');
     Route::get('/meuspedidos/cancelar/{id}', 'ClienteController@cancelarPedido')->name('cancelarPedido');
     Route::get('/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
+    
+    /* Rotas de Pagamento */
+    Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
+    Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 });
 
 /* Middware do Manager */
@@ -118,6 +123,13 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
     Route::any('/vendas/pedidos/pesquisa', 'PedidoController@pesquisarPedido')->name('pesquisarPedido');
     Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
+    /* Rotas Protegidas de Frete */
+    Route::get('/encomendas/fretes', 'FreteController@listarFretes')->name('listarFretes');
+    Route::post('/encomendas/frete/atualizar/{id}', 'FreteController@atualizarFrete')->name('atualizarFrete');
+    Route::post('/encomendas/frete/salvar', 'FreteController@salvarFrete')->name('salvarFrete');
+    Route::get('/encomendas/frete/{id}', 'FreteController@excluirFrete')->name('excluirFrete');
+    Route::any('/encomendas/frete/pesquisa', 'FreteController@pesquisarFrete')->name('pesquisarFrete');
+    Route::get('/encomendas/frete/excluir/{id}', 'FreteController@excluirFrete')->name('excluirFrete');
     /* Rotas Protegidas de Veiculos */
     Route::get('/entregas/veiculos', 'VeiculoController@listarVeiculos')->name('listarVeiculos');
     Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo');
@@ -145,9 +157,8 @@ Route::middleware(['manager'])->group(function () {
 
 /* Rota de Cartao */
 Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card  ');
-Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
+
 /* Rota de Boleto */
-Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 Route::post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
 Route::post('pagseguro-transparente', 'PagSeguroController@getCodeSandBox')->name('pagseguro.code.transparente.sandbox');
 Route::get('pagseguro-transparente', 'PagSeguroController@transparente')->name('pagseguro.transparente');

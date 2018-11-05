@@ -58,7 +58,7 @@ class PagSeguroController extends Controller
         
         $carrinho = new Carrinho;
         // gera um novo pedido
-        $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $total = $carrinho->total(), $status = 1, $metodo_pagamento = 2);
+        $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $subtotal = $carrinho->total(), $total = $carrinho->total(), $status = 1, $metodo_pagamento = 2);
         
         // limpa o carrinho
         $carrinho->carrinhoVazio();
@@ -81,7 +81,7 @@ class PagSeguroController extends Controller
         $response = $pagseguro->paymentCredCard($request->sendHash, $request->cardToken, $carrinho->total(), $idPedido);
         
         // gera um novo pedido
-        $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $total = $carrinho->total(), $status = 1, $metodo_pagamento = 1);
+        $pedido->novoPedidoProdutos($carrinho, $response['reference'], $response['code'], $subtotal = $carrinho->total(), $total = $carrinho->total(), $status = 1, $metodo_pagamento = 1);
         // limpa o carrinho
         $carrinho->carrinhoVazio();
         

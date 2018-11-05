@@ -72,7 +72,7 @@
                             <div class="col-sm-12">
                                 <div class="col-md-2 mb-3 divPerfil">
                                     <label>CEP:</label>
-                                    <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" value="{{ Auth::guard('clientes')->user()->cep  }}" required disabled>
+                                    <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" value="{{ Auth::guard('clientes')->user()->cep  }}" required disabled onchange="">
                                 </div>
                                 <div class="col-sm-8 divPerfil">
                                     <label>Logradouro:</label>
@@ -137,6 +137,33 @@
         $("#btnEditPerfil").hide();
         $("#btnSalvar").show();
     });
+</script>
+<script>
+    $('#cep').blur(function (e) {
+        var cep = $('#cep').val();
+        var url = "https://viacep.com.br/ws/" + cep + "/json/";
+        var retorno = pesquisarCEP(url);
+    });
+
+    $(document).ready(function () {
+        $("#cep").mask("99999-999");
+    });
+
+    function pesquisarCEP(endereco) {
+        $.ajax({
+            type: "GET",
+            url: endereco
+        }).done(function (data) {
+            $('#bairro').val(data.bairro);
+            $('#logradouro').val(data.logradouro);
+            $('#municipio').val(data.localidade);
+            $('#estado').val(data.uf);
+            $('#numero').val("");
+            $('#complemento').val("");
+        }).fail(function () {
+            console.log("Erro!");
+        });
+    }
 </script>
 
 @endsection

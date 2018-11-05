@@ -213,13 +213,14 @@
                                                                                                                         @endforeach
                                                                                                                     </td>
                                                                                                                     <?php 
-                                                                                                                        $valor        = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
-                                                                                                                        $total        = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
-                                                                                                                        $frete        = str_replace(".", ",", number_format((float)$pedido->frete, 2, '.', ''));
-                                                                                                                        $total_pedido = number_format((float)($pedidoProduto->valor * $pedidoProduto->qtd) + $total_pedido, 2, '.', '');
+                                                                                                                        $valor_unitario    = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
+                                                                                                                        $valor_subtotal    = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
+                                                                                                                        $valor_frete       = str_replace(".", ",", number_format((float)$pedido->frete, 2, '.', ''));
+                                                                                                                        $subtotal_pedido   = str_replace(".", ",", number_format((float)$pedido->subtotal, 2, '.', ''));
+                                                                                                                        $total_pedido      = str_replace(".", ",", number_format((float)$pedido->total, 2, '.', ''));
                                                                                                                     ?>
-                                                                                                                    <td class="text-center">R$ {{$valor}}</td>
-                                                                                                                    <td class="text-center">R$ {{$total}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
                                                                                                                 </tr>
                                                                                                             @endif
                                                                                                         @endforeach
@@ -232,15 +233,22 @@
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
+                                                                                                                    <td class="totalPedido text-right" style="border-color: #fff">SubTotal:</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$subtotal_pedido}}</td>
+                                                                                                                </tr>
+                                                                                                                <tr style="background-color: #fff">
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
                                                                                                                     <td class="totalPedido text-right" style="border-color: #fff">Frete:</td>
-                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$frete}}</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$valor_frete}}</td>
                                                                                                                 </tr>
                                                                                                                 <tr style="background-color: #fff">
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td class="totalPedido text-right" style="border-color: #fff">Total:</td>
-                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido = str_replace(".", ",", $total_pedido)}}</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido}}</td>
                                                                                                                 </tr>
                                                                                         </table> 
                                                                                     </div>
@@ -427,13 +435,14 @@
                                                                                                                         @endforeach
                                                                                                                     </td>
                                                                                                                     <?php 
-                                                                                                                        $valor        = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
-                                                                                                                        $total        = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
-                                                                                                                        $frete        = str_replace(".", ",", number_format((float)$pedido->frete, 2, '.', ''));
-                                                                                                                        $total_pedido = number_format((float)($pedidoProduto->valor * $pedidoProduto->qtd) + $total_pedido, 2, '.', '');
+                                                                                                                        $valor_unitario    = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
+                                                                                                                        $valor_subtotal    = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
+                                                                                                                        $valor_frete       = str_replace(".", ",", number_format((float)$pedido->frete, 2, '.', ''));
+                                                                                                                        $subtotal_pedido   = str_replace(".", ",", number_format((float)$pedido->subtotal, 2, '.', ''));
+                                                                                                                        $total_pedido      = str_replace(".", ",", number_format((float)$pedido->total, 2, '.', ''));
                                                                                                                     ?>
-                                                                                                                    <td class="text-center">R$ {{$valor}}</td>
-                                                                                                                    <td class="text-center">R$ {{$total}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
                                                                                                                 </tr>
                                                                                                             @endif
                                                                                                         @endforeach
@@ -446,15 +455,22 @@
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
+                                                                                                                    <td class="totalPedido text-right" style="border-color: #fff">SubTotal:</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$subtotal_pedido}}</td>
+                                                                                                                </tr>
+                                                                                                                <tr style="background-color: #fff">
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
+                                                                                                                    <td style="border-color: #fff"></td>
                                                                                                                     <td class="totalPedido text-right" style="border-color: #fff">Frete:</td>
-                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$frete}}</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$valor_frete}}</td>
                                                                                                                 </tr>
                                                                                                                 <tr style="background-color: #fff">
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td style="border-color: #fff"></td>
                                                                                                                     <td class="totalPedido text-right" style="border-color: #fff">Total:</td>
-                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido = str_replace(".", ",", $total_pedido)}}</td>
+                                                                                                                    <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido}}</td>
                                                                                                                 </tr>
                                                                                         </table> 
                                                                                     </div>

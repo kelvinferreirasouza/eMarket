@@ -160,7 +160,7 @@
                                          ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-donate"></i></span>
-                                            <span class="pcoded-mtext">Vendas</span>
+                                            <span class="pcoded-mtext">Financeiro</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
@@ -293,10 +293,18 @@
                                                 ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Entregas</span>
+                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Encomendas</span>
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
+                                            <li class="{{ (\Request::route()->getName() == 'listarProdutos' ||
+                                                           \Request::route()->getName() == 'pesquisarProduto') ? 'active' : '' }}">
+                                                <a href="{{ route('listarFretes') }}" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Frete</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
                                             <li class="pcoded-hasmenu pcoded-trigger">
                                                 <a href="javascript:void(0)" >
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>

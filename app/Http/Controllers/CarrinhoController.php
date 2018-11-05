@@ -7,6 +7,7 @@ use App\Produto;
 use App\Setor;
 use App\Categoria;
 use App\Carrinho;
+use App\Frete;
 use Session;
 
 class CarrinhoController extends Controller {
@@ -14,13 +15,14 @@ class CarrinhoController extends Controller {
     public function carrinho() {
         $setores = Setor::all();
         $categorias = Categoria::all();
+        $fretes = Frete::all();
         
         // verifica se a sessao carrinho existe se n cria um novo objeto de carrinho
         $carrinho = Session::has('carrinho') ? Session::get('carrinho') : new Carrinho;
         $total = $carrinho->total();
         $produtos = $carrinho->getItems();
 
-        return view('store.carrinho', compact('produtos', 'setores', 'categorias', 'total'));
+        return view('store.carrinho', compact('produtos', 'setores', 'categorias', 'total', 'fretes'));
     }
 
     public function addCarrinho(Request $request, $id) {

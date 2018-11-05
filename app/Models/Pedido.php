@@ -10,7 +10,7 @@ use Carbon\Carbon;
 class Pedido extends Model {
 
     protected $fillable = [
-        'cliente_id', 'referencia', 'codigo', 'total', 'frete', 'status', 'metodo_pagamento', 'data'
+        'cliente_id', 'referencia', 'codigo', 'total', 'frete', 'subtotal','status', 'metodo_pagamento', 'data', 'data_refresh_status'
     ];
     
     protected $table = 'pedidos';
@@ -24,13 +24,14 @@ class Pedido extends Model {
         return $query->where('cliente_id', Auth::guard('clientes')->user()->id);
     }
 
-    public function novoPedidoProdutos($carrinho, $reference, $code, $total, $status, $metodo_pagamento) {
+    public function novoPedidoProdutos($carrinho, $reference, $code, $subtotal, $total, $status, $metodo_pagamento) {
         
         // cria um novo pedido
         $pedido = $this->create([
             'cliente_id' => Auth::guard('clientes')->user()->id,
             'referencia' => $reference,
             'codigo' => $code,
+            'subtotal' => $subtotal,
             'total' => $total,
             'status' => $status,
             'metodo_pagamento' => $metodo_pagamento,
