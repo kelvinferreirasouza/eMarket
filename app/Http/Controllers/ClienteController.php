@@ -141,12 +141,10 @@ class ClienteController extends Controller {
         
         $pedido = Pedido::find($id);
         
-        if($pedido->status != 7){
+        if($pedido->status != 7 &&  $pedido->status != 6){
             $pedido->status = 7;
             $pedido->save();
         }
-        
-        
 
         return redirect()->back();
     }

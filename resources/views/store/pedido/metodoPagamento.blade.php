@@ -266,7 +266,7 @@ function paymentBillet()
 
         if (data.success) {
             var urlBoleto = data.payment_link;
-            var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
+            var urlPedidos = 'http://localhost:8000/meuspedidos/visualizar/' + data.id;
             window.open(urlBoleto, '_blank');
             location.href = urlPedidos;
         } else {
@@ -323,7 +323,7 @@ function createTransactionCard()
         beforeSend: startLoader()
     }).done(function (data) {
         if (data.success) {
-            var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
+            var urlPedidos = 'http://localhost:8000/meuspedidos/visualizar/' + data.id;
             location.href = urlPedidos;
         }
     }).fail(function () {
