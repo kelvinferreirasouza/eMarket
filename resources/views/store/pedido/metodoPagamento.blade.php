@@ -323,7 +323,7 @@ function createTransactionCard()
         beforeSend: startLoader()
     }).done(function (data) {
         if (data.success) {
-            var urlPedidos = 'http://localhost:8000/meuspedidos/visualizar/' + data.id;
+            var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
             location.href = urlPedidos;
         }
     }).fail(function () {
