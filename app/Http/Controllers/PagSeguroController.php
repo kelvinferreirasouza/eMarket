@@ -72,8 +72,6 @@ class PagSeguroController extends Controller
                     ->pluck('id')
                     ->first();
         
-        $idPedido = $idPedido + 1;
-        
         $carrinho = new Carrinho;
         
         $response = $pagseguro->paymentCredCard($request->sendHash, $request->cardToken, $carrinho->total(), $idPedido);
