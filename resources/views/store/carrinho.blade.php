@@ -87,6 +87,7 @@
                                     @if($frete->estado == Auth::guard('clientes')->user()->estado)
                                         @if($frete->municipio == Auth::guard('clientes')->user()->municipio)
                                             <?php $valor_frete = $frete->valor ?>
+                                                <input type="text" class="form-control" value="{{$valor_frete}}" style="display:none">
                                         @endif
                                     @endif  
                                 @endforeach

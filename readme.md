@@ -17,13 +17,13 @@ O sistema tem como objetivo ser um e-commerce gerenciavel que facilite o process
 
 ## Acesso ao Sistema
 
-1. Acesse: https://www.emarketsoftware.com.br
+1. Acesse: http://emarketsoftware.herokuapp.com/
 
 2. Clique em Login
 
 3. Digite no campo Login: admin
 
-4. Digite no campo Senha: bancatcc1
+4. Digite no campo Senha: bancatcc
 
 ### Execução do Projeto
 
