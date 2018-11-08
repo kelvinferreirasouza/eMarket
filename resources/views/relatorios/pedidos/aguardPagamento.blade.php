@@ -7,7 +7,7 @@
     </head>
     <body>
         <h1>Relatório de Pedidos</h1>
-        <h2>Status: Aguardando Pagamento</h2>
+        <h3>Status: Aguardando Pagamento</h3>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead>
@@ -27,8 +27,8 @@
                         <td class="text-center">{{ $pedido->id }}</td>
                         <td class="text-center">{{ $pedido->data }}</td>
                         <td class="text-center">{{ $pedido->getFormaPagamento($pedido->metodo_pagamento)}}</td>
-                        <td class="text-center">{{ $pedido->subtotal }}</td>
-                        <td class="text-center">{{ $pedido->total }}</td>
+                        <td class="text-center">{{ str_replace(".", ",", number_format((float) $pedido->subtotal, 2, '.', '')) }}</td>
+                        <td class="text-center">{{ str_replace(".", ",", number_format((float) $pedido->total, 2, '.', '')) }}</td>
                         <td class="text-center">{{ $pedido->getStatus($pedido->status)}}</td>
                     </tr>
                     @endif
