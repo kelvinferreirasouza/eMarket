@@ -6,7 +6,8 @@
         <title>Relatório de Pedidos</title>
     </head>
     <body>
-        <h1>Pedidos: Aguardando Pagamento</h1>
+        <h1>Relatório de Pedidos</h1>
+        <h2>Status: Aguardando Pagamento</h2>
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead>
@@ -21,6 +22,7 @@
                 </thead>
                 <tbody>
                     @foreach($pedidos as $pedido)
+                    @if($pedido->getStatus($pedido->status) == 1 )
                     <tr>
                         <td class="text-center">{{ $pedido->id }}</td>
                         <td class="text-center">{{ $pedido->data }}</td>
@@ -29,6 +31,7 @@
                         <td class="text-center">{{ $pedido->total }}</td>
                         <td class="text-center">{{ $pedido->getStatus($pedido->status)}}</td>
                     </tr>
+                    @endif
                     @endforeach
                 </tbody>
             </table>
