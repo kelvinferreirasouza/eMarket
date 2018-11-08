@@ -13,6 +13,10 @@
                     <tr>
                         <th class="text-center">Nº Pedido</th>
                         <th class="text-center">Data</th>
+                        <th class="text-center">Forma Pagamento</th>
+                        <th class="text-center">SubTotal</th>
+                        <th class="text-center">Total</th>
+                        <th class="text-center">Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -20,6 +24,10 @@
                     <tr>
                         <td class="text-center">{{ $pedido->id }}</td>
                         <td class="text-center">{{ $pedido->data }}</td>
+                        <td class="text-center">{{ $pedido->getFormaPagamento($pedido->metodo_pagamento)}}</td>
+                        <td class="text-center">{{ $pedido->subtotal }}</td>
+                        <td class="text-center">{{ $pedido->total }}</td>
+                        <td class="text-center">{{ $pedido->getStatus($pedido->status)}}</td>
                     </tr>
                     @endforeach
                 </tbody>
