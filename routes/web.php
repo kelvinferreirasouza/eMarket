@@ -18,6 +18,7 @@ Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
 Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
+Route::get('pdf', 'PedidoController@gerarPdf')->name('pdf');
 /* Rotas do Carrinho */
 
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');

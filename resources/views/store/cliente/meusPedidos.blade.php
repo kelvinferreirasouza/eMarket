@@ -39,7 +39,7 @@
                             <td class="text-center">{{$pedido->id}}</td>
                             <td class="text-center">{{$pedido->data}}</td>
                             <td class="text-center">{{$pedido->getFormaPagamento($pedido->metodo_pagamento)}}</td>
-                            <td class="text-center">R$ {{number_format((float)$pedido->total + $pedido->frete, 2, '.', '')}}</td>
+                            <td class="text-center">R$ {{str_replace(".", ",", number_format((float)$pedido->total, 2, '.', ''))}}</td>
                             <td class="text-center">{{$pedido->getStatus($pedido->status)}}</td>
                             <td class="text-center"><a href="{{route('detalhesPedido', $pedido->id)}}"><img src="../imgs/visualizar.png" class="iconPedido" alt="Visualizar Pedido"</a></td>
                         </tr>

@@ -12,6 +12,8 @@ use App\Setor;
 use App\Categoria;
 use App\Fornecedor;
 use App\Unidade;
+use PDF;
+use Illuminate\Support\Facades\View;
 
 class PedidoController extends Controller {
 
@@ -104,6 +106,19 @@ class PedidoController extends Controller {
         $clientes = Cliente::all();
 
         return view('pedidos.listar', compact('pedidos', 'clientes'));
+    }
+    
+    public function gerarPdf(){
+        
+        $pedidos = Pedido::all();
+        
+        $clientes = Cliente::all();
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.pedidos.aguardPagamento', compact('pedidos', 'clientes'))->render();
+        $pdf->loadHTML($view);
+        
+        return $pdf->stream();
     }
 
 }
