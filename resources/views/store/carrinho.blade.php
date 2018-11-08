@@ -71,14 +71,9 @@
                         <tr>
                             <td></td>
                             <td style="padding: 0;">
-                                <div class="row form-group calcFrete">
-                                    <div class="input-group">
-                                        <span class="input-group-addon danger"><i class="fas fa-map-marker-alt"></i></span>
-                                        <input type="text" class="form-control" placeholder="Digite seu CEP" value="{{ Auth::guard('clientes')->user()->cep }}">
-                                    </div>
-                                </div>
+                                
                             </td>
-                            <td><button class="btn btn-success btnCalcFrete">Calcular</button></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td class="frete text-right">Frete:</td>

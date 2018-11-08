@@ -198,7 +198,6 @@ function setSessionId()
         method: "POST",
         data: data
     }).done(function (data) {
-        console.log(data);
         PagSeguroDirectPayment.setSessionId(data);
         paymentBillet();
     }).fail(function () {
@@ -262,8 +261,6 @@ function paymentBillet()
         method: "POST",
         data: data
     }).done(function (data) {
-        console.log(data);
-
         if (data.success) {
             var urlBoleto = data.payment_link;
             var urlPedidos = 'http://localhost:8000/meuspedidos/visualizar/' + data.id;

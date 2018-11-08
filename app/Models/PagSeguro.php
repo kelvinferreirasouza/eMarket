@@ -58,13 +58,14 @@ class PagSeguro extends Model {
         return $xml->id;
     }
 
-    public function paymentBillet($sendHash, $idPedido) {
+    public function paymentBillet($sendHash, $idPedido, $valor_frete) {
         $params = [
             'senderHash' => $sendHash,
             'paymentMode' => 'default',
             'paymentMethod' => 'boleto',
             'currency' => $this->currency,
             'reference' => $this->reference,
+            'shippingCost' => $valor_frete,
         ];
         // realiza um merge e adiciona dinamicamente as informacoes da trait no array de params
         $params = array_merge($params, $this->getConfigsProduction());
@@ -87,10 +88,13 @@ class PagSeguro extends Model {
             'reference' => $this->reference,
             'code' => (string) $xml->code,
             'id' => $idPedido,
+            'frete' => $valor_frete,
         ];
     }
 
-    public function paymentCredCard($sendHash, $cardToken, $totalCarrinho, $idPedido) {
+    public function paymentCredCard($sendHash, $cardToken, $totalCarrinho, $idPedido, $valor_frete) {
+        
+        $totalPedido = $totalCarrinho + $valor_frete;
         
         $params = [
             'senderHash' => $sendHash,
@@ -100,8 +104,9 @@ class PagSeguro extends Model {
             'reference' => $this->reference,
             'creditCardToken'               => $cardToken,
             'installmentQuantity'           => '1',
-            'installmentValue'              => $totalCarrinho,
+            'installmentValue'              => $totalPedido,
             'noInterestInstallmentQuantity' => '2',
+            'shippingCost' => $valor_frete,
         ];
 
         // realiza um merge e adiciona dinamicamente as informacoes da trait no array de params
@@ -126,6 +131,7 @@ class PagSeguro extends Model {
             'reference' => $this->reference,
             'code' => (string) $xml->code,
             'id' => $idPedido,
+            'frete' => $valor_frete,
         ];
     }   
 

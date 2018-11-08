@@ -24,7 +24,7 @@ class Pedido extends Model {
         return $query->where('cliente_id', Auth::guard('clientes')->user()->id);
     }
 
-    public function novoPedidoProdutos($carrinho, $reference, $code, $subtotal, $total, $status, $metodo_pagamento) {
+    public function novoPedidoProdutos($carrinho, $reference, $code, $subtotal, $total, $frete, $status, $metodo_pagamento) {
         
         // cria um novo pedido
         $pedido = $this->create([
@@ -33,6 +33,7 @@ class Pedido extends Model {
             'codigo' => $code,
             'subtotal' => $subtotal,
             'total' => $total,
+            'frete' => $frete,
             'status' => $status,
             'metodo_pagamento' => $metodo_pagamento,
             'data' => date('Ymd'),
