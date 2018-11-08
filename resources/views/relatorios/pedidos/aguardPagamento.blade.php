@@ -22,7 +22,7 @@
                 </thead>
                 <tbody>
                     @foreach($pedidos as $pedido)
-                    @if($pedido->getStatus($pedido->status) == 1 )
+                    @if($pedido->getStatus($pedido->status) == 'Aguardando Pagamento' )
                     <tr>
                         <td class="text-center">{{ $pedido->id }}</td>
                         <td class="text-center">{{ $pedido->data }}</td>
