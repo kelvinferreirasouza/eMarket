@@ -165,12 +165,18 @@ class PedidoController extends Controller {
 
         $periodo1 = $dados['periodo1'];
         $periodo2 = $dados['periodo2'];
-
-        $pedidos = Pedido::where([
+        $status = $dados['idStatus'];
+        
+        if($status >= "1"){
+            $pedidos = Pedido::where([
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
+                    ['status', '=', $status],
                 ])
                 ->get();
+        }
+
+        
 
         $clientes = Cliente::all();
 

@@ -23,6 +23,7 @@
                     $periodo02 = date('d/m/Y', strtotime($periodo2));
                 ?>
                 <h3>Período: {{$periodo01}} até {{$periodo02}}</h3>
+                <h3>Status do Pagamento: {{$idStatus}}</h3>
             </center>
         </div>
 

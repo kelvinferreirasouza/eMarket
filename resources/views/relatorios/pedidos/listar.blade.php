@@ -22,8 +22,6 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Pedidos</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listarFornecedores') }}">Período</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -51,33 +49,6 @@
                                         <tr>
                                             <td>1</td>
                                             <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Aguardando Pagamento</td>
-                                            <td>Gera relatório com todos os pedidos que estão aguardando pagamento.  </td>
-                                            <td class="text-center">
-                                                <a href="{{route('relAguardPag')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Pagamento Aprovado</td>
-                                            <td>Gera relatório com todos os pedidos aprovados.  </td>
-                                            <td class="text-center">
-                                                <a href="{{route('relPedAprovados')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Cancelados</td>
-                                            <td>Gera relatório com todos os pedidos cancelados.  </td>
-                                            <td class="text-center">
-                                                <a href="{{route('relPedCancelados')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td class="text-center">Pedidos</td>
                                             <td class="text-center">Período</td>
                                             <td>Gera relatório dos pedidos conforme periodo estipulado.  </td>
                                             <td class="text-center">
@@ -89,7 +60,7 @@
                                                     <div class="modal-dialog modal-lg modalRelatorio" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Fornecedor # <i class="fa fa-help"></i></h5>
+                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Relatório <i class="fa fa-help"></i></h5>
                                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                     <span aria-hidden="true" style="color: #fff">×</span>
                                                                 </button>
@@ -103,12 +74,25 @@
                                                                     <div class="card-block">
                                                                         <div class="form-group row">
                                                                             <div class="col-sm-6">
-                                                                                <label for="razaoSocial" class="control-label labelInputEditUser">De:</label>
+                                                                                <label for="periodo1" class="control-label labelInputEditUser">De:</label>
                                                                                 <input type="date" class="form-control" id="periodo1" name="periodo1" required>
                                                                             </div>
                                                                             <div class="col-sm-6">
-                                                                                <label for="nomeFantasia" class="control-label labelInputEditUser">Até:</label>
+                                                                                <label for="periodo2" class="control-label labelInputEditUser">Até:</label>
                                                                                 <input type="date" class="form-control" id="periodo2" name="periodo2" required>
+                                                                            </div>
+                                                                            <div class="col-sm-12">
+                                                                                <label for="status" class="control-label labelInputEditUser">Status:</label>
+                                                                                <select class="form-control labelInputEditUser" name="idStatus" id="idStatus">
+                                                                                    <option value="1">Aguardando Pagamento</option>
+                                                                                    <option value="2">Em Análise</option>
+                                                                                    <option value="3">Pagamento Aprovado</option>
+                                                                                    <option value="4">Disponível</option>
+                                                                                    <option value="5">Em Disputa</option>
+                                                                                    <option value="6">Pagamento Devolvido</option>
+                                                                                    <option value="7">Cancelado</option>
+                                                                                    <option value="9">Retenção Temporária</option>
+                                                                                </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>  
@@ -122,6 +106,33 @@
                                                     </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="text-center">Pedidos</td>
+                                            <td class="text-center">Aguardando Pagamento</td>
+                                            <td>Gera relatório com todos os pedidos que estão aguardando pagamento.  </td>
+                                            <td class="text-center">
+                                                <a href="{{route('relAguardPag')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td class="text-center">Pedidos</td>
+                                            <td class="text-center">Pagamento Aprovado</td>
+                                            <td>Gera relatório com todos os pedidos aprovados.  </td>
+                                            <td class="text-center">
+                                                <a href="{{route('relPedAprovados')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td class="text-center">Pedidos</td>
+                                            <td class="text-center">Cancelados</td>
+                                            <td>Gera relatório com todos os pedidos cancelados.  </td>
+                                            <td class="text-center">
+                                                <a href="{{route('relPedCancelados')}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
                                     </tbody>
