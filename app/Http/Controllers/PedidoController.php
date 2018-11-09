@@ -108,17 +108,17 @@ class PedidoController extends Controller {
         return view('pedidos.listar', compact('pedidos', 'clientes'));
     }
 
-    
+    // Functions de Relatórios
 
-    public function relPedAguardPag() {
+    public function visualizarRelPedidos() {
+        return view('relatorios.pedidos.listar');
+    }
+
+    public function pedidosAguardPag() {
+
         $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('status', 1)
                 ->get();
-
-        $this->gerarPdf($pedidos);
-    }
-    
-    public function gerarPdf($pedidos) {
 
         $clientes = Cliente::all();
 
@@ -129,16 +129,56 @@ class PedidoController extends Controller {
         return $pdf->stream();
     }
 
-    public function relPedAprovados() {
-        $pedidos_aprovados = Pedido::orderBy('pedidos.id', 'desc')
+    public function pedidosAprovados() {
+
+        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('status', 3)
                 ->get();
+
+        $clientes = Cliente::all();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.pedidos.aprovados', compact('clientes', 'pedidos'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
     }
 
-    public function relPedCancelados() {
-        $pedidos_cancelados = Pedido::orderBy('pedidos.id', 'desc')
+    public function pedidosCancelados() {
+
+        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('status', 7)
                 ->get();
+
+        $clientes = Cliente::all();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.pedidos.cancelados', compact('clientes', 'pedidos'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
+    }
+
+    public function pedidosPeriodo(Request $request) {
+        
+        $dados = $request->all();
+
+        $periodo1 = $dados['periodo1'];
+        $periodo2 = $dados['periodo2'];
+
+        $pedidos = Pedido::where([
+                    ['data', '>=', $periodo1],
+                    ['data', '<=', $periodo2],
+                ])
+                ->get();
+
+        $clientes = Cliente::all();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.pedidos.periodo', compact('clientes', 'pedidos', 'periodo1', 'periodo2'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
     }
 
 }

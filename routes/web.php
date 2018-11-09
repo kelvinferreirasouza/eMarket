@@ -149,7 +149,12 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/entregas/veiculos/modelos/excluir/{id}', 'VeiculoModeloController@excluirVeiculoModelo')->name('excluirVeiculoModelo');
     Route::any('/entregas/veiculos/modelos/pesquisa', 'VeiculoModeloController@pesquisarVeiculoModelo')->name('pesquisarVeiculoModelo');
     /* Rotas de Relatórios */
-    Route::get('/relatorios/pedidos/aguardando-pagamento', 'PedidoController@relPedAguardPag')->name('pdf');
+    Route::get('/relatorios/pedidos/', 'PedidoController@visualizarRelPedidos')->name('visualizarRelPedidos');
+    Route::get('/relatorios/pedidos/aguardando-pagamento', 'PedidoController@pedidosAguardPag')->name('relAguardPag');
+    Route::get('/relatorios/pedidos/aprovados', 'PedidoController@pedidosAprovados')->name('relPedAprovados');
+    Route::get('/relatorios/pedidos/cancelados', 'PedidoController@pedidosCancelados')->name('relPedCancelados');
+    Route::post('/relatorios/pedidos/periodo', 'PedidoController@pedidosPeriodo')->name('relPedPeriodo');
+    
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias', 'ProdutoController@getCategoriasAjax');
     Route::get('ajax/pegar-lista-modelos', 'VeiculoController@getModelosAjax');

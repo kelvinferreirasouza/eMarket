@@ -14,12 +14,17 @@
     <body>
         <div class="col-sm-12">
             <center>
-            <h1>Relatório de Pedidos</h1>
-            <h3>Status: Aguardando Pagamento</h3>
+                <h1>Relatório de Pedidos</h1>
+                <?php
+                    $periodo01 = $periodo1;
+                    $periodo02 = $periodo2;
+                    
+                    $periodo01 = date('d/m/Y', strtotime($periodo1));
+                    $periodo02 = date('d/m/Y', strtotime($periodo2));
+                ?>
+                <h3>Período: {{$periodo01}} até {{$periodo02}}</h3>
             </center>
-
         </div>
-
 
         <div class="table-responsive">
             <table class="table table-striped table-bordered">

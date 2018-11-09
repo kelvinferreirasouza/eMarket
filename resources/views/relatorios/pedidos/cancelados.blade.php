@@ -15,12 +15,10 @@
         <div class="col-sm-12">
             <center>
             <h1>Relatório de Pedidos</h1>
-            <h3>Status: Aguardando Pagamento</h3>
+            <h3>Status: Cancelado</h3>
             </center>
-
         </div>
-
-
+        
         <div class="table-responsive">
             <table class="table table-striped table-bordered">
                 <thead>

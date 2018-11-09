@@ -340,7 +340,10 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="pcoded-hasmenu">
+                                    <li class="pcoded-hasmenu
+                                        {{ (
+                                                \Request::route()->getName() == 'visualizarRelPedidos'
+                                                ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
                                             <span class="pcoded-mtext">Relatórios</span>
@@ -354,9 +357,9 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                                 <ul class="pcoded-submenu">
-                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculos' ||
+                                                    <li class="{{ (\Request::route()->getName() == 'visualizarRelPedidos' ||
                                                                    \Request::route()->getName() == 'pesquisarVeiculo') ? 'active' : '' }}">
-                                                        <a href="{{ route('listarVeiculos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                        <a href="{{ route('visualizarRelPedidos') }}" data-i18n="nav.page_layout.vertical.static-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
                                                             <span class="pcoded-mtext">Pedidos</span>
                                                             <span class="pcoded-mcaret"></span>
