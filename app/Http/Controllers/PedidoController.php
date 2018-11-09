@@ -107,18 +107,38 @@ class PedidoController extends Controller {
 
         return view('pedidos.listar', compact('pedidos', 'clientes'));
     }
+
     
-    public function gerarPdf(){
-        
-        $pedidos = Pedido::all();
-        
+
+    public function relPedAguardPag() {
+        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
+                ->where('status', 1)
+                ->get();
+
+        $this->gerarPdf($pedidos);
+    }
+    
+    public function gerarPdf($pedidos) {
+
         $clientes = Cliente::all();
-        
+
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.aguardPagamento', compact('pedidos', 'clientes'))->render();
+        $view = View::make('relatorios.pedidos.aguardPagamento', compact('clientes', 'pedidos'))->render();
         $pdf->loadHTML($view);
-        
+
         return $pdf->stream();
+    }
+
+    public function relPedAprovados() {
+        $pedidos_aprovados = Pedido::orderBy('pedidos.id', 'desc')
+                ->where('status', 3)
+                ->get();
+    }
+
+    public function relPedCancelados() {
+        $pedidos_cancelados = Pedido::orderBy('pedidos.id', 'desc')
+                ->where('status', 7)
+                ->get();
     }
 
 }

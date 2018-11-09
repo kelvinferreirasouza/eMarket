@@ -45,7 +45,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
         <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
-        
+
     </head>
     <body>
         <!-- Pre-loader start -->
@@ -347,6 +347,31 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                         <ul class="pcoded-submenu">
+                                            <li class="pcoded-hasmenu pcoded-trigger">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Financeiro</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculos' ||
+                                                                   \Request::route()->getName() == 'pesquisarVeiculo') ? 'active' : '' }}">
+                                                        <a href="{{ route('listarVeiculos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Pedidos</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculoMarcas' ||
+                                                                   \Request::route()->getName() == 'pesquisarVeiculoMarca') ? 'active' : '' }}">
+                                                        <a href="{{ route('listarVeiculoMarcas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Vendas</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
 
@@ -444,25 +469,25 @@
     <script type="text/javascript" src="{{ asset('js/manager/slick.min.js') }}"></script>
     @stack('scripts')
     <script>
-    $('#cep').blur(function (e) {
-        var cep = $('#cep').val();
-        var url = "https://viacep.com.br/ws/" + cep + "/json/";
-        var retorno = pesquisarCEP(url);
-    });
+$('#cep').blur(function (e) {
+    var cep = $('#cep').val();
+    var url = "https://viacep.com.br/ws/" + cep + "/json/";
+    var retorno = pesquisarCEP(url);
+});
 
-    function pesquisarCEP(endereco) {
-        $.ajax({
-            type: "GET",
-            url: endereco
-        }).done(function (data) {
-            $('#bairro').val(data.bairro);
-            $('#logradouro').val(data.logradouro);
-            $('#cidade').val(data.localidade);
-            $('#estado').val(data.uf);
-        }).fail(function () {
-            console.log("Erro!");
-        });
-    }
+function pesquisarCEP(endereco) {
+    $.ajax({
+        type: "GET",
+        url: endereco
+    }).done(function (data) {
+        $('#bairro').val(data.bairro);
+        $('#logradouro').val(data.logradouro);
+        $('#cidade').val(data.localidade);
+        $('#estado').val(data.uf);
+    }).fail(function () {
+        console.log("Erro!");
+    });
+}
     </script>
 
 </html>

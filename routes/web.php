@@ -18,7 +18,6 @@ Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
 Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
-Route::get('pdf', 'PedidoController@gerarPdf')->name('pdf');
 /* Rotas do Carrinho */
 
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
@@ -149,6 +148,8 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/entregas/veiculos/modelos/salvar', 'VeiculoModeloController@salvarVeiculoModelo')->name('salvarVeiculoModelo');
     Route::get('/entregas/veiculos/modelos/excluir/{id}', 'VeiculoModeloController@excluirVeiculoModelo')->name('excluirVeiculoModelo');
     Route::any('/entregas/veiculos/modelos/pesquisa', 'VeiculoModeloController@pesquisarVeiculoModelo')->name('pesquisarVeiculoModelo');
+    /* Rotas de Relatórios */
+    Route::get('/relatorios/pedidos/aguardando-pagamento', 'PedidoController@relPedAguardPag')->name('pdf');
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias', 'ProdutoController@getCategoriasAjax');
     Route::get('ajax/pegar-lista-modelos', 'VeiculoController@getModelosAjax');
