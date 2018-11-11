@@ -133,6 +133,27 @@ class PagSeguro extends Model {
             'id' => $idPedido,
             'frete' => $valor_frete,
         ];
-    }   
+    }
+    
+    public function getStatusTransaction($notificationCode){
+        
+        $configs = $this->getConfigsSandBox();
+        $params = http_build_query($configs);
+        
+        $guzzle = new Guzzle;
+        $response = $guzzle->request('GET', config('pagseguro.url_notification_sandbox')."/{$notificationCode}", [
+            'query' => $params,
+        ]);
+        $body = $response->getBody();
+        $contents = $body->getContents();
+
+        $xml = simplexml_load_string($contents);
+        
+        return [
+            'status'    => (string) $xml->status,
+            'reference' => (string) $xml->reference,
+        ];
+        
+    }
 
 }

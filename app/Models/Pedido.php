@@ -101,6 +101,13 @@ class Pedido extends Model {
         return number_format((float)$value, 2, '.', '');
     }
     
+    // metodo que atualiza o status do pagseguro pela API
+    public function changeStatus($newStatus)
+    {
+        $this->status = $newStatus;
+        $this->save();
+    }
+    
     public function pesquisa($request) {
         $keySearch = $request->key_search;
         

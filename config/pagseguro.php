@@ -14,6 +14,7 @@ $urlLightbox                     = 'https://stc.pagseguro.uol.com.br/pagseguro/a
 $urlSessionTranparent            = 'https://ws.pagseguro.uol.com.br/v2/sessions';
 $urlTransparentJs                = 'https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
 $urlPaymentTransparent           = 'https://ws.pagseguro.uol.com.br/v2/transactions';
+$urlNotification                 = 'https://ws.pagseguro.uol.com.br/v3/transactions/notifications';
 
 //URLs de SandBox
 $urlCheckout_sandbox             = 'https://ws.sandbox.pagseguro.uol.com.br/v2/checkout';
@@ -22,6 +23,7 @@ $urlLightbox_sandbox             = 'https://stc.pagseguro.uol.com.br/pagseguro/a
 $urlSessionTranparent_sandbox    = 'https://ws.sandbox.pagseguro.uol.com.br/v2/sessions';
 $urlTransparentJs_sandbox        = 'https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js';
 $urlPaymentTransparent_sandbox   = 'https://ws.sandbox.pagseguro.uol.com.br/v2/transactions';
+$urlNotification_sandbox         = 'https://ws.sandbox.pagseguro.uol.com.br/v3/transactions/notifications';
 
 return [
     'environment'                        => $environment,
@@ -38,6 +40,7 @@ return [
     'url_transparent_session'            => $urlSessionTranparent,
     'url_transparent_js'                 => $urlTransparentJs,
     'url_payment_transparent'            => $urlPaymentTransparent,
+    'url_notification'                   => $urlNotification,
     
     'url_checkout_sandbox'               => $urlCheckout_sandbox,
     'url_redirect_after_request_sandbox' => $urlCheckoutAfterRequest_sandbox,
@@ -45,4 +48,5 @@ return [
     'url_transparent_session_sandbox'    => $urlSessionTranparent_sandbox,
     'url_transparent_js_sandbox'         => $urlTransparentJs_sandbox,
     'url_payment_transparent_sandbox'    => $urlPaymentTransparent_sandbox,
+    'url_notification_sandbox'           => $urlNotification_sandbox,
 ];
