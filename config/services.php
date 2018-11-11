@@ -34,5 +34,11 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'facebook' => [
+        'client_id' => '712407899158780',
+        'client_secret' => '38d67628c63d3b34be1843c62f2aa648',
+        'redirect' => 'http://emarketsoftware.herokuapp.com/retorno/facebook',
+    ],
 
 ];

@@ -14,12 +14,16 @@ Route::get('/registrar', 'UsuarioController@registrar')->name('registrar');
 Route::post('/salvar', 'UsuarioController@salvar')->name('salvar');
 Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
 Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
+
+/* Rotas do Facebook */
+Route::get('/entrar/facebook', 'FacebookController@entrarFacebook')->name('facebook.login');
+Route::get('/retorno/facebook', 'FacebookController@retornoFacebook');
+
 /* Rotas Publicas */
 Route::get('/', 'StoreController@index')->name('index');
 Route::any('/produtos/busca/', 'StoreController@buscaproduto')->name('buscaProduto');
 Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name('buscaMenu');
 /* Rotas do Carrinho */
-
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
 Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
 /* Rotas de Cliente */

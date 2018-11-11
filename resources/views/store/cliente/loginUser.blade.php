@@ -105,6 +105,7 @@
                             <a href="#" id="register-form-link"><div class="register">CRIAR CONTA</div></a>
                         </div>
                     </div>
+                    <a href="{{route('facebook.login')}}">Entrar com Facebook</a>
                 </div>
             </div>
         </div>
