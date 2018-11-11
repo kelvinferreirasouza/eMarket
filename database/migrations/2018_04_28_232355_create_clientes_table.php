@@ -17,7 +17,6 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('nome', 100);
             $table->string('email', 100)->unique();
-            $table->string('facebook')->nullable();
             $table->string('password');
             $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
@@ -33,6 +32,8 @@ class CreateClientesTable extends Migration
             $table->string('fone')->nullable();
             $table->string('celular')->nullable();
             $table->string('foto')->default('sem_foto.jpg');
+            $table->string('provider')->nullable();
+            $table->string('provider_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->integer('isAtivo')->default(1);

@@ -16,8 +16,8 @@ Route::get('/manager/login', 'AutenticacaoController@login')->name('login');
 Route::post('/manager/logar', 'AutenticacaoController@logar')->name('logar');
 
 /* Rotas do Facebook */
-Route::get('/entrar/facebook', 'FacebookController@entrarFacebook')->name('facebook.login');
-Route::get('/retorno/facebook', 'FacebookController@retornoFacebook');
+Route::get('auth/{provider}', 'FacebookController@redirectToProvider');
+Route::get('auth/{provider}/callback', 'FacebookController@handleProviderCallback');
 
 /* Rotas Publicas */
 Route::get('/', 'StoreController@index')->name('index');

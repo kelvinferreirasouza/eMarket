@@ -96,6 +96,7 @@
                         </div>
                     </div>
                 </div>
+                <center><a href="{{ url('/auth/facebook') }}"><img src="../../imgs/btn_entrar_facebook.png" class="btn-login-facebook"></a></center>
                 <div class="panel-heading">
                     <div class="row">
                         <div class="col-xs-6 tabs">
@@ -105,7 +106,6 @@
                             <a href="#" id="register-form-link"><div class="register">CRIAR CONTA</div></a>
                         </div>
                     </div>
-                    <a href="{{route('facebook.login')}}">Entrar com Facebook</a>
                 </div>
             </div>
         </div>

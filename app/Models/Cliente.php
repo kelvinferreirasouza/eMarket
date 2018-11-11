@@ -12,7 +12,7 @@ class Cliente extends Authenticatable
     protected $guard = 'clientes';
 
     protected $fillable = [
-        'nome', 'email', 'password', 'facebook', 'cpf', 'rg', 'sexo', 'dataNasc', 'cep', 'logradouro', 'numero', 'complemento','bairro', 'estado', 'municipio', 'fone', 'celular', 'isAtivo'
+        'nome', 'email', 'password', 'cpf', 'rg', 'sexo', 'dataNasc', 'cep', 'logradouro', 'numero', 'complemento','bairro', 'estado', 'municipio', 'fone', 'celular', 'provider', 'provider_id', 'isAtivo'
     ];
  
     protected $hidden = [

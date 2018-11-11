@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '712407899158780',
         'client_secret' => '38d67628c63d3b34be1843c62f2aa648',
-        'redirect' => 'http://emarketsoftware.herokuapp.com/retorno/facebook',
+        'redirect' => 'http://localhost:8000/auth/facebook/callback',
     ],
 
 ];

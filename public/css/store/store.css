@@ -1334,3 +1334,9 @@ label {
 .panel-produtos-order {
     margin-bottom: -30px;
 }
+
+.btn-login-facebook {
+    width: 40%; 
+    margin-bottom: 10px; 
+    margin-top: -15px;
+}
