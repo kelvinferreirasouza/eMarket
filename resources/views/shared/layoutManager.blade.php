@@ -156,7 +156,8 @@
                                         {{ (
                                         \Request::route()->getName() == 'listarPedidos' ||
                                         \Request::route()->getName() == 'listarFormasPag' ||
-                                        \Request::route()->getName() == 'pesquisarPedido'
+                                        \Request::route()->getName() == 'pesquisarPedido' ||
+                                        \Request::route()->getName() == 'listarVendas'
                                          ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-donate"></i></span>
@@ -173,7 +174,7 @@
                                                 </a>
                                             </li>
                                             <li class="{{ (\Request::route()->getName() == 'listarVendas') ? 'active' : '' }}">
-                                                <a href="{{ route('listarFormasPag') }}" data-i18n="nav.navigate.navbar-inverse">
+                                                <a href="{{ route('listarVendas') }}" data-i18n="nav.navigate.navbar-inverse">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
                                                     <span class="pcoded-mtext">Vendas</span>
                                                     <span class="pcoded-mcaret"></span>

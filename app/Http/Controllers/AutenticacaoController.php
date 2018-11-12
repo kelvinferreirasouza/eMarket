@@ -24,7 +24,7 @@ class AutenticacaoController extends Controller {
                     'status'   => 1])
                   ->orWhere([
                      'data'     => $data,
-                    'status'    => 2])
+                     'status'   => 2])
                   ->sum('total');
         
         return view('manager', compact('clientes', 'pedidos', 'vendas'));

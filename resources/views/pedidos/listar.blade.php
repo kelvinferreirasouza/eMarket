@@ -69,13 +69,7 @@
                                         @forelse($pedidos as $pedido)
                                         <tr>
                                             <td class="text-center">{{$pedido->id}}</td>
-                                            <td class="text-center">
-                                                @foreach($clientes as $cliente)
-                                                @if($cliente->id == $pedido->cliente_id)
-                                                {{$cliente->nome}}
-                                                @endif
-                                                @endforeach
-                                            </td>
+                                            <td class="text-center">{{$pedido->getClientePedido($pedido->id)}}</td>
                                             <td class="text-center">{{$pedido->data}}</td>
                                             <td class="text-center">{{$pedido->getFormaPagamento($pedido->metodo_pagamento)}}</td>
                                             <td class="text-center">R$ {{$pedido->formatValue($pedido->total)}}</td>

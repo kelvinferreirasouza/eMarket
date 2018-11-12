@@ -101,6 +101,16 @@ class Pedido extends Model {
         return number_format((float)$value, 2, '.', '');
     }
     
+    public function getClientePedido($id)
+    {
+        $pedido = Pedido::find($id);
+        
+        $cliente = Cliente::where('id', $pedido->cliente_id)->first();
+        
+        return $cliente->nome;
+    }
+
+
     // metodo que atualiza o status do pagseguro pela API
     public function changeStatus($newStatus)
     {
