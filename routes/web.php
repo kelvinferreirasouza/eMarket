@@ -47,10 +47,6 @@ Route::middleware(['cliente'])->group(function () {
     Route::get('/meuspedidos/visualizar/{id}', 'ClienteController@detalhesPedido')->name('detalhesPedido');
     Route::get('/meuspedidos/cancelar/{id}', 'ClienteController@cancelarPedido')->name('cancelarPedido');
     Route::get('/logout', 'AutenticacaoController@logoutCliente')->name('logoutCliente');
-    
-    /* Rotas de Pagamento */
-    Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
-    Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 });
 
 /* Middware do Manager */
@@ -171,10 +167,10 @@ Route::middleware(['manager'])->group(function () {
     Route::get('ajax/pegar-lista-modelos', 'VeiculoController@getModelosAjax');
 });
 
-/* Rotas do Pagseguro */
-
-/* Rota de Cartao */
+/* Rotas de Cartao */
 Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card  ');
+Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
+Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 
 /* Rota de Boleto */
 Route::post('pagseguro-transparente', 'PagSeguroController@getCode')->name('pagseguro.code.transparente');
