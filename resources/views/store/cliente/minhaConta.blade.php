@@ -49,7 +49,7 @@
                             </div>
                             <div class="col-sm-3 divPerfil">
                                 <label>CPF:</label>
-                                <input type="text" class="form-control" name="cpf" placeholder="CPF" value="{{ Auth::guard('clientes')->user()->cpf }}" required disabled>
+                                <input type="text" class="form-control" name="cpf" id="cpf" placeholder="CPF" value="{{ Auth::guard('clientes')->user()->cpf }}" required disabled>
                             </div>
                             <div class="col-sm-3 divPerfil">
                                 <label>RG:</label>
@@ -122,6 +122,7 @@
 <script>
     $("#btnEditPerfil").click(function () {
         $("#nome").removeAttr('disabled');
+        $("#cpf").removeAttr('disabled');
         $("#rg").removeAttr('disabled');
         $("#email").removeAttr('disabled');
         $("#password").removeAttr('disabled');

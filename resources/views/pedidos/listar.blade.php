@@ -18,7 +18,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('manager') }}">Manager</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listarProdutos') }}">Vendas</a>
+                            <li class="breadcrumb-item"><a href="#">Financeiro</a>
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('listarProdutos') }}">Pedidos</a>
                             </li>

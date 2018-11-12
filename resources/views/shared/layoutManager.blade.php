@@ -172,6 +172,13 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarVendas') ? 'active' : '' }}">
+                                                <a href="{{ route('listarFormasPag') }}" data-i18n="nav.navigate.navbar-inverse">
+                                                    <span class="pcoded-micon"><i class="ti-angle-right"></i></span>
+                                                    <span class="pcoded-mtext">Vendas</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
                                             <li class="{{ (\Request::route()->getName() == 'listarFormasPag') ? 'active' : '' }}">
                                                 <a href="{{ route('listarFormasPag') }}" data-i18n="nav.navigate.navbar-inverse">
                                                     <span class="pcoded-micon"><i class="ti-angle-right"></i></span>

@@ -17,10 +17,10 @@ class CreateVendasTable extends Migration
             $table->increments('id');
             $table->integer('pedidoId')->unsigned();
             $table->foreign('pedidoId')->references('id')->on('pedidos');
-            $table->decimal('valorPedido', 20, 2)->default(0.00)->nullable();
-            $table->decimal('valorFrete', 20, 2)->default(0.00)->nullable();
-            $table->integer('isCancelado')->default(0);
-            $table->integer('isConfirmado')->default(0);
+            $table->decimal('total', 20, 2)->default(0.00);
+            $table->decimal('frete', 20, 2)->default(0.00);
+            $table->date('data');
+            $table->enum('status', [1,2,3]);
             $table->timestamps();
         });
     }

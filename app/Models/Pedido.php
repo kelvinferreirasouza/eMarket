@@ -105,13 +105,11 @@ class Pedido extends Model {
     public function changeStatus($newStatus)
     {
         $this->status = $newStatus;
+        $this->data_refresh_status = date('Y-m-d');
         $this->save();
     }
-    
     public function pesquisa($request) {
         $keySearch = $request->key_search;
-        
-        
 
         return $this->where('id', "{$keySearch}")
                         ->orWhere('codigo', "{$keySearch}")

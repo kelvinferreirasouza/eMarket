@@ -10,6 +10,7 @@ use App\Cliente;
 use App\Setor;
 use App\Categoria;
 use App\Pedido;
+Use App\Models\Venda;
 
 class AutenticacaoController extends Controller {
 
@@ -17,8 +18,10 @@ class AutenticacaoController extends Controller {
         
         $clientes = Cliente::count();
         $pedidos = Pedido::count();
+        $data = date('Y-m-d');
+        $vendas = Venda::where('data', $data)->sum('total');
         
-        return view('manager', compact('clientes', 'pedidos'));
+        return view('manager', compact('clientes', 'pedidos', 'vendas'));
         
     }
 

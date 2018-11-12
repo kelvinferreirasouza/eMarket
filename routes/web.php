@@ -121,12 +121,19 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/financeiro/formaspagamentos/salvar', 'FormaPagamentoController@salvarFormaPag')->name('salvarFormaPag');
     Route::get('/financeiro/formaspagamentos/excluir/{id}', 'FormaPagamentoController@excluirFormaPag')->name('excluirFormaPag');
     /* Rotas Protegidas de Pedidos */
-    Route::get('/vendas/pedidos', 'PedidoController@listarPedidos')->name('listarPedidos');
-    Route::post('/vendas/pedidos/atualizar/{id}', 'PedidoController@atualizarPedido')->name('atualizarPedido');
-    Route::post('/vendas/pedidos/salvar', 'PedidoController@salvarPedido')->name('salvarPedido');
-    Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
-    Route::any('/vendas/pedidos/pesquisa', 'PedidoController@pesquisarPedido')->name('pesquisarPedido');
-    Route::get('/vendas/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
+    Route::get('/financeiro/pedidos', 'PedidoController@listarPedidos')->name('listarPedidos');
+    Route::post('/financeiro/pedidos/atualizar/{id}', 'PedidoController@atualizarPedido')->name('atualizarPedido');
+    Route::post('/financeiro/pedidos/salvar', 'PedidoController@salvarPedido')->name('salvarPedido');
+    Route::get('/financeiro/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
+    Route::any('/financeiro/pedidos/pesquisa', 'PedidoController@pesquisarPedido')->name('pesquisarPedido');
+    Route::get('/financeiro/pedidos/excluir/{id}', 'PedidoController@excluirPedido')->name('excluirPedido');
+    /* Rotas Protegidas de Vendas */
+    Route::get('/financeiro/vendas', 'VendaController@listarVendas')->name('listarVendas');
+    Route::post('/financeiro/vendas/atualizar/{id}', 'VendaController@atualizarVenda')->name('atualizarVenda');
+    Route::post('/financeiro/vendas/salvar', 'VendaController@salvarVenda')->name('salvarVenda');
+    Route::get('/financeiro/vendas/excluir/{id}', 'VendaController@excluirVenda')->name('excluirVenda');
+    Route::any('/financeiro/vendas/pesquisa', 'VendaController@pesquisarVenda')->name('pesquisarVenda');
+    Route::get('/financeiro/vendas/excluir/{id}', 'VendaController@excluirVenda')->name('excluirVenda');
     /* Rotas Protegidas de Frete */
     Route::get('/encomendas/fretes', 'FreteController@listarFretes')->name('listarFretes');
     Route::post('/encomendas/frete/atualizar/{id}', 'FreteController@atualizarFrete')->name('atualizarFrete');

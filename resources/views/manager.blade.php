@@ -52,7 +52,7 @@
                             <a href="#"><div class="circle-tile-heading green"><i class="fa fa-money fa-fw fa-3x"></i></div></a>
                             <div class="circle-tile-content green">
                                 <div class="circle-tile-description text-faded"> Vendas do Dia </div>
-                                <div class="circle-tile-number text-faded ">R$ 529,90</div>
+                                <div class="circle-tile-number text-faded ">R$ {{str_replace(".", ",", number_format((float) $vendas, 2, '.', ''))}}</div>
                                 <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>

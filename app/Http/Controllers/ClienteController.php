@@ -160,9 +160,9 @@ class ClienteController extends Controller {
 
         $dados = $request->all();
 
-        // verifica se existe esses dados vindo do formulário, se sim, apaga!
-        if (isset($dados['cpf']))
-            unset($dados['cpf']);
+//        // verifica se existe esses dados vindo do formulário, se sim, apaga!
+//        if (isset($dados['cpf']))
+//            unset($dados['cpf']);
 
         if (!$dados['password']) {
             $senha_antiga = $this->cliente->getClienteAuth()->password;

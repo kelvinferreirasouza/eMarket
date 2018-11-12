@@ -82,8 +82,11 @@
                         </tr>
                     </thead>            
                     <tbody> 
-                        <?php $total_pedido = 0;
-                              $subtotal     = 0;
+                        <?php 
+                              $total_pedido    = 0;
+                              $subtotal        = 0;
+                              $subtotal_pedido = 0;
+                              $valor_frete     = 0;
                         ?>
                         @forelse($produtos as $produto)
                         <tr>
