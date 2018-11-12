@@ -19,7 +19,13 @@ class AutenticacaoController extends Controller {
         $clientes = Cliente::count();
         $pedidos = Pedido::count();
         $data = date('Y-m-d');
-        $vendas = Venda::where('data', $data)->sum('total');
+        $vendas = Venda::where([
+                    'data'     => $data,
+                    'status'   => 1])
+                  ->orWhere([
+                     'data'     => $data,
+                    'status'    => 2])
+                  ->sum('total');
         
         return view('manager', compact('clientes', 'pedidos', 'vendas'));
         
