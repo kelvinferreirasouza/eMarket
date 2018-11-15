@@ -249,3 +249,13 @@
     text-transform: uppercase; 
     font-weight: bold;
 }
+
+.statusVenda-aprovada {
+    color: green;
+    font-weight: bold;
+}
+
+.statusVenda-cancelada {
+    color: red;
+    font-weight: bold;
+}

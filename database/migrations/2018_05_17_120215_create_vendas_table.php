@@ -20,7 +20,7 @@ class CreateVendasTable extends Migration
             $table->decimal('total', 20, 2)->default(0.00);
             $table->decimal('frete', 20, 2)->default(0.00);
             $table->date('data');
-            $table->enum('status', [1,2,3]);
+            $table->enum('status', [1,2,3,4]);
             $table->timestamps();
         });
     }
