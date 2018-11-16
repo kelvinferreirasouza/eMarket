@@ -175,9 +175,7 @@ class PedidoController extends Controller {
                 ])
                 ->get();
         }
-
         
-
         $clientes = Cliente::all();
 
         $pdf = \App::make('dompdf.wrapper');

@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use PedidoProduto;
 
 class Venda extends Model {
 
     protected $fillable = [
         'pedidoId', 'total', 'frete', 'data', 'status',
     ];
+    
     protected $table = 'vendas';
 
     // retorna o status conforme o codigo recebido
@@ -31,6 +33,24 @@ class Venda extends Model {
         $cliente = DB::table('clientes')->where('id', $pedido->cliente_id)->first();
 
         return $cliente->nome;
+    }
+    
+    public function getClienteEndereco($pedidoId){
+        
+        $pedido = DB::table('pedidos')->where('id', $pedidoId)->first();
+        
+        $cliente = DB::table('clientes')->where('id', $pedido->cliente_id)->first();
+        
+        return [
+            'cep' => $cliente->cep,
+            'logradouro' => $cliente->logradouro,
+            'numero' => $cliente->numero,
+            'complemento' => $cliente->complemento,
+            'bairro' => $cliente->bairro,
+            'estado' => $cliente->estado,
+            'municipio' => $cliente->municipio
+        ];
+        
     }
 
     // formata a exibicao da Data
@@ -68,5 +88,4 @@ class Venda extends Model {
         
         return $pedido->referencia;
     }
-
 }

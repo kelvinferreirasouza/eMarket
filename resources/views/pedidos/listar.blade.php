@@ -247,40 +247,39 @@
                                                                                         </table> 
                                                                                     </div>
                                                                                     <div id="menu2{{$pedido->id}}" class="container tab-pane fade"><br>
-                                                                                        @foreach($clientes as $cliente)
-                                                                                        @if($pedido->cliente_id == $cliente->id)
+                                                                                        <?php
+                                                                                            $cliente = $pedido->getClienteEndereco($pedido->id);
+                                                                                        ?>
                                                                                         <div class="row">
                                                                                             <div class="col-sm-3">
                                                                                                 <label for="cep" class="control-label labelInputEditUser">CEP:</label>
-                                                                                                <input type="text" class="form-control" name="cep" value="{{$cliente->cep}}">
+                                                                                                <input type="text" class="form-control" name="cep" value="{{$cliente['cep']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="endereco" class="control-label labelInputEditUser">Endereço:</label>
-                                                                                                <input type="text" class="form-control" name="logradouro" value="{{$cliente->logradouro}}">
+                                                                                                <input type="text" class="form-control" name="logradouro" value="{{$cliente['logradouro']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-3">
                                                                                                 <label for="numero" class="control-label labelInputEditUser">Número:</label>
-                                                                                                <input type="number" class="form-control" name="numero" value="{{$cliente->numero}}">
+                                                                                                <input type="number" class="form-control" name="numero" value="{{$cliente['numero']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
-                                                                                                <input type="text" class="form-control" name="complemento" value="{{$cliente->complemento}}">
+                                                                                                <input type="text" class="form-control" name="complemento" value="{{$cliente['complemento']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
-                                                                                                <input type="text" class="form-control" name="bairro" value="{{$cliente->bairro}}">
+                                                                                                <input type="text" class="form-control" name="bairro" value="{{$cliente['bairro']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="estado" class="control-label labelInputEditUser">Estado:</label>
-                                                                                                <input type="text" class="form-control" name="estado" value="{{$cliente->estado}}">
+                                                                                                <input type="text" class="form-control" name="estado" value="{{$cliente['estado']}}">
                                                                                             </div>
                                                                                             <div class="col-sm-6">
                                                                                                 <label for="municipio" class="control-label labelInputEditUser">Municipio:</label>
-                                                                                                <input type="text" class="form-control" name="municipio" value="{{$cliente->municipio}}">
+                                                                                                <input type="text" class="form-control" name="municipio" value="{{$cliente['municipio']}}">
                                                                                             </div>
                                                                                         </div>
-                                                                                        @endif
-                                                                                        @endforeach
                                                                                     </div>
                                                                                 </div>
                                                                             </div>

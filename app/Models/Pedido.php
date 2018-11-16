@@ -109,6 +109,24 @@ class Pedido extends Model {
         
         return $cliente->nome;
     }
+    
+    public function getClienteEndereco($id){
+        
+        $pedido = DB::table('pedidos')->where('id', $id)->first();
+        
+        $cliente = DB::table('clientes')->where('id', $pedido->cliente_id)->first();
+        
+        return [
+            'cep' => $cliente->cep,
+            'logradouro' => $cliente->logradouro,
+            'numero' => $cliente->numero,
+            'complemento' => $cliente->complemento,
+            'bairro' => $cliente->bairro,
+            'estado' => $cliente->estado,
+            'municipio' => $cliente->municipio
+        ];
+        
+    }
 
 
     // metodo que atualiza o status do pagseguro pela API
