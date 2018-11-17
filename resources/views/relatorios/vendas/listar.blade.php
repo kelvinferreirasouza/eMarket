@@ -20,7 +20,7 @@
                             </li>
                             <li class="breadcrumb-item"><a href="#">Relatórios</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Pedidos</a>
+                            <li class="breadcrumb-item"><a href="#">Vendas</a>
                             </li>
                         </ul>
                     </div>
@@ -48,9 +48,9 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td class="text-center">Pedidos</td>
+                                            <td class="text-center">Vendas</td>
                                             <td class="text-center">Período</td>
-                                            <td>Gera relatório dos pedidos conforme periodo estipulado.  </td>
+                                            <td>Gera relatório das vendas conforme periodo estipulado.  </td>
                                             <td class="text-center">
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modal" ><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
@@ -66,7 +66,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="{{route('relPedidoPeriodo')}}" class="formEditUser" target="_blank">
+                                                                <form method="post" action="#" class="formEditUser" target="_blank">
                                                                     {{ csrf_field() }}
                                                                     <div class="card-header text-center">
                                                                         <h5>Visualizar Relatório por Período</h5>
@@ -110,32 +110,42 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Aguardando Pagamento</td>
-                                            <td>Gera relatório com todos os pedidos que estão aguardando pagamento.  </td>
+                                            <td class="text-center">Vendas</td>
+                                            <td class="text-center">Realizadas</td>
+                                            <td>Gera relatório com todos as vendas que foram realizadas.  </td>
                                             <td class="text-center">
                                                 <?php $id=1 ?>
-                                                <a href="{{route('relPedidosAguardPag', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                                <a href="{{route('relVendasRealizadas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Pagamento Aprovado</td>
-                                            <td>Gera relatório com todos os pedidos aprovados.  </td>
+                                            <td class="text-center">Vendas</td>
+                                            <td class="text-center">Concluídas</td>
+                                            <td>Gera relatório com todos as vendas concluídas e entregues.  </td>
                                             <td class="text-center">
                                                 <?php $id=3 ?>
-                                                <a href="{{route('relPedidosAprovados', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                                <a href="{{route('relVendasConcluidas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td class="text-center">Pedidos</td>
-                                            <td class="text-center">Cancelados</td>
-                                            <td>Gera relatório com todos os pedidos cancelados.  </td>
+                                            <td class="text-center">Vendas</td>
+                                            <td class="text-center">Em Entrega</td>
+                                            <td>Gera relatório com todos as vendas que estão em rota de entrega.  </td>
                                             <td class="text-center">
-                                                <?php $id=7 ?>
-                                                <a href="{{route('relPedidosCancelados', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                                <?php $id=2 ?>
+                                                <a href="{{route('relVendasCanceladas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td class="text-center">Vendas</td>
+                                            <td class="text-center">Canceladas</td>
+                                            <td>Gera relatório com todos as vendas canceladas.  </td>
+                                            <td class="text-center">
+                                                <?php $id=4 ?>
+                                                <a href="{{route('relVendasCanceladas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
                                     </tbody>

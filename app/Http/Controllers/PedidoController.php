@@ -13,7 +13,7 @@ use App\Categoria;
 use App\Fornecedor;
 use App\Unidade;
 use PDF;
-use Illuminate\Support\Facades\View;
+use View;
 
 class PedidoController extends Controller {
 
@@ -114,46 +114,18 @@ class PedidoController extends Controller {
         return view('relatorios.pedidos.listar');
     }
 
-    public function pedidosAguardPag() {
+    public function relatorios($id) {
 
         $pedidos = Pedido::orderBy('pedidos.id', 'desc')
-                ->where('status', 1)
+                ->where('status', $id)
                 ->get();
 
+        $status = $this->pedido->getStatus($id);
+        
         $clientes = Cliente::all();
 
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.aguardPagamento', compact('clientes', 'pedidos'))->render();
-        $pdf->loadHTML($view);
-
-        return $pdf->stream();
-    }
-
-    public function pedidosAprovados() {
-
-        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
-                ->where('status', 3)
-                ->get();
-
-        $clientes = Cliente::all();
-
-        $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.aprovados', compact('clientes', 'pedidos'))->render();
-        $pdf->loadHTML($view);
-
-        return $pdf->stream();
-    }
-
-    public function pedidosCancelados() {
-
-        $pedidos = Pedido::orderBy('pedidos.id', 'desc')
-                ->where('status', 7)
-                ->get();
-
-        $clientes = Cliente::all();
-
-        $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.cancelados', compact('clientes', 'pedidos'))->render();
+        $view = View::make('relatorios.pedidos.relatorios', compact('pedidos', 'clientes', 'status'))->render();
         $pdf->loadHTML($view);
 
         return $pdf->stream();
@@ -172,8 +144,7 @@ class PedidoController extends Controller {
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
                     ['status', '=', $status],
-                ])
-                ->get();
+            ])->get();
         }
         
         $clientes = Cliente::all();

@@ -155,12 +155,19 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/entregas/veiculos/modelos/salvar', 'VeiculoModeloController@salvarVeiculoModelo')->name('salvarVeiculoModelo');
     Route::get('/entregas/veiculos/modelos/excluir/{id}', 'VeiculoModeloController@excluirVeiculoModelo')->name('excluirVeiculoModelo');
     Route::any('/entregas/veiculos/modelos/pesquisa', 'VeiculoModeloController@pesquisarVeiculoModelo')->name('pesquisarVeiculoModelo');
-    /* Rotas de Relatórios */
+    /* Rotas de Relatórios de Pedidos */
     Route::get('/relatorios/pedidos/', 'PedidoController@visualizarRelPedidos')->name('visualizarRelPedidos');
-    Route::get('/relatorios/pedidos/aguardando-pagamento', 'PedidoController@pedidosAguardPag')->name('relAguardPag');
-    Route::get('/relatorios/pedidos/aprovados', 'PedidoController@pedidosAprovados')->name('relPedAprovados');
-    Route::get('/relatorios/pedidos/cancelados', 'PedidoController@pedidosCancelados')->name('relPedCancelados');
-    Route::post('/relatorios/pedidos/periodo', 'PedidoController@pedidosPeriodo')->name('relPedPeriodo');
+    Route::get('/relatorios/pedidos/aguardando-pagamento/{id}', 'PedidoController@relatorios')->name('relPedidosAguardPag');
+    Route::get('/relatorios/pedidos/aprovados/{id}', 'PedidoController@relatorios')->name('relPedidosAprovados');
+    Route::get('/relatorios/pedidos/cancelados/{id}', 'PedidoController@relatorios')->name('relPedidosCancelados');
+    Route::get('/relatorios/pedidos/periodo', 'PedidoController@pedidosPeriodo')->name('relPedidoPeriodo');
+    /* Rotas de Relatórios de Vendas */
+    Route::get('/relatorios/vendas/', 'VendaController@visualizarRelVendas')->name('visualizarRelVendas');
+    Route::get('/relatorios/vendas/realizadas/{id}', 'VendaController@relatorios')->name('relVendasRealizadas');
+    Route::get('/relatorios/vendas/concluidas/{id}', 'VendaController@relatorios')->name('relVendasConcluidas');
+    Route::get('/relatorios/vendas/canceladas/{id}', 'VendaController@relatorios')->name('relVendasCanceladas');
+    Route::get('/relatorios/vendas/saiu-para-entrega/{id}', 'VendaController@relatorios')->name('relVendasEmEntrega');
+    Route::any('/relatorios/pedidos/periodo', 'VendaController@pedidosPeriodo')->name('relVendasPeriodo');
     
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias', 'ProdutoController@getCategoriasAjax');
