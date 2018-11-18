@@ -313,6 +313,14 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
+                                            <li class="{{ (\Request::route()->getName() == 'listarProdutos' ||
+                                                           \Request::route()->getName() == 'pesquisarProduto') ? 'active' : '' }}">
+                                                <a href="{{ route('listarFretes') }}" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Entregas</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                            </li>
                                             <li class="pcoded-hasmenu pcoded-trigger">
                                                 <a href="javascript:void(0)" >
                                                     <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
@@ -394,7 +402,7 @@
                                                     <li class="{{ (\Request::route()->getName() == '') ? 'active' : '' }}">
                                                         <a href="{{ route('visualizarRelPedidos') }}" data-i18n="nav.page_layout.vertical.static-layout">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Teste</span>
+                                                            <span class="pcoded-mtext">Estoque</span>
                                                             <span class="pcoded-mcaret"></span>
                                                         </a>
                                                     </li>

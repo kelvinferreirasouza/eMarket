@@ -45,6 +45,44 @@ class VendaController extends Controller {
 
         return redirect()->route('listarVendas');
     }
+    
+    public function concluirEntrega($id){
+        
+        if($id == 1){
+            Venda::where('id', $id)
+                ->update(['status' => 3]);
+        }
+        
+        return redirect()->route('listarVendas');
+    }
+    
+    public function realizarEntrega($id){
+        
+        $venda = Venda::find($id);
+        
+        if($id == 1){
+            Venda::where('id', $id)
+                ->update(['status' => 2]);
+        }
+        
+        $this->geraRelatorioEntrega($venda);
+    }
+    
+    public function geraRelatorioEntrega($venda){
+        
+        $pedido = Pedido::find($venda->pedidoId);
+        $pedidoProdutos = PedidoProduto::find($pedido->id);
+        $cliente = Cliente::find($pedido->cliente_id);
+        $produtos = Produto::all();
+        $unidades = Unidade::all();
+        
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.vendas.relatorioEntrega', compact('venda', 'pedido', 'pedidoProdutos', 'cliente', 'produtos', 'unidades'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
+    }
 
     public function visualizarRelVendas() {
         return view('relatorios.vendas.listar');

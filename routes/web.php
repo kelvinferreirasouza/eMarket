@@ -130,6 +130,8 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/financeiro/vendas/excluir/{id}', 'VendaController@excluirVenda')->name('excluirVenda');
     Route::any('/financeiro/vendas/pesquisa', 'VendaController@pesquisarVenda')->name('pesquisarVenda');
     Route::get('/financeiro/vendas/excluir/{id}', 'VendaController@excluirVenda')->name('excluirVenda');
+    Route::get('/financeiro/vendas/entrega/concluir/{id}', 'VendaController@concluirEntrega')->name('concluirEntrega');
+    Route::get('/financeiro/vendas/entrega/entregar/{id}', 'VendaController@realizarEntrega')->name('realizarEntrega');
     /* Rotas Protegidas de Frete */
     Route::get('/encomendas/fretes', 'FreteController@listarFretes')->name('listarFretes');
     Route::post('/encomendas/frete/atualizar/{id}', 'FreteController@atualizarFrete')->name('atualizarFrete');
@@ -137,6 +139,13 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/encomendas/frete/{id}', 'FreteController@excluirFrete')->name('excluirFrete');
     Route::any('/encomendas/frete/pesquisa', 'FreteController@pesquisarFrete')->name('pesquisarFrete');
     Route::get('/encomendas/frete/excluir/{id}', 'FreteController@excluirFrete')->name('excluirFrete');
+    /* Rotas Protegidas de Entregas */
+    Route::get('/encomendas/entregas', 'EntregaController@listarEntregas')->name('listarEntregas');
+    Route::post('/encomendas/entrega/atualizar/{id}', 'EntregaController@atualizarEntrega')->name('atualizarEntrega');
+    Route::post('/encomendas/entrega/salvar', 'EntregaController@salvarEntrega')->name('salvarEntrega');
+    Route::get('/encomendas/entrega/{id}', 'EntregaController@excluirEntrega')->name('excluirEntrega');
+    Route::any('/encomendas/entrega/pesquisa', 'EntregaController@pesquisarEntrega')->name('pesquisarEntrega');
+    Route::get('/encomendas/entrega/excluir/{id}', 'EntregaController@excluirEntrega')->name('excluirEntrega');
     /* Rotas Protegidas de Veiculos */
     Route::get('/entregas/veiculos', 'VeiculoController@listarVeiculos')->name('listarVeiculos');
     Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo');

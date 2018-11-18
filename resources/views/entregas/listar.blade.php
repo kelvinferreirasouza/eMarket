@@ -18,9 +18,9 @@
                             </li>
                             <li class="breadcrumb-item"><a href="{{ route('manager') }}">Manager</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="#">Financeiro</a>
+                            <li class="breadcrumb-item"><a href="#">Encomendas</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{ route('listarVendas') }}">Vendas</a>
+                            <li class="breadcrumb-item"><a href="{{ route('listarVendas') }}">Entregas</a>
                             </li>
                         </ul>
                     </div>
@@ -28,8 +28,8 @@
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
-                            <h5>Lista de Vendas</h5>
-                            <span>Listagem das vendas realizadas.</span>   
+                            <h5>Lista de Entregas</h5>
+                            <span>Listagem das vendas concretizadas para envio .</span>   
                         </div>
 
                         <!-- FORMULÁRIO DE BUSCA -->
@@ -184,38 +184,38 @@
                                                                                                 <?php $total_pedido = 0 ?>
                                                                                                 <!-- Lista os Pedidos Produtos -->
                                                                                                 @forelse($pedidoProdutos as $pedidoProduto)
-                                                                                                <!-- Filtra apenas os produtos do pedido selecionado -->
-                                                                                                @if($pedidoProduto->pedido_id == $venda->pedidoId)
-                                                                                                <!-- Lista os Produtos -->
-                                                                                                @foreach($produtos as $produto)
-                                                                                                <!-- Mostra as informacoes do produto -->
-                                                                                                @if($pedidoProduto->produto_id == $produto->id)
-                                                                                                <tr>
-                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
-                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
-                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
-                                                                                                        @foreach($unidades as $unidade)
-                                                                                                        @if($unidade->id == $produto->produtoUnidadeId )
-                                                                                                        {{$unidade->sigla}}
-                                                                                                        @endif 
+                                                                                                    <!-- Filtra apenas os produtos do pedido selecionado -->
+                                                                                                    @if($pedidoProduto->pedido_id == $venda->pedidoId)
+                                                                                                        <!-- Lista os Produtos -->
+                                                                                                        @foreach($produtos as $produto)
+                                                                                                            <!-- Mostra as informacoes do produto -->
+                                                                                                            @if($pedidoProduto->produto_id == $produto->id)
+                                                                                                                <tr>
+                                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
+                                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
+                                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
+                                                                                                                        @foreach($unidades as $unidade)
+                                                                                                                            @if($unidade->id == $produto->produtoUnidadeId )
+                                                                                                                                {{$unidade->sigla}}
+                                                                                                                            @endif 
+                                                                                                                        @endforeach
+                                                                                                                    </td>
+                                                                                                                    <?php 
+                                                                                                                        $valor_unitario    = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
+                                                                                                                        $valor_subtotal    = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
+                                                                                                                        $valor_frete       = str_replace(".", ",", number_format((float)$venda->frete, 2, '.', ''));
+                                                                                                                        $total_pedido      = str_replace(".", ",", number_format((float)$venda->total, 2, '.', ''));
+                                                                                                                        $subtotal_pedido   = str_replace(".", ",", number_format((float)$venda->total - $venda->frete, 2, '.', ''));
+                                                                                                                    ?>
+                                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
+                                                                                                                </tr>
+                                                                                                            @endif
                                                                                                         @endforeach
-                                                                                                    </td>
-                                                                                                    <?php
-                                                                                                    $valor_unitario = str_replace(".", ",", number_format((float) $pedidoProduto->valor, 2, '.', ''));
-                                                                                                    $valor_subtotal = str_replace(".", ",", number_format((float) $pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
-                                                                                                    $valor_frete = str_replace(".", ",", number_format((float) $venda->frete, 2, '.', ''));
-                                                                                                    $total_pedido = str_replace(".", ",", number_format((float) $venda->total, 2, '.', ''));
-                                                                                                    $subtotal_pedido = str_replace(".", ",", number_format((float) $venda->total - $venda->frete, 2, '.', ''));
-                                                                                                    ?>
-                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
-                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
-                                                                                                </tr>
-                                                                                                @endif
-                                                                                                @endforeach
-                                                                                                @endif
+                                                                                                    @endif
                                                                                                 @empty
-                                                                                            <p>Nenhum Produto encontrado!</p>
-                                                                                            @endforelse()
+                                                                                                    <p>Nenhum Produto encontrado!</p>
+                                                                                                @endforelse()
                                                                                             </tbody>
                                                                                             <tr style="background-color: #fff">
                                                                                                 <td style="border-color: #fff"></td>
@@ -242,7 +242,7 @@
                                                                                     </div>
                                                                                     <div id="menu2{{$venda->id}}" class="container tab-pane fade"><br>
                                                                                         <?php
-                                                                                        $cliente = $venda->getClienteEndereco($venda->pedidoId);
+                                                                                            $cliente = $venda->getClienteEndereco($venda->pedidoId);
                                                                                         ?>
                                                                                         <div class="row">
                                                                                             <div class="col-sm-3">
@@ -397,38 +397,38 @@
                                                                                                 <?php $total_pedido = 0 ?>
                                                                                                 <!-- Lista os Pedidos Produtos -->
                                                                                                 @forelse($pedidoProdutos as $pedidoProduto)
-                                                                                                <!-- Filtra apenas os produtos do pedido selecionado -->
-                                                                                                @if($pedidoProduto->pedido_id == $venda->pedidoId)
-                                                                                                <!-- Lista os Produtos -->
-                                                                                                @foreach($produtos as $produto)
-                                                                                                <!-- Mostra as informacoes do produto -->
-                                                                                                @if($pedidoProduto->produto_id == $produto->id)
-                                                                                                <tr>
-                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
-                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
-                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
-                                                                                                        @foreach($unidades as $unidade)
-                                                                                                        @if($unidade->id == $produto->produtoUnidadeId )
-                                                                                                        {{$unidade->sigla}}
-                                                                                                        @endif 
+                                                                                                    <!-- Filtra apenas os produtos do pedido selecionado -->
+                                                                                                    @if($pedidoProduto->pedido_id == $venda->pedidoId)
+                                                                                                        <!-- Lista os Produtos -->
+                                                                                                        @foreach($produtos as $produto)
+                                                                                                            <!-- Mostra as informacoes do produto -->
+                                                                                                            @if($pedidoProduto->produto_id == $produto->id)
+                                                                                                                <tr>
+                                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
+                                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
+                                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
+                                                                                                                        @foreach($unidades as $unidade)
+                                                                                                                            @if($unidade->id == $produto->produtoUnidadeId )
+                                                                                                                                {{$unidade->sigla}}
+                                                                                                                            @endif 
+                                                                                                                        @endforeach
+                                                                                                                    </td>
+                                                                                                                    <?php 
+                                                                                                                        $valor_unitario    = str_replace(".", ",", number_format((float)$pedidoProduto->valor, 2, '.', ''));
+                                                                                                                        $valor_subtotal    = str_replace(".", ",", number_format((float)$pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
+                                                                                                                        $valor_frete       = str_replace(".", ",", number_format((float)$venda->frete, 2, '.', ''));
+                                                                                                                        $total_pedido      = str_replace(".", ",", number_format((float)$venda->total, 2, '.', ''));
+                                                                                                                        $subtotal_pedido   = str_replace(".", ",", number_format((float)$venda->total - $venda->frete, 2, '.', ''));
+                                                                                                                    ?>
+                                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
+                                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
+                                                                                                                </tr>
+                                                                                                            @endif
                                                                                                         @endforeach
-                                                                                                    </td>
-                                                                                                    <?php
-                                                                                                    $valor_unitario = str_replace(".", ",", number_format((float) $pedidoProduto->valor, 2, '.', ''));
-                                                                                                    $valor_subtotal = str_replace(".", ",", number_format((float) $pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
-                                                                                                    $valor_frete = str_replace(".", ",", number_format((float) $venda->frete, 2, '.', ''));
-                                                                                                    $total_pedido = str_replace(".", ",", number_format((float) $venda->total, 2, '.', ''));
-                                                                                                    $subtotal_pedido = str_replace(".", ",", number_format((float) $venda->total - $venda->frete, 2, '.', ''));
-                                                                                                    ?>
-                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
-                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
-                                                                                                </tr>
-                                                                                                @endif
-                                                                                                @endforeach
-                                                                                                @endif
+                                                                                                    @endif
                                                                                                 @empty
-                                                                                            <p>Nenhum Produto encontrado!</p>
-                                                                                            @endforelse()
+                                                                                                    <p>Nenhum Produto encontrado!</p>
+                                                                                                @endforelse()
                                                                                             </tbody>
                                                                                             <tr style="background-color: #fff">
                                                                                                 <td style="border-color: #fff"></td>
@@ -455,7 +455,7 @@
                                                                                     </div>
                                                                                     <div id="visualizarEndereco{{$venda->id}}" class="container tab-pane fade"><br>
                                                                                         <?php
-                                                                                        $cliente = $venda->getClienteEndereco($venda->pedidoId);
+                                                                                            $cliente = $venda->getClienteEndereco($venda->pedidoId);
                                                                                         ?>
                                                                                         <div class="row">
                                                                                             <div class="col-sm-3">
@@ -502,218 +502,6 @@
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
 
-                                                <!-- BOTAO DA MODAL DE ENTREGA -->
-                                                <a href="" data-toggle="modal" data-target="#modalEntrega{{$venda->id}}" data-whatever="{{$venda->id}}" data-whateverpedidoId="{{$venda->pedidoId}}" data-whatevertotal="{{$venda->total}}" data-whateverfrete="{{$venda->frete}}" data-whateverdata="{{$venda->data}}" data-whateverstatus="{{$venda->status}}"><img src="../../imgs/shipping-button.png" title="Realizar Entrega" class="btnAcoes"></a>
-
-                                                <!-- INICIO MODAL DE ENTREGA -->
-                                                <div class="modal fade" id="modalEntrega{{$venda->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg modalFornec" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
-                                                                <h5 class="modal-title" id="exampleModalLongTitle" style="color: #fff">Venda Nº {{$venda->id}} <i class="fa fa-help"></i></h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true" style="color: #fff">×</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form method="post" action="{{route ('atualizarVenda', $venda->id)}}" class="formEditUser">
-                                                                    {{ csrf_field() }}
-                                                                    <div class="card-header text-center">
-                                                                        <h5>Realizar Entrega</h5>
-                                                                    </div>
-                                                                    <div class="card-block">
-                                                                        <div class="form-group row">
-                                                                            <div class="col-sm-12">
-                                                                                <ul class="nav nav-tabs" role="tablist">
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#visualizarPed{{$venda->id}}">Venda</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link" data-toggle="tab" href="#visualizarProd{{$venda->id}}">Produtos</a>
-                                                                                    </li>
-                                                                                    <li class="nav-item">
-                                                                                        <a class="nav-link active" data-toggle="tab" href="#visualizarEnd{{$venda->id}}">Entrega</a>
-                                                                                    </li>
-                                                                                </ul>
-
-                                                                                <!-- Tab panes -->
-                                                                                <div class="tab-content">
-                                                                                    <div id="visualizarPed{{$venda->id}}" class="container tab-pane"><br>
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-2">
-                                                                                                <label for="data" class="control-label labelInputEditUser">Nº Venda:</label>
-                                                                                                <input disabled type="text" class="form-control" name="id" value="{{$venda->id}}" required>
-                                                                                            </div>
-                                                                                            <div class="col-sm-2">
-                                                                                                <label for="data" class="control-label labelInputEditUser">Nº Pedido:</label>
-                                                                                                <input disabled type="text" class="form-control" name="pedidoId" value="{{$venda->pedidoId}}" required>
-                                                                                            </div>
-                                                                                            <div class="col-sm-3">
-                                                                                                <!-- Formata a data para o formatado americano para enviar ao input date -->
-                                                                                                <?php
-                                                                                                $data = DateTime::createFromFormat('d/m/Y', $venda->data);
-                                                                                                $dataVenda = $data->format('Y-m-d');
-                                                                                                ?>
-                                                                                                <label for="data" class="control-label labelInputEditUser">Data:</label>
-                                                                                                <input disabled type="date" class="form-control" name="data" value="{{$dataVenda}}" required>
-                                                                                            </div>
-                                                                                            <div class="col-sm-5">
-                                                                                                <label for="cliente_id" class="control-label labelInputEditUser">Nome do Cliente:</label>
-                                                                                                <input disabled type="text" step="any" class="form-control" name="cliente" value="{{$venda->getClienteVenda($venda->pedidoId)}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <label for="metodo_pagamento" class="control-label labelInputEditUser">Forma de Pagamento:</label>
-                                                                                                <input disabled type="text" step="any" class="form-control" name="cliente" value="{{$venda->getFormaPagamento($venda->pedidoId)}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-4">
-                                                                                                <label for="cliente_id" class="control-label labelInputEditUser">Status:</label>
-                                                                                                <select disabled class="form-control labelInputEditUser" name="status">
-                                                                                                    <option disabled value="1" {{ $venda->status == 1 ? 'selected' : ''}}>Venda Realizada</option>
-                                                                                                    <option disabled value="2" {{ $venda->status == 2 ? 'selected' : ''}}>Saiu para Entrega</option>
-                                                                                                    <option disabled value="3" {{ $venda->status == 3 ? 'selected' : ''}}>Venda Concluída</option>
-                                                                                                    <option disabled value="4" {{ $venda->status == 4 ? 'selected' : ''}}>Venda Cancelada</option>
-                                                                                                </select>
-                                                                                            </div>
-                                                                                            <div class="col-sm-2">
-                                                                                                <label for="precoVenda" class="control-label labelInputEditUser">Frete:</label>
-                                                                                                <input disabled type="number" step="any" class="form-control" name="frete" value="{{$venda->frete}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-2">
-                                                                                                <label for="total" class="control-label labelInputEditUser">Valor Total:</label>
-                                                                                                <input disabled type="number" step="any" class="form-control" name="total" value="{{$venda->total}}" required>
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="codigo" class="control-label labelInputEditUser">Código da Transação:</label>
-                                                                                                <input disabled type="text" id="codigo" class="form-control" name="codigo" value="{{$venda->getCodeTransaction($venda->pedidoId)}}" required>
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="referencia" class="control-label labelInputEditUser">Referência:</label>
-                                                                                                <input disabled type="text" class="form-control" name="referencia" value="{{$venda->getCodeReference($venda->pedidoId)}}">
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div id="visualizarProd{{$venda->id}}" class="container tab-pane fade"><br>
-                                                                                        <table class="table table-striped table-bordered table-hover nowrap">
-                                                                                            <thead>
-                                                                                                <tr>
-                                                                                                    <th class="text-center"><i class="far fa-images"></i></th>
-                                                                                                    <th class="text-center">Produto</th>
-                                                                                                    <th class="text-center">Quantidade</th>
-                                                                                                    <th class="text-center">Preço Unitário</th>
-                                                                                                    <th class="text-center">Subtotal</th>
-                                                                                                </tr>
-                                                                                            </thead>            
-                                                                                            <tbody>
-                                                                                                <?php $total_pedido = 0 ?>
-                                                                                                <!-- Lista os Pedidos Produtos -->
-                                                                                                @forelse($pedidoProdutos as $pedidoProduto)
-                                                                                                <!-- Filtra apenas os produtos do pedido selecionado -->
-                                                                                                @if($pedidoProduto->pedido_id == $venda->pedidoId)
-                                                                                                <!-- Lista os Produtos -->
-                                                                                                @foreach($produtos as $produto)
-                                                                                                <!-- Mostra as informacoes do produto -->
-                                                                                                @if($pedidoProduto->produto_id == $produto->id)
-                                                                                                <tr>
-                                                                                                    <td class="text-center"><img src="../../imgs/produtos/{{$produto->imagem1}}" height="60px" width="60px" style="border-radius: 40px"></td>
-                                                                                                    <td class="text-center">{{$produto->produtoNome}}</td>
-                                                                                                    <td class="text-center">{{ number_format((float)$pedidoProduto->qtd, 0, '.', '') }}
-                                                                                                        @foreach($unidades as $unidade)
-                                                                                                        @if($unidade->id == $produto->produtoUnidadeId )
-                                                                                                        {{$unidade->sigla}}
-                                                                                                        @endif 
-                                                                                                        @endforeach
-                                                                                                    </td>
-                                                                                                    <?php
-                                                                                                    $valor_unitario = str_replace(".", ",", number_format((float) $pedidoProduto->valor, 2, '.', ''));
-                                                                                                    $valor_subtotal = str_replace(".", ",", number_format((float) $pedidoProduto->valor * $pedidoProduto->qtd, 2, '.', ''));
-                                                                                                    $valor_frete = str_replace(".", ",", number_format((float) $venda->frete, 2, '.', ''));
-                                                                                                    $total_pedido = str_replace(".", ",", number_format((float) $venda->total, 2, '.', ''));
-                                                                                                    $subtotal_pedido = str_replace(".", ",", number_format((float) $venda->total - $venda->frete, 2, '.', ''));
-                                                                                                    ?>
-                                                                                                    <td class="text-center">R$ {{$valor_unitario}}</td>
-                                                                                                    <td class="text-center">R$ {{$valor_subtotal}}</td>
-                                                                                                </tr>
-                                                                                                @endif
-                                                                                                @endforeach
-                                                                                                @endif
-                                                                                                @empty
-                                                                                            <p>Nenhum Produto encontrado!</p>
-                                                                                            @endforelse()
-                                                                                            </tbody>
-                                                                                            <tr style="background-color: #fff">
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td class="totalPedido text-right" style="border-color: #fff">SubTotal:</td>
-                                                                                                <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$subtotal_pedido}}</td>
-                                                                                            </tr>
-                                                                                            <tr style="background-color: #fff">
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td class="totalPedido text-right" style="border-color: #fff">Frete:</td>
-                                                                                                <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$valor_frete}}</td>
-                                                                                            </tr>
-                                                                                            <tr style="background-color: #fff">
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td style="border-color: #fff"></td>
-                                                                                                <td class="totalPedido text-right" style="border-color: #fff">Total:</td>
-                                                                                                <td class="totalPedidoValor text-right" style="border-color: #fff">R$ {{$total_pedido}}</td>
-                                                                                            </tr>
-                                                                                        </table> 
-                                                                                    </div>
-                                                                                    <div id="visualizarEnd{{$venda->id}}" class="container tab-pane active"><br>
-                                                                                        <?php
-                                                                                        $cliente = $venda->getClienteEndereco($venda->pedidoId);
-                                                                                        ?>
-                                                                                        <div class="row">
-                                                                                            <div class="col-sm-3">
-                                                                                                <label for="cep" class="control-label labelInputEditUser">CEP:</label>
-                                                                                                <input disabled type="text" class="form-control" name="cep" value="{{$cliente['cep']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="endereco" class="control-label labelInputEditUser">Endereço:</label>
-                                                                                                <input disabled type="text" class="form-control" name="logradouro" value="{{$cliente['logradouro']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-3">
-                                                                                                <label for="numero" class="control-label labelInputEditUser">Número:</label>
-                                                                                                <input disabled type="number" class="form-control" name="numero" value="{{$cliente['numero']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
-                                                                                                <input disabled type="text" class="form-control" name="complemento" value="{{$cliente['complemento']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
-                                                                                                <input disabled type="text" class="form-control" name="bairro" value="{{$cliente['bairro']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="estado" class="control-label labelInputEditUser">Estado:</label>
-                                                                                                <input disabled type="text" class="form-control" name="estado" value="{{$cliente['estado']}}">
-                                                                                            </div>
-                                                                                            <div class="col-sm-6">
-                                                                                                <label for="municipio" class="control-label labelInputEditUser">Municipio:</label>
-                                                                                                <input disabled type="text" class="form-control" name="municipio" value="{{$cliente['municipio']}}">
-                                                                                            </div>
-                                                                                            
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>  
-                                                                    <div class="modal-footer modal-footer-prod">
-                                                                        <a href="{{route('concluirEntrega', $venda->id)}}" class="btn btn-secondary btn-entregue"><i class="fas fa-clipboard-check"></i> Entregue</a>
-                                                                        <a href="{{route('realizarEntrega', $venda->id)}}" class="btn btn-secondary btn-realizar-entrega"><i class="fas fa-shipping-fast"></i> Realizar Entrega</a>
-                                                                        <button type="button" class="btn btn-secondary btn-voltar" data-dismiss="modal"><i class="fas fa-undo"></i> Voltar</button>
-                                                                    </div>  
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- FIM MODAL DE ENTREGA -->
                                                 <a href="{{route('excluirVenda', $venda->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Venda" class="btnAcoes"></a>
                                             </td>
                                         </tr>

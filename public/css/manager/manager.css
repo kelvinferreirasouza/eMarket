@@ -264,3 +264,19 @@
     color: #ff9800;
     font-weight: bold;
 }
+
+.btn-entregue {
+    background-color: #098e0f;
+}
+
+.btn-entregue:hover {
+    background-color: #0da514;
+}
+
+.btn-realizar-entrega {
+    background-color: #ff8900;
+}
+
+.btn-realizar-entrega:hover {
+    background-color: #ff8502;
+}
