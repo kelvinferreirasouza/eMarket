@@ -83,7 +83,8 @@
                                                                             </div>
                                                                             <div class="col-sm-12">
                                                                                 <label for="status" class="control-label labelInputEditUser">Status:</label>
-                                                                                <select class="form-control labelInputEditUser" name="idStatus" id="idStatus">
+                                                                                <select class="form-control labelInputEditUser" name="statusPedido" id="statusPedido" onchange="getFormaPagamento()">
+                                                                                    <option>Selecione..</option>
                                                                                     <option value="1">Aguardando Pagamento</option>
                                                                                     <option value="2">Em Análise</option>
                                                                                     <option value="3">Pagamento Aprovado</option>
@@ -95,7 +96,14 @@
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                    </div>  
+                                                                    </div> 
+                                                                    <input type="text" name="statusText" id="statusText" style="display: none">
+                                                                    <script>
+                                                                        function getFormaPagamento(){
+                                                                            var formaPagamentoText = $("#statusPedido option:selected").text();
+                                                                            $("#statusText").val(formaPagamentoText);
+                                                                        }
+                                                                    </script>
                                                                     <div class="modal-footer modal-footer-prod">
                                                                         <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Gerar Relatório</button>
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>

@@ -383,6 +383,31 @@
                                                 </ul>
                                             </li>
                                         </ul>
+                                        <ul class="pcoded-submenu">
+                                            <li class="pcoded-hasmenu pcoded-trigger">
+                                                <a href="javascript:void(0)" >
+                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
+                                                    <span class="pcoded-mtext">Produtos</span>
+                                                    <span class="pcoded-mcaret"></span>
+                                                </a>
+                                                <ul class="pcoded-submenu">
+                                                    <li class="{{ (\Request::route()->getName() == '') ? 'active' : '' }}">
+                                                        <a href="{{ route('visualizarRelPedidos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Teste</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="{{ (\Request::route()->getName() == '') ? 'active' : '' }}">
+                                                        <a href="{{ route('visualizarRelVendas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
+                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
+                                                            <span class="pcoded-mtext">Teste</span>
+                                                            <span class="pcoded-mcaret"></span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
                                     </li>
 
                                 </ul>

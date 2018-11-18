@@ -125,7 +125,7 @@ class PedidoController extends Controller {
         $clientes = Cliente::all();
 
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.relatorios', compact('pedidos', 'clientes', 'status'))->render();
+        $view = View::make('relatorios.pedidos.relatorio', compact('pedidos', 'clientes', 'status'))->render();
         $pdf->loadHTML($view);
 
         return $pdf->stream();
@@ -137,9 +137,10 @@ class PedidoController extends Controller {
 
         $periodo1 = $dados['periodo1'];
         $periodo2 = $dados['periodo2'];
-        $status = $dados['idStatus'];
+        $status = $dados['statusPedido'];
+        $statusText = $dados['statusText'];
         
-        if($status >= "1"){
+        if($status){
             $pedidos = Pedido::where([
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
@@ -150,7 +151,7 @@ class PedidoController extends Controller {
         $clientes = Cliente::all();
 
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.pedidos.periodo', compact('clientes', 'pedidos', 'periodo1', 'periodo2'))->render();
+        $view = View::make('relatorios.pedidos.relatorioPeriodo', compact('clientes', 'pedidos', 'periodo1', 'periodo2', 'status', 'statusText'))->render();
         $pdf->loadHTML($view);
 
         return $pdf->stream();

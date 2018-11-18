@@ -101,19 +101,19 @@ class Pedido extends Model {
         return number_format((float)$value, 2, '.', '');
     }
     
-    public function getClientePedido($id)
+    public function getClientePedido($pedidoId)
     {
-        $pedido = Pedido::find($id);
-        
-        $cliente = Cliente::where('id', $pedido->cliente_id)->first();
+        $pedido = DB::table('pedidos')->where('id', $pedidoId)->first();
+
+        $cliente = DB::table('clientes')->where('id', $pedido->cliente_id)->first();
         
         return $cliente->nome;
     }
     
-    public function getClienteEndereco($id){
+    public function getClienteEndereco($pedidoId){
         
-        $pedido = DB::table('pedidos')->where('id', $id)->first();
-        
+        $pedido = DB::table('pedidos')->where('id', $pedidoId)->first();
+
         $cliente = DB::table('clientes')->where('id', $pedido->cliente_id)->first();
         
         return [

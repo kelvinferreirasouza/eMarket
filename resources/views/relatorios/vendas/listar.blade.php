@@ -53,7 +53,7 @@
                                             <td>Gera relatório das vendas conforme periodo estipulado.  </td>
                                             <td class="text-center">
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modal" ><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modal" ><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -66,7 +66,7 @@
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="#" class="formEditUser" target="_blank">
+                                                                <form method="post" action="{{route('relVendasPeriodo')}}" class="formEditUser" target="_blank">
                                                                     {{ csrf_field() }}
                                                                     <div class="card-header text-center">
                                                                         <h5>Visualizar Relatório por Período</h5>
@@ -83,19 +83,23 @@
                                                                             </div>
                                                                             <div class="col-sm-12">
                                                                                 <label for="status" class="control-label labelInputEditUser">Status:</label>
-                                                                                <select class="form-control labelInputEditUser" name="idStatus" id="idStatus">
-                                                                                    <option value="1">Aguardando Pagamento</option>
-                                                                                    <option value="2">Em Análise</option>
-                                                                                    <option value="3">Pagamento Aprovado</option>
-                                                                                    <option value="4">Disponível</option>
-                                                                                    <option value="5">Em Disputa</option>
-                                                                                    <option value="6">Pagamento Devolvido</option>
-                                                                                    <option value="7">Cancelado</option>
-                                                                                    <option value="9">Retenção Temporária</option>
+                                                                                <select class="form-control labelInputEditUser" name="statusVenda" id="statusVenda" onchange="getFormaPagamento()">
+                                                                                    <option>Selecione...</option>
+                                                                                    <option value="1">Realizada</option>
+                                                                                    <option value="2">Em Entrega</option>
+                                                                                    <option value="3">Concluída</option>
+                                                                                    <option value="4">Cancelada</option>
                                                                                 </select>
                                                                             </div>
                                                                         </div>
                                                                     </div>  
+                                                                    <input type="text" name="statusText" id="statusText" style="display: none">
+                                                                    <script>
+                                                                        function getFormaPagamento() {
+                                                                            var formaPagamentoText = $("#statusVenda option:selected").text();
+                                                                            $("#statusText").val(formaPagamentoText);
+                                                                        }
+                                                                    </script>
                                                                     <div class="modal-footer modal-footer-prod">
                                                                         <button type="submit" class="btn btn-primary"><i class="icofont icofont-save"></i>Gerar Relatório</button>
                                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Voltar</button>
@@ -114,7 +118,7 @@
                                             <td class="text-center">Realizadas</td>
                                             <td>Gera relatório com todos as vendas que foram realizadas.  </td>
                                             <td class="text-center">
-                                                <?php $id=1 ?>
+                                                <?php $id = 1 ?>
                                                 <a href="{{route('relVendasRealizadas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
@@ -124,7 +128,7 @@
                                             <td class="text-center">Concluídas</td>
                                             <td>Gera relatório com todos as vendas concluídas e entregues.  </td>
                                             <td class="text-center">
-                                                <?php $id=3 ?>
+                                                <?php $id = 3 ?>
                                                 <a href="{{route('relVendasConcluidas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
@@ -134,7 +138,7 @@
                                             <td class="text-center">Em Entrega</td>
                                             <td>Gera relatório com todos as vendas que estão em rota de entrega.  </td>
                                             <td class="text-center">
-                                                <?php $id=2 ?>
+                                                <?php $id = 2 ?>
                                                 <a href="{{route('relVendasCanceladas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
@@ -144,7 +148,7 @@
                                             <td class="text-center">Canceladas</td>
                                             <td>Gera relatório com todos as vendas canceladas.  </td>
                                             <td class="text-center">
-                                                <?php $id=4 ?>
+                                                <?php $id = 4 ?>
                                                 <a href="{{route('relVendasCanceladas', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>

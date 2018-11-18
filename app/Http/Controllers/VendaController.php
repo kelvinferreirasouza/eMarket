@@ -61,7 +61,33 @@ class VendaController extends Controller {
         $clientes = Cliente::all();
 
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.vendas.relatorios', compact('clientes', 'vendas', 'status'))->render();
+        $view = View::make('relatorios.vendas.relatorio', compact('clientes', 'vendas', 'status'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
+    }
+    
+    public function vendasPeriodo(Request $request) {
+        
+        $dados = $request->all();
+
+        $periodo1 = $dados['periodo1'];
+        $periodo2 = $dados['periodo2'];
+        $status = $dados['statusVenda'];
+        $statusText = $dados['statusText'];
+        
+        if($status){
+            $vendas = Venda::where([
+                    ['data', '>=', $periodo1],
+                    ['data', '<=', $periodo2],
+                    ['status', '=', $status],
+            ])->get();
+        }
+        
+        $clientes = Cliente::all();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.vendas.relatorioPeriodo', compact('clientes', 'vendas', 'periodo1', 'periodo2', 'status', 'statusText'))->render();
         $pdf->loadHTML($view);
 
         return $pdf->stream();

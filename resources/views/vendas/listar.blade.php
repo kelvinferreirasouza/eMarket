@@ -71,9 +71,9 @@
                                             <td class="text-center">{{$venda->getDataAttribute($venda->data)}}</td>
                                             <td class="text-center">{{$venda->getFormaPagamento($venda->pedidoId)}}</td>
                                             <td class="text-center">R$ {{str_replace(".", ",", number_format((float) $venda->total, 2, '.', ''))}}</td>
-                                            @if($venda->getStatus($venda->status) == 'Venda Cancelada')
+                                            @if($venda->getStatus($venda->status) == 'Cancelada')
                                             <td class="text-center statusVenda-cancelada">{{$venda->getStatus($venda->status)}}<td>
-                                                @elseif($venda->getStatus($venda->status) == 'Saiu para Entrega')
+                                                @elseif($venda->getStatus($venda->status) == 'Em Entrega')
                                             <td class="text-center statusVenda-saiuEntrega">{{$venda->getStatus($venda->status)}}<td>
                                                 @else 
                                             <td class="text-center statusVenda-aprovada">{{$venda->getStatus($venda->status)}}<td>
@@ -145,10 +145,10 @@
                                                                                             <div class="col-sm-4">
                                                                                                 <label for="cliente_id" class="control-label labelInputEditUser">Status:</label>
                                                                                                 <select class="form-control labelInputEditUser" name="status">
-                                                                                                    <option value="1" {{ $venda->status == 1 ? 'selected' : ''}}>Venda Realizada</option>
-                                                                                                    <option value="2" {{ $venda->status == 2 ? 'selected' : ''}}>Saiu para Entrega</option>
-                                                                                                    <option value="3" {{ $venda->status == 3 ? 'selected' : ''}}>Venda Concluída</option>
-                                                                                                    <option value="4" {{ $venda->status == 4 ? 'selected' : ''}}>Venda Cancelada</option>
+                                                                                                    <option value="1" {{ $venda->status == 1 ? 'selected' : ''}}>Realizada</option>
+                                                                                                    <option value="2" {{ $venda->status == 2 ? 'selected' : ''}}>Em Entrega</option>
+                                                                                                    <option value="3" {{ $venda->status == 3 ? 'selected' : ''}}>Concluída</option>
+                                                                                                    <option value="4" {{ $venda->status == 4 ? 'selected' : ''}}>Cancelada</option>
                                                                                                 </select>
                                                                                             </div>
                                                                                             <div class="col-sm-2">

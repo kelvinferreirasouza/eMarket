@@ -18,10 +18,10 @@ class Venda extends Model {
     // retorna o status conforme o codigo recebido
     public function getStatus($status) {
         $codStatus = [
-            1 => 'Venda Realizada',
-            2 => 'Saiu para Entrega',
-            3 => 'Venda Concluída',
-            4 => 'Venda Cancelada',
+            1 => 'Realizada',
+            2 => 'Em Entrega',
+            3 => 'Concluída',
+            4 => 'Cancelada',
         ];
 
         return $codStatus[$status];
