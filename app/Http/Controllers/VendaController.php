@@ -9,6 +9,7 @@ use App\Pedido;
 use App\PedidoProduto;
 use App\Cliente;
 use App\Unidade;
+use App\Empresa;
 use View;
 
 class VendaController extends Controller {
@@ -21,7 +22,7 @@ class VendaController extends Controller {
 
     public function listarVendas() {
 
-        $vendas = Venda::paginate(10);
+        $vendas = Venda::orderBy('vendas.id', 'desc')->paginate(10);
         $pedidos = Pedido::all();
         $pedidoProdutos = PedidoProduto::all();
         $produtos = Produto::all();
@@ -65,20 +66,16 @@ class VendaController extends Controller {
                 ->update(['status' => 2]);
         }
         
-        $this->geraRelatorioEntrega($venda);
-    }
-    
-    public function geraRelatorioEntrega($venda){
-        
         $pedido = Pedido::find($venda->pedidoId);
-        $pedidoProdutos = PedidoProduto::find($pedido->id);
+        $pedidoProdutos = PedidoProduto::all();
         $cliente = Cliente::find($pedido->cliente_id);
         $produtos = Produto::all();
         $unidades = Unidade::all();
+        $empresa = Empresa::find(1);
         
         
         $pdf = \App::make('dompdf.wrapper');
-        $view = View::make('relatorios.vendas.relatorioEntrega', compact('venda', 'pedido', 'pedidoProdutos', 'cliente', 'produtos', 'unidades'))->render();
+        $view = View::make('relatorios.vendas.relatorioEntrega', compact('venda', 'pedido', 'pedidoProdutos', 'cliente', 'produtos', 'unidades', 'empresa'))->render();
         $pdf->loadHTML($view);
 
         return $pdf->stream();

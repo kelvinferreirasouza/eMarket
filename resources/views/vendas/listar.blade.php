@@ -705,7 +705,7 @@
                                                                     </div>  
                                                                     <div class="modal-footer modal-footer-prod">
                                                                         <a href="{{route('concluirEntrega', $venda->id)}}" class="btn btn-secondary btn-entregue"><i class="fas fa-clipboard-check"></i> Entregue</a>
-                                                                        <a href="{{route('realizarEntrega', $venda->id)}}" class="btn btn-secondary btn-realizar-entrega"><i class="fas fa-shipping-fast"></i> Realizar Entrega</a>
+                                                                        <a href="{{route('realizarEntrega', $venda->id)}}" class="btn btn-secondary btn-realizar-entrega" target="_blank" id="realizarEntrega"><i class="fas fa-shipping-fast"></i> Realizar Entrega</a>
                                                                         <button type="button" class="btn btn-secondary btn-voltar" data-dismiss="modal"><i class="fas fa-undo"></i> Voltar</button>
                                                                     </div>  
                                                                 </form>
@@ -730,3 +730,11 @@
                     </div>
                 </div>
                 @endsection
+                @push('scripts')
+                <script>
+                        $( "#realizarEntrega" ).click(function() {
+                            window.location.href = '{{route("listarVendas")}}';
+                        });
+
+                </script>
+                @endpush
