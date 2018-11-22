@@ -84,7 +84,8 @@
                                                                             <div class="col-sm-12">
                                                                                 <label for="status" class="control-label labelInputEditUser">Status:</label>
                                                                                 <select class="form-control labelInputEditUser" name="statusVenda" id="statusVenda" onchange="getFormaPagamento()">
-                                                                                    <option>Selecione...</option>
+                                                                                    <option value="99">Selecione..</option>
+                                                                                    <option value="999">Todos</option>
                                                                                     <option value="1">Realizada</option>
                                                                                     <option value="2">Em Entrega</option>
                                                                                     <option value="3">Concluída</option>

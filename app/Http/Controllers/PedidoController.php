@@ -140,7 +140,16 @@ class PedidoController extends Controller {
         $status = $dados['statusPedido'];
         $statusText = $dados['statusText'];
         
-        if($status){
+        
+        // verifica se foi informado status no formulário, 99 e 999 são id do option de todos e selecione..
+        if($status == 99 || $status == 999){
+            $statusText = "Todos";
+            
+            $pedidos = Pedido::where([
+                    ['data', '>=', $periodo1],
+                    ['data', '<=', $periodo2],
+            ])->get();
+        } else {
             $pedidos = Pedido::where([
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
