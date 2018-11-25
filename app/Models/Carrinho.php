@@ -50,6 +50,18 @@ class Carrinho extends Model {
             }
         }
     }
+    
+    public function delete(Produto $produto) {
+
+        // verifica se esse produto existe
+        if (isset($this->items[$produto->id])) {
+
+            // verifica se o produto tem qtd maior q 0, se sim, remove do array
+            if ($this->items[$produto->id]['qtd'] > 0) {
+                unset($this->items[$produto->id]);
+            }
+        }
+    }
 
     public function getItems() {
         return $this->items;

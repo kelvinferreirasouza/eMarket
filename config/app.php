@@ -133,6 +133,7 @@ return [
          */
         Barryvdh\DomPDF\ServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -193,5 +194,6 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Carbon' => 'Carbon\Carbon',
+        'Charts' => ConsoleTVs\Charts\Facades\Charts::class,
     ],
 ];

@@ -54,7 +54,11 @@
                                 </td>
                                 <td class="text-center">R$ {{str_replace(".", ",", number_format((float)$produto['item']->precoVenda, 2, '.', ''))}}</td>
                                 <td class="text-right"> R$ {{str_replace(".", ",", number_format((float)$produto['item']->precoVenda * $produto['qtd'], 2, '.', ''))}}</td>
-                                <td class="text-right"><button class="btn btn-sm btn-danger"><i class="far fa-trash-alt"></i> </button> </td>    
+                                <td class="text-right">
+                                    <button type="button" class="btn btn-sm btn-danger" data-type="delete" data-field="" onclick="window.location.href ='{{route ('delete', $produto['item']->id)}}'" >
+                                        <i class="far fa-trash-alt"></i>
+                                    </button>
+                                </td>   
                             </tr>
                             @empty
                         <td colspan="20">Carrinho Vazio</td>
@@ -109,7 +113,7 @@
             <div class="col mb-2">
                 <div class="row">
                     <div class="col-sm-12  col-md-6">
-                        <button class="btn btn-block btn-info">Continuar Comprando <i class="fas fa-undo"></i></button>
+                        <a href="{{route('redirectBack')}}" class="btn btn-block btn-info">Continuar Comprando <i class="fas fa-undo"></i></a>
                     </div>
                     <div class="col-sm-12 col-md-6 text-right">
                         <a href="{{route('metodoPagamento')}}" id="finalizarPedido" class="btn btn-block btn-success text-uppercase">Finalizar Pedido <i class="fas fa-check"></i> </a>
@@ -120,7 +124,7 @@
     </div>
 </div>
 
-<<script>
+<script>
     function disabledFinalizarPedido(){
         $("#finalizarPedido").attr('disabled', 'disabled');
     }

@@ -26,6 +26,7 @@ Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name(
 /* Rotas do Carrinho */
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
 Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
+Route::get('/carrinho/deletar/{id}', 'CarrinhoController@delete')->name('delete');
 /* Rotas de Cliente */
 Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
 Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('logarCliente');
@@ -36,6 +37,7 @@ Route::post('/clientes/cadastrar/salvar', 'ClienteController@cadastroCliente')->
 Route::middleware(['cliente'])->group(function () {
     /* Rotas de Carrinho */
     Route::get('/carrinho', 'CarrinhoController@carrinho')->name('carrinho');
+    Route::get('/carrinho/voltar', 'CarrinhoController@redirectBack')->name('redirectBack');
     Route::get('/pedido/forma-pagamento', 'StoreController@metodoPagamento')->middleware('check.qtd.cart')->name('metodoPagamento');
     Route::post('pagseguro-getcode', 'PagSeguroController@getCode')->name('pagseguro.code.transparent');
     Route::post('pagseguro-payment-billet', 'PagSeguroController@billet')->name('pagseguro.billet');

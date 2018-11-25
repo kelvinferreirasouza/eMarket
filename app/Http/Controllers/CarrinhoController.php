@@ -57,5 +57,25 @@ class CarrinhoController extends Controller {
         $request->session()->put('carrinho', $carrinho);
         return redirect()->route('carrinho');
     }
+    
+    public function delete(Request $request, $id) {
+
+        $produto = Produto::find($id);
+
+        // verifica se o produto existe, caso contrario retorna para a index
+        if (!$produto)
+            return redirect()->route('index');
+
+        $carrinho = new Carrinho;
+        $carrinho->delete($produto);
+
+        // atualiza a sessao do carrinho
+        $request->session()->put('carrinho', $carrinho);
+        return redirect()->route('carrinho');
+    }
+    
+    public function redirectBack(){
+        return redirect()->route('index');
+    }
 
 }
