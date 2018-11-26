@@ -53,7 +53,7 @@
                                             <td>Gera relatório dos pedidos conforme periodo estipulado.  </td>
                                             <td class="text-center">
                                                 <!-- BOTAO VISUALIZAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modal" ><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
+                                                <a href="" data-toggle="modal" data-target="#modal" ><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
 
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">

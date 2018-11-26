@@ -13,7 +13,6 @@ use App\Categoria;
 use App\Fornecedor;
 use App\Unidade;
 use PDF;
-use Charts;
 use View;
 
 class PedidoController extends Controller {

@@ -297,7 +297,7 @@
                                                 \Request::route()->getName() == 'listarVeiculoModelos' || 
                                                 \Request::route()->getName() == 'pesquisarVeiculo' ||
                                                 \Request::route()->getName() == 'pesquisarVeiculoModelo' ||
-                                                \Request::route()->getName() == 'pesquisarVeiculoMarca'
+                                                \Request::route()->getName() == 'pesquisarVeiculoMarca' 
                                                 ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
@@ -359,7 +359,8 @@
                                     <li class="pcoded-hasmenu
                                         {{ (
                                                 \Request::route()->getName() == 'visualizarRelPedidos' ||
-                                                \Request::route()->getName() == 'visualizarRelVendas'
+                                                \Request::route()->getName() == 'visualizarRelVendas' ||
+                                                \Request::route()->getName() == 'visualizarRelProdutos'
                                                 ) ? 'active pcoded-trigger' : '' }}">
                                         <a href="javascript:void(0)" data-i18n="nav.navigate.main">
                                             <span class="pcoded-micon"><i class="fas fa-chart-line"></i></span>
@@ -393,28 +394,14 @@
                                         </ul>
                                         <ul class="pcoded-submenu">
                                             <li class="pcoded-hasmenu pcoded-trigger">
-                                                <a href="javascript:void(0)" >
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Produtos</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="{{ (\Request::route()->getName() == '') ? 'active' : '' }}">
-                                                        <a href="{{ route('visualizarRelPedidos') }}" data-i18n="nav.page_layout.vertical.static-layout">
+                                                <li class="{{ (\Request::route()->getName() == 'visualizarRelProdutos' ||
+                                                               \Request::route()->getName() == 'relProdutoEstoqueMin') ? 'active' : '' }}">
+                                                        <a href="{{ route('visualizarRelProdutos') }}" data-i18n="nav.page_layout.vertical.compact">
                                                             <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Estoque</span>
+                                                            <span class="pcoded-mtext">Produtos</span>
                                                             <span class="pcoded-mcaret"></span>
                                                         </a>
                                                     </li>
-                                                    <li class="{{ (\Request::route()->getName() == '') ? 'active' : '' }}">
-                                                        <a href="{{ route('visualizarRelVendas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Teste</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
                                         </ul>
                                     </li>
 

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use App\Fornecedor;
 
 class Produto extends Model {
 
@@ -46,6 +48,15 @@ class Produto extends Model {
 
     public function fornecedor() {
         return $this->belongsTo('App\Fornecedor', 'produtoFornecedorId');
+    }
+    
+    public function getFornecedor($id){
+        
+        $produto = DB::table('produtos')->where('produtoFornecedorId', $id)->first();
+
+        $fornecedor = DB::table('fornecedores')->where('id', $produto->produtoFornecedorId)->first();
+        
+        return $fornecedor->nomeFantasia;
     }
 
     public function pesquisa($request) {

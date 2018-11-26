@@ -179,6 +179,13 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/relatorios/vendas/canceladas/{id}', 'VendaController@relatorios')->name('relVendasCanceladas');
     Route::get('/relatorios/vendas/saiu-para-entrega/{id}', 'VendaController@relatorios')->name('relVendasEmEntrega');
     Route::post('/relatorios/vendas/periodo', 'VendaController@vendasPeriodo')->name('relVendasPeriodo');
+     /* Rotas de Relatórios de Produtos */
+    Route::get('/relatorios/produtos/', 'ProdutoController@visualizarRelProdutos')->name('visualizarRelProdutos');
+    Route::get('/relatorios/produtos/estoque-minimo/{id}', 'ProdutoController@relEstoqueMin')->name('relProdutoEstoqueMin');
+    Route::get('/relatorios/vendas/concluidas/{id}', 'VendaController@relatorios')->name('relVendasConcluidas');
+    Route::get('/relatorios/vendas/canceladas/{id}', 'VendaController@relatorios')->name('relVendasCanceladas');
+    Route::get('/relatorios/vendas/saiu-para-entrega/{id}', 'VendaController@relatorios')->name('relVendasEmEntrega');
+    Route::post('/relatorios/vendas/periodo', 'VendaController@vendasPeriodo')->name('relVendasPeriodo');
     
     /* Rotas Utilizadas no Ajax */
     Route::get('ajax/pegar-lista-categorias', 'ProdutoController@getCategoriasAjax');

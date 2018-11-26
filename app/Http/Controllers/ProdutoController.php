@@ -10,6 +10,8 @@ use App\Setor;
 use App\Categoria;
 use App\Unidade;
 use App\Fornecedor;
+use PDF;
+use View;
 
 class ProdutoController extends Controller {
 
@@ -143,6 +145,21 @@ class ProdutoController extends Controller {
         }
 
         return redirect()->route('listarProdutos');
+    }
+    
+    public function visualizarRelProdutos() {
+        return view('relatorios.produtos.listar');
+    }
+    
+    public function relEstoqueMin() {
+        
+        $produtos = Produto::all();
+
+        $pdf = \App::make('dompdf.wrapper');
+        $view = View::make('relatorios.produtos.relatorioQtdMin', compact('produtos', 'fornecedores'))->render();
+        $pdf->loadHTML($view);
+
+        return $pdf->stream();
     }
 
     public function getCategoriasAjax(Request $request) {
