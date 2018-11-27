@@ -26,7 +26,7 @@ Route::get('/produtos/{setor}/{categoria}/', 'StoreController@buscaMenu')->name(
 /* Rotas do Carrinho */
 Route::get('/carrinho/adicionar/{id}', 'CarrinhoController@addCarrinho')->name('addCarrinho');
 Route::get('/carrinho/remover/{id}', 'CarrinhoController@remove')->name('remove');
-Route::get('/carrinho/deletar/{id}', 'CarrinhoController@delete')->name('delete');
+Route::get('/carrinho/deletar/{id}', 'CarrinhoController@removerProd')->name('removerProd');
 /* Rotas de Cliente */
 Route::get('/clientes/login', 'AutenticacaoController@loginCliente')->name('loginCliente');
 Route::post('/clientes/logar', 'AutenticacaoController@logarCliente')->name('logarCliente');

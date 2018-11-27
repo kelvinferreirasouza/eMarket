@@ -58,7 +58,7 @@ class CarrinhoController extends Controller {
         return redirect()->route('carrinho');
     }
     
-    public function delete(Request $request, $id) {
+    public function removerProd(Request $request, $id) {
 
         $produto = Produto::find($id);
 

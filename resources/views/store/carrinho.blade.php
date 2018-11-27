@@ -55,7 +55,7 @@
                                 <td class="text-center">R$ {{str_replace(".", ",", number_format((float)$produto['item']->precoVenda, 2, '.', ''))}}</td>
                                 <td class="text-right"> R$ {{str_replace(".", ",", number_format((float)$produto['item']->precoVenda * $produto['qtd'], 2, '.', ''))}}</td>
                                 <td class="text-right">
-                                    <button type="button" class="btn btn-sm btn-danger" data-type="delete" data-field="" onclick="window.location.href ='{{route ('delete', $produto['item']->id)}}'" >
+                                    <button type="button" class="btn btn-sm btn-danger" data-type="delete" data-field="" onclick="window.location.href ='{{route ('removerProd', $produto['item']->id)}}'" >
                                         <i class="far fa-trash-alt"></i>
                                     </button>
                                 </td>   
