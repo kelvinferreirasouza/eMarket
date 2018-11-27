@@ -67,7 +67,7 @@ class CarrinhoController extends Controller {
             return redirect()->route('index');
 
         $carrinho = new Carrinho;
-        $carrinho->delete($produto);
+        $carrinho->removerProd($produto);
 
         // atualiza a sessao do carrinho
         $request->session()->put('carrinho', $carrinho);

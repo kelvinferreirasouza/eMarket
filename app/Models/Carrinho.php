@@ -51,7 +51,7 @@ class Carrinho extends Model {
         }
     }
     
-    public function delete(Produto $produto) {
+    public function removerProd(Produto $produto) {
 
         // verifica se esse produto existe
         if (isset($this->items[$produto->id])) {
