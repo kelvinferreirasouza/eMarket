@@ -263,7 +263,7 @@ function paymentBillet()
     }).done(function (data) {
         if (data.success) {
             var urlBoleto = data.payment_link;
-            var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
+            var urlPedidos = 'https://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
             window.open(urlBoleto, '_blank');
             window.location.href = urlPedidos;
         } else {
