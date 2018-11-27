@@ -3,25 +3,29 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\URL;
 
-class AppServiceProvider extends ServiceProvider
-{
+class AppServiceProvider extends ServiceProvider {
+
     /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
-    {
+    public function boot() {
 
         // envia para a view o nome da rota para ser utilizada no menu como active
         view()->composer('*', function ($view) {
 
-        $current_route_name = \Request::route()->getName();
+            $current_route_name = \Request::route()->getName();
 
-        $view->with('current_route_name', $current_route_name);
+            $view->with('current_route_name', $current_route_name);
 
-    });
+            // Force SSL in production
+            if ($this->app->environment() == 'production') {
+                URL::forceScheme('https');
+            }
+        });
     }
 
     /**
@@ -29,8 +33,8 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
-    {
+    public function register() {
         //
     }
+
 }
