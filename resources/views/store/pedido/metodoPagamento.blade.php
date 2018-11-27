@@ -265,7 +265,7 @@ function paymentBillet()
             var urlBoleto = data.payment_link;
             var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
             window.open(urlBoleto, '_blank');
-            location.href = urlPedidos;
+            window.location.href = urlPedidos;
         } else {
             alert("Falha!");
         }
