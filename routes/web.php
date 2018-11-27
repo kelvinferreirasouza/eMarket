@@ -96,12 +96,6 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/produtos/categorias/salvar', 'CategoriaController@salvarCategoria')->name('salvarCategoria');
     Route::get('/produtos/categorias/excluir/{id}', 'CategoriaController@excluirCategoria')->name('excluirCategoria');
     Route::any('/produtos/categorias/pesquisa', 'CategoriaController@pesquisarCategoria')->name('pesquisarCategoria');
-    /* Rotas Protegidas de Sub-Categorias */
-    Route::get('/produtos/categorias/subcategorias', 'SubcategoriaController@listarSubcategorias')->name('listarSubcategorias');
-    Route::post('/produtos/categorias/subcategorias/atualizar/{id}', 'SubcategoriaController@atualizarSubcategoria')->name('atualizarSubcategoria');
-    Route::post('/produtos/categorias/subcategorias/salvar', 'SubcategoriaController@salvarSubcategoria')->name('salvarSubcategoria');
-    Route::get('/produtos/categorias/subcategorias/excluir/{id}', 'SubcategoriaController@excluirSubcategoria')->name('excluirSubcategoria');
-    Route::any('/produtos/categorias/subcategorias/pesquisa', 'SubcategoriaController@pesquisarSubcategoria')->name('pesquisarSubcategoria');
     /* Rotas Protegidas de Unidades */
     Route::get('/produtos/unidades', 'UnidadeController@listarUnidades')->name('listarUnidades');
     Route::post('/produtos/unidades/atualizar/{id}', 'UnidadeController@atualizarUnidade')->name('atualizarUnidade');
@@ -148,24 +142,6 @@ Route::middleware(['manager'])->group(function () {
     Route::get('/encomendas/entrega/{id}', 'EntregaController@excluirEntrega')->name('excluirEntrega');
     Route::any('/encomendas/entrega/pesquisa', 'EntregaController@pesquisarEntrega')->name('pesquisarEntrega');
     Route::get('/encomendas/entrega/excluir/{id}', 'EntregaController@excluirEntrega')->name('excluirEntrega');
-    /* Rotas Protegidas de Veiculos */
-    Route::get('/entregas/veiculos', 'VeiculoController@listarVeiculos')->name('listarVeiculos');
-    Route::post('/entregas/veiculos/atualizar/{id}', 'VeiculoController@atualizarVeiculo')->name('atualizarVeiculo');
-    Route::post('/entregas/veiculos/salvar', 'VeiculoController@salvarVeiculo')->name('salvarVeiculo');
-    Route::get('/entregas/veiculos/excluir/{id}', 'VeiculoController@excluirVeiculo')->name('excluirVeiculo');
-    Route::any('/entregas/veiculos/pesquisa', 'VeiculoController@pesquisarVeiculo')->name('pesquisarVeiculo');
-    /* Rotas Protegidas de Marcas de Veiculos */
-    Route::get('/entregas/veiculos/marcas', 'VeiculoMarcaController@listarVeiculoMarcas')->name('listarVeiculoMarcas');
-    Route::post('/entregas/veiculos/marcas/atualizar/{id}', 'VeiculoMarcaController@atualizarVeiculoMarca')->name('atualizarVeiculoMarca');
-    Route::post('/entregas/veiculos/marcas/salvar', 'VeiculoMarcaController@salvarVeiculoMarca')->name('salvarVeiculoMarca');
-    Route::get('/entregas/veiculos/marcas/excluir/{id}', 'VeiculoMarcaController@excluirVeiculoMarca')->name('excluirVeiculoMarca');
-    Route::any('/entregas/veiculos/marcas/pesquisa', 'VeiculoMarcaController@pesquisarVeiculoMarca')->name('pesquisarVeiculoMarca');
-    /* Rotas Protegidas de Modelos de Veiculos */
-    Route::get('/entregas/veiculos/modelos', 'VeiculoModeloController@listarVeiculoModelos')->name('listarVeiculoModelos');
-    Route::post('/entregas/veiculos/modelos/atualizar/{id}', 'VeiculoModeloController@atualizarVeiculoModelo')->name('atualizarVeiculoModelo');
-    Route::post('/entregas/veiculos/modelos/salvar', 'VeiculoModeloController@salvarVeiculoModelo')->name('salvarVeiculoModelo');
-    Route::get('/entregas/veiculos/modelos/excluir/{id}', 'VeiculoModeloController@excluirVeiculoModelo')->name('excluirVeiculoModelo');
-    Route::any('/entregas/veiculos/modelos/pesquisa', 'VeiculoModeloController@pesquisarVeiculoModelo')->name('pesquisarVeiculoModelo');
     /* Rotas de Relatórios de Pedidos */
     Route::get('/relatorios/pedidos/', 'PedidoController@visualizarRelPedidos')->name('visualizarRelPedidos');
     Route::get('/relatorios/pedidos/aguardando-pagamento/{id}', 'PedidoController@relatorios')->name('relPedidosAguardPag');

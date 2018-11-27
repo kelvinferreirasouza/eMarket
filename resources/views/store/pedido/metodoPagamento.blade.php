@@ -320,7 +320,7 @@ function createTransactionCard()
         beforeSend: startLoader()
     }).done(function (data) {
         if (data.success) {
-            var urlPedidos = 'http://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
+            var urlPedidos = 'https://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
             location.href = urlPedidos;
         }
     }).fail(function () {

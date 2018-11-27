@@ -18,6 +18,8 @@ class CreateUsuariosTable extends Migration {
             $table->string('nome', 100);
             $table->string('email', 100)->unique();
             $table->string('password');
+            $table->integer('cargoId')->nullable()->unsigned()->onDelete('cascade');
+            $table->foreign('cargoId')->references('id')->on('usuariocargos')->onDelete('cascade');
             $table->string('cpf', 14)->unique();
             $table->string('rg')->nullable();
             $table->integer('sexo');

@@ -29,6 +29,7 @@ class UsuarioController extends Controller
  
     public function editarUsuario($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
         $this->authorize('update', Usuario::class);
  
         $usuario = Usuario::find($id);
@@ -38,6 +39,9 @@ class UsuarioController extends Controller
  
     public function atualizarUsuario(Request $request, $id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Usuario::class);
+        
         $dados = $request->all();
         $usuario = Usuario::find($id);
  

@@ -557,10 +557,12 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-
-                                                <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                @can('delete', App\Produto::class)
+                                                    <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                @endcan
+                                                
                                             </td>
-                                        </tr>                         
+                                        </tr>
                                         @empty
                                         <tr>
                                             <td colspan="200">Nenhum resultado encontrado!!</td>

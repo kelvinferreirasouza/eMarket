@@ -2,11 +2,7 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use App\Pedido;
-use Cliente;
-use Auth;
 
 class AuthServiceProvider extends ServiceProvider {
 
@@ -17,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider {
      */
     protected $policies = [
         'App\Usuario' => 'App\Policies\UsuarioPolicy',
-        'App\Pedido' => 'App\Policies\PedidoPolicy',
+        'App\Produto' => 'App\Policies\ProdutoPolicy',
     ];
 
     /**

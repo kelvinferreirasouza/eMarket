@@ -235,7 +235,6 @@
                                         \Request::route()->getName() == 'listarProdutos' || 
                                         \Request::route()->getName() == 'listarSetores' ||
                                         \Request::route()->getName() == 'listarCategorias' || 
-                                        \Request::route()->getName() == 'listarSubcategorias' ||
                                         \Request::route()->getName() == 'listarUnidades' || 
                                         \Request::route()->getName() == 'pesquisarSetor' ||
                                         \Request::route()->getName() == 'pesquisarCategoria' ||
@@ -272,14 +271,6 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-                                            <li class="{{ (\Request::route()->getName() == 'listarSubcategorias' ||
-                                                           \Request::route()->getName() == 'pesquisarSubcategoria') ? 'active' : '' }}">
-                                                <a href="{{ route('listarSubcategorias') }}" data-i18n="nav.page_layout.horizontal.main">
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Sub-Categorias</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
                                             <li class="{{ (\Request::route()->getName() == 'listarUnidades' ||
                                                            \Request::route()->getName() == 'pesquisarUnidade') ? 'active' : '' }}">
                                                 <a href="{{ route('listarUnidades') }}" data-i18n="nav.page_layout.horizontal.main">
@@ -290,15 +281,7 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="pcoded-hasmenu
-                                        {{ (
-                                                \Request::route()->getName() == 'listarVeiculos' || 
-                                                \Request::route()->getName() == 'listarVeiculoMarcas' ||
-                                                \Request::route()->getName() == 'listarVeiculoModelos' || 
-                                                \Request::route()->getName() == 'pesquisarVeiculo' ||
-                                                \Request::route()->getName() == 'pesquisarVeiculoModelo' ||
-                                                \Request::route()->getName() == 'pesquisarVeiculoMarca' 
-                                                ) ? 'active pcoded-trigger' : '' }}">
+                                    <li class="pcoded-hasmenu">
                                         <a href="javascript:void(0)">
                                             <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
                                             <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Encomendas</span>
@@ -320,39 +303,6 @@
                                                     <span class="pcoded-mtext">Entregas</span>
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
-                                            </li>
-                                            <li class="pcoded-hasmenu pcoded-trigger">
-                                                <a href="javascript:void(0)" >
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Veiculos</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                                <ul class="pcoded-submenu">
-                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculos' ||
-                                                                   \Request::route()->getName() == 'pesquisarVeiculo') ? 'active' : '' }}">
-                                                        <a href="{{ route('listarVeiculos') }}" data-i18n="nav.page_layout.vertical.static-layout">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Listar Veiculos</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculoMarcas' ||
-                                                                   \Request::route()->getName() == 'pesquisarVeiculoMarca') ? 'active' : '' }}">
-                                                        <a href="{{ route('listarVeiculoMarcas') }}" data-i18n="nav.page_layout.vertical.header-fixed">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Marcas</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                    <li class="{{ (\Request::route()->getName() == 'listarVeiculoModelos' ||
-                                                                   \Request::route()->getName() == 'pesquisarVeiculoModelo') ? 'active' : '' }}">
-                                                        <a href="{{ route('listarVeiculoModelos') }}" data-i18n="nav.page_layout.vertical.compact">
-                                                            <span class="pcoded-micon"><i class="icon-chart"></i></span>
-                                                            <span class="pcoded-mtext">Modelos</span>
-                                                            <span class="pcoded-mcaret"></span>
-                                                        </a>
-                                                    </li>
-                                                </ul>
                                             </li>
                                         </ul>
                                     </li>

@@ -2,11 +2,11 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Produto;
 use App\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UsuarioPolicy
+class ProdutoPolicy
 {
     use HandlesAuthorization;
 
@@ -17,7 +17,7 @@ class UsuarioPolicy
      * @param  \App\Usuario  $usuario
      * @return mixed
      */
-    public function view(Usuario $usuario)
+    public function view(Produto $produto, Usuario $usuario )
     {
         return $usuario->cargoId === 1 || 
                $usuario->cargoId === 2 ||
@@ -30,9 +30,11 @@ class UsuarioPolicy
      * @param  \App\User  $user
      * @return mixed
      */
-    public function create(Usuario $usuario)
+    public function create(Produto $produto, Usuario $usuario)
     {
-        //
+        return $usuario->cargoId === 1 || 
+               $usuario->cargoId === 2 ||
+               $usuario->cargoId === 3;
     }
 
     /**
@@ -42,10 +44,11 @@ class UsuarioPolicy
      * @param  \App\Usuario  $usuario
      * @return mixed
      */
-    public function update(Usuario $usuario)
+    public function update(Produto $produto, Usuario $usuario)
     {
         return $usuario->cargoId === 1 || 
-               $usuario->cargoId === 2;
+               $usuario->cargoId === 2 ||
+               $usuario->cargoId === 3;
     }
 
     /**
@@ -55,7 +58,7 @@ class UsuarioPolicy
      * @param  \App\Usuario  $usuario
      * @return mixed
      */
-    public function delete(Usuario $usuario)
+    public function delete(Produto $produto)
     {
         return $usuario->cargoId === 1;
     }

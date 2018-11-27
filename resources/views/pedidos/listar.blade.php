@@ -516,8 +516,9 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                
-                                                <a href="{{route('excluirPedido', $pedido->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Pedido" class="btnAcoes"></a>
+                                                @can('delete', App\Usuario::class)
+                                                    <a href="{{route('excluirPedido', $pedido->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Pedido" class="btnAcoes"></a>
+                                                @endcan
                                             </td>
                                         </tr>                         
                                         @empty

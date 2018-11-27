@@ -25,15 +25,17 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="card">
                     <div class="card-header card-header-flex">
                         <div>
                             <h5>Lista de Usuários Cadastros</h5>
                             <span>Listagem dos usuários cadastrados e suas informações</span>   
                         </div>
-
+                        
+                        @can('view', App\Usuario::class)
+                        
                         <!-- FORMULÁRIO DE BUSCA -->
-
                         <div class="form-search">
                             {!! Form::open(['route' => 'pesquisarUsuario', 'class' => 'form form-inline']) !!}
                             {!! Form::text('key_search', null, ['class' => 'form-control', 'placeholder' => 'Pesquisar..']) !!}
@@ -48,6 +50,7 @@
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Usuário</button></a>
                         <!-- FIM BOTAO CADASTRO MODAL -->
+
 
                         <!-- MODAL DE CADASTRAR -->
                         <div class="modal fade" id="modalCadastrar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -169,6 +172,7 @@
                         <!-- FIM MODAL CADASTRO -->
                     </div>
                 </div>
+
                 <div class="card-block">
                     <div class="row">
                         <div class="col-md-12 table-responsive">
@@ -208,6 +212,7 @@
                                             @endif
                                         </td>
                                         <td>
+                                            @can('update', App\Usuario::class)
                                             <!-- BOTAO EDITAR MODAL -->
                                             <a href="" data-toggle="modal" data-target="#modalEditar{{$usuario->id}}"
                                                data-whatever="{{$usuario->id}}" data-whatevernome="{{$usuario->nome}}" data-whateveremail="{{$usuario->email}}"
@@ -218,6 +223,8 @@
                                                data-whateverfone="{{$usuario->fone}}" data-whatevercelular="{{$usuario->celular}}" data-whateversexo="{{$usuario->sexo}}"
                                                data-whatevercargo="{{$usuario->cargoId}}" data-whateverativo="{{$usuario->isAtivo}}"><img src="../../imgs/iconEdit.png"
                                                                                                                                        title="Editar Usuário" class="btnAcoes"></a>
+                                            @endcan
+                                            <!-- BOTAO EDITAR MODAL -->
 
                                             <!-- MODAL DE EDITAR -->
                                             <div class="modal fade" id="modalEditar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -270,7 +277,7 @@
                                                                                 @foreach($cargos as $cargo)
                                                                                 <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargoId ? 'selected' : ''}}>{{$cargo->nome}}</option>
                                                                                 @endforeach
-                                                                                
+
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -358,8 +365,9 @@
                                             <!-- FIM MODAL EDITAR -->
 
                                             <!-- BOTAO VISUALIZAR MODAL -->
+                                            @can('view', App\Usuario::class)
                                             <a href="" data-toggle="modal" data-target="#modalVisualizar{{$usuario->id}}" data-whatever="{{$usuario->id}}" data-whatevernome="{{$usuario->nome}}" data-whateveremail="{{$usuario->email}}" data-whateverlogin="{{$usuario->login}}" data-whateversenha="{{$usuario->senha}}" data-whatevercpf="{{$usuario->cpf}}" data-whateverrg="{{$usuario->rg}}" data-whateverdataNasc="{{$usuario->dataNasc}}" data-whatevercep="{{$usuario->cep}}" data-whateverlogradouro="{{$usuario->logradouro}}" data-whatevernumero="{{$usuario->numero}}" data-whateverbairro="{{$usuario->bairro}}" data-whateverestado="{{$usuario->estado}}" data-whatevermunicipio="{{$usuario->municipio}}" data-whateverfone="{{$usuario->fone}}" data-whatevercelular="{{$usuario->celular}}" data-whateversexo="{{$usuario->sexo}}" data-whatevercargo="{{$usuario->cargoId}}" data-whateverativo="{{$usuario->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Usuário" class="btnAcoes"></a>
-
+                                            @endcan
                                             <!-- MODAL DE VISUALIZAR -->
                                             <div class="modal fade" id="modalVisualizar{{$usuario->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                                 <div class="modal-dialog modal-lg modalUser" role="document">
@@ -479,8 +487,9 @@
                                                 </div>
                                             </div>
                                             <!-- FIM MODAL VISUALIZAR -->
-
+                                            @can('delete', App\Usuario::class)
                                             <a href="{{route('excluirUsuario', $usuario->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Usuário" class="btnAcoes"></a>
+                                            @endcan
                                             </center>
                                         </td>
                                     </tr>                         
@@ -495,5 +504,16 @@
                         </div> 
                     </div>
                 </div>
+                @else
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-12 table-responsive">
+                            <h3 style="color: red">Acesso NEGADO!!</h3>
+                        </div>
+                    </div>
+                </div>
+                @endcan
             </div>
-            @endsection
+        </div>
+    </div>
+    @endsection
