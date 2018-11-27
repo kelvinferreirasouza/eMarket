@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Gate;
 use Auth;
 use App\Cliente;
 use App\Setor;
@@ -14,7 +15,7 @@ use App\Unidade;
 class ClienteController extends Controller {
 
     private $cliente;
-    
+
     public function __construct(Cliente $cliente) {
         $this->cliente = $cliente;
     }
@@ -106,42 +107,43 @@ class ClienteController extends Controller {
 
         $setores = Setor::all();
         $categorias = Categoria::all();
-        
+
         $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('cliente_id', $this->cliente->getClienteAuth()->id)
                 ->paginate(10);
-        
+
         return view('store.cliente.meusPedidos', compact('setores', 'categorias', 'pedidos'));
     }
-    
-    public function detalhesPedido($id){
-        
+
+    public function detalhesPedido($id) {
+
         $setores = Setor::all();
         $categorias = Categoria::all();
         $unidades = Unidade::all();
-        
+
         $cliente = $this->cliente->getClienteAuth();
-        
-        
+
+        // consulta o pedido e verifica se ele é do usuario logado
         $pedido = Pedido::orderBy('pedidos.id')
-                    ->where('id', $id)
-                    ->where('cliente_id', $cliente->id)
-                    ->get()
-                    ->first();
+                ->where('id', $id)
+                ->where('cliente_id', $cliente->id)
+                ->get()
+                ->first();
         
-        $produtos = $pedido->produtos()->get();
-        
-        if(!$pedido)
+        // verifica se existe o pedido, caso contrario retorna para a pagina anterior
+        if (!$pedido) {
             return redirect()->back();
-        
+        }
+            $produtos = $pedido->produtos()->get();
+
         return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'setores', 'categorias', 'unidades'));
     }
-    
-    public function cancelarPedido($id){
-        
+
+    public function cancelarPedido($id) {
+
         $pedido = Pedido::find($id);
-        
-        if($pedido->status != 7 &&  $pedido->status != 6){
+
+        if ($pedido->status != 7 && $pedido->status != 6) {
             $pedido->status = 7;
             $pedido->save();
         }
@@ -159,10 +161,6 @@ class ClienteController extends Controller {
     public function atualizarPerfilCliente(Request $request, Cliente $cliente) {
 
         $dados = $request->all();
-
-//        // verifica se existe esses dados vindo do formulário, se sim, apaga!
-//        if (isset($dados['cpf']))
-//            unset($dados['cpf']);
 
         if (!$dados['password']) {
             $senha_antiga = $this->cliente->getClienteAuth()->password;

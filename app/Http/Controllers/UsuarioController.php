@@ -38,8 +38,6 @@ class UsuarioController extends Controller
  
     public function atualizarUsuario(Request $request, $id)
     {
-        $this->authorize('update', Usuario::class);
-         
         $dados = $request->all();
         $usuario = Usuario::find($id);
  
@@ -68,8 +66,6 @@ class UsuarioController extends Controller
     public function visualizarUsuario($id)
     
     {
-        $this->authorize('update', Usuario::class);
-
         $usuario = Usuario::find($id);
         $cargos = Cargo::all();
 
@@ -95,14 +91,6 @@ class UsuarioController extends Controller
         $dados = $request->all();
         $dados['password'] = bcrypt($dados['password']);
         
-
-        if (Auth::user()->cargoId != 1){
-            
-            $tipoUserPermitido = 3;
-
-            $dados['tipoUsuario'] = $tipoUserPermitido;
-        }
-
         Usuario::create($dados);
  
         return redirect()->route('listarUsuarios');

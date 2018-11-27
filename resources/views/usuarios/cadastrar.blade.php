@@ -31,8 +31,6 @@
                     <form method="post" action="{{route ('salvarUsuario')}}" class="formEditUser">
                         {{ csrf_field() }}
 
-                        @if( Auth::user()->cargoId == 1 || Auth::user()->cargoId == 2 )
-
                         <div class="card-header">
                             <div class="col-sm-2">
                                 <div class="col-sm-6"><button class="btn btn-warning btnCancelar"><a class="linkCancel" href="{{ route('listarUsuarios') }}"><i class="icofont icofont-ui-reply"></i><b>Voltar</b></a></button></div>
@@ -115,36 +113,8 @@
                                         <option value="2">Feminino</option>
                                     </select>
                                 </div>
-                                <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                    @if( Auth::user()->cargoId == 1)
-                                    <label for="cargoId" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select class="form-control" name="cargoId" required>
-                                        <option value="1">Administrador</option>
-                                        <option value="2">Gerente</option>
-                                        <option value="3">Funcionário</option>
-                                    </select>
-                                    @elseif (Auth::user()->cargoId == 2) 
-                                    <label for="cargoId" class="control-label labelInputEditUser">Tipo de Usuário</label>                    
-                                    <select disabled class="form-control" name="cargoId" required>
-                                        <option value="3">Funcionário</option>
-                                    </select>
-                                    @endif
-                                </div>
                             </div>
                         </div> 
-
-                        @else
-
-                        <div class="card-header">
-                            <div class="alert alert-danger background-danger">
-                                <i class="icofont icofont-warning"></i>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <i class="icofont icofont-close-line-circled text-white"></i>
-                                </button>Você não tem permissão para cadastrar um usuário!!
-                            </div>
-                        </div>
-                        @endif
                     </form>
                 </div>
-
                 @endsection

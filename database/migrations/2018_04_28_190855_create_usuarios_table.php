@@ -22,8 +22,6 @@ class CreateUsuariosTable extends Migration {
             $table->string('rg')->nullable();
             $table->integer('sexo');
             $table->date('dataNasc');
-            $table->integer('cargoId')->unsigned()->default(3);
-            $table->foreign('cargoId')->references('id')->on('usuariocargos');
             $table->string('cep', 9)->nullable();
             $table->string('logradouro', 100)->nullable();
             $table->integer('numero')->nullable();

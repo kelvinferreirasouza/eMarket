@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+use App\Cliente;
 
 class Pedido extends Model {
 
@@ -22,6 +23,10 @@ class Pedido extends Model {
     public function scopeCliente($query)
     {
         return $query->where('cliente_id', Auth::guard('clientes')->user()->id);
+    }
+    
+    public function cliente(){
+        return $this->belongsTo(Cliente::class, 'cliente_id');
     }
 
     public function novoPedidoProdutos($carrinho, $reference, $code, $subtotal, $total, $frete, $status, $metodo_pagamento) {

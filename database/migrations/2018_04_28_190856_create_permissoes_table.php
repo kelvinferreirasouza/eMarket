@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProdutoSubcategoriasTable extends Migration
+class CreatePermissoesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateProdutoSubcategoriasTable extends Migration
      */
     public function up()
     {
-        Schema::create('produtosubcategorias', function (Blueprint $table) {
+        Schema::create('permissoes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->integer('produtoCategoriaId')->unsigned();
-            $table->foreign('produtoCategoriaId')->references('id')->on('produtocategorias');
-            $table->integer('isAtivo');
+            $table->string('nome', 100);
+            $table->string('descricao', 100);
             $table->timestamps();
         });
     }
@@ -30,6 +28,7 @@ class CreateProdutoSubcategoriasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('produtosubcategorias');
+        Schema::dropIfExists('permissoes');
+        
     }
 }

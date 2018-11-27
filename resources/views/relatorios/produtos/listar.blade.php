@@ -56,6 +56,16 @@
                                                 <a href="{{route('relProdutoEstoqueMin', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td class="text-center">Produtos</td>
+                                            <td class="text-center">Mais Vendidos</td>
+                                            <td>Gera relatório com os produtos mais vencidos.  </td>
+                                            <td class="text-center">
+                                                <?php $id=1 ?>
+                                                <a href="{{route('relProdutoEstoqueMin', $id)}}" target="_blank"><img src="../../imgs/iconView.png" title="Visualizar Relatório" class="btnAcoes"></a>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div> 

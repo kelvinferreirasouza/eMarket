@@ -20,6 +20,8 @@ class CreatePedidosTable extends Migration
             $table->string('referencia',191)->unique();
             $table->string('codigo',191)->unique();
             $table->decimal('total', 10, 2)->default(0.00);
+            $table->decimal('frete', 10, 2)->default(0.00);
+            $table->decimal('subtotal', 10, 2)->default(0.00);
             $table->enum('status', [1,2,3,4,5,6,7,8,9]);
             $table->enum('metodo_pagamento', [1,2,3,4,5,6,7]);
             $table->date('data');

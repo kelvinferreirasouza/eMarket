@@ -13,12 +13,12 @@ class CreateUsuarioCargosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuariocargos', function (Blueprint $table) {	
+        Schema::create('usuariocargos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome', 100);
-            $table->string('descricao', 100);
-            $table->timestamps();
-            $table->integer('isAtivo')->default(1);
+            $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')->references('id')->on('usuarios')->onDelete('cascade');
+            $table->integer('cargo_id')->unsigned();
+            $table->foreign('cargo_id')->references('id')->on('cargos')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ class CreateUsuarioCargosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('usuariocargos');
+        Schema::dropIfExists('usuariocargos');
     }
 }

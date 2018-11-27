@@ -47,7 +47,7 @@
                     <p>Nenhum Pedido encontrado!</p>
                     @endforelse()
                     </tbody>
-                </table> 
+                </table>
                 <center><div class="pagination paginationPedidos">{!! $pedidos->links() !!}</div></center>
             </div> 
         </div>
