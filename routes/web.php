@@ -169,7 +169,7 @@ Route::middleware(['manager'])->group(function () {
 });
 
 /* Rotas de Cartao */
-Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card  ');
+Route::get('pagseguro-transparent-card', 'PagSeguroController@card')->name('pagseguro.transparent.card');
 Route::post('pagseguro-transparent-card', 'PagSeguroController@cardTransaction')->name('pagseguro.card.transaction');
 Route::post('pagseguro-billet', 'PagSeguroController@billet')->name('pagseguro.billet');
 
