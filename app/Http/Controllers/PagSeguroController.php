@@ -92,6 +92,8 @@ class PagSeguroController extends Controller {
         $carrinho = new Carrinho;
         
         $totalPedido = $carrinho->total() + $valor_frete;
+        
+        $idPedido = $idPedido + 1;
 
         $response = $pagseguro->paymentCredCard($request->sendHash, $request->cardToken, $carrinho->total(), $idPedido, $valor_frete);
 
