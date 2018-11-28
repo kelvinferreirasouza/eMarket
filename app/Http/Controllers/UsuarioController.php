@@ -60,6 +60,9 @@ class UsuarioController extends Controller
 
     public function excluirUsuario($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Usuario::class);
+        
         $usuario = Usuario::find($id);
 
         $usuario->delete();

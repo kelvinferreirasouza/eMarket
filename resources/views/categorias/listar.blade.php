@@ -33,7 +33,9 @@
                             <h5>Lista de Categorias</h5>
                             <span>Listagem das categorias de produtos</span>   
                         </div>
-                        
+
+                        @if (Auth::user()->can('view', App\Categoria::class))
+
                         <!-- FORMULÁRIO DE BUSCA -->
 
                         <div class="form-search">
@@ -46,7 +48,8 @@
                         </div>
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
-                        
+
+                        @if (Auth::user()->can('create', App\Categoria::class))
                         <!-- BOTAO CADASTRAR CATEGORIA MODAL -->
                         @foreach($categorias as $categoria)
                         @if ($loop->first)
@@ -104,6 +107,7 @@
                         @endif
                         @endforeach
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -138,6 +142,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if (Auth::user()->can('update', $categoria))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$categoria->id}}" data-whatever="{{$categoria->id}}" data-whatevernome="{{$categoria->nome}}" data-whateversetor="{{$categoria->produtoSetorId}}" data-whateverativo="{{$categoria->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Categoria" class="btnAcoes"></a>
 
@@ -190,7 +195,9 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL EDITAR -->
+                                                @endif
 
+                                                @if (Auth::user()->can('view', $categoria))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$categoria->id}}" data-whatever="{{$categoria->id}}" data-whatevernome="{{$categoria->nome}}" data-whateversetor="{{$categoria->produtoSetorId}}" data-whateverativo="{{$categoria->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Categoria" class="btnAcoes"></a>
 
@@ -241,8 +248,12 @@
                                                     </div>
                                                 </div>
                                                 </div>
+                                                @endif
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                <a href="{{route('excluirCategoria', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Categoria" class="btnAcoes"></a>
+                                                
+                                                @if (Auth::user()->can('delete', $categoria))
+                                                    <a href="{{route('excluirCategoria', $categoria->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Categoria" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr>                         
                                         @empty
@@ -256,5 +267,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-12 table-responsive">
+                                <h3 style="color: red">Acesso NEGADO!!</h3>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 @endsection

@@ -31,6 +31,8 @@
                             <h5>Lista de Clientes</h5>
                             <span>Listagem dos clientes cadastrados</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Cliente::class))
 
                         <!-- FORMULÁRIO DE BUSCA -->
 
@@ -45,7 +47,7 @@
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
 
-
+                        @if (Auth::user()->can('create', App\Cliente::class))
                         <!-- BOTAO CADASTRAR CLIENTE MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cliente</button></a>
@@ -159,6 +161,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -199,6 +202,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if (Auth::user()->can('update', $cliente))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$cliente->id}}"
                                                    data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateverpassword="{{$cliente->password}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
@@ -312,10 +316,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
-
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $cliente))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$cliente->id}}"
                                                    data-whatever="{{$cliente->id}}" data-whatevernome="{{$cliente->nome}}" data-whateveremail="{{$cliente->email}}" data-whateversenha="{{$cliente->senha}}" data-whatevercpf="{{$cliente->cpf}}" data-whateverrg="{{$cliente->rg}}" data-whateverdataNasc="{{$cliente->dataNasc}}"
@@ -429,8 +433,11 @@
                                                     </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
+                                                @endif
 
-                                                <a href="{{route('excluirCliente', $cliente->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Cliente" class="btnAcoes"></a>
+                                                @if (Auth::user()->can('delete', $cliente))
+                                                    <a href="{{route('excluirCliente', $cliente->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Cliente" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr>                         
                                         @empty
@@ -444,5 +451,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection

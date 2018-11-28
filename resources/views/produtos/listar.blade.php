@@ -30,7 +30,9 @@
                             <h5>Lista de Produtos Cadastros </h5>
                             <span>Listagem dos produtos cadastrados e suas informações</span>   
                         </div>
-
+                        
+                        @if (Auth::user()->can('view', App\Produto::class))
+                        
                         <!-- FORMULÁRIO DE BUSCA -->
 
                         <div class="form-search">
@@ -39,12 +41,12 @@
 
                             <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
                             {!! Form::close() !!}
-
                         </div>
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
-
-
+                        
+                        @if (Auth::user()->can('create', App\Produto::class))
+                        
                         <!-- BOTAO CADASTRAR PRODUTO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar" >
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Produto</button></a>
@@ -221,6 +223,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -263,11 +266,13 @@
                                                 @endif
                                             </td>
                                             <td>
-                                                <!-- BOTAO EDITAR MODAL -->
-                                                <a href="" data-toggle="modal" data-target="#modalEditar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarca}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Produto" class="btnAcoes"></a>
-
-                                                <!-- MODAL DE EDITAR -->
-                                                <div class="modal fade" id="modalEditar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                                                    @if (Auth::user()->can('update', $produto))
+                                                        <!-- BOTAO EDITAR MODAL -->
+                                                        <a href="" data-toggle="modal" data-target="#modalEditar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarca}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Produto" class="btnAcoes"></a><!-- The Current User Can Update The Post -->
+                                                        <!-- BOTAO EDITAR MODAL -->
+                                                    
+                                                    <!-- MODAL DE EDITAR -->
+                                                    <div class="modal fade" id="modalEditar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modalProd modalProdutos" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header" style="background-color: #0cb6734 !important; color: white">
@@ -413,10 +418,12 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $produto))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$produto->id}}" data-whatever="{{$produto->id}}" data-whatevercodbarras="{{$produto->codBarras}}" data-whatevernome="{{$produto->nome}}" data-whatevermarca="{{$produto->produtoMarca}}" data-whateverunidade="{{$produto->produtoUnidadeId}}" data-whateverqtd="{{$produto->qtd}}" data-whateverqtdmin="{{$produto->qtdMin}}" data-whateverprecocusto="{{$produto->precoCusto}}" data-whateverprecovenda="{{$produto->precoVenda}}" data-whatevermargemlucro="{{$produto->margemLucro}}" data-whateversetor="{{$produto->produtoSetorId}}" data-whatevercategoria="{{$produto->produtoCategoriaId}}" data-whateverativo="{{$produto->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Produto" class="btnAcoes"></a>
-
+                                                
                                                 <!-- MODAL DE VISUALIZAR -->
                                                 <div class="modal fade" id="modalVisualizar{{$produto->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modalProd modalProdutos" role="document">
@@ -557,10 +564,11 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                @can('delete', App\Produto::class)
-                                                    <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
-                                                @endcan
+                                                @endif
                                                 
+                                                @if (Auth::user()->can('delete', $produto))
+                                                    <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr>
                                         @empty
@@ -574,6 +582,15 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection
                 @push('scripts')

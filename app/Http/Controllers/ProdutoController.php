@@ -12,6 +12,7 @@ use App\Unidade;
 use App\Fornecedor;
 use PDF;
 use View;
+use Auth;
 
 class ProdutoController extends Controller {
 
@@ -40,6 +41,11 @@ class ProdutoController extends Controller {
     }
 
     public function salvarProduto(Request $request) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
+        
         $dados = $request->all();
 
         $codBarras = $request->codBarras;
@@ -93,6 +99,10 @@ class ProdutoController extends Controller {
     }
 
     public function excluirProduto($id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $produto = Produto::find($id);
 
         $produto->delete();
@@ -111,6 +121,11 @@ class ProdutoController extends Controller {
     }
 
     public function atualizarProduto(Request $request, $id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
+        
         $dados = $request->all();
         $produto = Produto::find($id);
         $codBarras = $request->codBarras;

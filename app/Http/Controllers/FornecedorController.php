@@ -19,6 +19,10 @@ class FornecedorController extends Controller {
     }
 
     public function salvarFornecedor(Request $request) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         Fornecedor::create($dados);
 
@@ -31,6 +35,10 @@ class FornecedorController extends Controller {
     }
 
     public function excluirFornecedor($id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $fornecedor = Fornecedor::find($id);
 
         $fornecedor->delete();
@@ -39,6 +47,10 @@ class FornecedorController extends Controller {
     }
 
     public function atualizarFornecedor(Request $request, $id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $fornecedor = Fornecedor::find($id);
 

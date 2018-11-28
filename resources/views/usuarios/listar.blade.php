@@ -274,10 +274,9 @@
                                                                             <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
                                                                             <select class="form-control" name="cargoId" required>
                                                                                 <option>Selecione..</option>
-                                                                                @foreach($cargos as $cargo)
-                                                                                <option value="{{$cargo->id}}" {{$cargo->id == $usuario->cargoId ? 'selected' : ''}}>{{$cargo->nome}}</option>
-                                                                                @endforeach
-
+                                                                                @foreach($cargos as $cargo)    
+                                                                                   <option value="{{$cargo->id}}"{{$cargo->id == $usuario->cargoId ? 'selected' : ''}}>{{$cargo->nome}}</option>
+                                                                                @endforeach  
                                                                             </select>
                                                                         </div>
                                                                     </div>
@@ -324,23 +323,6 @@
                                                                                 <option value="1" {{ $usuario->sexo == 1 ? 'selected' : ''}}>Masculino</option>
                                                                                 <option value="0" {{ $usuario->sexo == 2 ? 'selected' : ''}}>Feminino</option>
                                                                             </select>
-                                                                        </div>
-                                                                        <div class="col-sm-3 regraAlteracaoTipoUsuario">
-                                                                            @if( Auth::user()->cargoId == 1)
-                                                                            <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
-                                                                            <select class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
-                                                                                @foreach($cargos as $cargo)
-                                                                                <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                            @else
-                                                                            <label for="cargoId" class="control-label labelInputEditUser">Cargo do Usuário</label>                    
-                                                                            <select disabled class="form-control" name="cargoId" value="{{$usuario->cargoId}}" required>
-                                                                                @foreach($cargos as $cargo)
-                                                                                <option value="{{$cargo->id}}" {{($usuario->cargoId == $cargo->id ? 'selected' : '')}}>{{$cargo->nome}}</option>
-                                                                                @endforeach
-                                                                            </select>
-                                                                            @endif
                                                                         </div>
                                                                         <div class="col-sm-3">
                                                                             <label for="isAtivo" class="control-label labelInputEditUser">Status:</label>

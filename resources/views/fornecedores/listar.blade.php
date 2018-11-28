@@ -31,6 +31,8 @@
                             <h5>Lista de Fornecedores</h5>
                             <span>Listagem dos fornecedores cadastrados</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Fornecedor::class))
 
                         <!-- FORMULÁRIO DE BUSCA -->
 
@@ -44,7 +46,8 @@
                         </div>
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
-
+                        
+                        @if (Auth::user()->can('create', App\Fornecedor::class))
                         <!-- BOTAO CADASTRAR FORNECEDOR MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Fornecedor</button></a>
@@ -140,6 +143,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -174,7 +178,7 @@
                                                 @endif
                                             </td>
                                             <td>
-
+                                                @if (Auth::user()->can('update', $fornecedor))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlogradouro="{{$fornecedor->logradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -268,10 +272,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
-
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $fornecedor))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$fornecedor->id}}" data-whatever="{{$fornecedor->id}}" data-whateverrazaosocial="{{$fornecedor->razaoSocial}}" data-whateverfantasia="{{$fornecedor->nomeFantasia}}" data-whatevercpfcnpj="{{$fornecedor->cpfCnpj}}" data-whateverierg="{{$fornecedor->ieRg}}" data-whateveremail="{{$fornecedor->email}}" data-whatevercep="{{$fornecedor->cep}}" data-whateverlogradouro="{{$fornecedor->logradouro}}" data-whatevernumero="{{$fornecedor->numero}}" data-whateverbairro="{{$fornecedor->bairro}}" data-whateverestado="{{$fornecedor->estado}}" data-whatevermunicipio="{{$fornecedor->municipio}}" data-whateverfone="{{$fornecedor->fone}}"data-whateverativo="{{$fornecedor->isAtivo}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -365,8 +369,11 @@
                                                     </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('delete', $fornecedor))
                                                 <a href="{{route('excluirFornecedor', $fornecedor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr> 
                                         @empty
@@ -380,5 +387,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection

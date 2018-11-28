@@ -2,7 +2,6 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\Usuario;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -23,6 +22,7 @@ class UsuarioPolicy
                $usuario->cargoId === 2 ||
                $usuario->cargoId === 3;
     }
+    
 
     /**
      * Determine whether the user can create usuarios.

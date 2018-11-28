@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Setor;
+use Auth;
 
 class SetorController extends Controller {
 
@@ -25,6 +26,10 @@ class SetorController extends Controller {
     }
 
     public function excluirSetor($id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $setor = Setor::find($id);
 
         $setor->delete();
@@ -38,6 +43,9 @@ class SetorController extends Controller {
     }
 
     public function salvarSetor(Request $request) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
         
         $nome = $request->nome;
         $isAtivo = $request->isAtivo;
@@ -65,6 +73,10 @@ class SetorController extends Controller {
     }
 
     public function atualizarSetor(Request $request, $id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $setor = Setor::find($id);
         $nome = $request->nome;
         $imagem = Setor::find($id)->imagem;

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Unidade;
+use Auth;
 
 class UnidadeController extends Controller
 {
@@ -27,6 +28,9 @@ class UnidadeController extends Controller
 
     public function salvarUnidade(Request $request)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         Unidade::create($dados);
  
@@ -41,6 +45,9 @@ class UnidadeController extends Controller
 
     public function atualizarUnidade(Request $request, $id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $unidade = Unidade::find($id);
  
@@ -59,6 +66,9 @@ class UnidadeController extends Controller
 
     public function excluirUnidade($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $unidade = Unidade::find($id);
 
         $unidade->delete();

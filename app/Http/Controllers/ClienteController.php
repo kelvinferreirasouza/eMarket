@@ -32,8 +32,6 @@ class ClienteController extends Controller {
     }
 
     public function editarCliente($id) {
-        $this->authorize('update', Cliente::class);
-
         $cliente = Cliente::find($id);
         $clientes = Cliente::all();
         return view('clientes.editar', compact('cliente'));
@@ -41,6 +39,9 @@ class ClienteController extends Controller {
 
     public function atualizarCliente(Request $request, $id) {
 
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $cliente = Cliente::find($id);
 
@@ -58,6 +59,10 @@ class ClienteController extends Controller {
     }
 
     public function excluirCliente($id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $cliente = Cliente::find($id);
 
         $cliente->delete();
@@ -66,7 +71,8 @@ class ClienteController extends Controller {
     }
 
     public function visualizarCliente($id) {
-        $this->authorize('update', Cliente::class);
+        
+        $this->authorize('view', Cliente::class);
 
         $cliente = Cliente::find($id);
 
@@ -74,6 +80,10 @@ class ClienteController extends Controller {
     }
 
     public function salvarCliente(Request $request) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         $dados['password'] = bcrypt($dados['password']);
 

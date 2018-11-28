@@ -31,6 +31,8 @@
                             <h5>Lista de Localidades para Entrega</h5>
                             <span>Listagem das localidades aceitas para entrega</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Frete::class))
 
                         <!-- FORMULÁRIO DE BUSCA -->
 
@@ -40,11 +42,10 @@
 
                             <button class="btn btn-primary">Pesquisar <i class="fa fa-search" aria-hidden="true"></i></button>
                             {!! Form::close() !!}
-
                         </div>
-
                         <!-- FIM FORMULÁRIO DE BUSCA -->
-
+                        
+                        @if (Auth::user()->can('create', App\Frete::class))
                         <!-- BOTAO CADASTRAR LOCALIDADE MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Localidade</button></a>
@@ -95,6 +96,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -117,7 +119,7 @@
                                             <td class="text-center">{{$frete->municipio}}</td>
                                             <td class="text-center">R$ {{str_replace(".", ",", number_format((float)$frete->valor, 2, '.', ''))}}</td>
                                             <td>
-
+                                                @if (Auth::user()->can('update', $frete))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$frete->id}}" data-whatever="{{$frete->id}}" data-whateverestado="{{$frete->estado}}" data-whatevermunicipio="{{$frete->municipio}}" data-whatevervalor="{{$frete->valor}}"><img src="../../imgs/iconEdit.png" title="Editar Localidade" class="btnAcoes"  onclick="setIdModal()"></a>
 
@@ -167,9 +169,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $frete))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$frete->id}}" data-whatever="{{$frete->id}}" data-whateverestado="{{$frete->estado}}" data-whatevermunicipio="{{$frete->municipio}}" data-whatevervalor="{{$frete->valor}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -218,8 +221,11 @@
                                                     </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('delete', $frete))
                                                 <a href="{{route('excluirFrete', $frete->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" titles="Excluir Frete" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr> 
                                         @empty
@@ -233,6 +239,15 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

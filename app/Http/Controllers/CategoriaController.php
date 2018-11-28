@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Categoria;
 use App\Setor;
+use Auth;
 
 class CategoriaController extends Controller
 {
@@ -23,6 +24,9 @@ class CategoriaController extends Controller
 
     public function salvarCategoria(Request $request)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         Categoria::create($dados);
  
@@ -45,6 +49,9 @@ class CategoriaController extends Controller
 
     public function atualizarCategoria(Request $request, $id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $categoria = Categoria::find($id);
  
@@ -63,6 +70,9 @@ class CategoriaController extends Controller
 
     public function excluirCategoria($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $categoria = Categoria::find($id);
 
         $categoria->delete();

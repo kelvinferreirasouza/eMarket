@@ -31,6 +31,8 @@
                             <h5>Lista de Setores Cadastros</h5>
                             <span>Listagem dos setores cadastrados e suas informações</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Setor::class))
 
                         <!-- FORMULÁRIO DE BUSCA -->
 
@@ -44,7 +46,7 @@
 
                         <!-- FIM FORMULÁRIO DE BUSCA -->
 
-
+                        @if (Auth::user()->can('create', App\Setor::class))
                         <!-- BOTAO CADASTRO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Setor</button></a>
@@ -117,6 +119,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -167,6 +170,7 @@
                                         @endif
                                     </td>
                                     <td>
+                                        @if (Auth::user()->can('update', $setor))
                                         <!-- BOTAO EDITAR MODAL -->
                                         <a href="" data-toggle="modal" data-target="#modalEditar{{$setor->id}}" data-whatever="{{$setor->id}}" data-whatevernome="{{$setor->nome}}" data-whateverimagem="{{$setor->imagem}}" data-whateverativo="{{$setor->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Setor" class="btnAcoes"></a>
                                         <!-- MODAL DE EDITAR -->
@@ -243,7 +247,9 @@
                                             </div>
                                         </div>
                                         <!-- FIM MODAL EDITAR -->
-
+                                        @endif
+                                        
+                                        @if (Auth::user()->can('view', $setor))
                                         <!-- BOTAO VISUALIZAR MODAL -->
                                         <a href="" data-toggle="modal" data-target="#modalVisualizar{{$setor->id}}" data-whatever="{{$setor->id}}" data-whatevernome="{{$setor->nome}}" data-whateverativo="{{$setor->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Setor" class="btnAcoes"></a>
 
@@ -311,8 +317,11 @@
                                         </div>
                                         </div>
                                         <!-- FIM MODAL VISUALIZAR -->
-
-                                        <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Setor" class="btnAcoes"></a>
+                                        @endif
+                                        
+                                        @if (Auth::user()->can('delete', $setor))
+                                            <a href="{{route('excluirSetor', $setor->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Setor" class="btnAcoes"></a>
+                                        @endif
                                     </td>
                                     </tr>                         
                                     @empty
@@ -326,5 +335,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection
