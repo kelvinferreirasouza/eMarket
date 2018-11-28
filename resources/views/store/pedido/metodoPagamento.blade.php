@@ -306,7 +306,6 @@ function createCredCardToken()
         }
     });
 }
-}
 
 function createTransactionCard()
 {
