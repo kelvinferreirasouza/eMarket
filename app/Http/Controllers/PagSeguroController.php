@@ -79,8 +79,6 @@ class PagSeguroController extends Controller {
                 ->pluck('id')
                 ->first();
 
-        $idPedido = $idPedido + 1;
-        
         $fretes = Frete::all();
 
         foreach ($fretes as $frete) {
