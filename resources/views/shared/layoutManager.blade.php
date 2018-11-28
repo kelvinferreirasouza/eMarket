@@ -15,6 +15,8 @@
         <meta name="description" content="#">
         <meta name="keywords" content="flat ui, Admin , Responsive, Landing, Bootstrap, App, Template, Mobile, iOS, Android, apple, creative app">
         <meta name="author" content="#">
+        <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
         <!-- Favicon iconn -->
         <link rel="icon" href="imgs/favicon.ico" type="image/x-icon">
         <!-- Google font-->
@@ -43,8 +45,6 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/manager/jquery.mCustomScrollbar.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ asset('https://fonts.googleapis.com/css?family=Cantarell:400,400italic,700italic,700') }}">
-        <script src="{{ asset('js/auth/jquery-1.11.1.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js') }}"></script>
 
     </head>
     <body>
