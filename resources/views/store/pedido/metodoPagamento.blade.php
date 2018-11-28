@@ -261,12 +261,10 @@ function paymentBillet()
         method: "POST",
         data: data
     }).done(function (data) {
-        console.log(data);
         if (data.success) {
             var urlBoleto = data.payment_link;
             var urlPedidos = 'https://emarketsoftware.herokuapp.com/meuspedidos/visualizar/' + data.id;
             window.open(urlBoleto, '_blank');
-            console.log(urlPedidos);
             window.location.href = urlPedidos;
         } else {
             alert("Falha!");
