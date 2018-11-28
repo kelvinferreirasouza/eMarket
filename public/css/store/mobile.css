@@ -1,0 +1,75 @@
+
+@media (max-width: 768px){
+
+	.sidenav {z-index :  9999999;}
+
+	#navbar{
+		margin-bottom: 4px;
+	}
+
+	.propaganda{
+		    height: 20vh;
+	    overflow: hidden;
+
+	 }
+
+	.fade-carousel .carousel-inner .item {
+	    height: 20vh;
+	}
+	html #bs-carousel.fade-carousel .slides div{
+		    height: 20vh;
+    		background-size: cover;
+	}
+
+.navbar-default .navbar-nav > li > a { text-align: left; }
+
+.navbar-default .navbar-nav > li > a p{ display: none }
+
+.conteudo .gridProducts.containerFlex {max-width: 100%;}
+
+.conteudo .gridProducts.containerFlex .itemFlex { width: 100%; }
+	
+.panel-login>.panel-heading .register{ padding: 20px 27px;  }
+
+.logoNav { width: 36%; margin-top: -10%; margin-bottom: 5%;  margin-left: 30%;}
+
+.cart-button { margin: 18px auto 0;  position: relative; margin-left: 35px; }
+
+.jumbotron h1{ font-size: 18px; }
+
+.jumbotron .imgCart{ display: none; }
+
+.titlePag{ font-size: 18px; }
+
+html #btnBillet{ width: 50%;  display: block; float: left; }
+
+html #btnCard{ width: 50%; float: right; }
+
+html .icon-payment-billet, html .icon-payment-card{ height: 80px; }
+
+html .img-formas-pag{ width: 100%; height: auto;     margin-top: 20px; }
+
+html .container-card{ margin-left: 0px; margin-bottom: 25px; }
+
+html .btnPagarCard{ width: 90%; margin-left: 0; }
+
+html .infoCard { font-size:  18px; }
+
+.panel-produtos-pedido {       width: calc(111% - 2px); }
+
+.container-profile{ margin-left: 5%;  margin-right: 5%;}
+
+.smallsearch{ margin-top: 0;}
+.navbar-input{ padding: 5px 16px; }
+
+.navbar-button{ height: 31px;}
+
+.cart-button{ margin: 10px 50px 0; padding: 5px 0; height: 32px;}
+
+#login-form center img{width : 15%;}
+
+.panel-body{ margin-top: 100px; }
+}
+.panel-produtos-pedido { width: calc(100% + 30px); } 
+
+
