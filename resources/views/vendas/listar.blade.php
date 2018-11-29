@@ -126,13 +126,8 @@
                                                                                                 <input disabled type="text" class="form-control" name="pedidoId" value="{{$venda->pedidoId}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-3">
-                                                                                                <!-- Formata a data para o formatado americano para enviar ao input date -->
-                                                                                                <?php
-                                                                                                new \Carbon\Carbon();
-                                                                                                $dataVenda = Carbon::createFromFormat('Y/m/d', $venda->data);
-                                                                                                ?>
                                                                                                 <label for="data" class="control-label labelInputEditUser">Data:</label>
-                                                                                                <input disabled type="date" class="form-control" name="data" value="{{$dataVenda}}" required>
+                                                                                                <input disabled type="date" class="form-control" name="data" value="{{$venda->data}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-5">
                                                                                                 <label for="cliente_id" class="control-label labelInputEditUser">Nome do Cliente:</label>
