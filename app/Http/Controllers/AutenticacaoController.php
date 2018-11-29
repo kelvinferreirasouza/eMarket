@@ -10,6 +10,7 @@ use App\Cliente;
 use App\Setor;
 use App\Categoria;
 use App\Pedido;
+use App\Produto;
 Use App\Models\Venda;
 
 class AutenticacaoController extends Controller {
@@ -18,6 +19,7 @@ class AutenticacaoController extends Controller {
         
         $clientes = Cliente::count();
         $pedidos = Pedido::count();
+        $produtos = Produto::count();
         $data = date('Y-m-d');
         $vendas = Venda::where([
                     'data'     => $data,
@@ -27,7 +29,7 @@ class AutenticacaoController extends Controller {
                      'status'   => 2])
                   ->sum('total');
         
-        return view('manager', compact('clientes', 'pedidos', 'vendas'));
+        return view('manager', compact('clientes', 'pedidos', 'produtos', 'vendas'));
         
     }
 

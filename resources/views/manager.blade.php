@@ -35,6 +35,17 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="circle-tile ">
+                            <a href="#"><div class="circle-tile-heading purple"><i class="fas fa-box-open fa-fw fa-3x" style="margin-top: 25%"></i></div></a>
+                            <div class="circle-tile-content purple">
+                                <div class="circle-tile-description text-faded"> Produtos </div>
+                                <div class="circle-tile-number text-faded ">{{$produtos}}</div>
+                                <a class="circle-tile-footer" href="{{route('listarProdutos')}}">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col-lg-3 col-sm-6">
                         <div class="circle-tile ">
@@ -53,17 +64,6 @@
                             <div class="circle-tile-content green">
                                 <div class="circle-tile-description text-faded"> Vendas do Dia </div>
                                 <div class="circle-tile-number text-faded ">R$ {{str_replace(".", ",", number_format((float) $vendas, 2, '.', ''))}}</div>
-                                <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="circle-tile ">
-                            <a href="#"><div class="circle-tile-heading purple"><i class="fa fa-line-chart fa-fw fa-3x"></i></div></a>
-                            <div class="circle-tile-content purple">
-                                <div class="circle-tile-description text-faded"> Usuários Online </div>
-                                <div class="circle-tile-number text-faded ">10</div>
                                 <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
