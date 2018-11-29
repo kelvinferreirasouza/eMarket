@@ -68,7 +68,7 @@
                                             <td class="text-center">{{$venda->id}}</td>
                                             <td class="text-center">{{$venda->pedidoId}}</td>
                                             <td class="text-center">{{$venda->getClienteVenda($venda->pedidoId)}}</td>
-                                            <td class="text-center">{{$venda->getDataAttribute($venda->data)}}</td>
+                                            <td class="text-center">{{$venda->data}}</td>
                                             <td class="text-center">{{$venda->getFormaPagamento($venda->pedidoId)}}</td>
                                             <td class="text-center">R$ {{str_replace(".", ",", number_format((float) $venda->total, 2, '.', ''))}}</td>
                                             @if($venda->getStatus($venda->status) == 'Cancelada')
@@ -126,8 +126,13 @@
                                                                                                 <input disabled type="text" class="form-control" name="pedidoId" value="{{$venda->pedidoId}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-3">
+                                                                                                <!-- Formata a data para o formatado americano para enviar ao input date -->
+                                                                                                <?php
+                                                                                                $data = DateTime::createFromFormat('d/m/Y', $venda->data);
+                                                                                                $dataVenda = $data->format('Y-m-d');
+                                                                                                ?>
                                                                                                 <label for="data" class="control-label labelInputEditUser">Data:</label>
-                                                                                                <input disabled type="date" class="form-control" name="data" value="{{$venda->data}}" required>
+                                                                                                <input disabled type="date" class="form-control" name="data" value="{{$dataVenda}}" required>
                                                                                             </div>
                                                                                             <div class="col-sm-5">
                                                                                                 <label for="cliente_id" class="control-label labelInputEditUser">Nome do Cliente:</label>
