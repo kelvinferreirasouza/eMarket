@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Cargo;
+use Auth;
 
 class CargoController extends Controller
 {
@@ -20,6 +21,9 @@ class CargoController extends Controller
 
     public function salvarCargo(Request $request)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         Cargo::create($dados);
  
@@ -34,6 +38,10 @@ class CargoController extends Controller
 
     public function atualizarCargo(Request $request, $id)
     {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $cargo = Cargo::find($id);
  
@@ -43,7 +51,6 @@ class CargoController extends Controller
     }
 
     public function visualizarCargo($id)
-    
     {
         $cargo = Cargo::find($id);
         return view('cargos.visualizar', compact('cargo'));
@@ -51,6 +58,9 @@ class CargoController extends Controller
 
     public function excluirCargo($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $cargo = Cargo::find($id);
 
         $cargo->delete();

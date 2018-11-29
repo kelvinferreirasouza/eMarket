@@ -31,6 +31,10 @@
                             <h5>Lista de Cargos</h5>
                             <span>Listagem dos cargos de funcionários</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Cargo::class))
+                        
+                        @if (Auth::user()->can('create', App\Cargo::class))
                         <!-- BOTAO CADASTRAR CARGO MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar" >
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Cargo</button></a>
@@ -80,6 +84,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -108,6 +113,7 @@
                                                 @endif
                                             </td>
                                             <td>
+                                                @if (Auth::user()->can('update', $cargo))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$cargo->id}}" data-whatever="{{$cargo->id}}" data-whatevernome="{{$cargo->nome}}" data-whateverdescricao="{{$cargo->descricao}}" data-whateverativo="{{$cargo->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Cargo" class="btnAcoes"></a>
 
@@ -157,7 +163,9 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $cargo))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$cargo->id}}" data-whatever="{{$cargo->id}}" data-whatevernome="{{$cargo->nome}}" data-whateverdescricao="{{$cargo->descricao}}" data-whateverativo="{{$cargo->isAtivo}}"><img src="../../imgs/iconView.png" title="Visualizar Cargo" class="btnAcoes"></a>
 
@@ -206,8 +214,11 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
+                                                @endif
 
+                                                @if (Auth::user()->can('delete', $cargo))
                                                 <a href="{{route('excluirCargo', $cargo->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr>                         
                                         @endforeach                                
@@ -216,5 +227,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection
