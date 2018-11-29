@@ -128,7 +128,7 @@
                                                                                             <div class="col-sm-3">
                                                                                                 <!-- Formata a data para o formatado americano para enviar ao input date -->
                                                                                                 <?php
-                                                                                                $data = DateTime::createFromFormat('d/m/Y', $venda->data);
+                                                                                                $data = DateTime::createFromFormat('d/m/Y', $pedido->data);
                                                                                                 $dataVenda = $data->format('Y-m-d');
                                                                                                 ?>
                                                                                                 <label for="data" class="control-label labelInputEditUser">Data:</label>
