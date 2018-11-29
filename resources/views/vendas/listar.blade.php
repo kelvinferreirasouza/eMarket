@@ -128,8 +128,8 @@
                                                                                             <div class="col-sm-3">
                                                                                                 <!-- Formata a data para o formatado americano para enviar ao input date -->
                                                                                                 <?php
-                                                                                                $datetime = new DateTime();
-                                                                                                $dataVenda = $datetime->createFromFormat('Y/m/d', $venda->data);
+                                                                                                new \Carbon\Carbon();
+                                                                                                $dataVenda = Carbon::createFromFormat('Y/m/d', $venda->data);
                                                                                                 ?>
                                                                                                 <label for="data" class="control-label labelInputEditUser">Data:</label>
                                                                                                 <input disabled type="date" class="form-control" name="data" value="{{$dataVenda}}" required>
