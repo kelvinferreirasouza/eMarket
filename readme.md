@@ -27,7 +27,7 @@ Para realizar o acesso ao sistema foi criado dois usuários e senhas específico
 
 3. Digite no campo Senha: admin1234
 
-- Acesso à area do Cliente:
+- Acesso à área do Cliente:
 
 1. Acesse: https://emarketsoftware.herokuapp.com/
 
