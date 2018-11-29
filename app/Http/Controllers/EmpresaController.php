@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Empresa;
+use Auth;
 
 class EmpresaController extends Controller
 {
@@ -14,6 +15,9 @@ class EmpresaController extends Controller
 
     public function salvarEmpresa(Request $request)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('create', Auth::user());
+        
         $dados = $request->all();
         Empresa::create($dados);
  
@@ -28,6 +32,9 @@ class EmpresaController extends Controller
 
     public function excluirEmpresa($id)
     {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $empresa = Empresa::find($id);
 
         $empresa->delete();
@@ -37,6 +44,10 @@ class EmpresaController extends Controller
 
     public function atualizarEmpresa(Request $request, $id)
     {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('update', Auth::user());
+        
         $dados = $request->all();
         $empresa = Empresa::find($id);
  

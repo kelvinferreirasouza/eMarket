@@ -29,6 +29,10 @@
                             <h5>Lista de Empresas</h5>
                             <span>Listagem das empresas cadastrados</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Empresa::class))
+                        
+                        @if (Auth::user()->can('create', App\Empresa::class))
                         <!-- BOTAO CADASTRAR EMPRESA MODAL -->
                         <a href="" data-toggle="modal" data-target="#modalCadastrar">
                             <button type="button" class="btn btn-primary waves-effect waves-light btnCadUser"><i class="fa fa-user-plus"></i>Cadastrar Empresa</button></a>
@@ -86,7 +90,7 @@
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
-                                                        <input type="text" class="form-control" name="complemento" placeholder="Digite o complemento" required>
+                                                        <input type="text" class="form-control" name="complemento" placeholder="Digite o complemento">
                                                     </div>
                                                     <div class="col-sm-3">
                                                         <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
@@ -125,6 +129,7 @@
                             </div>
                         </div>
                         <!-- FIM MODAL CADASTRO -->
+                        @endif
                     </div>
                     <div class="card-block">
                         <div class="row">
@@ -159,7 +164,7 @@
                                                 @endif
                                             </td>
                                             <td>
-
+                                                @if (Auth::user()->can('update', $empresa))
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$empresa->id}}" data-whatever="{{$empresa->id}}" data-whateverrazaosocial="{{$empresa->razaoSocial}}" data-whateverfantasia="{{$empresa->nomeFantasia}}" data-whatevercpfcnpj="{{$empresa->cnpj}}" data-whateverierg="{{$empresa->ie}}" data-whatevercep="{{$empresa->cep}}" data-whateverlagradouro="{{$empresa->lagradouro}}" data-whatevernumero="{{$empresa->numero}}" data-whateverbairro="{{$empresa->bairro}}" data-whatevercomplemento="{{$empresa->complemento}}" data-whateverestado="{{$empresa->estado}}" data-whatevermunicipio="{{$empresa->municipio}}" data-whateverfone="{{$empresa->fone}}"data-whateverativo="{{$empresa->isAtivo}}"><img src="../../imgs/iconEdit.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -215,7 +220,7 @@
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
-                                                                                <input type="text" class="form-control" name="complemento" placeholder="Digite o complemento" value="{{$empresa->complemento}}" required>
+                                                                                <input type="text" class="form-control" name="complemento" placeholder="Digite o complemento" value="{{$empresa->complemento}}">
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
@@ -254,10 +259,10 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
-
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('view', $empresa))
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$empresa->id}}" data-whatever="{{$empresa->id}}" data-whateverrazaosocial="{{$empresa->razaoSocial}}" data-whateverfantasia="{{$empresa->nomeFantasia}}" data-whatevercpfcnpj="{{$empresa->cnpj}}" data-whateverie="{{$empresa->ie}}" data-whatevercep="{{$empresa->cep}}" data-whateverlagradouro="{{$empresa->lagradouro}}" data-whatevernumero="{{$empresa->numero}}" data-whateverbairro="{{$empresa->bairro}}" data-whatevercomplemento="{{$empresa->complemento}}" data-whateverestado="{{$empresa->estado}}" data-whatevermunicipio="{{$empresa->municipio}}" data-whateverfone="{{$empresa->fone}}"data-whateverativo="{{$empresa->isAtivo}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -313,7 +318,7 @@
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <label for="complemento" class="control-label labelInputEditUser">Complemento:</label>
-                                                                                <input disabled type="text" class="form-control" name="complemento" placeholder="Digite o bairro" value="{{$empresa->complemento}}" required>
+                                                                                <input disabled type="text" class="form-control" name="complemento" placeholder="Digite o bairro" value="{{$empresa->complemento}}">
                                                                             </div>
                                                                             <div class="col-sm-3">
                                                                                 <label for="bairro" class="control-label labelInputEditUser">Bairro:</label>
@@ -351,8 +356,11 @@
                                                     </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-
+                                                @endif
+                                                
+                                                @if (Auth::user()->can('delete', $empresa))
                                                 <a href="{{route('excluirEmpresa', $empresa->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" titles="Excluir Usuário" class="btnAcoes"></a>
+                                                @endif
                                             </td>
                                         </tr>                         
                                         @endforeach                                
@@ -361,5 +369,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection
