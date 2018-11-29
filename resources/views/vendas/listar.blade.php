@@ -128,8 +128,8 @@
                                                                                             <div class="col-sm-3">
                                                                                                 <!-- Formata a data para o formatado americano para enviar ao input date -->
                                                                                                 <?php
-                                                                                                $data = DateTime::createFromFormat('d/m/Y', $pedido->data);
-                                                                                                $dataVenda = $data->format('Y-m-d');
+                                                                                                $datetime = new DateTime();
+                                                                                                $dataVenda = $datetime->createFromFormat('Y/m/d', $venda->data);
                                                                                                 ?>
                                                                                                 <label for="data" class="control-label labelInputEditUser">Data:</label>
                                                                                                 <input disabled type="date" class="form-control" name="data" value="{{$dataVenda}}" required>
