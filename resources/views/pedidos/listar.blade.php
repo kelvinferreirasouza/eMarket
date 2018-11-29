@@ -31,6 +31,8 @@
                             <h5>Lista de Pedidos Realizados </h5>
                             <span>Listagem dos pedidos realizados no site</span>   
                         </div>
+                        
+                        @if (Auth::user()->can('view', App\Pedido::class))
 
                         <!-- FORMULÁRIO DE BUSCA -->
 
@@ -516,7 +518,7 @@
                                                 </div>
                                                 </div>
                                                 <!-- FIM MODAL VISUALIZAR -->
-                                                @can('delete', App\Usuario::class)
+                                                @can('delete', App\Pedido::class)
                                                     <a href="{{route('excluirPedido', $pedido->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Pedido" class="btnAcoes"></a>
                                                 @endcan
                                             </td>
@@ -529,5 +531,14 @@
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection

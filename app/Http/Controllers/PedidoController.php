@@ -14,6 +14,7 @@ use App\Fornecedor;
 use App\Unidade;
 use PDF;
 use View;
+use Auth;
 
 class PedidoController extends Controller {
 
@@ -65,6 +66,10 @@ class PedidoController extends Controller {
     }
 
     public function excluirPedido($id) {
+        
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Auth::user());
+        
         $pedido = Pedido::find($id);
 
         $pedido->delete();
