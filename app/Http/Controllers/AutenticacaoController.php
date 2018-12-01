@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use App\Usuario;
 use App\Cliente;
 use App\Setor;
@@ -12,7 +13,6 @@ use App\Categoria;
 use App\Pedido;
 use App\Produto;
 Use App\Models\Venda;
-
 class AutenticacaoController extends Controller {
 
     public function manager() {
@@ -21,15 +21,20 @@ class AutenticacaoController extends Controller {
         $pedidos = Pedido::count();
         $produtos = Produto::count();
         $data = date('Y-m-d');
-        $vendas = Venda::where([
-                    'data'     => $data,
-                    'status'   => 1])
-                  ->orWhere([
-                     'data'     => $data,
-                     'status'   => 2])
-                  ->sum('total');
         
-        return view('manager', compact('clientes', 'pedidos', 'produtos', 'vendas'));
+        $vendaAprovadas = DB::table('vendas')
+                ->where('data', '=', $data)
+                ->where('status', '=', 1)
+                ->sum('total');
+        
+        $vendasConcluidas = DB::table('vendas')
+                ->where('data', '=', $data)
+                ->where('status', '=', 2)
+                ->sum('total');
+        
+        $vendasDia = $vendaAprovadas + $vendasConcluidas;
+        
+        return view('manager', compact('clientes', 'pedidos', 'produtos', 'vendasDia'));
         
     }
 
