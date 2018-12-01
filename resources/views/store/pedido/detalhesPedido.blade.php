@@ -63,6 +63,7 @@
                     <div class="col-sm-12">
                         <p><b><i class="fas fa-info-circle"></i> Código de Referência:</b></p><p> {{$pedido->referencia}}</p>
                     </div>
+                    {{$venda['total']}}
                 </div>
             </div>
         </div>

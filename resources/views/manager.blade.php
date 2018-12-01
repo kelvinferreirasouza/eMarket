@@ -64,7 +64,7 @@
                             <div class="circle-tile-content green">
                                 <div class="circle-tile-description text-faded"> Vendas do Dia </div>
                                 <div class="circle-tile-number text-faded ">R$ {{str_replace(".", ",", number_format((float) $vendas, 2, '.', ''))}}</div>
-                                <a class="circle-tile-footer" href="#">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
+                                <a class="circle-tile-footer" href="{{route('listarVendas')}}">Detalhes <i class="fa fa-chevron-circle-right"></i></a>
                             </div>
                         </div>
                     </div>

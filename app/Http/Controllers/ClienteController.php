@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Cliente;
 use App\Setor;
 use App\Categoria;
 use App\Pedido;
 use App\Unidade;
+use App\Models\Venda;
 
 class ClienteController extends Controller {
 
@@ -145,8 +147,10 @@ class ClienteController extends Controller {
             return redirect()->back();
         }
             $produtos = $pedido->produtos()->get();
+            
+            $venda = DB::table('vendas')->where('pedidoId', 5)->get();
 
-        return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'setores', 'categorias', 'unidades'));
+        return view('store.pedido.detalhesPedido', compact('pedido', 'produtos', 'venda', 'setores', 'categorias', 'unidades'));
     }
 
     public function cancelarPedido($id) {

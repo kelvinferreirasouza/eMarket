@@ -67,7 +67,7 @@ class AutenticacaoController extends Controller {
         $credentials = $request->only('email', 'password');
 
         if (Auth::guard('clientes')->attempt($credentials))
-            return redirect(session('link'));
+            return redirect(route('minhaConta'));
 
         return redirect()
                         ->route('loginCliente')
