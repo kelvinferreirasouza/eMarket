@@ -81,7 +81,7 @@
                                     <input type="text" name="bairro" id="bairro" tabindex="2" class="form-control" required placeholder="Bairro">
                                 </div>  
                                 <div class="form-group col-sm-6">
-                                    <input type="text" name="complemento" id="complemento" tabindex="2" class="form-control" required placeholder="Complemento">
+                                    <input type="text" name="complemento" id="complemento" tabindex="2" class="form-control" placeholder="Complemento">
                                 </div>
                                 <div class="form-group col-sm-6">
                                     <input type="text" name="celular" id="celular" tabindex="2" class="form-control" required placeholder="Celular" required>
