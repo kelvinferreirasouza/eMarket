@@ -57,6 +57,8 @@ class PagSeguroController extends Controller {
             }
         }
 
+        $idPedido = $idPedido + 1; 
+
         $response = $pagseguro->paymentBillet($request->sendHash, $idPedido, $valor_frete);
         
         $carrinho = new Carrinho;
