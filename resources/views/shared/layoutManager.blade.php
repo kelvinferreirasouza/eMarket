@@ -281,14 +281,6 @@
                                                     <span class="pcoded-mcaret"></span>
                                                 </a>
                                             </li>
-                                            <li class="{{ (\Request::route()->getName() == 'listarProdutos' ||
-                                                           \Request::route()->getName() == 'pesquisarProduto') ? 'active' : '' }}">
-                                                <a href="{{ route('listarFretes') }}" >
-                                                    <span class="pcoded-micon"><i class="icon-pie-chart"></i></span>
-                                                    <span class="pcoded-mtext">Entregas</span>
-                                                    <span class="pcoded-mcaret"></span>
-                                                </a>
-                                            </li>
                                         </ul>
                                     </li>
                                     <li class="pcoded-hasmenu
