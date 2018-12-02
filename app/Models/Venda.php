@@ -10,7 +10,7 @@ use PedidoProduto;
 class Venda extends Model {
 
     protected $fillable = [
-        'pedidoId', 'total', 'frete', 'data', 'status',
+        'pedidoId', 'total', 'frete', 'data', 'status', 'isAtivo'
     ];
     
     protected $table = 'vendas';

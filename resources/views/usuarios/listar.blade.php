@@ -185,7 +185,6 @@
                                         <th>CPF</th>
                                         <th>Cargo</th>
                                         <th>Contato</th>
-                                        <th>Status</th>
                                         <th>Ações</th>
                                     </tr>
                                 </thead>            
@@ -204,13 +203,6 @@
                                             @endforeach
                                         </td>
                                         <td>{{$usuario->celular}}</td>
-                                        <td>
-                                            @if( $usuario->isAtivo == 1 )
-                                            Ativo
-                                            @else
-                                            Inativo
-                                            @endif
-                                        </td>
                                         <td>
                                             @can('update', App\Usuario::class)
                                             <!-- BOTAO EDITAR MODAL -->

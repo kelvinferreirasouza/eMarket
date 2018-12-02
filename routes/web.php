@@ -85,6 +85,7 @@ Route::middleware(['manager'])->group(function () {
     Route::post('/produtos/atualizar/{id}', 'ProdutoController@atualizarProduto')->name('atualizarProduto');
     Route::post('/produtos/salvar', 'ProdutoController@salvarProduto')->name('salvarProduto');
     Route::get('/produtos/excluir/{id}', 'ProdutoController@excluirProduto')->name('excluirProduto');
+    Route::get('/produtos/apagar/{id}', 'ProdutoController@excluirProd')->name('excluirProd');
     Route::any('/produtos/pesquisa', 'ProdutoController@pesquisarProduto')->name('pesquisarProduto');
     /* Rotas Protegidas de Setores */
     Route::get('/produtos/setores', 'SetorController@listarSetores')->name('listarSetores');

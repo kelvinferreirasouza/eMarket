@@ -26,23 +26,23 @@ class PedidoController extends Controller {
     }
 
     public function cadastrarPedido() {
-        $clientes = Cliente::all();
-        $empresas = Empresa::all();
-        $fretes = Frete::all();
-        $formaPagamentos = FormaPagamento::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
+        $empresas = Empresa::where('isAtivo', 1)->get();
+        $fretes = Frete::where('isAtivo', 1)->get();
+        $formaPagamentos = FormaPagamento::where('isAtivo', 1)->get();
         $pedidoProdutos = PedidoProduto::all();
         return view('pedidos.cadastrar', compact('clientes', 'empresas', 'fretes', 'formaPagamentos', 'pedidoProdutos'));
     }
 
     public function listarPedidos() {
-        $pedidos = Pedido::orderBy('pedidos.id', 'desc')->paginate(10);
+        $pedidos = Pedido::where('isAtivo', 1)->orderBy('pedidos.id', 'desc')->paginate(10);
         $pedidoProdutos = PedidoProduto::all();
-        $produtos = Produto::all();
-        $clientes = Cliente::all();
-        $setores = Setor::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
-        $unidades = Unidade::all();
+        $produtos = Produto::where('isAtivo', 1)->get();
+        $clientes = Cliente::where('isAtivo', 1)->get();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
 
         return view('pedidos.listar', compact('pedidos', 'pedidoProdutos', 'produtos', 'clientes', 'setores', 'categorias', 'fornecedores', 'unidades'));
     }
@@ -57,10 +57,10 @@ class PedidoController extends Controller {
 
     public function visualizarPedido($id) {
         $pedido = Pedido::find($id);
-        $clientes = Cliente::all();
-        $empresas = Empresa::all();
-        $fretes = Frete::all();
-        $formaPagamentos = FormaPagamento::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
+        $empresas = Empresa::where('isAtivo', 1)->get();
+        $fretes = Frete::where('isAtivo', 1)->get();
+        $formaPagamentos = FormaPagamento::where('isAtivo', 1)->get();
         $pedidoProdutos = PedidoProduto::all();
 
         return view('pedidos.visualizar', compact('pedido', 'clientes', 'empresas', 'fretes', 'formaPagamentos', 'pedidoProdutos'));
@@ -73,17 +73,19 @@ class PedidoController extends Controller {
         
         $pedido = Pedido::find($id);
 
-        $pedido->delete();
+        $pedido->isAtivo = 0;
+
+        $pedido->update();
 
         return redirect()->route('listarPedidos');
     }
 
     public function editarPedido($id) {
         $pedido = Pedido::find($id);
-        $clientes = Cliente::all();
-        $empresas = Empresa::all();
-        $fretes = Frete::all();
-        $formaPagamentos = FormaPagamento::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
+        $empresas = Empresa::where('isAtivo', 1)->get();
+        $fretes = Frete::where('isAtivo', 1)->get();
+        $formaPagamentos = FormaPagamento::where('isAtivo', 1)->get();
         $pedidoProdutos = PedidoProduto::all();
 
         return view('produtos.editar', compact('pedido', 'clientes', 'empresas', 'fretes', 'formaPagamentos', 'pedidoProdutos'));
@@ -120,7 +122,7 @@ class PedidoController extends Controller {
     public function pesquisarPedido(Request $request) {
 
         $pedidos = $this->pedido->pesquisa($request);
-        $clientes = Cliente::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
 
         return view('pedidos.listar', compact('pedidos', 'clientes'));
     }
@@ -135,11 +137,12 @@ class PedidoController extends Controller {
 
         $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('status', $id)
+                ->where('isAtivo', 1)
                 ->get();
 
         $status = $this->pedido->getStatus($id);
         
-        $clientes = Cliente::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
 
         $pdf = \App::make('dompdf.wrapper');
         $view = View::make('relatorios.pedidos.relatorio', compact('pedidos', 'clientes', 'status'))->render();
@@ -174,7 +177,7 @@ class PedidoController extends Controller {
             ])->get();
         }
         
-        $clientes = Cliente::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
 
         $pdf = \App::make('dompdf.wrapper');
         $view = View::make('relatorios.pedidos.relatorioPeriodo', compact('clientes', 'pedidos', 'periodo1', 'periodo2', 'status', 'statusText'))->render();

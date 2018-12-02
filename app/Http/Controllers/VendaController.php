@@ -22,12 +22,15 @@ class VendaController extends Controller {
 
     public function listarVendas() {
 
-        $vendas = Venda::orderBy('vendas.id', 'desc')->paginate(10);
-        $pedidos = Pedido::all();
+        $vendas = Venda::where('isAtivo', 1)
+                ->orderBy('vendas.id', 'desc')
+                ->paginate(10);
+        
+        $pedidos = Pedido::where('isAtivo', 1)->get();
         $pedidoProdutos = PedidoProduto::all();
-        $produtos = Produto::all();
-        $clientes = Cliente::all();
-        $unidades = Unidade::all();
+        $produtos = Produto::where('isAtivo', 1)->get();
+        $clientes = Cliente::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
 
         return view('vendas.listar', compact('vendas', 'pedidos', 'pedidoProdutos', 'produtos', 'clientes', 'unidades'));
     }
@@ -35,7 +38,7 @@ class VendaController extends Controller {
     public function atualizarVenda(Request $request, $id) {
         $dados = $request->all();
         $venda = Venda::find($id);
-
+        
         // valida para que alguns campos não sejam alterados
         $dados['id'] = $venda->id;
         $dados['pedidoId'] = $venda->pedidoId;
@@ -69,8 +72,8 @@ class VendaController extends Controller {
         $pedido = Pedido::find($venda->pedidoId);
         $pedidoProdutos = PedidoProduto::all();
         $cliente = Cliente::find($pedido->cliente_id);
-        $produtos = Produto::all();
-        $unidades = Unidade::all();
+        $produtos = Produto::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
         $empresa = Empresa::find(1);
         
         
@@ -83,12 +86,11 @@ class VendaController extends Controller {
 
     public function excluirVenda($id)
     {
-        // verifica se o usuario tem permissao para realizar esta acao
-        $this->authorize('delete', Venda::class);
-        
         $venda = Venda::find($id);
 
-        $venda->delete();
+        $venda->isAtivo = 0;
+
+        $venda->update();
 
         return redirect()->route('listarVendas');
     }   
@@ -101,11 +103,12 @@ class VendaController extends Controller {
 
         $vendas = Venda::orderBy('vendas.id', 'desc')
                 ->where('status', $id)
+                ->where('isAtivo', 1)
                 ->get();
 
         $status = $this->venda->getStatus($id);
         
-        $clientes = Cliente::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
 
         $pdf = \App::make('dompdf.wrapper');
         $view = View::make('relatorios.vendas.relatorio', compact('clientes', 'vendas', 'status'))->render();
@@ -130,16 +133,18 @@ class VendaController extends Controller {
             $vendas = Venda::where([
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
+                    ['isAtivo', '=', 1],
             ])->get();
         } else {
             $vendas = Venda::where([
                     ['data', '>=', $periodo1],
                     ['data', '<=', $periodo2],
                     ['status', '=', $status],
+                    ['isAtivo', '=', 1],
             ])->get();
         }
         
-        $clientes = Cliente::all();
+        $clientes = Cliente::where('isAtivo', 1)->get();
 
         $pdf = \App::make('dompdf.wrapper');
         $view = View::make('relatorios.vendas.relatorioPeriodo', compact('clientes', 'vendas', 'periodo1', 'periodo2', 'status', 'statusText'))->render();

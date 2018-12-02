@@ -12,7 +12,7 @@ use App\Produto;
 class Pedido extends Model {
 
     protected $fillable = [
-        'cliente_id', 'referencia', 'codigo', 'total', 'frete', 'subtotal','status', 'metodo_pagamento', 'data', 'data_refresh_status'
+        'cliente_id', 'referencia', 'codigo', 'total', 'frete', 'subtotal','status', 'metodo_pagamento', 'data', 'data_refresh_status', 'isAtivo'
     ];
     
     protected $table = 'pedidos';

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Cargo;
-use Auth;
 
 class CargoController extends Controller
 {
@@ -15,7 +15,7 @@ class CargoController extends Controller
 
     public function listarCargos()
     {
-        $cargos = Cargo::all();
+        $cargos = Cargo::where('isAtivo', 1)->get();
         return view('cargos.listar', compact('cargos'));
     }
 
@@ -62,8 +62,10 @@ class CargoController extends Controller
         $this->authorize('delete', Auth::user());
         
         $cargo = Cargo::find($id);
+        
+        $cargo->isAtivo = 0;
 
-        $cargo->delete();
+        $cargo->update();
 
         return redirect()->route('listarCargos');
     }

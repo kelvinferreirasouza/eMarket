@@ -26,7 +26,7 @@ class EmpresaController extends Controller
 
     public function listarEmpresas()
     {
-        $empresas = Empresa::all();
+        $empresas = Empresa::where('isAtivo', 1)->get();
         return view('empresas.listar', compact('empresas'));
     }
 
@@ -37,7 +37,9 @@ class EmpresaController extends Controller
         
         $empresa = Empresa::find($id);
 
-        $empresa->delete();
+        $empresa->isAtivo = 0;
+
+        $empresa->update();
 
         return redirect()->route('listarEmpresas');
     }

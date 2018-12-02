@@ -175,7 +175,6 @@
                                             <th>CPF</th>
                                             <th>Sexo</th>
                                             <th>Contato</th>
-                                            <th>Status</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>            
@@ -194,13 +193,6 @@
                                                 @endif
                                             </td>
                                             <td>{{$cliente->celular}}</td>
-                                            <td>
-                                                @if($cliente->isAtivo == 1)
-                                                Ativo
-                                                @else 
-                                                Inativo
-                                                @endif
-                                            </td>
                                             <td>
                                                 @if (Auth::user()->can('update', $cliente))
                                                 <!-- BOTAO EDITAR MODAL -->

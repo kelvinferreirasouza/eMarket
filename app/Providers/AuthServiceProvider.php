@@ -23,6 +23,7 @@ class AuthServiceProvider extends ServiceProvider {
         'App\Cargo' => 'App\Policies\CargoPolicy',
         'App\Empresa' => 'App\Policies\EmpresaPolicy',
         'App\Pedido' => 'App\Policies\PedidoPolicy',
+        'App\Venda' => 'App\Policies\VendaPolicy',
         
     ];
 

@@ -21,6 +21,7 @@ class CreateVendasTable extends Migration
             $table->decimal('frete', 20, 2)->default(0.00);
             $table->date('data');
             $table->enum('status', [1,2,3,4]);
+            $table->integer('isAtivo')->default(1);
             $table->timestamps();
         });
     }

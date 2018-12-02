@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Frete;
 
@@ -9,7 +10,7 @@ class FreteController extends Controller
 {
     public function listarFretes() {
         
-        $fretes = Frete::paginate(10);
+        $fretes = Frete::where('isAtivo', 1)->paginate(10);
         
         return view('fretes.listar', compact('fretes'));
     }
@@ -46,10 +47,10 @@ class FreteController extends Controller
         
         $frete = Frete::find($id);
 
-        $frete->delete();
+        $frete->isAtivo = 0;
+
+        $frete->update();
 
         return redirect()->route('listarFretes');
     }
-    
-    
 }

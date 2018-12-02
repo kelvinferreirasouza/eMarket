@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use App\Cliente;
@@ -12,7 +11,6 @@ use App\Setor;
 use App\Categoria;
 use App\Pedido;
 use App\Unidade;
-use App\Models\Venda;
 
 class ClienteController extends Controller {
 
@@ -23,19 +21,18 @@ class ClienteController extends Controller {
     }
 
     public function registerUser() {
-        $setores = Setor::all();
-        $categorias = Categoria::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
         return view('store.cliente.loginUser', compact('setores', 'categorias'));
     }
 
     public function listarClientes() {
-        $clientes = Cliente::paginate(10);
+        $clientes = Cliente::where('isAtivo', 1)->paginate(10);
         return view('clientes.listar', compact('clientes'));
     }
 
     public function editarCliente($id) {
         $cliente = Cliente::find($id);
-        $clientes = Cliente::all();
         return view('clientes.editar', compact('cliente'));
     }
 
@@ -67,7 +64,9 @@ class ClienteController extends Controller {
         
         $cliente = Cliente::find($id);
 
-        $cliente->delete();
+        $cliente->isAtivo = 0;
+
+        $cliente->update();
 
         return redirect()->route('listarClientes');
     }
@@ -117,11 +116,12 @@ class ClienteController extends Controller {
 
     public function meusPedidos() {
 
-        $setores = Setor::all();
-        $categorias = Categoria::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
 
         $pedidos = Pedido::orderBy('pedidos.id', 'desc')
                 ->where('cliente_id', $this->cliente->getClienteAuth()->id)
+                ->where('isAtivo', 1)
                 ->paginate(10);
 
         return view('store.cliente.meusPedidos', compact('setores', 'categorias', 'pedidos'));
@@ -129,9 +129,9 @@ class ClienteController extends Controller {
 
     public function detalhesPedido($id) {
 
-        $setores = Setor::all();
-        $categorias = Categoria::all();
-        $unidades = Unidade::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
 
         $cliente = $this->cliente->getClienteAuth();
 
@@ -139,6 +139,7 @@ class ClienteController extends Controller {
         $pedido = Pedido::orderBy('pedidos.id')
                 ->where('id', $id)
                 ->where('cliente_id', $cliente->id)
+                ->where('isAtivo', 1)
                 ->get()
                 ->first();
         

@@ -567,7 +567,7 @@
                                                 @endif
                                                 
                                                 @if (Auth::user()->can('delete', $produto))
-                                                    <a href="{{route('excluirProduto', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../imgs/iconTrash.png" title="Excluir Produto" class="btnAcoes"></a>
+                                                     <a href="{{route('excluirProd', $produto->id)}}" onclick="return confirm('Tem certeza que deseja deletar este registro?')"><img src="../../imgs/iconTrash.png" title="Excluir Unidade" class="btnAcoes"></a>
                                                 @endif
                                             </td>
                                         </tr>

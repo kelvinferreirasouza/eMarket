@@ -23,19 +23,20 @@ class ProdutoController extends Controller {
     }
 
     public function cadastrarProduto() {
-        $setores = Setor::all();
-        $unidades = Unidade::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
         return view('produtos.cadastrar', compact('setores', 'unidades', 'categorias', 'fornecedores'));
     }
 
     public function listarProdutos() {
-        $produtos = Produto::paginate(10);
-        $setores = Setor::all();
-        $unidades = Unidade::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
+        $produtos = Produto::where('isAtivo', 1)
+                    ->paginate(10);
+        $setores = Setor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
 
         return view('produtos.listar', compact('produtos', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
@@ -44,7 +45,6 @@ class ProdutoController extends Controller {
         
         // verifica se o usuario tem permissao para realizar esta acao
         $this->authorize('create', Auth::user());
-        
         
         $dados = $request->all();
 
@@ -90,10 +90,10 @@ class ProdutoController extends Controller {
 
     public function visualizarProduto($id) {
         $produto = Produto::find($id);
-        $setores = Setor::all();
-        $unidades = Unidade::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
 
         return view('produtos.visualizar', compact('produto', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
@@ -105,17 +105,30 @@ class ProdutoController extends Controller {
         
         $produto = Produto::find($id);
 
-        $produto->delete();
+        $produto->isAtivo = 0;
+
+        $produto->update();
 
         return redirect()->route('listarProdutos');
+    }
+    
+    public function excluirProd($id)
+    {
+        $produto = Produto::find($id);
+
+        $produto->isAtivo = 0;
+
+        $produto->update();
+
+        return redirect()->route('listarFretes');
     }
 
     public function editarProduto($id) {
         $produto = Produto::find($id);
-        $setores = Setor::all();
-        $unidades = Unidade::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
 
         return view('produtos.editar', compact('produto', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }
@@ -124,7 +137,6 @@ class ProdutoController extends Controller {
         
         // verifica se o usuario tem permissao para realizar esta acao
         $this->authorize('update', Auth::user());
-        
         
         $dados = $request->all();
         $produto = Produto::find($id);
@@ -187,10 +199,10 @@ class ProdutoController extends Controller {
     public function pesquisarProduto(Request $request) {
 
         $produtos = $this->produto->pesquisa($request);
-        $setores = Setor::all();
-        $unidades = Unidade::all();
-        $categorias = Categoria::all();
-        $fornecedores = Fornecedor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
+        $unidades = Unidade::where('isAtivo', 1)->get();
+        $categorias = Categoria::where('isAtivo', 1)->get();
+        $fornecedores = Fornecedor::where('isAtivo', 1)->get();
 
         return view('produtos.listar', compact('produtos', 'setores', 'unidades', 'categorias', 'fornecedores'));
     }

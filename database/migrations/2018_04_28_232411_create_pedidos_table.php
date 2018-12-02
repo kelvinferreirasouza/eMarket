@@ -26,6 +26,7 @@ class CreatePedidosTable extends Migration
             $table->enum('metodo_pagamento', [1,2,3,4,5,6,7]);
             $table->date('data');
             $table->date('data_refresh_status')->nullable();
+            $table->integer('isAtivo')->default(1);
             $table->timestamps();
         });
     }

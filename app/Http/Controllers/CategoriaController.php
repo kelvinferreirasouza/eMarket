@@ -18,7 +18,7 @@ class CategoriaController extends Controller
     
     public function cadastrarCategoria()
     {   
-        $setores = Setor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
         return view('categorias.cadastrar', compact('setores'));
     }
 
@@ -35,15 +35,18 @@ class CategoriaController extends Controller
 
     public function listarCategorias()
     {
-        $categorias = Categoria::orderBy('produtoSetorId')->paginate(10);
-        $setores = Setor::all();
+        $categorias = Categoria::where('isAtivo', 1)
+                ->orderBy('produtoSetorId')
+                ->paginate(10);
+        
+        $setores = Setor::where('isAtivo', 1);
         return view('categorias.listar', compact('categorias', 'setores'));
     }
 
     public function editarCategoria($id)
     {
         $categoria = Categoria::find($id);
-        $setores = Setor::all();
+        $setores = Setor::where('isAtivo', 1);
         return view('categorias.editar', compact('categoria', 'setores'));
     }
 
@@ -64,7 +67,7 @@ class CategoriaController extends Controller
     
     {
         $categoria = Categoria::find($id);
-        $setores = Setor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
         return view('categorias.visualizar', compact('categoria', 'setores'));
     }
 
@@ -75,7 +78,9 @@ class CategoriaController extends Controller
         
         $categoria = Categoria::find($id);
 
-        $categoria->delete();
+        $categoria->isAtivo = 0;
+
+        $categoria->update();
 
         return redirect()->route('listarCategorias');
     }
@@ -83,7 +88,7 @@ class CategoriaController extends Controller
     public function pesquisarCategoria(Request $request) {
         
         $categorias = $this->categoria->pesquisa($request);
-        $setores = Setor::all();
+        $setores = Setor::where('isAtivo', 1)->get();
         
         return view('categorias.listar', compact('categorias', 'setores'));
     }

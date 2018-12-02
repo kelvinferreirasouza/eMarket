@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Usuario;
 use App\Cargo;
-
 use Auth;
  
 class UsuarioController extends Controller
@@ -22,8 +21,8 @@ class UsuarioController extends Controller
     
     public function listarUsuarios()
     {
-        $usuarios = Usuario::paginate(10);
-        $cargos = Cargo::all();
+        $usuarios = Usuario::where('isAtivo', 1)->paginate(10);
+        $cargos = Cargo::where('isAtivo', 1)->get();
         return view('usuarios.listar', compact('usuarios', 'cargos'));
     }
  
@@ -33,7 +32,7 @@ class UsuarioController extends Controller
         $this->authorize('update', Usuario::class);
  
         $usuario = Usuario::find($id);
-        $cargos = Cargo::all();
+        $cargos = Cargo::where('isAtivo', 1)->get();
         return view('usuarios.editar', compact('usuario', 'cargos'));
     }
  
@@ -65,7 +64,9 @@ class UsuarioController extends Controller
         
         $usuario = Usuario::find($id);
 
-        $usuario->delete();
+        $usuario->isAtivo = 0;
+
+        $usuario->update();
 
         return redirect()->route('listarUsuarios');
     }
@@ -74,7 +75,7 @@ class UsuarioController extends Controller
     
     {
         $usuario = Usuario::find($id);
-        $cargos = Cargo::all();
+        $cargos = Cargo::where('isAtivo', 1)->get();
 
         return view('usuarios.visualizar', compact('usuario', 'cargos'));
     }

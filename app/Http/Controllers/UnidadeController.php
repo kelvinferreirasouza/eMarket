@@ -22,7 +22,7 @@ class UnidadeController extends Controller
 
     public function listarUnidades()
     {
-        $unidades = Unidade::paginate(10);
+        $unidades = Unidade::where('isAtivo', 1)->paginate(10);
         return view('unidades.listar', compact('unidades'));
     }
 
@@ -71,7 +71,9 @@ class UnidadeController extends Controller
         
         $unidade = Unidade::find($id);
 
-        $unidade->delete();
+        $unidade->isAtivo = 0;
+
+        $unidade->update();
 
         return redirect()->route('listarUnidades');
     }

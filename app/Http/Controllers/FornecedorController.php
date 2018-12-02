@@ -31,7 +31,7 @@ class FornecedorController extends Controller {
     }
 
     public function listarFornecedores() {
-        $fornecedores = Fornecedor::paginate(10);
+        $fornecedores = Fornecedor::where('isAtivo', 1)->paginate(10);
         return view('fornecedores.listar', compact('fornecedores'));
     }
 
@@ -42,7 +42,9 @@ class FornecedorController extends Controller {
         
         $fornecedor = Fornecedor::find($id);
 
-        $fornecedor->delete();
+        $fornecedor->isAtivo = 0;
+
+        $fornecedor->update();
 
         return redirect()->route('listarFornecedores');
     }

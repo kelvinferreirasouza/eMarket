@@ -32,6 +32,8 @@
                             <span>Listagem das vendas realizadas.</span>   
                         </div>
 
+                        @if (Auth::user()->can('view', App\Venda::class))
+                        
                         <!-- FORMULÁRIO DE BUSCA -->
 
                         <div class="form-search">
@@ -81,7 +83,7 @@
 
                                                 <!-- BOTAO EDITAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalEditar{{$venda->id}}" data-whatever="{{$venda->id}}" data-whateverpedidoId="{{$venda->pedidoId}}" data-whatevertotal="{{$venda->total}}" data-whateverfrete="{{$venda->frete}}" data-whateverdata="{{$venda->data}}" data-whateverstatus="{{$venda->status}}"><img src="../../imgs/iconEdit.png" title="Editar Venda" class="btnAcoes"></a>
-
+                                                
                                                 <!-- MODAL DE EDITAR -->
                                                 <div class="modal fade" id="modalEditar{{$venda->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg modalFornec" role="document">
@@ -288,10 +290,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                </div>
-
                                                 <!-- FIM MODAL EDITAR -->
-
+                                                
                                                 <!-- BOTAO VISUALIZAR MODAL -->
                                                 <a href="" data-toggle="modal" data-target="#modalVisualizar{{$venda->id}}" data-whatever="{{$venda->id}}" data-whateverpedidoId="{{$venda->pedidoId}}" data-whatevertotal="{{$venda->total}}" data-whateverfrete="{{$venda->frete}}" data-whateverdata="{{$venda->data}}" data-whateverstatus="{{$venda->status}}"><img src="../../imgs/iconView.png" title="Editar Usuário" class="btnAcoes"></a>
 
@@ -721,13 +721,22 @@
                                         <tr>
                                             <td colspan="200">Nenhum resultado encontrado!!</td>
                                         </tr>
-                                        @endforelse                               
+                                        @endforelse                        
                                     </tbody>
                                 </table> 
                                 <div class="pagination">{!! $vendas->links() !!}</div>
                             </div> 
                         </div>
                     </div>
+                    @else
+                        <div class="card-block">
+                            <div class="row">
+                                <div class="col-md-12 table-responsive">
+                                    <h3 style="color: red">Acesso NEGADO!!</h3>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
                 @endsection
                 @push('scripts')

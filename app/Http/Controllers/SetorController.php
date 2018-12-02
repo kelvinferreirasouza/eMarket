@@ -20,7 +20,9 @@ class SetorController extends Controller {
     }
 
     public function listarSetores() {
-        $setores = Setor::orderBy('nome')->paginate(10);
+        $setores = Setor::where('isAtivo', 1)
+                ->orderBy('nome')
+                ->paginate(10);
 
         return view('setores.listar', compact('setores'));
     }
@@ -32,7 +34,9 @@ class SetorController extends Controller {
         
         $setor = Setor::find($id);
 
-        $setor->delete();
+        $setor->isAtivo = 0;
+
+        $setor->update();
 
         return redirect()->route('listarSetores');
     }
