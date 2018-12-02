@@ -82,7 +82,7 @@
                                                 <div class="form-group row">
                                                     <div class="col-sm-3">
                                                         <label for="senha" class="control-label labelInputEditUser">Senha:</label>
-                                                        <input type="password" class="form-control" name="senha" placeholder="Digite uma senha" required>
+                                                        <input type="password" class="form-control" name="password" placeholder="Digite uma senha" required>
                                                     </div>
                                                     <div class="col-sm-2">
                                                         <label for="cpf" class="control-label labelInputEditUser">CPF:</label>
@@ -147,7 +147,7 @@
                                                         <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                         <select class="form-control" name="sexo" required>
                                                             <option>Selecione..</option>
-                                                            <option value="Masculino">Masculine</option>
+                                                            <option value="Masculino">Masculino</option>
                                                             <option value="Feminino">Feminino</option>
                                                         </select>
                                                     </div>
