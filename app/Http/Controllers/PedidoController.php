@@ -12,6 +12,7 @@ use App\Setor;
 use App\Categoria;
 use App\Fornecedor;
 use App\Unidade;
+use App\Models\Venda;
 use PDF;
 use View;
 use Auth;
@@ -99,6 +100,17 @@ class PedidoController extends Controller {
         $dados['frete'] = $pedido->frete;
         $dados['codigo'] = $pedido->codigo;
         $dados['referencia'] = $pedido->referencia;
+
+        // verifica se o status alterado é aprovado, se sim, gera uma nova venda
+        if($dados['status'] == 3){
+            Venda::create([
+                'pedidoId' => $pedido->id,
+                'total'    => $pedido->total,
+                'frete'    => $pedido->frete,
+                'data'     => date('Y-m-d'),
+                'status'   => 1,
+            ]);
+        }
 
         $pedido->update($dados);
 
