@@ -56,16 +56,6 @@ class Pedido extends Model {
                 'qtd' => $item['qtd'],
                 'valor' => $item['item']->precoVenda,
             ];
-
-            $produto = DB::table('produtos')
-                ->where('id', $item['item']->id);
-            
-            $novaQtd =  $produto->qtd - $item['qtd'];
-
-            // metodo que da baixa na quantidade de estoque dos produtos
-           DB::table('produtos')
-                    ->where('id', $item['item']->id)
-                    ->update(['qtd' => $novaQtd]);
         }
 
         //cria um registro na tabela produtosProdutos com os produtos do pedido
