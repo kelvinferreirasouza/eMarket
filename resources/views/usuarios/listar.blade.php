@@ -147,8 +147,8 @@
                                                         <label for="sexo" class="control-label labelInputEditUser">Sexo:</label>
                                                         <select class="form-control" name="sexo" required>
                                                             <option>Selecione..</option>
-                                                            <option value="Masculino">Masculino</option>
-                                                            <option value="Feminino">Feminino</option>
+                                                            <option value="1">Masculino</option>
+                                                            <option value="2">Feminino</option>
                                                         </select>
                                                     </div>
                                                     <div class="col-sm-2">
