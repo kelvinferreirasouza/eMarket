@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use App\Cliente;
+use App\Produto;
 
 class Pedido extends Model {
 
@@ -56,10 +57,21 @@ class Pedido extends Model {
                 'qtd' => $item['qtd'],
                 'valor' => $item['item']->precoVenda,
             ];
+            
+            //chama a funcao para dar baixa ao estoque
+            $this->baixaEstoque($item);
         }
 
         //cria um registro na tabela produtosProdutos com os produtos do pedido
         $pedido->produtos()->attach($produtosPedido);
+        
+    }
+
+    public function baixaEstoque($item){
+        
+        DB::table('produtos')
+            ->where('id', $item['item']->id)
+            ->decrement('qtd', $item['qtd']);
     }
     
     // retorna o status conforme o codigo recebido
