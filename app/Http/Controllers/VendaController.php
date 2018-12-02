@@ -81,6 +81,18 @@ class VendaController extends Controller {
         return $pdf->stream();
     }
 
+    public function excluirVenda($id)
+    {
+        // verifica se o usuario tem permissao para realizar esta acao
+        $this->authorize('delete', Venda::class);
+        
+        $venda = Venda::find($id);
+
+        $venda->delete();
+
+        return redirect()->route('listarVendas');
+    }   
+
     public function visualizarRelVendas() {
         return view('relatorios.vendas.listar');
     }
