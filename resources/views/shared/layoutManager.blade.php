@@ -137,21 +137,6 @@
                                             <span class="pcoded-mcaret"></span>
                                         </a>
                                     </li>
-                                    <li class="pcoded-hasmenu">
-                                        <a href="javascript:void(0)">
-                                            <span class="pcoded-micon"><i class="fab fa-sellsy"></i></span>
-                                            <span class="pcoded-mtext" data-i18n="nav.page_layout.main">Administrativo</span>
-                                            <span class="pcoded-mcaret"></span>
-                                        </a>
-                                        <ul class="pcoded-submenu">
-                                            <li class=" pcoded-hasmenu">
-                                                <ul class="pcoded-submenu">
-                                                </ul>
-                                            </li>
-                                            <li class=" pcoded-hasmenu">
-                                            </li>
-                                        </ul>
-                                    </li>
                                     <li class="pcoded-hasmenu
                                         {{ (
                                         \Request::route()->getName() == 'listarPedidos' ||
