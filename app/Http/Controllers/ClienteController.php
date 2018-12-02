@@ -82,9 +82,6 @@ class ClienteController extends Controller {
 
     public function salvarCliente(Request $request) {
         
-        // verifica se o usuario tem permissao para realizar esta acao
-        $this->authorize('create', Auth::user());
-        
         $dados = $request->all();
         $dados['password'] = bcrypt($dados['password']);
 
