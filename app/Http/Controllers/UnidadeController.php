@@ -28,9 +28,6 @@ class UnidadeController extends Controller
 
     public function salvarUnidade(Request $request)
     {
-        // verifica se o usuario tem permissao para realizar esta acao
-        $this->authorize('create', Auth::user());
-        
         $dados = $request->all();
         Unidade::create($dados);
  
