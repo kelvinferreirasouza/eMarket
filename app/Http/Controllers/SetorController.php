@@ -48,9 +48,6 @@ class SetorController extends Controller {
 
     public function salvarSetor(Request $request) {
         
-        // verifica se o usuario tem permissao para realizar esta acao
-        $this->authorize('create', Auth::user());
-        
         $nome = $request->nome;
         $isAtivo = $request->isAtivo;
 

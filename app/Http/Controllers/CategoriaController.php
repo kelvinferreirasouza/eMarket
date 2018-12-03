@@ -39,7 +39,7 @@ class CategoriaController extends Controller
                 ->orderBy('produtoSetorId')
                 ->paginate(10);
         
-        $setores = Setor::where('isAtivo', 1);
+        $setores = Setor::where('isAtivo', 1)->get();
         return view('categorias.listar', compact('categorias', 'setores'));
     }
 
