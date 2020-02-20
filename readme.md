@@ -1,6 +1,3 @@
-<p align="center">
-<a href="https://www.emarketsoftware.com.br"><img src="http://oi65.tinypic.com/2q99ua8.jpg" width="260" height="200;"></p></a>
-
 ## eMarket - E-Commerce para Supermercados
 
 O sistema tem como objetivo ser um e-commerce gerenciavel que facilite o processo de vendas de Supermercados.
